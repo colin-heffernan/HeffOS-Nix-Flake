@@ -21,11 +21,11 @@
 			flake = false;
 		};
 		nvcode = {
-			url = "gitlab:obsidianchickenz/nvcode";
+			url = "github:colin-heffernan/NVCode-Flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		emcode = {
-			url = "gitlab:obsidianchickenz/emcode";
+			url = "gitlab:colin-heffernan/EMCore";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		# emacs-overlay = {
