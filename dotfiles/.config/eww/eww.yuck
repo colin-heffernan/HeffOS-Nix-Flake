@@ -1,0 +1,282 @@
+(deflisten bar-workspace "scripts/workspace")
+
+(defpoll bar-date :interval "1s" "date '+%m/%d'")
+(defpoll bar-time :interval "1s" "date '+%H:%M'")
+(defpoll menu-clock-date :interval "1s" "date '+%a, %b %d, %Y'")
+(defpoll menu-clock-time :interval "1s" "date '+%H:%M:%S'")
+(defpoll menu-hostname-user :interval "15m" "whoami")
+(defpoll menu-hostname-host :interval "15m" "hostname")
+(defpoll menu-music-artist :interval "1s" "mpc current -f %artist%")
+(defpoll menu-music-title :interval "1s" "mpc current -f %title%")
+(defpoll menu-music-length :interval "1s" "scripts/songduration")
+(defpoll menu-weather-forecast :interval "15m" "scripts/weather")
+
+(defwidget top-widgets []
+	(box
+		:orientation "v"
+		(bg)))
+
+(defwidget center-widgets []
+	(box
+		:orientation "v"
+		:vexpand true
+		(bg)))
+
+(defwidget bottom-widgets []
+	(box
+		:orientation "v"
+		:class "lightbar"
+		:width 48
+		:height 36
+		(clock)))
+
+(defwidget all-widgets []
+	(box
+		:orientation "v"
+		:space-evenly "false"
+		(spacer)
+		(workspaces)
+		(center-widgets)
+		(bottom-widgets)
+		(spacer)))
+
+(defwidget workspaces []
+	(literal
+		:content bar-workspace))
+
+(defwidget clock []
+	(box
+		:space-evenly "true"
+		:orientation "v"
+		:valign "center"
+		:halign "center"
+		(label
+			:valign "fill"
+			:halign "center"
+			:text "${bar-date}")
+		(label
+			:valign "fill"
+			:halign "center"
+			:text "${bar-time}")))
+
+(defwidget bg []
+	(box :class "bg"))
+
+(defwidget spacer []
+	(box
+		:class "bg" 
+		:height 16))
+
+(defwidget syslogo-widget []
+	(box
+		:class "syslogo-widget"
+		(image
+			:path "resources/nixlogo.png"
+			:image-width 360
+			:image-height 360)))
+
+(defwidget hostname-widget []
+	(box
+		:class "hostname-widget"
+		(scroll
+			:hscroll true
+			:vscroll false
+			(label
+				:markup "<b>${menu-hostname-user}</b>@<b>${menu-hostname-host}</b>"
+				:valign "center"
+				:halign "center"))))
+
+(defwidget clock-widget []
+	(box
+		:class "clock-widget"
+		:space-evenly "true"
+		:valign "top"
+		:halign "center"
+		:width 528
+		:height 256
+		(box
+			:orientation "v"
+			:space-evenly "false"
+			:valign "center"
+			:halign "center"
+			(label
+				:text "${menu-clock-time}"
+				:class "clock-widget-bigtext"
+				:valign "center"
+				:halign "center")
+			(label
+				:text "on"
+				:class "clock-widget-smalltext"
+				:valign "center"
+				:halign "center")
+			(label
+				:text "${menu-clock-date}"
+				:class "clock-widget-bigtext"
+				:valign "center"
+				:halign "center"))))
+
+(defwidget music-widget []
+	(box
+		:height 256
+		:class "music-widget"
+		(box
+			:orientation "v"
+			:valign "center"
+			:space-evenly false
+			:height 200
+			(box
+				:space-evenly false
+				:valign "center"
+				:orientation "v"
+				(scroll
+					:hscroll true
+					:vscroll false
+					(label
+						:text "${menu-music-title}"
+						:class "music-widget-title"
+						:valign "end"
+						:halign "center"))
+				(scroll
+					:hscroll true
+					:vscroll false
+					(label
+						:text "${menu-music-artist}"
+						:class "music-widget-artist"
+						:valign "start"
+						:halign "center")))
+			(box
+				:space-evenly true
+				:valign "end"
+				:halign "center"
+				(scale
+					:min 0
+					:max 100
+					:value menu-music-length
+					:hexpand false
+					:width 640
+					:active "false")))))
+
+(defwidget weather-widget []
+	(box
+		:class "weather-widget"
+		:valign "center"
+		:height 256
+		(box
+			:orientation "v"
+			:valign "center"
+			:space-evenly false
+				(label
+					:text "Current forecast:"
+					:class "weather-widget-title"
+					:valign "center"
+					:halign "center")
+				(label
+					:text "${menu-weather-forecast}"
+					:class "weather-widget-forecast"
+					:valign "center"
+					:halign "center"))))
+
+(defwidget todo-widget []
+	(box
+		:height 528
+		:width 256
+		:class "todo-widget"
+		:orientation "v"
+		:spacing 5
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "I")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "don't")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "know")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "what")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "to")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "put")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text "here")
+		(label
+			:valign "center"
+			:class "todo-widget-title"
+			:text ":)")))
+
+(defwindow menu-bg
+	:exclusive false
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
+	(bg))
+
+(defwindow menu-syslogo
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 608 :y 320 :width 528 :height 528)
+	(syslogo-widget))
+
+(defwindow menu-music
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 1152 :y 320 :width 800 :height 256)
+	(music-widget))
+
+(defwindow menu-hostname
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 608 :y 864 :width 528 :height 256)
+	(hostname-widget))
+
+(defwindow menu-clock
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 1152 :y 592 :width 528 :height 256)
+	(clock-widget))
+
+(defwindow menu-weather
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 1152 :y 864 :width 528 :height 256)
+	(weather-widget))
+
+(defwindow menu-todo
+	:exclusive false
+	:stacking "fg"
+	:focusable true
+	:monitor 0
+	:geometry (geometry :x 1696 :y 592 :width 256 :height 528)
+	(todo-widget))
+
+(defwindow bar
+	:windowtype "dock"
+	:exclusive true
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 5 :y 0 :width 48 :height 1440 :anchor "center left")
+	(all-widgets))

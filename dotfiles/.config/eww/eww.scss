@@ -1,0 +1,95 @@
+* {
+	all: unset;
+	font-family: "Iosevka";
+}
+
+.lightbar {
+	background-color: #7aa2f7;
+	color: #1a1b26;
+}
+
+.bg {
+	background-color: #7aa2f7;
+	opacity: 0.2;
+}
+
+.active {
+	color: #ff0000;
+}
+
+.online {
+	color: #00ff00;
+}
+
+.offline {
+	color: #0000ff;
+}
+
+.0 {
+	color: #565f89;
+}
+
+.01, .02, .03, .04, .05, .06, .07, .08, .09 {
+	color: #565f89;
+}
+
+.011, .022, .033, .044, .055, .066, .077, .088, .099 {
+	color: #1a1b26;
+}
+
+.0,
+.01, .02, .03, .04, .05, .06, .07, .08, .09,
+.011, .022, .033, .044, .055, .066, .077, .088, .099 {
+	font-size: 18;
+}
+
+.works {
+	background-color: #7aa2f7;
+	padding: 2 0 3 0;
+}
+
+.syslogo-widget, .hostname-widget, .clock-widget,
+.music-widget, .todo-widget, .weather-widget {
+	background-color: #7aa2f7;
+	border-radius: 25px;
+	color: #1a1b26;
+}
+
+.hostname-widget {
+	font-size: 48pt;
+}
+
+.todo-widget-title {
+	font-size: 24pt;
+}
+
+.clock-widget-bigtext, .weather-widget-forecast {
+	font-size: 40pt;
+	font-weight: bold;
+}
+
+.clock-widget-smalltext, .weather-widget-title {
+	font-size: 30pt;
+}
+
+.music-widget-title {
+	font-size: 48pt;
+	font-weight: bold;
+}
+
+.music-widget-artist {
+	font-size: 36pt;
+	font-weight: bold;
+}
+
+scale trough {
+	border-radius: 8px;
+	background-color: #414868;
+}
+
+scale trough highlight {
+	border-radius: 8px;
+	min-width: 1px;
+	min-height: 16px;
+	background-color: #1a1b26;
+}
