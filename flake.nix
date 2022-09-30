@@ -25,7 +25,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		emcode = {
-			url = "gitlab:colin-heffernan/EMCore";
+			url = "github:colin-heffernan/EMCore";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		# emacs-overlay = {
