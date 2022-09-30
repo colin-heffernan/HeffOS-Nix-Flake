@@ -164,17 +164,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1664245211,
-        "narHash": "sha256-Ew/vBudRf0KgP1b6AfJ+Lry3Bx/TEKxSB8j9o380erQ=",
-        "owner": "obsidianchickenz",
-        "repo": "emcode",
-        "rev": "e311de55806150024c87bb34787335c99deb2133",
-        "type": "gitlab"
+        "lastModified": 1664562453,
+        "narHash": "sha256-iGZJCj2jPNV/LUJRASIXpEvgaBLYGa5+KT3IvC4HMUI=",
+        "owner": "colin-heffernan",
+        "repo": "EMCore",
+        "rev": "a956bc1a965ca9dd60d1a20171e6fe8c9fa800fe",
+        "type": "github"
       },
       "original": {
-        "owner": "obsidianchickenz",
-        "repo": "emcode",
-        "type": "gitlab"
+        "owner": "colin-heffernan",
+        "repo": "EMCore",
+        "type": "github"
       }
     },
     "eww": {
@@ -285,11 +285,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1664556895,
-        "narHash": "sha256-7QP2pUoqvhIvZD5q0FPYNhOk8n2eTUfqgvSX9vQfuzI=",
+        "lastModified": 1664563620,
+        "narHash": "sha256-zMtSBaHfAgRlSNw7VTrSS6o3NEAv/vMffAfjwW8t6QA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a053da0f22a05ceda845c824cf964077515c7669",
+        "rev": "9727190b804f690c8590bbf191598439a35b0877",
         "type": "github"
       },
       "original": {
@@ -322,11 +322,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1664553873,
-        "narHash": "sha256-XPvqSkIS/FKre626VPpjO5fWoIi9blYEkOy23jw2BMw=",
+        "lastModified": 1664559490,
+        "narHash": "sha256-Nn1gkGN5phguw016r7RbbiQ6K4vzxBh6/wV9//uJMks=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "1ef23a304abc6e8fd4d92c7abab295aea37e170a",
+        "rev": "7579e03b64261abb592eabaa1c05617628e07492",
         "type": "github"
       },
       "original": {
@@ -555,17 +555,17 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1664558917,
-        "narHash": "sha256-qLqSCCGZzzERpg/8M6+4A69eV5+gSmyJKAY0xS7F7k8=",
-        "owner": "obsidianchickenz",
-        "repo": "nvcode",
-        "rev": "aa28b8db0d141b020cca19e1c4f8a50d089bbdc7",
-        "type": "gitlab"
+        "lastModified": 1664562101,
+        "narHash": "sha256-5x2TfzCVmLh1Hh4UsyeQqHKTx/Jjc8xoLrs2bhSS7H0=",
+        "owner": "colin-heffernan",
+        "repo": "NVCode-Flake",
+        "rev": "45277c3364ed7d26ff879b9c81127292d964810b",
+        "type": "github"
       },
       "original": {
-        "owner": "obsidianchickenz",
-        "repo": "nvcode",
-        "type": "gitlab"
+        "owner": "colin-heffernan",
+        "repo": "NVCode-Flake",
+        "type": "github"
       }
     },
     "nvim-autopairs": {
