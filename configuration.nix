@@ -52,7 +52,7 @@ in
 	networking.wireless = {
 		enable = true;
 		userControlled.enable = true;
-		environmentFile = "/home/obsi/flake/secrets/wireless.env";
+		environmentFile = "/home/obsi/Repos/HeffOS-Nix-Flake/secrets/wireless.env";
 		networks = {
 			"eduroam" = {
 				auth = ''
