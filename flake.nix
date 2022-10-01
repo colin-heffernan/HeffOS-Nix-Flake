@@ -24,7 +24,7 @@
 			url = "github:colin-heffernan/NVCode-Flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		emcode = {
+		emcore = {
 			url = "github:colin-heffernan/EMCore";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
@@ -34,7 +34,7 @@
 		# };
 	};
 
-	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, emcode, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, emcore, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -42,7 +42,7 @@
 				config.allowUnfree = true;
 				overlays = [
 					nvcode.overlays.default
-					emcode.overlays.default
+					emcore.overlays.default
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };

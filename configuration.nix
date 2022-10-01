@@ -348,7 +348,7 @@ in
 		mpv
 		virt-manager
 		gnome.zenity
-		emcode
+		emcore
 
 		# Chat
 		discord
