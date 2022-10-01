@@ -19,11 +19,11 @@
     "ccc-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1664463543,
-        "narHash": "sha256-2N94rxRiQNJ/9uiHQCBxKpaJCCt1ZejPAYrUblcodjc=",
+        "lastModified": 1664581245,
+        "narHash": "sha256-uPR27a66kH2TpSkxqUSG4mGStJsJm1ZqAYbrfvpjLdk=",
         "owner": "uga-rosa",
         "repo": "ccc.nvim",
-        "rev": "427471b71f2cc7f9594c666c6e4079c8eeb4168d",
+        "rev": "e9d29bbb1aa2419942cf3df9cd201156c1b4db88",
         "type": "github"
       },
       "original": {
@@ -491,11 +491,11 @@
     "null-ls-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1664458903,
-        "narHash": "sha256-8r9s50SHkzfrUNusUwEYvGhjajILJM5BLOphMh5nWRk=",
+        "lastModified": 1664583344,
+        "narHash": "sha256-sJd0Nv+XNLO69Lq6ZWdvBcqKE8hkgQkDZvxPWei6fbc=",
         "owner": "jose-elias-alvarez",
         "repo": "null-ls.nvim",
-        "rev": "c8624325198513411cf9dcacde76f14d2260220f",
+        "rev": "c0c19f32b614b3921e17886c541c13a72748d450",
         "type": "github"
       },
       "original": {
@@ -556,11 +556,11 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1664572265,
-        "narHash": "sha256-70uU7hJWvnOt2yNc2U4hl+XqOpBqSiJp6yj+ckCifro=",
+        "lastModified": 1664597607,
+        "narHash": "sha256-5bV1rUrTj2eTKb9b979wwcrk4rEePZ0qzCwQH9myPAo=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "507099365f054ed80c505dee32888cd418da56fb",
+        "rev": "f3e816a6062f9cd31e313cac56626c1e531a61cb",
         "type": "github"
       },
       "original": {
