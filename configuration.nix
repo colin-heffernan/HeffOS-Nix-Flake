@@ -300,6 +300,7 @@ in
 		vim
 		xclip
 		git
+		gh
 		man-pages
 		man-db
 		wmname
