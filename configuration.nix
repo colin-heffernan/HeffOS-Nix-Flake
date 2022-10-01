@@ -132,7 +132,12 @@ in
 	virtualisation.libvirtd.enable = true;
 
 	# Enable Gnome keyring.
-	services.gnome.gnome-keyring.enable = true;
+	# services.gnome.gnome-keyring.enable = true;
+
+	# Start the SSH agent on login
+	programs.ssh = {
+		startAgent = true;
+	};
 
 	# Enable CUPS to print documents.
 	# services.printing.enable = true;
