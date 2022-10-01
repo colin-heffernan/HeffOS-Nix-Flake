@@ -156,7 +156,7 @@
         "url": "https://git.sv.gnu.org/git/emacs.git"
       }
     },
-    "emcode": {
+    "emcore": {
       "inputs": {
         "emacs": "emacs",
         "nixpkgs": [
@@ -844,7 +844,7 @@
     "root": {
       "inputs": {
         "discord": "discord",
-        "emcode": "emcode",
+        "emcore": "emcore",
         "eww": "eww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
