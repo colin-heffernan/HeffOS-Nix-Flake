@@ -38,7 +38,7 @@
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
-				inherit system discord;
+				inherit system;
 				config.allowUnfree = true;
 				overlays = [
 					nvcode.overlays.default
