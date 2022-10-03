@@ -245,6 +245,21 @@
         "type": "github"
       }
     },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "friendly-snippets": {
       "flake": false,
       "locked": {
@@ -436,6 +451,29 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "contrib",
+        "lastModified": 1664727287,
+        "narHash": "sha256-HRBRD2o2BpfCU3/kfCaCqFIWYCSw67Ax2sci7NP6+mY=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "085fa68b5eb78002b5e4de52a8c24c2766d57cb7",
+        "type": "github"
+      },
+      "original": {
+        "dir": "contrib",
+        "owner": "neovim",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "neovim-nightly_2": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
           "nvcode",
           "nixpkgs"
         ]
@@ -523,7 +561,7 @@
         "luasnip": "luasnip",
         "neo-tree-nvim": "neo-tree-nvim",
         "neorg": "neorg",
-        "neovim-nightly": "neovim-nightly",
+        "neovim-nightly": "neovim-nightly_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -556,11 +594,11 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1664772814,
-        "narHash": "sha256-lD6CKMZ9W7afPHl9d+P7YFVhK/NrGALcgFgcbykw2M4=",
+        "lastModified": 1664736194,
+        "narHash": "sha256-SDVo1pJSnvsHMV1SdnSc3z0rfUqNSBA40jlgkfOIZsc=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "beda3a6ee087ec6e0f434768e1edfe90ba69ac9a",
+        "rev": "e689c718cedc07cd57d46b26c7076d833e2351df",
         "type": "github"
       },
       "original": {
@@ -848,6 +886,7 @@
         "eww": "eww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs",
         "nvcode": "nvcode"
       }
