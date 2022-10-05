@@ -349,6 +349,7 @@ in
 		virt-manager
 		gnome.zenity
 		emcore
+		famistudio
 
 		# Chat
 		discord
