@@ -606,11 +606,11 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1665196378,
-        "narHash": "sha256-jhEWwUbEDNZXi/tXpuJsw0fpIn7+6684auykwKVFaoA=",
+        "lastModified": 1665196515,
+        "narHash": "sha256-SWdmA10tiTf2f9zo2vMQR0qQZ6S1GhLRGh3NjxVF11M=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "652724a1fad2539bd841d0227ac4e814a298adda",
+        "rev": "6a740f2442b441fbaa20a253d096be4104a2e655",
         "type": "github"
       },
       "original": {
