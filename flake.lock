@@ -583,7 +583,6 @@
         "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
         "nvim-cokeline": "nvim-cokeline",
-        "nvim-cursorline": "nvim-cursorline",
         "nvim-dap": "nvim-dap",
         "nvim-dap-ui": "nvim-dap-ui",
         "nvim-lspconfig": "nvim-lspconfig",
@@ -607,11 +606,11 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1665195718,
-        "narHash": "sha256-wUNNBqFH+SNSFdJMiGRIk6BuCbKsxYKsEfUMPegW+sI=",
+        "lastModified": 1665196378,
+        "narHash": "sha256-jhEWwUbEDNZXi/tXpuJsw0fpIn7+6684auykwKVFaoA=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "1d7e21381f4a16095ab5340a63a4d542721d21ae",
+        "rev": "652724a1fad2539bd841d0227ac4e814a298adda",
         "type": "github"
       },
       "original": {
@@ -665,22 +664,6 @@
       "original": {
         "owner": "noib3",
         "repo": "nvim-cokeline",
-        "type": "github"
-      }
-    },
-    "nvim-cursorline": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1650034925,
-        "narHash": "sha256-Uhw65p1KBjs8KsVOmTzuiu3XKclxBob8AVdWEt30C/8=",
-        "owner": "yamatsum",
-        "repo": "nvim-cursorline",
-        "rev": "804f0023692653b2b2368462d67d2a87056947f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yamatsum",
-        "repo": "nvim-cursorline",
         "type": "github"
       }
     },
