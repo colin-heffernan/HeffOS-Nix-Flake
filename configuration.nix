@@ -350,6 +350,7 @@ in
 		gnome.zenity
 		emcore
 		famistudio
+		godot
 
 		# Chat
 		discord
