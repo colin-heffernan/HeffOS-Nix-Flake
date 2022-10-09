@@ -322,6 +322,9 @@ in
 		direnv
 		nix-direnv
 		wego
+		(texlive.combine {
+			inherit (texlive) scheme-basic chktex;
+		})
 
 		# TUI programs
 		lazygit
@@ -376,6 +379,7 @@ in
 		rnix-lsp
 		rust-analyzer
 		sumneko-lua-language-server
+		texlab
 
 		# Linters
 		hlint
@@ -398,7 +402,7 @@ in
 		polymc
 		freetube
 		protontricks
-		(wrapOBS.override { obs-studio = pkgs.obs-studio; } {
+		(wrapOBS.override { inherit (pkgs) obs-studio; } {
 			plugins = with pkgs.obs-studio-plugins; [
 				wlrobs
 			];
