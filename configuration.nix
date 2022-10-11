@@ -255,9 +255,13 @@ in
 
 	# Install fonts.
 	fonts.fonts = with pkgs; [
+		emacs-all-the-icons-fonts
 		iosevka
 		(nerdfonts.override { fonts = [ "Iosevka" ]; })
-		emacs-all-the-icons-fonts
+		liberation_ttf
+		lmodern
+		noto-fonts
+		noto-fonts-extra
 	];
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
@@ -323,7 +327,13 @@ in
 		nix-direnv
 		wego
 		(texlive.combine {
-			inherit (texlive) scheme-basic chktex;
+			inherit (texlive) collection-basic
+			collection-binextra collection-langenglish
+			collection-fontsextra collection-fontsrecommended collection-fontutils
+			collection-latex collection-latexextra collection-latexrecommended
+			collection-mathscience collection-pictures
+			collection-plaingeneric collection-publishers
+			collection-xetex;
 		})
 
 		# TUI programs
