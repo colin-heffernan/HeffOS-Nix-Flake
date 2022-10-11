@@ -25,6 +25,18 @@ let
 			systemctl --user start pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
 		'';
 	};
+
+	startw = pkgs.writeTextFile {
+		name = "startw";
+		destination = "/bin/startw";
+		executable = true;
+		text = ''
+			export WAYLAND_DISPLAY
+			export XDG_CURRENT_DESKTOP=Hyprland
+			export GTK_THEME=Arc-Tokyo-Night
+			exec Hyprland
+		'';
+	};
 in
 {
 	imports = [ # Include the results of the hardware scan.
@@ -311,6 +323,7 @@ in
 		swaybg
 		configure-gtk
 		update-dbus-env
+		startw
 
 		# Themes
 		gnome.adwaita-icon-theme

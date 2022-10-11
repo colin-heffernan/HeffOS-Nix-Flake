@@ -12,7 +12,6 @@ alias rm="rm -i"								# Add confirmations to rm
 alias ln="ln -i"								# Add confirmations to ln
 alias ssn="sudo shutdown now"							# Shut down the system
 alias srn="sudo reboot now"							# Reboot the system
-alias startw="sh ~/startw.sh"							# Start Hyprland
 alias nv="nvim"									# Shorthand for nvim
 alias lg="lazygit"								# Shorthand for lazygit
 
