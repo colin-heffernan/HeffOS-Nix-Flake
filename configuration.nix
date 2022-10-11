@@ -14,6 +14,17 @@ let
 			datadir = "${schema}/share/gsettings-schemas/${schema.name}";
 		in "export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS";
 	};
+
+	update-dbus-env = pkgs.writeTextFile {
+		name = "update-dbus-env";
+		destination = "/bin/update-dbus-env";
+		executable = true;
+		text = ''
+			dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
+			systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+			systemctl --user start pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+		'';
+	};
 in
 {
 	imports = [ # Include the results of the hardware scan.
@@ -166,7 +177,7 @@ in
 	xdg.portal = {
 		enable = true;
 		wlr.enable = true;
-		extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+		# extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 	};
 
 	# Enable Dconf.
@@ -299,6 +310,7 @@ in
 		eww-wayland
 		swaybg
 		configure-gtk
+		update-dbus-env
 
 		# Themes
 		gnome.adwaita-icon-theme
@@ -364,6 +376,7 @@ in
 		emcore
 		famistudio
 		godot
+		obs-studio
 
 		# Chat
 		discord
@@ -412,11 +425,6 @@ in
 		polymc
 		freetube
 		protontricks
-		(wrapOBS.override { inherit (pkgs) obs-studio; } {
-			plugins = with pkgs.obs-studio-plugins; [
-				wlrobs
-			];
-		})
 	];
 
 	# Overlays
