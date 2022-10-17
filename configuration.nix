@@ -435,7 +435,7 @@ in
 
 		# Just for fun :)
 		cmatrix
-		polymc
+		# polymc
 		freetube
 		protontricks
 	];
