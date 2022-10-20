@@ -285,6 +285,7 @@ in
 		lmodern
 		noto-fonts
 		noto-fonts-extra
+		victor-mono
 	];
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
