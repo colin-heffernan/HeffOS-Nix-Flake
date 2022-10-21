@@ -352,6 +352,7 @@ in
 		direnv
 		nix-direnv
 		wego
+		mongosh
 		(texlive.combine {
 			inherit (texlive) collection-basic
 			collection-binextra collection-langenglish
