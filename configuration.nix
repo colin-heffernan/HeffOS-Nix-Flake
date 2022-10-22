@@ -63,7 +63,7 @@ in
 	boot.loader.efi.canTouchEfiVariables = true;
 	
 	# Kernel stuff
-	boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_19;
+	boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_0;
 	boot.initrd.kernelModules = [ "amdgpu" ];
 	boot.extraModulePackages = with config.boot.kernelPackages; [
 		v4l2loopback
