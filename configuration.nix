@@ -392,6 +392,7 @@ in
 		famistudio
 		godot
 		obs-studio
+		remmina
 
 		# Chat
 		discord
