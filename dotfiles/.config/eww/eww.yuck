@@ -1,5 +1,8 @@
+;; === Variables ===
+;; Listening variables
 (deflisten bar-workspace "scripts/workspace")
 
+;; Polling variables
 (defpoll bar-date :interval "1s" "date '+%m/%d'")
 (defpoll bar-time :interval "1s" "date '+%H:%M'")
 (defpoll menu-clock-date :interval "1s" "date '+%a, %b %d, %Y'")
@@ -11,109 +14,140 @@
 (defpoll menu-music-length :interval "1s" "scripts/songduration")
 (defpoll menu-weather-forecast :interval "15m" "scripts/weather")
 
+;; === Bar Widgets ===
+;; Bar workspaces
+(defwidget bar-workspaces-widget []
+	(literal
+		:content bar-workspace))
+
+;; Bar clock
+(defwidget bar-clock-widget []
+	(label
+		:class "bar-clock-widget"
+		:halign "center"
+		:height 72
+		:orientation "v"
+		:text "${bar-date}\\n${bar-time}"
+		:valign "center"
+		:width 40))
+
+;; Bar widget collections
 (defwidget top-widgets []
 	(box
+		:class "solid-bg bar-widget"
 		:orientation "v"
-		(bg)))
+		:width 40
+		(bar-workspaces-widget)))
 
 (defwidget center-widgets []
 	(box
 		:orientation "v"
 		:vexpand true
-		(bg)))
+		:width 40
+		(box)))
 
 (defwidget bottom-widgets []
 	(box
+		:class "solid-bg bar-widget"
 		:orientation "v"
-		:class "lightbar"
-		:width 48
-		:height 36
-		(clock)))
+		:width 40
+		(bar-clock-widget)))
 
-(defwidget all-widgets []
+(defwidget all-bar-widgets []
 	(box
+		:class "blur-bg"
 		:orientation "v"
 		:space-evenly "false"
-		(spacer)
-		(workspaces)
+		:width 40
+		(top-widgets)
 		(center-widgets)
-		(bottom-widgets)
-		(spacer)))
+		(bottom-widgets)))
 
-(defwidget workspaces []
-	(literal
-		:content bar-workspace))
+(defwindow bar
+	:windowtype "dock"
+	:exclusive true
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 5 :y 0 :width 48 :height 1440 :anchor "center left")
+	(all-bar-widgets))
 
-(defwidget clock []
-	(box
-		:space-evenly "true"
-		:orientation "v"
-		:valign "center"
-		:halign "center"
-		(label
-			:valign "fill"
-			:halign "center"
-			:text "${bar-date}")
-		(label
-			:valign "fill"
-			:halign "center"
-			:text "${bar-time}")))
-
-(defwidget bg []
-	(box :class "bg"))
-
-(defwidget spacer []
-	(box
-		:class "bg" 
-		:height 16))
-
+;; === Menu Widgets ===
 (defwidget syslogo-widget []
 	(box
-		:class "syslogo-widget"
+		:class "solid-bg"
+		:height 528
+		:width 528
 		(image
-			:path "resources/nixlogo.png"
+			:image-height 360
 			:image-width 360
-			:image-height 360)))
+			:path "resources/logo.png")))
 
 (defwidget hostname-widget []
 	(box
-		:class "hostname-widget"
+		:class "solid-bg"
+		:height 256
+		:width 528
 		(scroll
 			:hscroll true
 			:vscroll false
 			(label
+				:class "hostname-widget"
+				:halign "center"
 				:markup "<b>${menu-hostname-user}</b>@<b>${menu-hostname-host}</b>"
-				:valign "center"
-				:halign "center"))))
+				:valign "center"))))
+
+(defwidget menu-segment-one []
+	(box
+		:halign "center"
+		:height 800
+		:orientation "v"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:width 528
+		(syslogo-widget)
+		(hostname-widget)
+	)
+)
+
+(defwidget menu []
+	(box
+		:halign "center"
+		:hexpand "true"
+		:orientation "h"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:vexpand "true"
+		(menu-segment-one)
+	)
+)
+
+(defwindow menu
+	:exclusive false
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
+	(menu))
+
+(defwidget bg []
+	(box :class "blur-bg"))
 
 (defwidget clock-widget []
 	(box
-		:class "clock-widget"
+		:class "solid-bg"
 		:space-evenly "true"
 		:valign "top"
 		:halign "center"
 		:width 528
 		:height 256
-		(box
-			:orientation "v"
-			:space-evenly "false"
+		(label
+			:class "clock-widget-bigtext"
+			:text "${menu-clock-time}\\non\\n${menu-clock-date}"
 			:valign "center"
-			:halign "center"
-			(label
-				:text "${menu-clock-time}"
-				:class "clock-widget-bigtext"
-				:valign "center"
-				:halign "center")
-			(label
-				:text "on"
-				:class "clock-widget-smalltext"
-				:valign "center"
-				:halign "center")
-			(label
-				:text "${menu-clock-date}"
-				:class "clock-widget-bigtext"
-				:valign "center"
-				:halign "center"))))
+			:halign "center")))
 
 (defwidget music-widget []
 	(box
@@ -216,6 +250,7 @@
 			:class "todo-widget-title"
 			:text ":)")))
 
+;; === TO BE REMOVED ===
 (defwindow menu-bg
 	:exclusive false
 	:stacking "fg"
@@ -223,6 +258,14 @@
 	:monitor 0
 	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
 	(bg))
+
+(defwindow menu-full
+	:exclusive false
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
+	(menu))
 
 (defwindow menu-syslogo
 	:exclusive false
@@ -271,12 +314,3 @@
 	:monitor 0
 	:geometry (geometry :x 1696 :y 592 :width 256 :height 528)
 	(todo-widget))
-
-(defwindow bar
-	:windowtype "dock"
-	:exclusive true
-	:stacking "fg"
-	:focusable false
-	:monitor 0
-	:geometry (geometry :x 5 :y 0 :width 48 :height 1440 :anchor "center left")
-	(all-widgets))

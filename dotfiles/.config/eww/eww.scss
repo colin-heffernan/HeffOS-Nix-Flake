@@ -3,60 +3,56 @@
 	font-family: "Iosevka";
 }
 
-.lightbar {
-	background-color: #7aa2f7;
-	color: #1a1b26;
+.solid-bg {
+	background-color: #1a1b26;
+	border-radius: 20px;
 }
 
-.bg {
-	background-color: #7aa2f7;
-	opacity: 0.2;
+.blur-bg {
+	background-color: transparentize(#565f89, 0.8);
 }
 
-.active {
-	color: #ff0000;
+.bar-widget {
+	margin: 16px 4px;
+	padding: 0;
 }
 
-.online {
-	color: #00ff00;
+.bar-clock-widget {
+	color: #7aa2f7;
+	font-size: 10pt;
+	margin: 0;
+	padding: 0;
 }
 
-.offline {
-	color: #0000ff;
-}
-
-.0 {
-	color: #565f89;
-}
-
+.0,
 .01, .02, .03, .04, .05, .06, .07, .08, .09 {
 	color: #565f89;
 }
 
 .011, .022, .033, .044, .055, .066, .077, .088, .099 {
-	color: #1a1b26;
+	color: #7aa2f7;
 }
 
 .0,
 .01, .02, .03, .04, .05, .06, .07, .08, .09,
 .011, .022, .033, .044, .055, .066, .077, .088, .099 {
 	font-size: 18;
+	margin: 0;
+	padding: 0;
 }
 
-.works {
-	background-color: #7aa2f7;
-	padding: 2 0 3 0;
-}
-
-.syslogo-widget, .hostname-widget, .clock-widget,
+.syslogo-widget, .clock-widget,
 .music-widget, .todo-widget, .weather-widget {
 	background-color: #7aa2f7;
-	border-radius: 25px;
+	border-radius: 20px;
 	color: #1a1b26;
 }
 
 .hostname-widget {
+	color: #7aa2f7;
 	font-size: 36pt;
+	margin: 0;
+	padding: 0;
 }
 
 .todo-widget-title {
