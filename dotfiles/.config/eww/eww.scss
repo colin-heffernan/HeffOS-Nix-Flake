@@ -1,3 +1,4 @@
+/* Everything */
 * {
 	all: unset;
 	font-family: "Iosevka";
@@ -12,6 +13,7 @@
 	background-color: transparentize(#565f89, 0.8);
 }
 
+/* Bar */
 .bar-widget {
 	margin: 16px 4px;
 	padding: 0;
@@ -41,13 +43,7 @@
 	padding: 0;
 }
 
-.syslogo-widget, .clock-widget,
-.music-widget, .todo-widget, .weather-widget {
-	background-color: #7aa2f7;
-	border-radius: 20px;
-	color: #1a1b26;
-}
-
+/* Menu */
 .hostname-widget {
 	color: #7aa2f7;
 	font-size: 36pt;
@@ -55,37 +51,50 @@
 	padding: 0;
 }
 
-.todo-widget-title {
-	font-size: 24pt;
-}
-
-.clock-widget-bigtext, .weather-widget-forecast {
+.clock-widget-bigtext,
+.weather-widget-forecast {
+	color: #7aa2f7;
 	font-size: 40pt;
 	font-weight: bold;
 }
 
-.clock-widget-smalltext, .weather-widget-title {
+.clock-widget-smalltext,
+.weather-widget-title {
+	color: #565f89;
 	font-size: 30pt;
 }
 
+.todo-widget-title {
+	color: #565f89;
+	font-size: 24pt;
+}
+
+.music-widget {
+	background-color: #7aa2f7;
+	border-radius: 20px;
+	color: #1a1b26;
+}
+
 .music-widget-title {
+	color: #7aa2f7;
 	font-size: 48pt;
 	font-weight: bold;
 }
 
 .music-widget-artist {
+	color: #7aa2f7;
 	font-size: 36pt;
 	font-weight: bold;
 }
 
 scale trough {
 	border-radius: 8px;
-	background-color: #414868;
+	background-color: #565f89;
 }
 
 scale trough highlight {
 	border-radius: 8px;
 	min-width: 1px;
 	min-height: 16px;
-	background-color: #1a1b26;
+	background-color: #7aa2f7;
 }

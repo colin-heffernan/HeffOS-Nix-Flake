@@ -32,21 +32,21 @@
 		:width 40))
 
 ;; Bar widget collections
-(defwidget top-widgets []
+(defwidget top-bar-widgets []
 	(box
 		:class "solid-bg bar-widget"
 		:orientation "v"
 		:width 40
 		(bar-workspaces-widget)))
 
-(defwidget center-widgets []
+(defwidget center-bar-widgets []
 	(box
 		:orientation "v"
 		:vexpand true
 		:width 40
 		(box)))
 
-(defwidget bottom-widgets []
+(defwidget bottom-bar-widgets []
 	(box
 		:class "solid-bg bar-widget"
 		:orientation "v"
@@ -59,9 +59,9 @@
 		:orientation "v"
 		:space-evenly "false"
 		:width 40
-		(top-widgets)
-		(center-widgets)
-		(bottom-widgets)))
+		(top-bar-widgets)
+		(center-bar-widgets)
+		(bottom-bar-widgets)))
 
 (defwindow bar
 	:windowtype "dock"
@@ -73,7 +73,7 @@
 	(all-bar-widgets))
 
 ;; === Menu Widgets ===
-(defwidget syslogo-widget []
+(defwidget menu-syslogo-widget []
 	(box
 		:class "solid-bg"
 		:height 528
@@ -83,7 +83,7 @@
 			:image-width 360
 			:path "resources/logo.png")))
 
-(defwidget hostname-widget []
+(defwidget menu-hostname-widget []
 	(box
 		:class "solid-bg"
 		:height 256
@@ -97,62 +97,98 @@
 				:markup "<b>${menu-hostname-user}</b>@<b>${menu-hostname-host}</b>"
 				:valign "center"))))
 
-(defwidget menu-segment-one []
-	(box
-		:halign "center"
-		:height 800
-		:orientation "v"
-		:space-evenly "false"
-		:spacing 16
-		:valign "center"
-		:width 528
-		(syslogo-widget)
-		(hostname-widget)
-	)
-)
-
-(defwidget menu []
-	(box
-		:halign "center"
-		:hexpand "true"
-		:orientation "h"
-		:space-evenly "false"
-		:spacing 16
-		:valign "center"
-		:vexpand "true"
-		(menu-segment-one)
-	)
-)
-
-(defwindow menu
-	:exclusive false
-	:stacking "fg"
-	:focusable false
-	:monitor 0
-	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
-	(menu))
-
-(defwidget bg []
-	(box :class "blur-bg"))
-
-(defwidget clock-widget []
+(defwidget menu-clock-widget []
 	(box
 		:class "solid-bg"
-		:space-evenly "true"
-		:valign "top"
 		:halign "center"
-		:width 528
 		:height 256
-		(label
-			:class "clock-widget-bigtext"
-			:text "${menu-clock-time}\\non\\n${menu-clock-date}"
+		:valign "top"
+		:width 528
+		(box
+			:halign "center"
+			:orientation "v"
+			:space-evenly "false"
 			:valign "center"
-			:halign "center")))
+			(label
+				:class "clock-widget-bigtext"
+				:text "${menu-clock-time}"
+				:valign "center"
+				:halign "center")
+			(label
+				:class "clock-widget-smalltext"
+				:text "on"
+				:valign "center"
+				:halign "center")
+			(label
+				:class "clock-widget-bigtext"
+				:text "${menu-clock-date}"
+				:valign "center"
+				:halign "center"))))
 
-(defwidget music-widget []
+(defwidget menu-weather-widget []
+	(box
+		:class "solid-bg"
+		:height 256
+		:valign "center"
+		(box
+			:orientation "v"
+			:valign "center"
+			:space-evenly false
+			(label
+				:text "Current forecast:"
+				:class "weather-widget-title"
+				:valign "center"
+				:halign "center")
+			(label
+				:text "${menu-weather-forecast}"
+				:class "weather-widget-forecast"
+				:valign "center"
+				:halign "center"))))
+
+(defwidget menu-todo-widget []
+	(box
+		:height 528
+		:width 256
+		:class "solid-bg"
+		:orientation "v"
+		:spacing 5
+		(label
+			:class "todo-widget-title"
+			:text "I"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "don't"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "know"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "what"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "to"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "put"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text "here"
+			:valign "center")
+		(label
+			:class "todo-widget-title"
+			:text ":)"
+			:valign "center")))
+
+(defwidget menu-music-widget []
 	(box
 		:height 256
-		:class "music-widget"
+		:class "solid-bg"
 		(box
 			:orientation "v"
 			:valign "center"
@@ -190,65 +226,89 @@
 					:width 640
 					:active "false")))))
 
-(defwidget weather-widget []
+(defwidget menu-segment-one []
 	(box
-		:class "weather-widget"
-		:valign "center"
-		:height 256
-		(box
-			:orientation "v"
-			:valign "center"
-			:space-evenly false
-				(label
-					:text "Current forecast:"
-					:class "weather-widget-title"
-					:valign "center"
-					:halign "center")
-				(label
-					:text "${menu-weather-forecast}"
-					:class "weather-widget-forecast"
-					:valign "center"
-					:halign "center"))))
-
-(defwidget todo-widget []
-	(box
-		:height 528
-		:width 256
-		:class "todo-widget"
+		:halign "center"
+		:height 800
 		:orientation "v"
-		:spacing 5
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "I")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "don't")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "know")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "what")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "to")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "put")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text "here")
-		(label
-			:valign "center"
-			:class "todo-widget-title"
-			:text ":)")))
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:width 528
+		(menu-syslogo-widget)
+		(menu-hostname-widget)))
+
+(defwidget menu-segment-two []
+	(box
+		:halign "center"
+		:height 528
+		:orientation "v"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:width 528
+		(menu-music-widget)
+		(menu-segment-three)))
+
+(defwidget menu-segment-three []
+	(box
+		:halign "center"
+		:height 528
+		:orientation "h"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:width 528
+		(menu-segment-four)
+		(menu-todo-widget)))
+
+(defwidget menu-segment-four []
+	(box
+		:halign "center"
+		:height 528
+		:orientation "v"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:width 528
+		(menu-clock-widget)
+		(menu-weather-widget)))
+
+(defwidget menu-segment-full []
+	(box
+		:halign "center"
+		:hexpand "true"
+		:orientation "h"
+		:space-evenly "false"
+		:spacing 16
+		:valign "center"
+		:vexpand "true"
+		(menu-segment-one)
+		(menu-segment-two)))
+
+(defwidget menu-full []
+	(box
+		:class "blur-bg"
+		:halign "center"
+		:height 1440
+		:hexpand "true"
+		:orientation "h"
+		:space-evenly "false"
+		:valign "center"
+		:vexpand "true"
+		:width 2560
+		(menu-segment-full)))
+
+(defwindow menu
+	:exclusive false
+	:stacking "fg"
+	:focusable false
+	:monitor 0
+	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%")
+	(menu-full))
+
+(defwidget bg []
+	(box :class "blur-bg"))
 
 ;; === TO BE REMOVED ===
 (defwindow menu-bg
@@ -273,7 +333,7 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 608 :y 320 :width 528 :height 528)
-	(syslogo-widget))
+	(menu-syslogo-widget))
 
 (defwindow menu-music
 	:exclusive false
@@ -281,7 +341,7 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 1152 :y 320 :width 800 :height 256)
-	(music-widget))
+	(menu-music-widget))
 
 (defwindow menu-hostname
 	:exclusive false
@@ -289,7 +349,7 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 608 :y 864 :width 528 :height 256)
-	(hostname-widget))
+	(menu-hostname-widget))
 
 (defwindow menu-clock
 	:exclusive false
@@ -297,7 +357,7 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 1152 :y 592 :width 528 :height 256)
-	(clock-widget))
+	(menu-clock-widget))
 
 (defwindow menu-weather
 	:exclusive false
@@ -305,7 +365,7 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 1152 :y 864 :width 528 :height 256)
-	(weather-widget))
+	(menu-weather-widget))
 
 (defwindow menu-todo
 	:exclusive false
@@ -313,4 +373,4 @@
 	:focusable true
 	:monitor 0
 	:geometry (geometry :x 1696 :y 592 :width 256 :height 528)
-	(todo-widget))
+	(menu-todo-widget))
