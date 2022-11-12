@@ -439,7 +439,7 @@ in
 
 		# Just for fun :)
 		cmatrix
-		# polymc
+		prismlauncher
 		freetube
 		protontricks
 	];
