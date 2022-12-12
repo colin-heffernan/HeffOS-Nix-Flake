@@ -59,7 +59,7 @@
 				heffos-obsidian = lib.nixosSystem {
 					inherit system pkgs;
 					modules = [
-						# hyprland.nixosModules.default
+						hyprland.nixosModules.default
 						./configuration.nix
 						home-manager.nixosModules.home-manager
 						{
