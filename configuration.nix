@@ -87,9 +87,9 @@ in
 				'';
 				authProtocols = [ "WPA-EAP" ];
 			};
-			# "a12" = {
-			# 	psk = "@ATWELVE_PASSWORD@";
-			# };
+			"a12" = {
+				psk = "@ATWELVE_PASSWORD@";
+			};
 		};
 	};
 
