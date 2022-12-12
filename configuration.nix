@@ -133,9 +133,9 @@ in
 	services.picom.enable = true;
 
 	# Enable the Hyprland compositor.
-	programs.hyprland = {
-		enable = true;
-	};
+	# programs.hyprland = {
+	# 	enable = true;
+	# };
 
 	# Enable graphics stuff.
 	hardware.opengl = {
@@ -314,6 +314,9 @@ in
 		mtools
 		dosfstools
 		ntfs3g
+
+		# Compositor
+		hyprland
 
 		# WM/DE integration
 		xdg-user-dirs
