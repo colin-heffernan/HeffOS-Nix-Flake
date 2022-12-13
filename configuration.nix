@@ -21,8 +21,9 @@ let
 		executable = true;
 		text = ''
 			dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
-			systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
-			systemctl --user start pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+			systemctl --user stop pipewire pipewire-pulse wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
+			systemctl --user start xdg-desktop-portal xdg-desktop-portal-hyprland
+			systemctl --user start pipewire pipewire-pulse wireplumber
 		'';
 	};
 
@@ -188,7 +189,7 @@ in
 	# Enable Wayland screen-sharing.
 	xdg.portal = {
 		enable = true;
-		wlr.enable = true;
+		# wlr.enable = true;
 		# extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 	};
 
@@ -328,6 +329,7 @@ in
 		configure-gtk
 		update-dbus-env
 		startw
+		qt6.qtwayland
 
 		# Themes
 		gnome.adwaita-icon-theme
