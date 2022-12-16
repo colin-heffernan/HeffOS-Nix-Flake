@@ -337,10 +337,11 @@ in
 		arc-theme
 
 		# CLI programs
-		vim
 		xclip
 		git
 		gh
+		yt-dlp
+		ffmpeg
 		man-pages
 		man-db
 		wmname
@@ -370,6 +371,7 @@ in
 		flyctl
 
 		# TUI programs
+		vim
 		lazygit
 		neofetch
 		pfetch
