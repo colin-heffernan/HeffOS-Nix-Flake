@@ -361,7 +361,9 @@ in
 		mongosh
 		(texlive.combine {
 			inherit (texlive) collection-basic
-			collection-binextra collection-langenglish
+			# collection-binextra collection-langenglish
+			chktex
+			collection-langenglish
 			collection-fontsextra collection-fontsrecommended collection-fontutils
 			collection-latex collection-latexextra collection-latexrecommended
 			collection-mathscience collection-pictures
