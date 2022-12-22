@@ -340,11 +340,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1671637262,
-        "narHash": "sha256-VvgzpNVKlk9Ahl0ujrz+qpmJji7xgsdLJnNtr57tyUU=",
+        "lastModified": 1671672304,
+        "narHash": "sha256-gMfYiZbb81h6Cb71Q1SyTVS53PqqRn/kbft6dRh99Cw=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "96cb47fc64438c93e7663afa832a567120f82128",
+        "rev": "eb9d06322928bbd5bc576dc15a869b0f833be48c",
         "type": "github"
       },
       "original": {
@@ -640,11 +640,11 @@
         "zen-mode-nvim": "zen-mode-nvim"
       },
       "locked": {
-        "lastModified": 1671654410,
-        "narHash": "sha256-gnooHYVxKUaoN6Bhj4LgYpJ4ClWAyf8D4KwQp6+WHzs=",
+        "lastModified": 1671680040,
+        "narHash": "sha256-fth+6Nm/RU7tD2VchaHwZe8mAg2L4uFqt7zJTupCheA=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "5db4e1f40ce00f5432d5226d86d109048720df47",
+        "rev": "ab745389f326a5e73996acfae8adf12f60ccb04b",
         "type": "github"
       },
       "original": {
