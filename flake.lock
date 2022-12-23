@@ -241,11 +241,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1671810010,
-        "narHash": "sha256-z0EeDo31DzzuZipdAzZOBsPbd5D1OXf36GBz8RRfF20=",
+        "lastModified": 1671810895,
+        "narHash": "sha256-XaAM9OKLoQpIMiPnRWObvlJnnmZx2beLbFCBjKTaluI=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "de2a829353983b41ed6e6f06d4afb8292f6a1745",
+        "rev": "b9fca6112e19405434e837d2de60a88c72a4daf1",
         "type": "github"
       },
       "original": {
