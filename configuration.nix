@@ -403,6 +403,7 @@ in
 		godot
 		obs-studio
 		remmina
+		via
 
 		# Chat
 		discord
