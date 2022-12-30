@@ -404,6 +404,7 @@ in
 		obs-studio
 		remmina
 		via
+		lmms
 
 		# Chat
 		discord
