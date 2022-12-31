@@ -50,6 +50,12 @@
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);
+						lmms = prev.lmms.overrideAttrs (
+							oldAttrs: {
+								buildInputs = oldAttrs.buildInputs ++ [ pkgs.winePackages.unstable ];
+								cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
+							}
+						);
 					})
 				];
 			};
