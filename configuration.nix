@@ -316,6 +316,9 @@ in
 		dosfstools
 		ntfs3g
 
+		# Wine
+		wine
+
 		# Compositor
 		# hyprland
 
