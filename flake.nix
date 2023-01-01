@@ -28,6 +28,10 @@
 			url = "github:colin-heffernan/EMCore";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		# helix = {
+		# 	url = "github:helix-editor/helix";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		# emacs-overlay = {
 		# 	url = "github:nix-community/emacs-overlay";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +51,7 @@
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
 						eww-wayland = eww.packages.${prev.system}.eww-wayland;
+						# helix-unwrapped = helix.packages.${prev.system}.helix-unwrapped;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);

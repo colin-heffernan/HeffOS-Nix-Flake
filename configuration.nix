@@ -383,6 +383,7 @@ in
 		ncmpcpp
 		btop
 		nvcode
+		helix
 
 		# GUI programs
 		firefox
