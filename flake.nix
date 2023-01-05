@@ -57,7 +57,7 @@
 						);
 						lmms = prev.lmms.overrideAttrs (
 							oldAttrs: {
-								buildInputs = oldAttrs.buildInputs ++ [ pkgs.winePackages.unstable ];
+								buildInputs = oldAttrs.buildInputs ++ [ pkgs.wine ];
 								cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
 							}
 						);
