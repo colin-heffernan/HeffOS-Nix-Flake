@@ -409,7 +409,7 @@ in
 		remmina
 		via
 		lmms
-		carla
+		ardour
 
 		# Chat
 		discord
