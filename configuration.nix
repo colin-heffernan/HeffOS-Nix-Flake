@@ -273,9 +273,9 @@ in
 	services.flatpak.enable = true;
 
 	# Enable Qt5 support and make it match GTK2.
-	qt5.enable = true;
-	qt5.platformTheme = "gtk2";
-	qt5.style = "gtk2";
+	qt.enable = true;
+	qt.platformTheme = "gtk2";
+	qt.style = "gtk2";
 
 	# Install fonts.
 	fonts.fonts = with pkgs; [
