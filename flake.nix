@@ -24,10 +24,10 @@
 			url = "github:colin-heffernan/NVCode-Flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		emcore = {
-			url = "github:colin-heffernan/EMCore";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# emcore = {
+		# 	url = "github:colin-heffernan/EMCore";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		# helix = {
 		# 	url = "github:helix-editor/helix";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +38,7 @@
 		# };
 	};
 
-	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, emcore, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -46,7 +46,7 @@
 				config.allowUnfree = true;
 				overlays = [
 					nvcode.overlays.default
-					emcore.overlays.default
+					# emcore.overlays.default
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
@@ -55,12 +55,12 @@
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);
-						lmms = prev.lmms.overrideAttrs (
-							oldAttrs: {
-								buildInputs = oldAttrs.buildInputs ++ [ pkgs.wine ];
-								cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
-							}
-						);
+						# lmms = prev.lmms.overrideAttrs (
+						# 	oldAttrs: {
+						# 		buildInputs = oldAttrs.buildInputs ++ [ pkgs.wine ];
+						# 		cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
+						# 	}
+						# );
 					})
 				];
 			};

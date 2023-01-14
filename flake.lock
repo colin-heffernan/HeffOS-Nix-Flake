@@ -12,43 +12,6 @@
         "url": "https://discord.com/api/download/stable?platform=linux&format=tar.gz"
       }
     },
-    "emacs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1664656546,
-        "narHash": "sha256-fF8SGobojq/Yi2EbFnceqR26ZFDc9WfxTkiK4AResNs=",
-        "ref": "refs/heads/master",
-        "rev": "179a1d52984b8b79e7614fe2f8d8a5c8e355809c",
-        "revCount": 160262,
-        "type": "git",
-        "url": "https://git.sv.gnu.org/git/emacs.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.sv.gnu.org/git/emacs.git"
-      }
-    },
-    "emcore": {
-      "inputs": {
-        "emacs": "emacs",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1664656707,
-        "narHash": "sha256-JFIl1N3vFUpieUSL3mt74JYD4M7LifcYW98+QVZw33Y=",
-        "owner": "colin-heffernan",
-        "repo": "EMCore",
-        "rev": "432a2c6af1555ca5db81d07dc1a080641c33eb3f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "colin-heffernan",
-        "repo": "EMCore",
-        "type": "github"
-      }
-    },
     "eww": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -230,11 +193,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673658951,
+        "lastModified": 1673665427,
         "narHash": "sha256-OK2xft0IkfSOViPVoT4wLmhX7PxiG1SuclWDG0h9EeQ=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "806c8fd7a487cf8a5df5aede36db55ad43329e80",
+        "rev": "5019a82bdda97c27ee04b773154f7293d366fd0e",
         "type": "github"
       },
       "original": {
@@ -246,7 +209,6 @@
     "root": {
       "inputs": {
         "discord": "discord",
-        "emcore": "emcore",
         "eww": "eww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
