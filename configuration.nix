@@ -52,6 +52,7 @@ in
 			keep-outputs = true
 			keep-derivations = true
 		'';
+		registry.nixpkgs.flake = pkgs;
 	};
 
 	# Enable suupport for Nix-Direnv
