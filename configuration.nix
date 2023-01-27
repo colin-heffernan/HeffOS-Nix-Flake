@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixpkgs, ... }:
 
 let
 	configure-gtk = pkgs.writeTextFile {
@@ -52,7 +52,7 @@ in
 			keep-outputs = true
 			keep-derivations = true
 		'';
-		registry.nixpkgs.flake = pkgs;
+		registry.nixpkgs.flake = nixpkgs;
 	};
 
 	# Enable suupport for Nix-Direnv
