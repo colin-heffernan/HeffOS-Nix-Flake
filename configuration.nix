@@ -411,6 +411,7 @@ in
 		via
 		lmms
 		ardour
+		musescore
 
 		# Chat
 		discord
