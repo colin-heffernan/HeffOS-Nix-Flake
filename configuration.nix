@@ -412,7 +412,6 @@ in
 		lmms
 		ardour
 		musescore
-		sfizz
 
 		# Chat
 		discord
