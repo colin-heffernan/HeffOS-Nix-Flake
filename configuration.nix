@@ -35,6 +35,7 @@ let
 			export WAYLAND_DISPLAY
 			export XDG_CURRENT_DESKTOP=Hyprland
 			export GTK_THEME=Arc-Tokyo-Night
+			export MUSESAMPLER_PATH=/usr/lib/libMuseSamplerCoreLib.so
 			exec Hyprland
 		'';
 	};
