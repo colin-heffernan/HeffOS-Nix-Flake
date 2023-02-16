@@ -153,8 +153,11 @@ in
 		# ];
 	};
 
-	# Enable Libvirtd
-	virtualisation.libvirtd.enable = true;
+	# Enable virtualization
+	virtualisation = {
+		libvirtd.enable = true;
+		spiceUSBRedirection.enable = true;
+	};
 
 	# Enable Gnome keyring.
 	# services.gnome.gnome-keyring.enable = true;
@@ -295,7 +298,7 @@ in
 		home = "/home/obsi";
 		description = "obsi";
 		isNormalUser = true;
-		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" ];
+		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" "kvm" ];
 		shell = pkgs.zsh;
 	};
 
