@@ -36,6 +36,7 @@ let
 			export XDG_CURRENT_DESKTOP=Hyprland
 			export GTK_THEME=Arc-Tokyo-Night
 			export MUSESAMPLER_PATH=/usr/lib/libMuseSamplerCoreLib.so
+			export MUSESAMPLER_INSTRUMENT_FOLDER=/srv/muse-hub/downloads/Instruments/
 			exec Hyprland
 		'';
 	};
