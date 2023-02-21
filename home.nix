@@ -23,6 +23,12 @@
 		recursive = true;
 	};
 
+	# Helix config
+	home.file.".config/helix" = {
+		source = ./dotfiles/.config/helix;
+		recursive = true;
+	};
+
 	# Hyprland config
 	home.file.".config/hypr" = {
 		source = ./dotfiles/.config/hypr;

@@ -1,0 +1,71 @@
+theme = "tokyonight"
+
+[editor]
+scrolloff = 3
+mouse = true
+middle-click-paste = false
+scroll-lines = 1
+shell = ["sh", "-c"]
+line-number = "absolute"
+cursorline = true
+cursorcolumn = false
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+auto-completion = true
+auto-format = false
+auto-save = false
+idle-timeout = 300
+completion-trigger-len = 1
+auto-info = true
+true-color = true
+rulers = []
+bufferline = "always"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "file-type"]
+center = ["spacer"]
+right = ["diagnostics"]
+separator = "+"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = false
+auto-signature-help = true
+display-signature-help-docs = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
+max-depth = 1
+
+[editor.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+"'" = "'"
+'"' = '"'
+"`" = "`"
+"<" = ">"
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.whitespace]
+render = "none"
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 0
