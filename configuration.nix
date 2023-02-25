@@ -418,6 +418,9 @@ in
 		reaper
 		musescore
 
+		# VSTs
+		distrho
+
 		# Chat
 		discord
 		element-desktop
