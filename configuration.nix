@@ -415,7 +415,7 @@ in
 		remmina
 		via
 		lmms
-		ardour
+		reaper
 		musescore
 
 		# Chat
