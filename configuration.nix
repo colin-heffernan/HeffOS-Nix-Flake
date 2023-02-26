@@ -417,6 +417,7 @@ in
 		lmms
 		reaper
 		musescore
+		carla
 
 		# VSTs
 		distrho
