@@ -323,6 +323,7 @@ in
 		ntfs3g
 
 		# Compatibility tools
+		bottles
 		wine
 		yabridge
 		yabridgectl
