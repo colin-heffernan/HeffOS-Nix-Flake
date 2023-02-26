@@ -23,6 +23,13 @@
 		recursive = true;
 	};
 
+	# Git config
+	programs.git = {
+		enable = true;
+		userName = "Colin Heffernan";
+		userEmail = "colinpheffernan@gmail.com";
+	};
+
 	# Helix config
 	home.file.".config/helix" = {
 		source = ./dotfiles/.config/helix;
