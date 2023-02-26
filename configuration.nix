@@ -322,8 +322,10 @@ in
 		dosfstools
 		ntfs3g
 
-		# Wine
+		# Compatibility tools
 		wine
+		yabridge
+		yabridgectl
 
 		# Compositor
 		# hyprland
