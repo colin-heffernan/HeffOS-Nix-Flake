@@ -384,7 +384,6 @@ in
 			collection-plaingeneric collection-publishers
 			collection-xetex;
 		})
-		flyctl
 
 		# TUI programs
 		vim
