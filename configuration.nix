@@ -395,6 +395,7 @@ in
 		ncmpcpp
 		btop
 		nvcode
+		# neovim-unwrapped
 		helix
 
 		# GUI programs

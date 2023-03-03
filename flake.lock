@@ -111,11 +111,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1677880202,
-        "narHash": "sha256-4C11zlv+lzylAGS8HSR6z52A6sHa7Z8o3Dvu0D5pWvU=",
+        "lastModified": 1677883020,
+        "narHash": "sha256-CiWnaZJOp7ABz+TKT0apEIn+DSufRtwRZpyVoemlb9M=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "8bfb2ad2b70c5982391a088ccb6f184ecb2ad26d",
+        "rev": "c1217066d1e7c6cd12f43134f9ef1145787f7905",
         "type": "github"
       },
       "original": {
@@ -149,7 +149,6 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "nvcode",
           "nixpkgs"
         ]
       },
@@ -185,35 +184,14 @@
         "type": "github"
       }
     },
-    "nvcode": {
-      "inputs": {
-        "neovim-nightly": "neovim-nightly",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677880746,
-        "narHash": "sha256-BgFPNn3FyqQZyX2YPNJnQiGeb2gNv9vBEWSKEruO77c=",
-        "owner": "colin-heffernan",
-        "repo": "NVCode-Flake",
-        "rev": "21d37abc9e0acac5134e0757a4939743e64315ea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "colin-heffernan",
-        "repo": "NVCode-Flake",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "discord": "discord",
         "eww": "eww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs",
-        "nvcode": "nvcode"
+        "neovim-nightly": "neovim-nightly",
+        "nixpkgs": "nixpkgs"
       }
     },
     "rust-overlay": {

@@ -24,6 +24,10 @@
 			url = "github:colin-heffernan/NVCode-Flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		# neovim-nightly = {
+		# 	url = "github:neovim/neovim?dir=contrib";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		# emcore = {
 		# 	url = "github:colin-heffernan/EMCore";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
@@ -50,11 +54,12 @@
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
-						eww-wayland = eww.packages.${prev.system}.eww-wayland;
+						inherit (eww.packages.${prev.system}) eww-wayland;
 						# helix-unwrapped = helix.packages.${prev.system}.helix-unwrapped;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);
+						# neovim-unwrapped = neovim-nightly.packages.${prev.system}.neovim;
 						# lmms = prev.lmms.overrideAttrs (
 						# 	oldAttrs: {
 						# 		buildInputs = oldAttrs.buildInputs ++ [ pkgs.wine ];
@@ -64,7 +69,7 @@
 					})
 				];
 			};
-			lib = nixpkgs.lib;
+			inherit (nixpkgs) lib;
 		in {
 			nixosConfigurations = {
 				heffos-obsidian = lib.nixosSystem {
