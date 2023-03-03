@@ -149,6 +149,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
+          "nvcode",
           "nixpkgs"
         ]
       },
@@ -184,14 +185,35 @@
         "type": "github"
       }
     },
+    "nvcode": {
+      "inputs": {
+        "neovim-nightly": "neovim-nightly",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1677883732,
+        "narHash": "sha256-q5rsUfR6EOEe34lLudHhu0MDWXwZBl2YyhNaW+fs/0A=",
+        "owner": "colin-heffernan",
+        "repo": "NVCode-Flake",
+        "rev": "4a4cb140151b21e2386dac1c7949720aa0b765cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colin-heffernan",
+        "repo": "NVCode-Flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "discord": "discord",
         "eww": "eww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "neovim-nightly": "neovim-nightly",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nvcode": "nvcode"
       }
     },
     "rust-overlay": {
