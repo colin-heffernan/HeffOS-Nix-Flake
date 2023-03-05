@@ -1,6 +1,6 @@
 ;; === Variables ===
 ;; Listening variables
-(deflisten bar-workspace "scripts/workspace")
+(deflisten bar-workspace "scripts/workspace.sh")
 
 ;; Polling variables
 (defpoll bar-date :interval "1s" "date '+%m/%d'")
@@ -11,8 +11,8 @@
 (defpoll menu-hostname-host :interval "15m" "hostname")
 (defpoll menu-music-artist :interval "1s" "mpc current -f %artist%")
 (defpoll menu-music-title :interval "1s" "mpc current -f %title%")
-(defpoll menu-music-length :interval "1s" "scripts/songduration")
-(defpoll menu-weather-forecast :interval "15m" "scripts/weather")
+(defpoll menu-music-length :interval "1s" "scripts/songduration.sh")
+(defpoll menu-weather-forecast :interval "15m" "scripts/weather.sh")
 
 ;; === Bar Widgets ===
 ;; Bar workspaces
