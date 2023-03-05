@@ -64,6 +64,22 @@
         "type": "github"
       }
     },
+    "cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660101488,
+        "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
     "cmp-cmdline": {
       "flake": false,
       "locked": {
@@ -274,22 +290,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "hydra-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1675678260,
-        "narHash": "sha256-MBlC7qQMVNNfOFcvTnw1DREOS9QWoI4zsyu3QYqIkLc=",
-        "owner": "anuvyklack",
-        "repo": "hydra.nvim",
-        "rev": "3ced42c0b6a6c85583ff0f221635a7f4c1ab0dd0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anuvyklack",
-        "repo": "hydra.nvim",
         "type": "github"
       }
     },
@@ -528,6 +528,7 @@
         "alpha-nvim": "alpha-nvim",
         "bufferline-nvim": "bufferline-nvim",
         "ccc-nvim": "ccc-nvim",
+        "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-path": "cmp-path",
@@ -535,7 +536,6 @@
         "comment-nvim": "comment-nvim",
         "friendly-snippets": "friendly-snippets",
         "gitsigns-nvim": "gitsigns-nvim",
-        "hydra-nvim": "hydra-nvim",
         "indent-blankline-nvim": "indent-blankline-nvim",
         "leap-nvim": "leap-nvim",
         "lualine-nvim": "lualine-nvim",
@@ -594,11 +594,11 @@
         "tree-sitter-yuck": "tree-sitter-yuck"
       },
       "locked": {
-        "lastModified": 1677983875,
-        "narHash": "sha256-JSdr39G2ty2YxO2yWpTsDjQQJpblhEilrrpIOPw2Qc0=",
+        "lastModified": 1677994026,
+        "narHash": "sha256-vazKPKqoB9B+yG1fPZB8vwDvz6ONn2eTvwPZviwVw20=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "c3f2506c21f543975e94f4c859b71772aa4c23c4",
+        "rev": "be865ebe5f37482aa2fbd188cd34d5cbab89e0fc",
         "type": "github"
       },
       "original": {
