@@ -441,18 +441,21 @@ in
 		libsForQt5.kdenlive
 
 		# Language servers
-		clang
 		haskell-language-server
+		lua-language-server
+		marksman
 		nodePackages.bash-language-server
+		nodePackages.dockerfile-language-server-nodejs
+		nodePackages.graphql-language-service-cli
 		nodePackages.pyright
 		nodePackages.svelte-language-server
 		nodePackages.typescript-language-server
+		nodePackages.vim-language-server
 		nodePackages.vscode-css-languageserver-bin
 		nodePackages.vscode-html-languageserver-bin
 		nodePackages.vscode-json-languageserver
 		rnix-lsp
 		rust-analyzer
-		sumneko-lua-language-server
 		texlab
 
 		# Linters
