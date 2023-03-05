@@ -594,11 +594,11 @@
         "tree-sitter-yuck": "tree-sitter-yuck"
       },
       "locked": {
-        "lastModified": 1677982716,
-        "narHash": "sha256-Cy4PAvom5oayko4Yl26mSD/hAgTRVtANBi514XxGuvw=",
+        "lastModified": 1677983875,
+        "narHash": "sha256-JSdr39G2ty2YxO2yWpTsDjQQJpblhEilrrpIOPw2Qc0=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "439ff2b6f85a1e4351feca4e0dfe4fc207e80363",
+        "rev": "c3f2506c21f543975e94f4c859b71772aa4c23c4",
         "type": "github"
       },
       "original": {
