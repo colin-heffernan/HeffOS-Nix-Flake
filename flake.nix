@@ -87,5 +87,14 @@
 					];
 				};
 			};
+			devShells.default = {
+				buildInputs = with pkgs; [
+					lua-language-server
+					marksman
+					nodePackages.bash-language-server
+					nodePackages.vscode-langservers-extracted
+					rnix-lsp
+				];
+			};
 		};
 }

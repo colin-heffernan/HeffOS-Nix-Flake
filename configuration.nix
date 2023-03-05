@@ -441,38 +441,37 @@ in
 		libsForQt5.kdenlive
 
 		# Language servers
-		haskell-language-server
-		lua-language-server
-		marksman
-		nodePackages.bash-language-server
-		nodePackages.dockerfile-language-server-nodejs
-		nodePackages.graphql-language-service-cli
-		nodePackages.pyright
-		nodePackages.svelte-language-server
-		nodePackages.typescript-language-server
-		nodePackages.vim-language-server
-		nodePackages.vscode-css-languageserver-bin
-		nodePackages.vscode-html-languageserver-bin
-		nodePackages.vscode-json-languageserver
-		rnix-lsp
-		rust-analyzer
-		texlab
+		# haskell-language-server
+		# lua-language-server
+		# marksman
+		# nodePackages.bash-language-server
+		# nodePackages.dockerfile-language-server-nodejs
+		# nodePackages.graphql-language-service-cli
+		# nodePackages.pyright
+		# nodePackages.svelte-language-server
+		# nodePackages.typescript-language-server
+		# nodePackages.vscode-css-languageserver-bin
+		# nodePackages.vscode-html-languageserver-bin
+		# nodePackages.vscode-json-languageserver
+		# rnix-lsp
+		# rust-analyzer
+		# texlab
 
 		# Linters
-		hlint
-		html-tidy
-		nodePackages.eslint
-		nodePackages.jsonlint
-		nodePackages.stylelint
-		lua53Packages.luacheck
-		pylint
-		shellcheck
-		statix
+		# hlint
+		# html-tidy
+		# nodePackages.eslint
+		# nodePackages.jsonlint
+		# nodePackages.stylelint
+		# lua53Packages.luacheck
+		# pylint
+		# shellcheck
+		# statix
 
 		# Debug Adapters
-		haskellPackages.haskell-debug-adapter
-		lldb
-		python310Packages.debugpy
+		# haskellPackages.haskell-debug-adapter
+		# lldb
+		# python310Packages.debugpy
 
 		# Just for fun :)
 		cmatrix
