@@ -76,9 +76,15 @@ in
 		v4l2loopback
 	];
 
+	# Hostname
 	networking.hostName = "heffos-obsidian"; # Define your hostname.
-	# Pick only one of the below networking options.
-	# networking.networkmanager.enable = true;
+
+	/* # Wired connectivity
+	networking.networkmanager = {
+		enable = true;
+	}; */
+
+	# Wireless connectivity
 	networking.wireless = {
 		enable = true;
 		userControlled.enable = true;
