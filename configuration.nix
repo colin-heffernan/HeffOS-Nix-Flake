@@ -80,8 +80,23 @@ in
 	networking.hostName = "heffos-obsidian"; # Define your hostname.
 
 	/* # Wired connectivity
-	networking.networkmanager = {
-		enable = true;
+	networking = {
+		networkmanager = {
+			enable = true;
+			logLevel = "DEBUG";
+		};
+		supplicant = {
+			"enp42s0" = {
+				# bridge = "virbr0";
+				driver = "wired";
+				extraCmdArgs = "-u -W -dd";
+				extraConf = ''
+					network={
+						phase1="tls_disable_tlsv1_0=0 tls_disable_tlsv1_1=0 tls_disable_tlsv1_2=0 tls_ext_cert_check=0"
+					}
+				'';
+			};
+		};
 	}; */
 
 	# Wireless connectivity
