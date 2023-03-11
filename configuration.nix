@@ -58,6 +58,7 @@ in
 			keep-derivations = true
 		'';
 		registry.nixpkgs.flake = nixpkgs;
+		nixPath = [ "nixpkgs=${nixpkgs}" ];
 	};
 
 	# Enable suupport for Nix-Direnv
