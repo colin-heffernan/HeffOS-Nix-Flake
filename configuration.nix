@@ -422,6 +422,7 @@ in
 
 		# GUI programs
 		firefox
+		brave
 		vivaldi
 		ungoogled-chromium
 		qpwgraph
