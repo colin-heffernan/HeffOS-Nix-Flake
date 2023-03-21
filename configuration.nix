@@ -309,16 +309,26 @@ in
 	qt.style = "gtk2";
 
 	# Install fonts.
-	fonts.fonts = with pkgs; [
-		emacs-all-the-icons-fonts
-		iosevka
-		(nerdfonts.override { fonts = [ "Iosevka" ]; })
-		liberation_ttf
-		lmodern
-		noto-fonts
-		noto-fonts-extra
-		victor-mono
-	];
+	fonts = {
+		fonts = with pkgs; [
+			emacs-all-the-icons-fonts
+			iosevka
+			(nerdfonts.override { fonts = [ "Iosevka" ]; })
+			liberation_ttf
+			lmodern
+			noto-fonts
+			noto-fonts-extra
+			victor-mono
+		];
+		fontconfig = {
+			enable = true;
+			antialias = true;
+			hinting = {
+				enable = true;
+				style = "hintfull";
+			};
+		};
+	};
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.obsi = {
