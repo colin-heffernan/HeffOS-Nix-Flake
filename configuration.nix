@@ -32,11 +32,11 @@ let
 		destination = "/bin/startw";
 		executable = true;
 		text = ''
-			export WAYLAND_DISPLAY
-			export XDG_CURRENT_DESKTOP=Hyprland
-			export GTK_THEME=Arc-Tokyo-Night
-			export MUSESAMPLER_PATH=/usr/lib/libMuseSamplerCoreLib.so
-			export MUSESAMPLER_INSTRUMENT_FOLDER=/srv/muse-hub/downloads/Instruments/
+			# export WAYLAND_DISPLAY
+			# export XDG_CURRENT_DESKTOP=Hyprland
+			# export GTK_THEME=Arc-Tokyo-Night
+			# export MUSESAMPLER_PATH=/usr/lib/libMuseSamplerCoreLib.so
+			# export MUSESAMPLER_INSTRUMENT_FOLDER=/srv/muse-hub/downloads/Instruments/
 			# export WINEPREFIX=/home/obsi/.local/share/bottles/bottles/VSTs/
 			# export WINELOADER=/home/obsi/.local/share/bottles/runners/soda-7.0-8/bin/wine64
 			# export WINEDLLPATH=/home/obsi/.local/share/bottles/runners/soda-7.0-8/lib/wine/x86_64-unix/
