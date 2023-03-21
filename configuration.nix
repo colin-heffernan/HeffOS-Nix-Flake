@@ -301,7 +301,7 @@ in
 	programs.java.enable = true;
 
 	# Enable Flatpak support.
-	services.flatpak.enable = true;
+	# services.flatpak.enable = true;
 
 	# Enable Qt5 support and make it match GTK2.
 	qt.enable = true;
