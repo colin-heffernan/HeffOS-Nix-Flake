@@ -417,6 +417,7 @@ in
 		})
 		file
 		zk
+		pandoc
 
 		# TUI programs
 		vim
