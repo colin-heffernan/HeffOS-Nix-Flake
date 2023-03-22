@@ -386,7 +386,6 @@ in
 		# CLI programs
 		xclip
 		git
-		gh
 		yt-dlp
 		ffmpeg
 		man-pages
@@ -397,7 +396,6 @@ in
 		ripgrep
 		pulseaudio
 		alsa-utils
-		gdb
 		zip
 		p7zip
 		socat
@@ -418,6 +416,7 @@ in
 			collection-xetex;
 		})
 		file
+		zk
 
 		# TUI programs
 		vim
