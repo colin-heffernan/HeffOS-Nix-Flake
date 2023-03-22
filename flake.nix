@@ -90,10 +90,10 @@
 			devShells.${system}.default = pkgs.mkShell {
 					buildInputs = with pkgs; [
 						lua-language-server
-						marksman
-						nodePackages.bash-language-server
+						# marksman
+						# nodePackages.bash-language-server
 						nodePackages.vscode-langservers-extracted
-						rnix-lsp
+						# rnix-lsp
 					];
 			};
 		};

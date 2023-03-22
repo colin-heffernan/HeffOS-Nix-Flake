@@ -475,8 +475,8 @@ in
 		# Language servers
 		# haskell-language-server
 		# lua-language-server
-		# marksman
-		# nodePackages.bash-language-server
+		marksman
+		nodePackages.bash-language-server
 		# nodePackages.dockerfile-language-server-nodejs
 		# nodePackages.graphql-language-service-cli
 		# nodePackages.pyright
@@ -485,7 +485,7 @@ in
 		# nodePackages.vscode-css-languageserver-bin
 		# nodePackages.vscode-html-languageserver-bin
 		# nodePackages.vscode-json-languageserver
-		# rnix-lsp
+		rnix-lsp
 		# rust-analyzer
 		# texlab
 
