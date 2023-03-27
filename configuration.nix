@@ -128,10 +128,17 @@ in
 
 	# Prevent suspend.
 	powerManagement.enable = false;
-	systemd.targets.sleep.enable = false;
-	systemd.targets.suspend.enable = false;
-	systemd.targets.hibernate.enable = false;
-	systemd.targets.hybrid-sleep.enable = false;
+	systemd = {
+		targets = {
+			sleep.enable = false;
+			suspend.enable = false;
+			hibernate.enable = false;
+			hybrid-sleep.enable = false;
+		};
+	};
+
+	# Enable Polkit.
+	security.polkit.enable = true;
 
 	# Select internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
@@ -369,7 +376,7 @@ in
 		# WM/DE integration
 		xdg-user-dirs
 		xdg-utils
-		libsForQt5.polkit-kde-agent
+		# libsForQt5.polkit-kde-agent
 		waybar
 		eww-wayland
 		swaybg
