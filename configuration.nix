@@ -369,7 +369,7 @@ in
 		# WM/DE integration
 		xdg-user-dirs
 		xdg-utils
-		lxsession
+		libsForQt5.polkit-kde-agent
 		waybar
 		eww-wayland
 		swaybg
