@@ -376,7 +376,7 @@ in
 		# WM/DE integration
 		xdg-user-dirs
 		xdg-utils
-		libsForQt5.polkit-kde-agent
+		lxqt.lxqt-policykit
 		waybar
 		eww-wayland
 		swaybg
