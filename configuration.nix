@@ -404,6 +404,7 @@ in
 		pulseaudio
 		alsa-utils
 		zip
+		unzip
 		p7zip
 		socat
 		fd
