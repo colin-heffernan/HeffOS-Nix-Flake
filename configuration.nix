@@ -215,12 +215,12 @@ in
 		audio.enable = true;
 		pulse.enable = true;
 		jack.enable = true;
-		config = {
-			pipewire = {
-				default.clock.rate = 48000;
-				resample.quality = 10;
-			};
-		};
+		# config = {
+		# 	pipewire = {
+		# 		default.clock.rate = 48000;
+		# 		resample.quality = 10;
+		# 	};
+		# };
 		wireplumber.enable = true;
 	};
 
