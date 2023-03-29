@@ -84,15 +84,15 @@ workspaces() {
 	fi
 
 	echo "(box :orientation \"v\" :spacing 0 :space-evenly \"false\" \
-			(label :class \"0$o1$f1\" :text \"${ic[1]}\") \
-			(label :class \"0$o2$f2\" :text \"${ic[2]}\") \
-			(label :class \"0$o3$f3\" :text \"${ic[3]}\") \
-			(label :class \"0$o4$f4\" :text \"${ic[4]}\") \
-			(label :class \"0$o5$f5\" :text \"${ic[5]}\") \
-			(label :class \"0$o6$f6\" :text \"${ic[6]}\") \
-			(label :class \"0$o7$f7\" :text \"${ic[7]}\") \
-			(label :class \"0$o8$f8\" :text \"${ic[8]}\") \
-			(label :class \"0$o9$f9\" :text \"${ic[9]}\") \
+			(label :class \"w$o1$f1\" :text \"${ic[1]}\") \
+			(label :class \"w$o2$f2\" :text \"${ic[2]}\") \
+			(label :class \"w$o3$f3\" :text \"${ic[3]}\") \
+			(label :class \"w$o4$f4\" :text \"${ic[4]}\") \
+			(label :class \"w$o5$f5\" :text \"${ic[5]}\") \
+			(label :class \"w$o6$f6\" :text \"${ic[6]}\") \
+			(label :class \"w$o7$f7\" :text \"${ic[7]}\") \
+			(label :class \"w$o8$f8\" :text \"${ic[8]}\") \
+			(label :class \"w$o9$f9\" :text \"${ic[9]}\") \
 		)"
 }
 
