@@ -122,6 +122,14 @@ in
 		};
 	};
 
+	# Add udev rules
+	services.udev = {
+		packages = with pkgs; [
+			qmk
+			qmk-udev-rules
+			via
+		];
+	};
 
 	# Set your time zone.
 	time.timeZone = "America/New_York";
@@ -437,6 +445,7 @@ in
 		nvcode
 		# neovim-unwrapped
 		helix
+		qmk
 
 		# GUI programs
 		firefox
