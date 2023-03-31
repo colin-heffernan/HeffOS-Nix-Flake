@@ -458,6 +458,7 @@ in
 		grim
 		rofi-wayland
 		kitty
+		wezterm
 		thunderbird
 		lxqt.pcmanfm-qt
 		lxappearance
