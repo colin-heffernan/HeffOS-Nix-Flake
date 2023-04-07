@@ -444,17 +444,18 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1680901235,
-        "narHash": "sha256-wMGhV5miwvgiZQDqZdUlMZKdMgW6uNULHm6cRAhhrr8=",
+        "lastModified": 1680022018,
+        "narHash": "sha256-RWf9ZNxp9ddHT+DM5ZSF7CEHDZp/H6Wkm86zUGs3TjI=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "8f1541fced2fdcdc378c7a608ed3a6bd94329088",
+        "rev": "eac75a971d042bd610310314e6c64097694ee418",
         "type": "github"
       },
       "original": {
         "dir": "contrib",
         "owner": "neovim",
         "repo": "neovim",
+        "rev": "eac75a971d042bd610310314e6c64097694ee418",
         "type": "github"
       }
     },
@@ -579,11 +580,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1680902636,
-        "narHash": "sha256-sHv0aWzI1BxWV1C98MmH7vIe7kuAvQz3GknRp2tGMxU=",
+        "lastModified": 1680904416,
+        "narHash": "sha256-FPMdbw6kZL96iFbD1J1JQ1dAI6Lbt4FTocwfu+/Bino=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "81c8ac43aa637b71ebe5a3074568d50981ce2711",
+        "rev": "5283b4e283c3535279b5f499fc70076fd00d0050",
         "type": "github"
       },
       "original": {
