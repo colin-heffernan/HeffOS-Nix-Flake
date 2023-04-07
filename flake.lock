@@ -580,11 +580,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1680904416,
-        "narHash": "sha256-FPMdbw6kZL96iFbD1J1JQ1dAI6Lbt4FTocwfu+/Bino=",
+        "lastModified": 1680905971,
+        "narHash": "sha256-4/k6kfEOAjRTAYKNxwzL4wE3JMmAz3kHvVcCQ+gfF0g=",
         "owner": "colin-heffernan",
         "repo": "NVCode-Flake",
-        "rev": "5283b4e283c3535279b5f499fc70076fd00d0050",
+        "rev": "7ed0684accb74ad2e2f282c74b2e90facefea0ba",
         "type": "github"
       },
       "original": {
