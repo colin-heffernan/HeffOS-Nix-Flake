@@ -450,17 +450,14 @@ in
 		# GUI programs
 		firefox
 		brave
-		vivaldi
 		ungoogled-chromium
 		qpwgraph
-		flameshot
 		slurp
 		grim
 		rofi-wayland
 		kitty
 		wezterm
 		thunderbird
-		lxqt.pcmanfm-qt
 		lxappearance
 		easyeffects
 		mpv
@@ -470,12 +467,12 @@ in
 		famistudio
 		godot
 		obs-studio
-		remmina
-		via
-		lmms
+		# remmina
+		# via
+		# lmms
 		reaper
 		musescore
-		carla
+		# carla
 
 		# VSTs
 		distrho
@@ -487,7 +484,7 @@ in
 		# Content creation tools
 		audacity
 		gimp
-		krita
+		# krita
 		inkscape
 		libsForQt5.kdenlive
 
@@ -525,7 +522,7 @@ in
 		# python310Packages.debugpy
 
 		# Just for fun :)
-		cmatrix
+		# cmatrix
 		prismlauncher
 		freetube
 		protontricks
