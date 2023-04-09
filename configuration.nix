@@ -177,6 +177,9 @@ in
 	services.picom.enable = true;
 
 	# Enable the Hyprland compositor.
+	disabledModules = [
+		"programs/hyprland.nix"
+	];
 	programs.hyprland = {
 		enable = true;
 		xwayland = {
