@@ -179,6 +179,10 @@ in
 	# Enable the Hyprland compositor.
 	programs.hyprland = {
 		enable = true;
+		xwayland = {
+			enable = true;
+			hidpi = true;
+		};
 	};
 
 	# Enable graphics stuff.
