@@ -12,10 +12,10 @@
 			url = "github:hyprwm/hyprland";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		eww = {
-			url = "github:elkowar/eww";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# eww = {
+		# 	url = "github:elkowar/eww";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		discord = {
 			type = "tarball";
 			url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
@@ -43,7 +43,8 @@
 		# };
 	};
 
-	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, ... }@inputs:
+	# outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -55,11 +56,20 @@
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
-						inherit (eww.packages.${prev.system}) eww-wayland;
+						# inherit (eww.packages.${prev.system}) eww-wayland;
 						# helix-unwrapped = helix.packages.${prev.system}.helix-unwrapped;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);
+						# musescore = prev.musescore.overrideAttrs (
+						# 	oldAttrs: {
+						# 		qtWrapperArgs = [
+						# 			"--prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath [ pkgs.libjack2 pkgs.stdenv.cc.cc.lib ]}"
+						# 			"--prefix LD_PRELOAD : /home/obsi/.local/share/MuseSampler/lib/libMuseSamplerCoreLib.so"
+						# 			"--set-default QT_QPA_PLATFORM xcb"
+						# 		];
+						# 	}
+						# );
 						# neovim-unwrapped = neovim-nightly.packages.${prev.system}.neovim;
 						# lmms = prev.lmms.overrideAttrs (
 						# 	oldAttrs: {
