@@ -12,13 +12,18 @@
 			url = "github:hyprwm/hyprland";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		# eww = {
-		# 	url = "github:elkowar/eww";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		eww = {
+			url = "github:elkowar/eww";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		discord = {
 			type = "tarball";
 			url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
+			flake = false;
+		};
+		steam = {
+			type = "tarball";
+			url = "https://repo.steampowered.com/steam/archive/beta/steam_latest-beta.tar.gz";
 			flake = false;
 		};
 		nvcode = {
@@ -43,8 +48,8 @@
 		# };
 	};
 
-	# outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, ... }@inputs:
-	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, steam, nvcode, ... }@inputs:
+	# outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -56,7 +61,7 @@
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
-						# inherit (eww.packages.${prev.system}) eww-wayland;
+						inherit (eww.packages.${prev.system}) eww-wayland;
 						# helix-unwrapped = helix.packages.${prev.system}.helix-unwrapped;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
@@ -77,6 +82,9 @@
 						# 		cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
 						# 	}
 						# );
+						steam = prev.steam.overrideAttrs (
+							_: { src = inputs.steam; }
+						);
 					})
 				];
 			};
