@@ -533,6 +533,7 @@ in
 		prismlauncher
 		freetube
 		protontricks
+		mpd-discord-rpc
 	];
 
 	# Overlays
