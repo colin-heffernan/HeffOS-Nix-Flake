@@ -358,7 +358,8 @@ in
 		description = "obsi";
 		isNormalUser = true;
 		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" "kvm" ];
-		shell = pkgs.zsh;
+		# shell = pkgs.zsh;
+		shell = pkgs.nushell;
 	};
 
 	# Allow unfree packages.
@@ -370,11 +371,6 @@ in
 			"steam-runtime"
 		];
 	};
-
-	# Shells.
-	environment.shells = with pkgs; [
-		nushell
-	];
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget

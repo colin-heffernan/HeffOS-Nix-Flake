@@ -99,6 +99,12 @@
 		recursive = true;
 	};
 
+	# Nushell config
+	home.file.".config/nushell" = {
+		source = ./dotfiles/.config/nushell;
+		recursive = true;
+	};
+
 	# .xinitrc
 	home.file.".xinitrc" = {
 		source = ./dotfiles/.xinitrc;
