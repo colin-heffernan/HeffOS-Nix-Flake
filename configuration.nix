@@ -475,7 +475,7 @@ in
 		famistudio
 		godot
 		obs-studio
-		# remmina
+		remmina
 		# via
 		# lmms
 		reaper
