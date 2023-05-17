@@ -358,8 +358,8 @@ in
 		description = "obsi";
 		isNormalUser = true;
 		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" "kvm" ];
-		# shell = pkgs.zsh;
-		shell = pkgs.nushell;
+		shell = pkgs.zsh;
+		# shell = pkgs.nushell;
 	};
 
 	# Allow unfree packages.
@@ -385,6 +385,12 @@ in
 		wineWowPackages.waylandFull
 		yabridge
 		yabridgectl
+
+		# Shell stuff
+		bash
+		zsh
+		nushell
+		starship
 
 		# Compositor
 		# hyprland
