@@ -703,20 +703,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs",
-        "nvcode": "nvcode",
-        "steam": "steam"
-      }
-    },
-    "steam": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-mD+YggeJ32F9omsr3MTOjpZZpK6c/xDG9NfvI6PlAbk=",
-        "type": "tarball",
-        "url": "https://repo.steampowered.com/steam/archive/beta/steam_latest-beta.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://repo.steampowered.com/steam/archive/beta/steam_latest-beta.tar.gz"
+        "nvcode": "nvcode"
       }
     },
     "telescope-nvim": {

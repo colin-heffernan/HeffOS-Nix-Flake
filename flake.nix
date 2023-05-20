@@ -21,11 +21,11 @@
 			url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
 			flake = false;
 		};
-		steam = {
-			type = "tarball";
-			url = "https://repo.steampowered.com/steam/archive/beta/steam_latest-beta.tar.gz";
-			flake = false;
-		};
+		# steam = {
+		# 	type = "tarball";
+		# 	url = "https://repo.steampowered.com/steam/archive/beta/steam_latest-beta.tar.gz";
+		# 	flake = false;
+		# };
 		nvcode = {
 			url = "github:colin-heffernan/NVCode-Flake";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +49,8 @@
 	};
 
 	# outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, steam, nvcode, ... }@inputs:
-	outputs = { self, nixpkgs, home-manager, hyprland, discord, steam, nvcode, ... }@inputs:
+	# outputs = { self, nixpkgs, home-manager, hyprland, discord, steam, nvcode, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -82,9 +83,9 @@
 						# 		cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DWANT_VST=ON" "-DWANT_VST_32=ON" "-DWANT_VST_64=ON" ];
 						# 	}
 						# );
-						steam = prev.steam.overrideAttrs (
-							_: { src = inputs.steam; }
-						);
+						# steam = prev.steam.overrideAttrs (
+						# 	_: { src = inputs.steam; }
+						# );
 					})
 				];
 			};
