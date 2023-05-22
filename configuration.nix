@@ -358,8 +358,8 @@ in
 		description = "obsi";
 		isNormalUser = true;
 		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" "kvm" ];
-		shell = pkgs.zsh;
-		# shell = pkgs.nushell;
+		# shell = pkgs.zsh;
+		shell = pkgs.nushell;
 	};
 
 	# Allow unfree packages.
@@ -371,6 +371,13 @@ in
 			"steam-runtime"
 		];
 	};
+
+	# List of shells
+	environment.shells = with pkgs; [
+		bash
+		zsh
+		nushell
+	];
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -448,6 +455,9 @@ in
 		file
 		zk
 		pandoc
+		clipboard-jh
+		fzf
+		zoxide
 
 		# TUI programs
 		vim

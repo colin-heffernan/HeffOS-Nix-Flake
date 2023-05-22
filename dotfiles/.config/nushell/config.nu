@@ -46,38 +46,38 @@ let dark_theme = {
     block: "#a9b1d6"
     hints: "dark_gray"
 
-    shape_and: { fg: "#bb9af7" attr: "b" }
-    shape_binary: { fg: "#bb9af7" attr: "b" }
-    shape_block: { fg: "#7aa2f7" attr: "b" }
-    shape_bool: "#7dcfff"
-    shape_custom: "#9ece6a"
-    shape_datetime: { fg: "#7dcfff" attr: "b" }
-    shape_directory: "#7dcfff"
-    shape_external: "#7dcfff"
-    shape_externalarg: { fg: "#9ece6a" attr: "b" }
-    shape_filepath: "#7dcfff"
-    shape_flag: { fg: "#7aa2f7" attr: "b" }
-    shape_float: { fg: "#bb9af7" attr: "b" }
-    shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: "b" }
-    shape_globpattern: { fg: "#7dcfff" attr: "b" }
-    shape_int: { fg: "#bb9af7" attr: "b" }
-    shape_internalcall: { fg: "#7dcfff" attr: "b" }
-    shape_list: { fg: "#7dcfff" attr: "b" }
-    shape_literal: "#7aa2f7"
-    shape_match_pattern: "#9ece6a"
-    shape_matching_brackets: { attr: "u" }
-    shape_nothing: "#7dcfff"
-    shape_operator: "#e0af68"
-    shape_or: { fg: "#bb9af7" attr: "b" }
-    shape_pipe: { fg: "#bb9af7" attr: "b" }
-    shape_range: { fg: "#e0af68" attr: "b" }
-    shape_record: { fg: "#7dcfff" attr: "b" }
-    shape_redirection: { fg: "#bb9af7" attr: "b" }
-    shape_signature: { fg: "#9ece6a" attr: "b" }
-    shape_string: "#9ece6a"
-    shape_string_interpolation: { fg: "#7dcfff" attr: "b" }
-    shape_table: { fg: "#7aa2f7" attr: "b" }
-    shape_variable: "#bb9af7"
+    shape_and: "#c0caf5"
+    shape_binary: "#c0caf5"
+    shape_block: "#c0caf5"
+    shape_bool: "#c0caf5"
+    shape_custom: "#c0caf5"
+    shape_datetime: "#c0caf5"
+    shape_directory: "#c0caf5"
+    shape_external: { fg: "#9ece6a" attr: "b" }
+    shape_externalarg: "#c0caf5"
+    shape_filepath: "#c0caf5"
+    shape_flag: "#c0caf5"
+    shape_float: "#c0caf5"
+    shape_garbage: { fg: "#c0caf5" bg: "#f7768e" attr: "b" }
+    shape_globpattern: "#c0caf5"
+    shape_int: "#c0caf5"
+    shape_internalcall: { fg: "#9ece6a" attr: "b" }
+    shape_list: "#c0caf5"
+    shape_literal: "#c0caf5"
+    shape_match_pattern: "#c0caf5"
+    shape_matching_brackets: { attr: "n" }
+    shape_nothing: "#c0caf5"
+    shape_operator: "#c0caf5"
+    shape_or: "#c0caf5"
+    shape_pipe: "#c0caf5"
+    shape_range: "#c0caf5"
+    shape_record: "#c0caf5"
+    shape_redirection: "#c0caf5"
+    shape_signature: "#c0caf5"
+    shape_string: "#c0caf5"
+    shape_string_interpolation: "#c0caf5"
+    shape_table: "#c0caf5"
+    shape_variable: "#c0caf5"
 
     background: "#1a1b26"
     foreground: "#c0caf5"
@@ -414,3 +414,5 @@ let-env config = {
     }
   ]
 }
+
+source ~/.zoxide.nu

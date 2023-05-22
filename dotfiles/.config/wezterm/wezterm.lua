@@ -1,16 +1,53 @@
 local wezterm = require "wezterm"
-local config = {
-	color_scheme = "tokyonight",
-	font = wezterm.font "Iosevka",
-	font_size = 12,
-	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 0.8,
-	window_padding = {
-		left = "5px",
+
+function recompute_stretch(window, pane)
+	local window_dims = window:get_dimensions()
+	local overrides = window:get_config_overrides() or {}
+	local window_conf = window:effective_config() or {}
+	local tab_dims = pane:tab():get_size()
+
+	left_pad = math.floor((window_dims.pixel_width - tab_dims.pixel_width) / 2)
+	top_pad = math.floor((window_dims.pixel_height - tab_dims.pixel_height) / 2)
+	if
+		overrides.window_padding
+		and overrides.window_padding.left == left_pad
+		and overrides.window_padding.top == top_pad
+	then
+		return
+	end
+	overrides.window_padding = {
+		left = left_pad,
 		right = 0,
-		top = "5px",
+		top = top_pad,
 		bottom = 0
 	}
+
+	window:set_config_overrides(overrides)
+end
+
+wezterm.on("window-resized", function(window, pane)
+	recompute_stretch(window, pane)
+end)
+
+wezterm.on("window-config-reloaded", function(window, pane)
+	recompute_stretch(window, pane)
+end)
+
+local config = {
+	adjust_window_size_when_changing_font_size = false,
+	allow_square_glyphs_to_overflow_width = "Never",
+	audible_bell = "Disabled",
+	color_scheme = "tokyonight",
+	font = wezterm.font "Iosevka",
+	font_size = 12.0,
+	hide_tab_bar_if_only_one_tab = true,
+	window_background_opacity = 0.8,
+	--[[ window_padding = { ]]
+	--[[ 	left = 0, ]]
+	--[[ 	right = 0, ]]
+	--[[ 	top = 0, ]]
+	--[[ 	bottom = 0 ]]
+	--[[ } ]]
 }
 
 return config

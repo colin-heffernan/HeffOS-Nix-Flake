@@ -47,7 +47,7 @@
 		enable = true;
 		font = {
 			name = "Iosevka";
-			size = 12;
+			size = 12.0;
 		};
 		settings = {
 			cursor_shape = "beam";
@@ -102,6 +102,12 @@
 	# Nushell config
 	home.file.".config/nushell" = {
 		source = ./dotfiles/.config/nushell;
+		recursive = true;
+	};
+
+	# Wezterm config
+	home.file.".config/wezterm" = {
+		source = ./dotfiles/.config/wezterm;
 		recursive = true;
 	};
 
