@@ -453,11 +453,13 @@ in
 			collection-xetex;
 		})
 		file
-		zk
 		pandoc
 		clipboard-jh
 		fzf
 		zoxide
+		qmk
+		xplr
+		bat
 
 		# TUI programs
 		vim
@@ -469,7 +471,6 @@ in
 		nvcode
 		# neovim-unwrapped
 		helix
-		qmk
 
 		# GUI programs
 		firefox
