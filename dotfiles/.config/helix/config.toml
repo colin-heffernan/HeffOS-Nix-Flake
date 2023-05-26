@@ -1,4 +1,4 @@
-theme = "tokyonight"
+theme = "tokyonight_nobg"
 
 [editor]
 scrolloff = 3
@@ -18,7 +18,7 @@ completion-trigger-len = 1
 auto-info = true
 true-color = true
 rulers = []
-bufferline = "always"
+bufferline = "never"
 color-modes = true
 
 [editor.statusline]
