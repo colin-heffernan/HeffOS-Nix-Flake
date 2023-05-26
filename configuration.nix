@@ -526,7 +526,7 @@ in
 		# nodePackages.vscode-css-languageserver-bin
 		# nodePackages.vscode-html-languageserver-bin
 		# nodePackages.vscode-json-languageserver
-		rnix-lsp
+		nil
 		# rust-analyzer
 		# texlab
 
