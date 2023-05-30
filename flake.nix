@@ -12,10 +12,10 @@
 			url = "github:hyprwm/hyprland";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		eww = {
-			url = "github:elkowar/eww";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# eww = {
+		# 	url = "github:elkowar/eww";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		discord = {
 			type = "tarball";
 			url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
@@ -51,7 +51,7 @@
 	# outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, steam, nvcode, ... }@inputs:
 	# outputs = { self, nixpkgs, home-manager, hyprland, discord, steam, nvcode, ... }@inputs:
 	# outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
-	outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, nvcode, helix, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, helix, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -63,7 +63,7 @@
 					# emacs-overlay.overlay
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
-						inherit (eww.packages.${prev.system}) eww-wayland;
+						# inherit (eww.packages.${prev.system}) eww-wayland;
 						helix = helix.packages.${prev.system}.helix-dev;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
