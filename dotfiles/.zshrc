@@ -28,3 +28,6 @@ source ~/.p10k.zsh
 
 # Hook direnv
 eval "$(direnv hook zsh)"
+
+# Setup Zoxide
+eval "$(zoxide init zsh)"
