@@ -57,6 +57,12 @@
 		theme = "Tokyo Night";
 	};
 
+	# LF config
+	home.file.".config/lf" = {
+		source = ./dotfiles/.config/lf;
+		recursive = true;
+	};
+
 	# NCMPCPP config
 	programs.ncmpcpp = {
 		enable = true;

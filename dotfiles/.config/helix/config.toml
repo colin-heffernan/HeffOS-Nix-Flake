@@ -22,13 +22,13 @@ bufferline = "never"
 color-modes = true
 
 [editor.statusline]
-left = ["mode", "file-type"]
+left = ["mode"]
 center = ["spacer"]
-right = ["diagnostics"]
+right = ["spacer"]
 separator = "+"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
 
 [editor.lsp]
 display-messages = false

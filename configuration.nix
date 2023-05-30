@@ -358,8 +358,8 @@ in
 		description = "obsi";
 		isNormalUser = true;
 		extraGroups = [ "wheel" "storage" "video" "audio" "libvirtd" "kvm" ];
-		# shell = pkgs.zsh;
-		shell = pkgs.nushell;
+		shell = pkgs.zsh;
+		# shell = pkgs.nushell;
 	};
 
 	# Allow unfree packages.
@@ -458,8 +458,9 @@ in
 		fzf
 		zoxide
 		qmk
-		xplr
 		bat
+		exa
+		pistol
 
 		# TUI programs
 		vim
@@ -471,6 +472,8 @@ in
 		nvcode
 		# neovim-unwrapped
 		helix
+		lf
+		xplr
 
 		# GUI programs
 		firefox
