@@ -15,13 +15,13 @@ alias srn="sudo reboot now"							# Reboot the system
 alias lg="lazygit"								# Shorthand for lazygit
 
 # Options
-SAVEHIST=1000
+export SAVEHIST=1000
 unsetopt beep
 bindkey -e
-EDITOR="hx"
-VISUAL="hx"
-MANPAGER="sh -c 'col -bx | bat --color=always -l man -p'"
-PAGER="sh -c 'col -bx | bat --color=always -l man -p'"
+export EDITOR="hx"
+export VISUAL="hx"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="Enki-Tokyo-Night"
 
 # Apply Powerlevel10k theme
 source ~/.p10k.zsh

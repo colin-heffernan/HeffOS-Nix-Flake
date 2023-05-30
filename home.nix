@@ -111,6 +111,12 @@
 		recursive = true;
 	};
 
+	# Pistol config
+	home.file.".config/pistol" = {
+		source = ./dotfiles/.config/pistol;
+		recursive = true;
+	};
+
 	# Wezterm config
 	home.file.".config/wezterm" = {
 		source = ./dotfiles/.config/wezterm;
