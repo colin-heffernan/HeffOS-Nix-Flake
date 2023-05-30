@@ -38,10 +38,10 @@
 		# 	url = "github:colin-heffernan/EMCore";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
 		# };
-		# helix = {
-		# 	url = "github:helix-editor/helix";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		helix = {
+			url = "github:helix-editor/helix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		# emacs-overlay = {
 		# 	url = "github:nix-community/emacs-overlay";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +50,8 @@
 
 	# outputs = { self, nixpkgs, home-manager, hyprland, eww, discord, steam, nvcode, ... }@inputs:
 	# outputs = { self, nixpkgs, home-manager, hyprland, discord, steam, nvcode, ... }@inputs:
-	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
+	# outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, hyprland, discord, nvcode, helix, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			pkgs = import nixpkgs {
@@ -63,7 +64,7 @@
 					(final: prev: {
 						nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
 						# inherit (eww.packages.${prev.system}) eww-wayland;
-						# helix-unwrapped = helix.packages.${prev.system}.helix-unwrapped;
+						helix = helix.packages.${prev.system}.helix-dev;
 						discord = prev.discord.overrideAttrs (
 							_: { src = inputs.discord; }
 						);
