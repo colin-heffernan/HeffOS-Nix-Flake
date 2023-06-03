@@ -441,17 +441,17 @@ in
 		nix-direnv
 		wego
 		mongosh
-		(texlive.combine {
-			inherit (texlive) collection-basic
-			# collection-binextra collection-langenglish
-			chktex
-			collection-langenglish
-			collection-fontsextra collection-fontsrecommended collection-fontutils
-			collection-latex collection-latexextra collection-latexrecommended
-			collection-mathscience collection-pictures
-			collection-plaingeneric collection-publishers
-			collection-xetex;
-		})
+		# (texlive.combine {
+		# 	inherit (texlive) collection-basic
+		# 	# collection-binextra collection-langenglish
+		# 	chktex
+		# 	collection-langenglish
+		# 	collection-fontsextra collection-fontsrecommended collection-fontutils
+		# 	collection-latex collection-latexextra collection-latexrecommended
+		# 	collection-mathscience collection-pictures
+		# 	collection-plaingeneric collection-publishers
+		# 	collection-xetex;
+		# })
 		file
 		pandoc
 		clipboard-jh
