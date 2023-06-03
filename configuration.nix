@@ -555,6 +555,7 @@ in
 		freetube
 		protontricks
 		mpd-discord-rpc
+		steamtinkerlaunch
 	];
 
 	# Overlays
