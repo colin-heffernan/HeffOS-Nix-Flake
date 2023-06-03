@@ -11,7 +11,7 @@ cursorline = false
 cursorcolumn = false
 gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
 auto-completion = true
-auto-format = false
+auto-format = true
 auto-save = false
 idle-timeout = 300
 completion-trigger-len = 1
@@ -31,7 +31,7 @@ mode.insert = "I"
 mode.select = "S"
 
 [editor.lsp]
-display-messages = false
+display-messages = true
 auto-signature-help = true
 display-signature-help-docs = true
 
