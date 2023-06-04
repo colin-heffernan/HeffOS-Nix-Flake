@@ -1,2 +1,12 @@
-[language-server.rust-analyzer.config]
-check = { command = "clippy" }
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name = "nix"
+auto-format = true
+
+[language.formatter]
+command = "alejandra"
+args = [
+  "--quiet"
+]
