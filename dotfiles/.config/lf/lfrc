@@ -6,12 +6,6 @@ set cursorpreviewfmt "\033[7;90m"
 set previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean
 
-# Zoxide
-cmd z %{{
-	result="$(zoxide query --exclude $PWD $@)"
-	lf -remote "send $id cd \"$result\""
-}}
-
 # FZF
 cmd fzf ${{
 	result="$(fd -H . | fzf --preview 'bat --color=always {}' --preview-window '~3')"
