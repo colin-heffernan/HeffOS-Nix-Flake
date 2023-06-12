@@ -514,7 +514,7 @@ in {
     # Chat
     discord
     element-desktop
-    cinny-desktop
+    # cinny-desktop
     revolt-desktop
 
     # Content creation tools
