@@ -514,6 +514,7 @@ in {
     # Chat
     discord
     element-desktop
+    revolt-desktop
 
     # Content creation tools
     audacity
