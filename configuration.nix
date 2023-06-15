@@ -514,7 +514,6 @@ in {
     # Chat
     discord
     element-desktop
-    # cinny-desktop
     revolt-desktop
 
     # Content creation tools
@@ -535,6 +534,7 @@ in {
     # Just for fun :)
     # cmatrix
     prismlauncher
+    minetest
     freetube
     protontricks
     mpd-discord-rpc
