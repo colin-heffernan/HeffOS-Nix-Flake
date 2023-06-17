@@ -30,4 +30,4 @@ source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
 # Setup Zoxide
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
