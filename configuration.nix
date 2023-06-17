@@ -402,8 +402,6 @@ in {
     # Shell stuff
     bash
     zsh
-    nushell
-    starship
 
     # Compositor
     # hyprland
@@ -412,7 +410,6 @@ in {
     xdg-user-dirs
     xdg-utils
     lxqt.lxqt-policykit
-    waybar
     eww-wayland
     swaybg
     configure-gtk
@@ -450,7 +447,6 @@ in {
     direnv
     nix-direnv
     wego
-    mongosh
     # (texlive.combine {
     # 	inherit (texlive) collection-basic
     # 	# collection-binextra collection-langenglish
@@ -466,7 +462,6 @@ in {
     pandoc
     clipboard-jh
     fzf
-    zoxide
     qmk
     bat
     exa
@@ -476,38 +471,29 @@ in {
     vim
     lazygit
     neofetch
-    pfetch
     ncmpcpp
     btop
     nvcode
     helix
     lf
-    xplr
 
     # GUI programs
-    # firefox
     brave
-    # ungoogled-chromium
     qpwgraph
     slurp
     grim
     rofi-wayland
-    kitty
     wezterm
-    thunderbird
     lxappearance
     easyeffects
     mpv
     virt-manager
-    gnome.zenity
-    # emcore
     famistudio
-    godot
     obs-studio
     remmina
     reaper
     musescore
-    # libreoffice
+    gimp
 
     # VSTs
     distrho
@@ -516,13 +502,6 @@ in {
     discord
     element-desktop
     revolt-desktop
-
-    # Content creation tools
-    audacity
-    gimp
-    # krita
-    inkscape
-    libsForQt5.kdenlive
 
     # Language servers
     marksman
@@ -533,11 +512,9 @@ in {
     alejandra
 
     # Just for fun :)
-    # cmatrix
     prismlauncher
     minetest
     freetube
-    protontricks
     mpd-discord-rpc
     steamtinkerlaunch
   ];
