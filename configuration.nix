@@ -485,9 +485,9 @@ in {
     xplr
 
     # GUI programs
-    firefox
+    # firefox
     brave
-    ungoogled-chromium
+    # ungoogled-chromium
     qpwgraph
     slurp
     grim
@@ -507,6 +507,7 @@ in {
     remmina
     reaper
     musescore
+    # libreoffice
 
     # VSTs
     distrho
