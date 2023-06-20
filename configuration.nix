@@ -494,6 +494,7 @@ in {
     reaper
     musescore
     gimp
+    joplin-desktop
 
     # VSTs
     distrho
