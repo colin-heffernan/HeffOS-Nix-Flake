@@ -418,8 +418,14 @@ in {
     qt6.qtwayland
 
     # Themes
-    gnome.adwaita-icon-theme
+    catppuccin-cursors.mochaDark
+    catppuccin-gtk.override
+    {
+      size = "compact";
+      variant = "mocha";
+    }
     papirus-icon-theme
+    gnome.adwaita-icon-theme
     arc-theme
 
     # CLI programs

@@ -32,6 +32,20 @@
     userEmail = "colinpheffernan@gmail.com";
   };
 
+  # GTK
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Dark-Cursors";
+    };
+    iconTheme = {
+      name = "Papirus";
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Blue";
+    };
+  };
+
   # Helix config
   home.file.".config/helix" = {
     source = ./dotfiles/.config/helix;
