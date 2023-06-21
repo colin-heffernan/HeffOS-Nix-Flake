@@ -419,11 +419,7 @@ in {
 
     # Themes
     catppuccin-cursors.mochaDark
-    catppuccin-gtk.override
-    {
-      size = "compact";
-      variant = "mocha";
-    }
+    catppuccin-gtk
     papirus-icon-theme
     gnome.adwaita-icon-theme
     arc-theme

@@ -38,6 +38,10 @@
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
     };
+    font = {
+      name = "Liberation Sans";
+      size = "10";
+    };
     iconTheme = {
       name = "Papirus";
     };

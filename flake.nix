@@ -95,6 +95,14 @@
           # steam = prev.steam.overrideAttrs (
           # 	_: { src = inputs.steam; }
           # );
+          catppuccin-gtk = prev.catppuccin-gtk.overrideAttrs (
+            _: {
+              accents = ["blue"];
+              size = "compact";
+              tweaks = ["rimless"];
+              variant = "mocha";
+            }
+          );
         })
       ];
     };
