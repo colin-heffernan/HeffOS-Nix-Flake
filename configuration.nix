@@ -331,9 +331,10 @@ in {
   # services.flatpak.enable = true;
 
   # Enable Qt5 support and make it match GTK2.
-  qt.enable = true;
-  qt.platformTheme = "gtk2";
-  qt.style = "gtk2";
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
 
   # Install fonts.
   fonts = {
@@ -415,12 +416,13 @@ in {
     configure-gtk
     update-dbus-env
     startw
-    qt6.qtwayland
+    # qt6.qtwayland
 
     # Themes
     catppuccin-cursors.mochaDark
     catppuccin-gtk
     catppuccin-kvantum
+    kvantum
     papirus-icon-theme
 
     # CLI programs
