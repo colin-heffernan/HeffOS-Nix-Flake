@@ -417,7 +417,6 @@ in {
     configure-gtk
     update-dbus-env
     startw
-    # qt6.qtwayland
 
     # Themes
     catppuccin-cursors.mochaDark
