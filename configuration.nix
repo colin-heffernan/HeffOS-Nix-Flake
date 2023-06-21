@@ -420,9 +420,8 @@ in {
     # Themes
     catppuccin-cursors.mochaDark
     catppuccin-gtk
+    catppuccin-kvantum
     papirus-icon-theme
-    gnome.adwaita-icon-theme
-    arc-theme
 
     # CLI programs
     curl
