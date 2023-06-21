@@ -40,7 +40,7 @@
     };
     font = {
       name = "Liberation Sans";
-      size = "10";
+      size = 10;
     };
     iconTheme = {
       name = "Papirus";
