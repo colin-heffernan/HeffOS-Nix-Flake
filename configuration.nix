@@ -330,10 +330,11 @@ in {
   # Enable Flatpak support.
   # services.flatpak.enable = true;
 
-  # Enable Qt5 support and make it match GTK2.
+  # Enable Qt support and make it match GTK2.
   qt = {
     enable = true;
-    platformTheme = "qt5ct";
+    platformTheme = "gtk2";
+    style = "gtk2";
   };
 
   # Install fonts.
@@ -422,7 +423,6 @@ in {
     catppuccin-cursors.mochaDark
     catppuccin-gtk
     catppuccin-kvantum
-    kvantum
     papirus-icon-theme
 
     # CLI programs
