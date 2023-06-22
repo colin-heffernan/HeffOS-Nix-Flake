@@ -233,12 +233,6 @@
     ];
   };
 
-  # Rofi config
-  home.file.".config/rofi" = {
-    source = ./dotfiles/.config/rofi;
-    recursive = true;
-  };
-
   # Starship config
   programs.starship = {
     enable = true;
