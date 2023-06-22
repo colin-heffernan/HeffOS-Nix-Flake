@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  catppuccin-bat,
+  catppuccin-btop,
+  catppuccin-starship,
+  catppuccin-prism,
   ...
-}: {
+} @ inputs: {
   # Tell Home-Manager what home to manage
   home.username = "obsi";
   home.homeDirectory = "/home/obsi";
@@ -17,6 +21,26 @@
   home.file.".config/awesome" = {
     source = ./dotfiles/.config/awesome;
     recursive = true;
+  };
+
+  # Bat config
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Catppuccin-mocha";
+    };
+    themes = {
+      Catppuccin-mocha = builtins.readFile (catppuccin-bat + "/Catppuccin-mocha.tmTheme");
+    };
+  };
+
+  # Direnv config
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   # EWW config
@@ -105,9 +129,14 @@
   };
 
   # Pistol config
-  home.file.".config/pistol" = {
-    source = ./dotfiles/.config/pistol;
-    recursive = true;
+  programs.pistol = {
+    enable = true;
+    associations = [
+      {
+        mime = "text/*";
+        command = "bat --paging=never --color=always -p %pistol-filename";
+      }
+    ];
   };
 
   # Rofi config
@@ -120,10 +149,17 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = {
-      add_newline = false;
-      format = "$directory$character";
-    };
+    settings =
+      {
+        add_newline = false;
+        format = "$directory$character";
+        palette = "catppuccin_mocha";
+      }
+      // builtins.fromTOML (
+        builtins.readFile
+        (catppuccin-starship
+          + /palettes/mocha.toml)
+      );
   };
 
   # Wezterm config
@@ -153,7 +189,6 @@
     };
     initExtra = ''
       unsetopt beep
-      eval "$(direnv hook zsh)"
     '';
     localVariables = {
       EDITOR = "hx";

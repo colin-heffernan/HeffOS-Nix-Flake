@@ -25,6 +25,22 @@
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+    catppuccin-btop = {
+      url = "github:catppuccin/btop";
+      flake = false;
+    };
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+    catppuccin-prism = {
+      url = "github:catppuccin/prismlauncher";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -35,6 +51,10 @@
     discord,
     nvcode,
     helix,
+    catppuccin-bat,
+    catppuccin-btop,
+    catppuccin-starship,
+    catppuccin-prism,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -69,6 +89,9 @@
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = {
+              inherit catppuccin-bat catppuccin-btop catppuccin-starship catppuccin-prism;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;
             home-manager.users.obsi = import ./home.nix;
