@@ -197,8 +197,8 @@
     defaultTimeout = 0;
     font = "Iosevka 10";
     layer = "top";
-    progressColor = "313244";
-    textColor = "cdd6f4";
+    progressColor = "#313244";
+    textColor = "#cdd6f4";
   };
 
   # NCMPCPP config
