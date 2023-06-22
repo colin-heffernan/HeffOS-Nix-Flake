@@ -4,7 +4,6 @@
   catppuccin-bat,
   catppuccin-btop,
   catppuccin-starship,
-  catppuccin-prism,
   ...
 } @ inputs: {
   # Tell Home-Manager what home to manage

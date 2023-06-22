@@ -37,10 +37,6 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
-    catppuccin-prism = {
-      url = "github:catppuccin/prismlauncher";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -54,7 +50,6 @@
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
-    catppuccin-prism,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -90,7 +85,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              inherit catppuccin-bat catppuccin-btop catppuccin-starship catppuccin-prism;
+              inherit catppuccin-bat catppuccin-btop catppuccin-starship;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;
