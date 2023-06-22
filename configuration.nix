@@ -502,6 +502,7 @@ in {
     slurp
     grim
     rofi-wayland
+    tofi
     wezterm
     easyeffects
     mpv

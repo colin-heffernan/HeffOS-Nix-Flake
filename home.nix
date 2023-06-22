@@ -256,6 +256,12 @@
       );
   };
 
+  # Tofi config
+  home.file.".config/tofi" = {
+    source = ./dotfiles/.config/tofi;
+    recursive = true;
+  };
+
   # Wezterm config
   programs.wezterm = {
     enable = true;
