@@ -194,7 +194,7 @@
     borderColor = "#89b4fa";
     borderRadius = 5;
     borderSize = 2;
-    defaultTimeout = 0;
+    defaultTimeout = 15000;
     font = "Iosevka 10";
     layer = "top";
     progressColor = "#313244";
