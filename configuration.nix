@@ -464,7 +464,6 @@ in {
     file
     pandoc
     clipboard-jh
-    fzf
     qmk
     bat
     exa
