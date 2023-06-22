@@ -486,7 +486,6 @@ in {
     grim
     rofi-wayland
     wezterm
-    lxappearance
     easyeffects
     mpv
     virt-manager
