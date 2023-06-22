@@ -116,6 +116,16 @@
     recursive = true;
   };
 
+  # Starship config
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+      format = "$directory$character";
+    };
+  };
+
   # Wezterm config
   home.file.".config/wezterm" = {
     source = ./dotfiles/.config/wezterm;
@@ -128,10 +138,32 @@
   };
 
   # Zsh config
-  home.file.".zshrc" = {
-    source = ./dotfiles/.zshrc;
-  };
-  home.file.".p10k.zsh" = {
-    source = ./dotfiles/.p10k.zsh;
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    dotDir = ".config/zsh";
+    history = {
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 10000;
+      share = true;
+      size = 10000;
+    };
+    initExtra = ''
+      unsetopt beep
+      eval "$(direnv hook zsh)"
+    '';
+    localVariables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    };
+    shellAliases = {
+      ssn = "sudo shutdown now";
+      srn = "sudo reboot now";
+      lg = "lazygit";
+    };
   };
 }
