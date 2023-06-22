@@ -137,6 +137,12 @@
     recursive = true;
   };
 
+  # Rofi config
+  home.file.".config/rofi" = {
+    source = ./dotfiles/.config/rofi;
+    recursive = true;
+  };
+
   # Wezterm config
   home.file.".config/wezterm" = {
     source = ./dotfiles/.config/wezterm;

@@ -1,0 +1,95 @@
+/*
+ *   Author: ObsidianChickenz
+ *   @theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+ */
+
+* {
+	blue: #7aa2f7ff;
+	dark: #1a1b26ff;
+	darker: #16161eff;
+	text: #c0caf5ff;
+	placeholder: #565f89ff;
+	invis: #00000000;
+}
+
+configuration {
+	font: "Iosevka SS14 12";
+	show-icons: true;
+	icon-theme: "Papirus";
+	drun-display-format: "{name}";
+}
+
+window {
+	background-color: @darker;
+	text-color: @text;
+	border: 2px;
+	border-color: @blue;
+	width: 20%;
+}
+
+prompt {
+	enabled: false;
+}
+
+entry {
+	background-color: @blue;
+	text-color: @dark;
+	placeholder-color: @placeholder;
+	placeholder: "Search...";
+	padding: 2px;
+}
+
+inputbar {
+	children: [ prompt, entry ];
+	background-color: @blue;
+	text-color: @dark;
+	border: 0px;
+	margin: 0px;
+	padding: 2px;
+}
+
+listview {
+	background-color: @darker;
+	lines: 5;
+	cycle: false;
+}
+
+mainbox {
+	background-color: @invis;
+	border: 0px 0px 0px 0px;
+	children: [ inputbar, listview ];
+	spacing: 0px;
+	padding: 0px;
+}
+
+element {
+	background-color: @dark;
+	text-color: @text;
+	padding: 2px;
+	margin: 2px 0px 2px 0px;
+}
+
+element-icon {
+	background-color: @dark;
+	padding: 0px 2px 0px 2px;
+}
+
+element-text {
+	background-color: @dark;
+	text-color: @text;
+	padding: 0px 0px 0px 2px;
+}
+
+element.selected {
+	background-color: @blue;
+	text-color: @dark;
+}
+
+element-icon.selected {
+	background-color: @blue;
+}
+
+element-text.selected {
+	background-color: @blue;
+	text-color: @dark;
+}
