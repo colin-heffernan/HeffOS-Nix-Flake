@@ -6,17 +6,4 @@ set cursorpreviewfmt "\033[7;90m"
 set previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean
 
-# FZF
-cmd fzf ${{
-	result="$(fd -H . | fzf --preview 'bat --color=always {}' --preview-window '~3')"
-	if [ -d "$result" ] ; then
-		cmd="cd"
-	else
-		cmd="select"
-	fi
-	lf -remote "send $id $cmd \"$result\""
-}}
-map f :fzf
-
 map gr cd ~/Repos
-map gn cd ~/Notes
