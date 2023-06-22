@@ -38,6 +38,7 @@ local config = {
 	allow_square_glyphs_to_overflow_width = "Never",
 	audible_bell = "Disabled",
 	color_scheme = "Catppuccin Mocha",
+	default_cursor_style = "SteadyBar",
 	font = wezterm.font "Iosevka",
 	font_size = 12.0,
 	hide_tab_bar_if_only_one_tab = true,
