@@ -271,6 +271,87 @@
     recursive = true;
   };
 
+  # Waybar config
+  programs.waybar = {
+    enable = true;
+    settings = {
+      bar = {
+        layer = "top";
+        position = "left";
+        modules-left = [
+          "wlr/workspaces"
+        ];
+        modules-right = [
+          "clock"
+        ];
+        "wlr/workspaces" = {
+          format = "{name}";
+          persistent_workspaces = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+          };
+        };
+        "clock" = {
+          interval = 1;
+          format = "{:%H%n%M}";
+        };
+      };
+    };
+    style = ''
+      * {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        font-family: Iosevka;
+        font-size: 16px;
+        min-height: 0;
+      }
+      #workspaces, #clock {
+        margin: 5px;
+        min-width: 32px;
+        padding: 6px;
+        background: #1e1e2e;
+        border-radius: 10px;
+        color: #7f849c;
+      }
+      #workspaces button {
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+        color: #7f849c;
+      }
+      #workspaces button.active {
+        background: #89b4fa;
+        border: none;
+        border-radius: 5px;
+        color: #1e1e2e;
+      }
+      #workspaces button:hover {
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+        color: #7f849c;
+        box-shadow: inherit;
+        text-shadow: inherit;
+      }
+      #workspaces button.active:hover {
+        background: #89b4fa;
+        border: none;
+        border-radius: 5px;
+        color: #1e1e2e;
+        box-shadow: inherit;
+        text-shadow: inherit;
+      }
+    '';
+  };
+
   # Wezterm config
   programs.wezterm = {
     enable = true;

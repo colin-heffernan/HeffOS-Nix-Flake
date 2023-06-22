@@ -429,6 +429,7 @@ in {
     xdg-utils
     lxqt.lxqt-policykit
     eww-wayland
+    waybar
     mako
     swaybg
     configure-gtk
