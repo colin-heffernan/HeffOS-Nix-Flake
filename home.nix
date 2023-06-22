@@ -134,7 +134,7 @@
     associations = [
       {
         mime = "text/*";
-        command = "bat --paging=never --color=always -p %pistol-filename";
+        command = "bat --paging=never --color=always -p %pistol-filename%";
       }
     ];
   };
