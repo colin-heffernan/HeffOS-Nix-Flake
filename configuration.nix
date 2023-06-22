@@ -15,7 +15,14 @@
     text = let
       schema = pkgs.gsettings-desktop-schemas;
       datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in "export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Compact-Blue-Dark"
+      gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+      gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Dark-Cursors"
+      gsettings set org.gnome.desktop.interface font-name "Liberation Sans 10"
+      gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    '';
   };
 
   update-dbus-env = pkgs.writeTextFile {
@@ -136,6 +143,14 @@ in {
     ];
   };
 
+  # Enable D-Bus
+  services.dbus = {
+    enable = true;
+    packages = with pkgs; [
+      dconf
+    ];
+  };
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -248,7 +263,7 @@ in {
   xdg.portal = {
     enable = true;
     # wlr.enable = true;
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   # Enable Dconf.
@@ -418,6 +433,7 @@ in {
     configure-gtk
     update-dbus-env
     startw
+    xsettingsd
 
     # Themes
     catppuccin-cursors.mochaDark
@@ -428,6 +444,7 @@ in {
     # CLI programs
     curl
     wget
+    glib
     xdotool
     xorg.xwininfo
     xclip
