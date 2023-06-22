@@ -312,11 +312,11 @@ in {
     enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    interactiveShellInit = ''
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
-    '';
+    # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    # interactiveShellInit = ''
+    #   source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+    #   source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
+    # '';
   };
 
   # Enable Steam.
@@ -404,6 +404,7 @@ in {
     # Shell stuff
     bash
     zsh
+    starship
 
     # Compositor
     # hyprland
