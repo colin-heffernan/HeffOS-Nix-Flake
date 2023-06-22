@@ -186,6 +186,21 @@
     recursive = true;
   };
 
+  # Mako config
+  services.mako = {
+    enable = true;
+    anchor = "top-right";
+    backgroundColor = "#1e1e2e";
+    borderColor = "#89b4fa";
+    borderRadius = 5;
+    borderSize = 2;
+    defaultTimeout = 0;
+    font = "Iosevka 10";
+    layer = "top";
+    progressColor = "313244";
+    textColor = "cdd6f4";
+  };
+
   # NCMPCPP config
   programs.ncmpcpp = {
     enable = true;

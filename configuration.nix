@@ -429,11 +429,15 @@ in {
     xdg-utils
     lxqt.lxqt-policykit
     eww-wayland
+    mako
     swaybg
     configure-gtk
     update-dbus-env
     startw
     xsettingsd
+    slurp
+    grim
+    tofi
 
     # Themes
     catppuccin-cursors.mochaDark
@@ -499,10 +503,6 @@ in {
     # GUI programs
     brave
     qpwgraph
-    slurp
-    grim
-    rofi-wayland
-    tofi
     wezterm
     easyeffects
     mpv
