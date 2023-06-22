@@ -62,6 +62,16 @@
     recursive = true;
   };
 
+  # Exa config
+  programs.exa = {
+    enable = true;
+    extraOptions = [
+      "-la"
+      "--group-directories-first"
+    ];
+    icons = true;
+  };
+
   # Git config
   programs.git = {
     enable = true;
