@@ -55,12 +55,6 @@
     };
   };
 
-  # EWW config
-  home.file.".config/eww" = {
-    source = ./dotfiles/.config/eww;
-    recursive = true;
-  };
-
   # Exa config
   programs.exa = {
     enable = true;
@@ -437,8 +431,6 @@
       unsetopt beep
     '';
     localVariables = {
-      EDITOR = "hx";
-      VISUAL = "hx";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     };
     shellAliases = {
