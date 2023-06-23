@@ -458,7 +458,7 @@ in {
     ffmpeg
     man-pages
     man-db
-    wmname
+    # wmname
     mpc-cli
     lsof
     ripgrep
@@ -467,8 +467,6 @@ in {
     zip
     unzip
     p7zip
-    socat
-    fd
     direnv
     nix-direnv
     wego
@@ -490,6 +488,7 @@ in {
     bat
     exa
     pistol
+    fd
 
     # TUI programs
     vim
