@@ -55,6 +55,11 @@
     };
   };
 
+  # EasyEffects
+  services.easyeffects = {
+    enable = true;
+  };
+
   # Exa config
   programs.exa = {
     enable = true;
@@ -195,6 +200,17 @@
     textColor = "#cdd6f4";
   };
 
+  # MPD Discord RPC config
+  services.mpd-discord-rpc = {
+    enable = true;
+    settings = {
+      format = {
+        details = "$title";
+        state = "On $album by $artist";
+      };
+    };
+  };
+
   # NCMPCPP config
   programs.ncmpcpp = {
     enable = true;
@@ -243,21 +259,21 @@
   };
 
   # Starship config
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings =
-      {
-        add_newline = false;
-        format = "$directory$character";
-        palette = "catppuccin_mocha";
-      }
-      // builtins.fromTOML (
-        builtins.readFile
-        (catppuccin-starship
-          + /palettes/mocha.toml)
-      );
-  };
+  # programs.starship = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   settings =
+  #     {
+  #       add_newline = false;
+  #       format = "$directory$character";
+  #       palette = "catppuccin_mocha";
+  #     }
+  #     // builtins.fromTOML (
+  #       builtins.readFile
+  #       (catppuccin-starship
+  #         + /palettes/mocha.toml)
+  #     );
+  # };
 
   # Tofi config
   home.file.".config/tofi" = {
@@ -408,35 +424,50 @@
     '';
   };
 
+  # XDG config
+  xdg = {
+    enable = true;
+    mime = {
+      enable = true;
+    };
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      extraConfig = {
+        XDG_REPOS_DIR = "${config.home.homeDirectory}/Repos";
+      };
+    };
+  };
+
   # .xinitrc
   home.file.".xinitrc" = {
     source = ./dotfiles/.xinitrc;
   };
 
   # Zsh config
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    dotDir = ".config/zsh";
-    history = {
-      ignoreDups = true;
-      ignoreSpace = true;
-      save = 10000;
-      share = true;
-      size = 10000;
-    };
-    initExtra = ''
-      unsetopt beep
-    '';
-    localVariables = {
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-    };
-    shellAliases = {
-      ssn = "sudo shutdown now";
-      srn = "sudo reboot now";
-      lg = "lazygit";
-    };
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   enableAutosuggestions = true;
+  #   enableCompletion = true;
+  #   enableSyntaxHighlighting = true;
+  #   dotDir = ".config/zsh";
+  #   history = {
+  #     ignoreDups = true;
+  #     ignoreSpace = true;
+  #     save = 10000;
+  #     share = true;
+  #     size = 10000;
+  #   };
+  #   initExtra = ''
+  #     unsetopt beep
+  #   '';
+  #   localVariables = {
+  #     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+  #   };
+  #   shellAliases = {
+  #     ssn = "sudo shutdown now";
+  #     srn = "sudo reboot now";
+  #     lg = "lazygit";
+  #   };
+  # };
 }

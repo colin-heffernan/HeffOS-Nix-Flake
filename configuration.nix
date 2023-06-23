@@ -6,6 +6,7 @@
   pkgs,
   lib,
   nixpkgs,
+  catppuccin-starship,
   ...
 }: let
   configure-gtk = pkgs.writeTextFile {
@@ -165,6 +166,19 @@ in {
     };
   };
 
+  # Enable Manpages
+  documentation.man = {
+    enable = true;
+    man-db = {
+      enable = true;
+    };
+  };
+
+  # Enable Git
+  programs.git = {
+    enable = true;
+  };
+
   # Enable Polkit.
   security.polkit.enable = true;
 
@@ -206,6 +220,11 @@ in {
       enable = true;
       hidpi = true;
     };
+  };
+
+  # Enable Waybar.
+  programs.waybar = {
+    enable = true;
   };
 
   # Enable graphics stuff.
@@ -325,13 +344,42 @@ in {
   # Enable Zsh.
   programs.zsh = {
     enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # interactiveShellInit = ''
-    #   source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    #   source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
-    # '';
+    autosuggestions = {
+      enable = true;
+      async = true;
+    };
+    histFile = "$XDG_CONFIG_HOME/zsh/.zsh_history";
+    histSize = 10000;
+    setOptions = [
+      "HIST_IGNORE_DUPS"
+      "HIST_IGNORE_SPACE"
+      "NO_BEEP"
+    ];
+    shellAliases = {
+      ssn = "sudo shutdown now";
+      srn = "sudo reboot now";
+      lg = "lazygit";
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+    vteIntegration = true;
+  };
+
+  # Enable Starship
+  programs.starship = {
+    enable = true;
+    settings =
+      {
+        add_newline = false;
+        format = "$directory$character";
+        palette = "catppuccin_mocha";
+      }
+      // builtins.fromTOML (
+        builtins.readFile (
+          catppuccin-starship + /palettes/mocha.toml
+        )
+      );
   };
 
   # Enable Steam.
@@ -399,16 +447,15 @@ in {
   environment.shells = with pkgs; [
     bash
     zsh
-    nushell
   ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # FS utilities
-    mtools
-    dosfstools
-    ntfs3g
+    # mtools
+    # dosfstools
+    # ntfs3g
 
     # Compatibility tools
     bottles
@@ -416,20 +463,8 @@ in {
     yabridge
     yabridgectl
 
-    # Shell stuff
-    bash
-    zsh
-    starship
-
-    # Compositor
-    # hyprland
-
     # WM/DE integration
-    xdg-user-dirs
-    xdg-utils
     lxqt.lxqt-policykit
-    eww-wayland
-    waybar
     mako
     swaybg
     configure-gtk
@@ -443,7 +478,6 @@ in {
     # Themes
     catppuccin-cursors.mochaDark
     catppuccin-gtk
-    catppuccin-kvantum
     papirus-icon-theme
 
     # CLI programs
@@ -452,24 +486,18 @@ in {
     glib
     xdotool
     xorg.xwininfo
-    xclip
     git
     yt-dlp
     ffmpeg
-    man-pages
-    man-db
-    # wmname
     mpc-cli
     lsof
-    ripgrep
-    pulseaudio
-    alsa-utils
+    # pulseaudio
+    # alsa-utils
     zip
     unzip
     p7zip
     direnv
     nix-direnv
-    wego
     # (texlive.combine {
     # 	inherit (texlive) collection-basic
     # 	# collection-binextra collection-langenglish
@@ -481,7 +509,6 @@ in {
     # 	collection-plaingeneric collection-publishers
     # 	collection-xetex;
     # })
-    file
     pandoc
     clipboard-jh
     qmk
@@ -489,9 +516,9 @@ in {
     exa
     pistol
     fd
+    ripgrep
 
     # TUI programs
-    vim
     lazygit
     neofetch
     ncmpcpp

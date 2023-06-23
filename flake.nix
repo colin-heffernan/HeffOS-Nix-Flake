@@ -83,7 +83,7 @@
     nixosConfigurations = {
       heffos-obsidian = lib.nixosSystem {
         inherit system pkgs;
-        specialArgs = {inherit nixpkgs;};
+        specialArgs = {inherit nixpkgs catppuccin-starship;};
         modules = [
           hyprland.nixosModules.default
           ./configuration.nix
