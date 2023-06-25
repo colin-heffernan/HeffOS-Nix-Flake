@@ -446,29 +446,11 @@
   };
 
   # Zsh config
-  # programs.zsh = {
-  #   enable = true;
-  #   enableAutosuggestions = true;
-  #   enableCompletion = true;
-  #   enableSyntaxHighlighting = true;
-  #   dotDir = ".config/zsh";
-  #   history = {
-  #     ignoreDups = true;
-  #     ignoreSpace = true;
-  #     save = 10000;
-  #     share = true;
-  #     size = 10000;
-  #   };
-  #   initExtra = ''
-  #     unsetopt beep
-  #   '';
-  #   localVariables = {
-  #     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-  #   };
-  #   shellAliases = {
-  #     ssn = "sudo shutdown now";
-  #     srn = "sudo reboot now";
-  #     lg = "lazygit";
-  #   };
-  # };
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    localVariables = {
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    };
+  };
 }
