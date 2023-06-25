@@ -541,6 +541,7 @@ in {
     musescore
     gimp
     joplin-desktop
+    obsidian
 
     # VSTs
     distrho
