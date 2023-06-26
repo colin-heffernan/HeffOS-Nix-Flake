@@ -3,9 +3,8 @@
   pkgs,
   catppuccin-bat,
   catppuccin-btop,
-  catppuccin-starship,
   ...
-} @ inputs: {
+}: {
   # Tell Home-Manager what home to manage
   home.username = "obsi";
   home.homeDirectory = "/home/obsi";
@@ -260,23 +259,6 @@
       }
     ];
   };
-
-  # Starship config
-  # programs.starship = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  #   settings =
-  #     {
-  #       add_newline = false;
-  #       format = "$directory$character";
-  #       palette = "catppuccin_mocha";
-  #     }
-  #     // builtins.fromTOML (
-  #       builtins.readFile
-  #       (catppuccin-starship
-  #         + /palettes/mocha.toml)
-  #     );
-  # };
 
   # Tofi config
   home.file.".config/tofi" = {
