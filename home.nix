@@ -208,6 +208,9 @@
         details = "$title";
         state = "On $album by $artist";
       };
+      hosts = [
+        "localhost:6000"
+      ];
     };
   };
 
