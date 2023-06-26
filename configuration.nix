@@ -417,7 +417,7 @@ in {
       antialias = true;
       hinting = {
         enable = true;
-        style = "hintfull";
+        style = "full";
       };
     };
   };
