@@ -90,7 +90,7 @@
       name = "Papirus";
     };
     theme = {
-      name = "Catppuccin-Mocha-Compact-Blue-Dark";
+      name = "Catppuccin-Mocha-Compact-Blue-dark";
     };
   };
 
