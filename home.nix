@@ -208,7 +208,7 @@
         state = "On $album by $artist";
       };
       hosts = [
-        "localhost:6000"
+        "127.0.0.1:6600"
       ];
     };
   };
