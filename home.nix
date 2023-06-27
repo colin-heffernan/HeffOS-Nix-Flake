@@ -296,6 +296,7 @@
         "clock" = {
           interval = 1;
           format = "{:%H%n%M}";
+          format-alt = "{:%m%n%d}";
         };
       };
     };
@@ -314,9 +315,15 @@
         padding: 6px;
         background: #1e1e2e;
         border-radius: 10px;
-        color: #7f849c;
+        color: #cdd6f4;
       }
       #workspaces button {
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+        color: #cdd6f4;
+      }
+      #workspaces button.persistent {
         background: transparent;
         border: none;
         border-radius: 5px;
@@ -329,6 +336,14 @@
         color: #1e1e2e;
       }
       #workspaces button:hover {
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+        color: #cdd6f4;
+        box-shadow: inherit;
+        text-shadow: inherit;
+      }
+      #workspaces button.persistent:hover {
         background: transparent;
         border: none;
         border-radius: 5px;
