@@ -517,6 +517,7 @@ in {
     pistol
     fd
     ripgrep
+    file
 
     # TUI programs
     lazygit
