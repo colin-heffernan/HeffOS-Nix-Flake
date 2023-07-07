@@ -532,6 +532,7 @@ in {
     brave
     qpwgraph
     wezterm
+    kitty
     easyeffects
     mpv
     virt-manager
