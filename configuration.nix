@@ -89,7 +89,7 @@ in {
   ];
 
   # Hostname
-  networking.hostName = "heffos-obsidian"; # Define your hostname.
+  networking.hostName = "heffos"; # Define your hostname.
 
   /*
      # Wired connectivity
@@ -116,8 +116,8 @@ in {
   # Wireless connectivity
   networking.wireless = {
     enable = true;
-    userControlled.enable = true;
-    environmentFile = "/home/obsi/Repos/HeffOS-Nix-Flake/secrets/wireless.env";
+    # userControlled.enable = true;
+    environmentFile = "/home/colin/Repos/HeffOS-Nix-Flake/secrets/wireless.env";
     networks = {
       "eduroam" = {
         auth = ''
@@ -140,7 +140,6 @@ in {
     packages = with pkgs; [
       qmk
       qmk-udev-rules
-      via
     ];
   };
 
@@ -423,13 +422,14 @@ in {
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.obsi = {
-    home = "/home/obsi";
-    description = "obsi";
+  users.mutableUsers = false;
+  users.users.colin = {
+    home = "/home/colin";
+    description = "colin";
     isNormalUser = true;
     extraGroups = ["wheel" "storage" "video" "audio" "libvirtd" "kvm"];
     shell = pkgs.zsh;
-    # shell = pkgs.nushell;
+    passwordFile = "/persist/passwords/colin";
   };
 
   # Allow unfree packages.

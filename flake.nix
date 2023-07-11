@@ -81,7 +81,7 @@
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations = {
-      heffos-obsidian = lib.nixosSystem {
+      heffos = lib.nixosSystem {
         inherit system pkgs;
         specialArgs = {inherit nixpkgs catppuccin-starship;};
         modules = [
@@ -94,7 +94,7 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;
-            home-manager.users.obsi = import ./home.nix;
+            home-manager.users.colin = import ./home.nix;
           }
         ];
       };

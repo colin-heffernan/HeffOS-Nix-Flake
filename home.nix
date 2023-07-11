@@ -6,11 +6,11 @@
   ...
 }: {
   # Tell Home-Manager what home to manage
-  home.username = "obsi";
-  home.homeDirectory = "/home/obsi";
+  home.username = "colin";
+  home.homeDirectory = "/home/colin";
 
   # State version
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;
