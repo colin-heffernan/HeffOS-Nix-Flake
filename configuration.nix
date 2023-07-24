@@ -135,6 +135,9 @@ in {
     };
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+
   # Add udev rules
   services.udev = {
     packages = with pkgs; [
