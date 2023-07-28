@@ -249,7 +249,12 @@ in {
       enable = true;
       qemu = {
         swtpm.enable = true;
-        ovmf.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            pkgs.OVMFFull.fd
+          ];
+        };
       };
     };
     spiceUSBRedirection.enable = true;
