@@ -247,8 +247,10 @@ in {
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemuSwtpm = true;
-      qemuOvmf = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+      };
     };
     spiceUSBRedirection.enable = true;
   };
