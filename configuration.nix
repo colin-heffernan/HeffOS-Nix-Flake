@@ -249,7 +249,6 @@ in {
       enable = true;
       qemuSwtpm = true;
       qemuOvmf = true;
-      qemuOvmfPackage = pkgs.OVMFFull;
     };
     spiceUSBRedirection.enable = true;
   };
