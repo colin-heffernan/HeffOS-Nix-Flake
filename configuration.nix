@@ -245,7 +245,12 @@ in {
 
   # Enable virtualization
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemuSwtpm = true;
+      qemuOvmf = true;
+      qemuOvmfPackage = pkgs.OVMFFull;
+    };
     spiceUSBRedirection.enable = true;
   };
 
@@ -466,6 +471,10 @@ in {
     yabridge
     yabridgectl
 
+    # Virtualization
+    virt-manager
+    win-virtio
+
     # WM/DE integration
     lxqt.lxqt-policykit
     mako
@@ -538,7 +547,6 @@ in {
     kitty
     easyeffects
     mpv
-    virt-manager
     famistudio
     obs-studio
     remmina
