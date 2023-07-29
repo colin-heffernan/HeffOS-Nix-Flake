@@ -21,10 +21,10 @@
       url = "github:colin-heffernan/NVCode-Flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # helix = {
+    #   url = "github:helix-editor/helix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -46,7 +46,7 @@
     hyprland,
     discord,
     nvcode,
-    helix,
+    # helix,
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
@@ -60,7 +60,7 @@
         nvcode.overlays.default
         (final: prev: {
           nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
-          helix = helix.packages.${prev.system}.helix-dev;
+          # helix = helix.packages.${prev.system}.helix-dev;
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}
           );
