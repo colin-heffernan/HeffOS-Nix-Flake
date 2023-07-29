@@ -415,7 +415,7 @@ in {
 
   # Install fonts.
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       emacs-all-the-icons-fonts
       iosevka
       (nerdfonts.override {fonts = ["Iosevka"];})
