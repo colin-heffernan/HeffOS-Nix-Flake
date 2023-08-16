@@ -218,10 +218,6 @@ in {
   ];
   programs.hyprland = {
     enable = true;
-    xwayland = {
-      enable = true;
-      hidpi = true;
-    };
   };
 
   # Enable Waybar.
