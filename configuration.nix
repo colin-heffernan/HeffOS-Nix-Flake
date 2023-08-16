@@ -300,12 +300,12 @@ in {
   # Enable MPD.
   services.mpd = {
     enable = true;
-    dataDir = "/home/obsi/.config/mpd";
-    musicDirectory = "/home/obsi/Music/Music";
-    playlistDirectory = "/home/obsi/Music/Playlists";
+    dataDir = "/home/colin/.config/mpd";
+    musicDirectory = "/home/colin/Music/Music";
+    playlistDirectory = "/home/colin/Music/Playlists";
     extraConfig = ''
-      state_file	"/home/obsi/.config/mpd/state"
-      sticker_file	"/home/obsi/.config/mpd/sticker.sql"
+      state_file	"/home/colin/.config/mpd/state"
+      sticker_file	"/home/colin/.config/mpd/sticker.sql"
 
       bind_to_address	"127.0.0.1"
       restore_paused	"yes"
@@ -324,7 +324,7 @@ in {
       }
     '';
     startWhenNeeded = true;
-    user = "obsi";
+    user = "colin";
   };
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
