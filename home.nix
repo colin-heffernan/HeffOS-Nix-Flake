@@ -45,6 +45,12 @@
     };
   };
 
+  # CAVA config
+  home.file.".config/cava" = {
+    source = ./dotfiles/.config/cava;
+    recursive = true;
+  };
+
   # Direnv config
   programs.direnv = {
     enable = true;

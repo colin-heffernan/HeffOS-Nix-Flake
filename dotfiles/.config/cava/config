@@ -1,0 +1,2 @@
+method = pipewire
+source = alsa:pcm:1

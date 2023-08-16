@@ -592,6 +592,7 @@ in {
     freetube
     mpd-discord-rpc
     steamtinkerlaunch
+    cava
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
