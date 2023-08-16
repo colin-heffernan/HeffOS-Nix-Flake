@@ -311,16 +311,12 @@ in {
       restore_paused	"yes"
       auto_update	"yes"
 
+      follow_outside_symlinks	"yes"
+      follow_inside_symlinks	"yes"
+
       audio_output {
       	type	"pipewire"
       	name	"PipeWire Sound Server"
-      }
-
-      audio_output {
-      	type	"fifo"
-      	name	"Visualizer"
-      	path	"/tmp/mpd.fifo"
-      	format	"44100:16:2"
       }
     '';
     startWhenNeeded = true;
@@ -453,7 +449,7 @@ in {
     home = "/home/colin";
     description = "colin";
     isNormalUser = true;
-    extraGroups = ["wheel" "storage" "video" "audio" "libvirtd" "kvm"];
+    extraGroups = ["wheel" "storage" "video" "audio" "libvirtd" "kvm" "mpd"];
     shell = pkgs.zsh;
     passwordFile = "/persist/passwords/colin";
   };
