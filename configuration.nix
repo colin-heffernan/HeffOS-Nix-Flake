@@ -570,6 +570,7 @@ in {
     gimp
     joplin-desktop
     obsidian
+    cinnamon.warpinator
 
     # VSTs
     distrho
