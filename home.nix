@@ -280,7 +280,7 @@
         layer = "top";
         position = "left";
         modules-left = [
-          "wlr/workspaces"
+          "hyprland/workspaces"
         ];
         modules-right = [
           "clock"
