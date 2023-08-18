@@ -285,7 +285,7 @@
         modules-right = [
           "clock"
         ];
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
           format = "{name}";
           persistent_workspaces = {
             "1" = [];

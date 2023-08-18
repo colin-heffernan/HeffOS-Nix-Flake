@@ -213,9 +213,9 @@ in {
   services.picom.enable = true;
 
   # Enable the Hyprland compositor.
-  disabledModules = [
-    "programs/hyprland.nix"
-  ];
+  # disabledModules = [
+  #   "programs/hyprland.nix"
+  # ];
   programs.hyprland = {
     enable = true;
   };
@@ -223,6 +223,7 @@ in {
   # Enable Waybar.
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar-hyprland;
   };
 
   # Enable graphics stuff.

@@ -7,11 +7,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      # url = "github:hyprwm/hyprland?rev=10b9e9bbe5fc71c5d7617776927c22db1167b10b";
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   # url = "github:hyprwm/hyprland?rev=10b9e9bbe5fc71c5d7617776927c22db1167b10b";
+    #   url = "github:hyprwm/hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     discord = {
       type = "tarball";
       url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
@@ -43,7 +43,7 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
+    # hyprland,
     discord,
     nvcode,
     # helix,
@@ -70,11 +70,11 @@
             tweaks = ["rimless"];
             variant = "mocha";
           };
-          waybar = prev.waybar.overrideAttrs (
-            oldAttrs: {
-              mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-            }
-          );
+          # waybar = prev.waybar.overrideAttrs (
+          #   oldAttrs: {
+          #     mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+          #   }
+          # );
         })
       ];
     };
@@ -85,7 +85,7 @@
         inherit system pkgs;
         specialArgs = {inherit nixpkgs catppuccin-starship;};
         modules = [
-          hyprland.nixosModules.default
+          # hyprland.nixosModules.default
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
