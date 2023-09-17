@@ -451,7 +451,7 @@ in {
     isNormalUser = true;
     extraGroups = ["wheel" "storage" "video" "audio" "libvirtd" "kvm" "mpd"];
     shell = pkgs.zsh;
-    passwordFile = "/persist/passwords/colin";
+    hashedPasswordFile = "/persist/passwords/colin";
   };
 
   # Allow unfree packages.
