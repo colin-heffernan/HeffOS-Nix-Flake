@@ -66,7 +66,7 @@
   };
 
   # Exa config
-  programs.exa = {
+  programs.eza = {
     enable = true;
     extraOptions = [
       "-la"
