@@ -539,7 +539,7 @@ in {
     clipboard-jh
     qmk
     bat
-    exa
+    eza
     pistol
     fd
     ripgrep
