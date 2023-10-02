@@ -65,7 +65,7 @@
     enable = true;
   };
 
-  # Exa config
+  # Eza config
   programs.eza = {
     enable = true;
     extraOptions = [
