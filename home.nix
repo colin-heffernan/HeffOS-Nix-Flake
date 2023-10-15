@@ -28,7 +28,10 @@
       theme = "Catppuccin-mocha";
     };
     themes = {
-      Catppuccin-mocha = builtins.readFile (catppuccin-bat + "/Catppuccin-mocha.tmTheme");
+      Catppuccin-mocha = {
+        src = catppuccin-bat;
+        file = "Catppuccin-mocha.tmTheme";
+      };
     };
   };
 
