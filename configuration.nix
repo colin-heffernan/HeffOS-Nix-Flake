@@ -17,7 +17,7 @@
       datadir = "${schema}/share/gsettings-schemas/${schema.name}";
     in ''
       export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Compact-Blue-dark"
+      gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Compact-Blue-Dark"
       gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
       gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Dark-Cursors"
       gsettings set org.gnome.desktop.interface font-name "Liberation Sans 10"
