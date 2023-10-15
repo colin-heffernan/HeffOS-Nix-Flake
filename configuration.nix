@@ -550,7 +550,7 @@ in {
     neofetch
     ncmpcpp
     btop
-    nvcode
+    # nvcode
     helix
     lf
 
