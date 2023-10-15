@@ -73,9 +73,12 @@ in {
   };
 
   # Enable suupport for Nix-Direnv
-  environment.pathsToLink = [
-    "/share/nix-direnv"
-  ];
+  # environment.pathsToLink = [
+  #   "/share/nix-direnv"
+  # ];
+
+  # Enable Direnv
+  programs.direnv.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -522,8 +525,6 @@ in {
     zip
     unzip
     p7zip
-    direnv
-    nix-direnv
     # (texlive.combine {
     # 	inherit (texlive) collection-basic
     # 	# collection-binextra collection-langenglish

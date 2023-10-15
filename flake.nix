@@ -48,7 +48,6 @@
       overlays = [
         # nvcode.overlays.default
         (final: prev: {
-          nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}
           );
