@@ -454,17 +454,6 @@ in {
     hashedPasswordFile = "/persist/passwords/colin";
   };
 
-  # Allow unfree packages.
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "steam"
-        "steam-original"
-        "steam-runtime"
-      ];
-  };
-
   # List of shells
   environment.shells = with pkgs; [
     bash

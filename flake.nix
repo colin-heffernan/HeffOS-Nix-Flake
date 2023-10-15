@@ -44,7 +44,15 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = pkg:
+          builtins.elem (lib.getName pkg) [
+            "steam"
+            "steam-original"
+            "steam-runtime"
+          ];
+      };
       overlays = [
         # nvcode.overlays.default
         (final: prev: {
