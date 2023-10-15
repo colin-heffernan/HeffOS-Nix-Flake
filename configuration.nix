@@ -5,7 +5,6 @@
   config,
   pkgs,
   lib,
-  nixpkgs,
   catppuccin-starship,
   ...
 }: let
@@ -68,8 +67,6 @@ in {
       keep-outputs = true
       keep-derivations = true
     '';
-    registry.nixpkgs.flake = nixpkgs;
-    nixPath = ["nixpkgs=${nixpkgs}"];
   };
 
   # Enable suupport for Nix-Direnv

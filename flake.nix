@@ -65,7 +65,7 @@
     nixosConfigurations = {
       heffos = lib.nixosSystem {
         inherit system pkgs;
-        specialArgs = {inherit nixpkgs catppuccin-starship;};
+        specialArgs = {inherit catppuccin-starship;};
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
