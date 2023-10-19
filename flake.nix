@@ -12,10 +12,10 @@
       url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
       flake = false;
     };
-    # nvcode = {
-    #   url = "github:colin-heffernan/NVCode-Flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -35,7 +35,7 @@
     nixpkgs,
     home-manager,
     discord,
-    # nvcode,
+    nixvim,
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
@@ -54,7 +54,6 @@
           ];
       };
       overlays = [
-        # nvcode.overlays.default
         (final: prev: {
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}
@@ -75,6 +74,7 @@
         inherit system pkgs;
         specialArgs = {inherit catppuccin-starship;};
         modules = [
+          nixvim.nixosModules.nixvim
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {

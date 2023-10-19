@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  lib,
   catppuccin-starship,
   ...
 }: let
@@ -237,6 +236,110 @@ in {
     # extraPackages32 = with pkgs.pkgsi686Linux; [
     # 	libva
     # ];
+  };
+
+  # Enable Nixvim
+  programs.nixvim = {
+    enable = true;
+    colorscheme = "catppuccin";
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+      transparentBackground = true;
+    };
+    keymaps = [
+      {
+        action = "<C-w>k";
+        key = "<C-Up>";
+        mode = "n";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        action = "<C-w>j";
+        key = "<C-Down>";
+        mode = "n";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        action = "<C-w>h";
+        key = "<C-Left>";
+        mode = "n";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        action = "<C-w>l";
+        key = "<C-Right>";
+        mode = "n";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        action = "<";
+        key = "<gv";
+        mode = "v";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        action = ">";
+        key = ">gv";
+        mode = "v";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+    ];
+    options = {
+      ignorecase = true;
+      laststatus = 3;
+      list = true;
+      number = true;
+      numberwidth = 4;
+      scrolloff = 3;
+      sidescrolloff = 3;
+      showmode = false;
+      showtabline = 0;
+      signcolumn = "yes";
+      smartcase = true;
+      smartindent = true;
+      termguicolors = true;
+      wrap = false;
+      writebackup = false;
+    };
+    plugins = {
+      lualine = {
+        enable = true;
+        globalstatus = true;
+        sections = {
+          lualine_a = ["mode"];
+          lualine_b = ["buffers"];
+          lualine_c = [""];
+          lualine_x = [""];
+          lualine_y = [""];
+          lualine_z = [""];
+        };
+        theme = "catppuccin";
+      };
+      noice.enable = true;
+      notify = {
+        enable = true;
+        stages = "slide";
+      };
+    };
   };
 
   # Enable virtualization
@@ -537,7 +640,6 @@ in {
     neofetch
     ncmpcpp
     btop
-    # nvcode
     helix
     lf
 
