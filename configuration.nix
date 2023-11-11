@@ -475,9 +475,6 @@ in {
   # Enable Java.
   programs.java.enable = true;
 
-  # Enable Weechat.
-  services.weechat.enable = true;
-
   # Enable Flatpak support.
   # services.flatpak.enable = true;
 
