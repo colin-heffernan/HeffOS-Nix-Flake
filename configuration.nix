@@ -68,11 +68,6 @@ in {
     '';
   };
 
-  # Enable suupport for Nix-Direnv
-  # environment.pathsToLink = [
-  #   "/share/nix-direnv"
-  # ];
-
   # Enable Direnv
   programs.direnv.enable = true;
 
@@ -202,9 +197,6 @@ in {
       startx = {
         enable = true;
       };
-      # gdm = {
-      # 	enable = true;
-      # };
     };
     layout = "us";
     videoDrivers = ["amdgpu"];
@@ -212,9 +204,6 @@ in {
   services.picom.enable = true;
 
   # Enable the Hyprland compositor.
-  # disabledModules = [
-  #   "programs/hyprland.nix"
-  # ];
   programs.hyprland = {
     enable = true;
   };
@@ -381,12 +370,6 @@ in {
     audio.enable = true;
     pulse.enable = true;
     jack.enable = true;
-    # config = {
-    # 	pipewire = {
-    # 		default.clock.rate = 48000;
-    # 		resample.quality = 10;
-    # 	};
-    # };
     wireplumber.enable = true;
   };
 
@@ -428,26 +411,6 @@ in {
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
-
-  # Enable SyncThing.
-  # services.syncthing = {
-  # 	enable = true;
-  # 	dataDir = "/home/obsi";
-  # 	configDir = "/home/obsi/.config/syncthing";
-  # 	devices = {
-  # 		# "OldLaptop" = {
-  # 		# 	id = "ENJMHOW-XLCN5VN-S3HIFPM-N7W76PA-TOAHXBU-RG7UOSM-ZC73H2P-FYQCZQ2";
-  # 		# };
-  # 	};
-  # 	folders = {
-  # 		"Music" = {
-  # 			id = "";
-  # 			path = "/home/obsi/Music/Music";
-  # 			devices = [  ];
-  # 		};
-  # 	};
-  # 	user = "obsi";
-  # };
 
   # Enable Zsh.
   programs.zsh = {
@@ -507,9 +470,7 @@ in {
   };
 
   # Enable Steam.
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam.enable = true;
 
   # Enable Java.
   programs.java.enable = true;
@@ -574,8 +535,6 @@ in {
     # Compatibility tools
     bottles
     wineWowPackages.waylandFull
-    yabridge
-    yabridgectl
 
     # Virtualization
     virt-manager
@@ -608,7 +567,6 @@ in {
     yt-dlp
     ffmpeg
     mpc-cli
-    lsof
     # pulseaudio
     # alsa-utils
     zip
@@ -652,22 +610,12 @@ in {
     mpv
     famistudio
     obs-studio
-    remmina
-    reaper
-    musescore
     gimp
-    joplin-desktop
-    obsidian
     cinnamon.warpinator
-    freecad
-
-    # VSTs
-    distrho
 
     # Chat
     discord
     element-desktop
-    revolt-desktop
 
     # Language servers
     marksman
@@ -679,7 +627,6 @@ in {
 
     # Just for fun :)
     prismlauncher
-    minetest
     freetube
     mpd-discord-rpc
     steamtinkerlaunch
@@ -699,7 +646,7 @@ in {
     enable = false;
     # passwordAuthentication = false;
     # permitRootLogin = "no";
-    # ports = [ 17701 ];
+    # ports = [];
   };
 
   # Open ports in the firewall.
