@@ -659,6 +659,7 @@ in {
     joplin-desktop
     obsidian
     cinnamon.warpinator
+    freecad
 
     # VSTs
     distrho
