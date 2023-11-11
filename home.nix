@@ -290,17 +290,6 @@
         ];
         "hyprland/workspaces" = {
           format = "{name}";
-          persistent_workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
-            "4" = [];
-            "5" = [];
-            "6" = [];
-            "7" = [];
-            "8" = [];
-            "9" = [];
-          };
         };
         "clock" = {
           interval = 1;
@@ -332,12 +321,6 @@
         border-radius: 5px;
         color: #cdd6f4;
       }
-      #workspaces button.persistent {
-        background: transparent;
-        border: none;
-        border-radius: 5px;
-        color: #7f849c;
-      }
       #workspaces button.active {
         background: #89b4fa;
         border: none;
@@ -349,14 +332,6 @@
         border: none;
         border-radius: 5px;
         color: #cdd6f4;
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-      #workspaces button.persistent:hover {
-        background: transparent;
-        border: none;
-        border-radius: 5px;
-        color: #7f849c;
         box-shadow: inherit;
         text-shadow: inherit;
       }
