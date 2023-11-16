@@ -600,6 +600,7 @@ in {
     btop
     helix
     lf
+    weechat
 
     # GUI programs
     brave
