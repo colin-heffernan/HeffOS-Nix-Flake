@@ -617,6 +617,7 @@ in {
     # Chat
     discord
     element-desktop
+    teamspeak5_client
 
     # Language servers
     marksman
