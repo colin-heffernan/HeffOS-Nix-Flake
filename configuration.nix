@@ -615,6 +615,7 @@ in {
     cinnamon.warpinator
 
     # Chat
+    cinny-desktop
     discord
     element-desktop
     teamspeak5_client
