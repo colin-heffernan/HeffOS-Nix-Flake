@@ -187,6 +187,21 @@
     recursive = true;
   };
 
+  # Kitty config
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "Iosevka";
+      size = 12.0;
+    };
+    settings = {
+      cursor_shape = "beam";
+      enable_audio_bell = false;
+      background_opacity = "0.8";
+    };
+    theme = "Catppuccin-Mocha";
+  };
+
   # LF config
   home.file.".config/lf" = {
     source = ./dotfiles/.config/lf;
