@@ -130,9 +130,9 @@
         mouse = false;
         middle-click-paste = false;
         idle-timeout = 300;
+        preview-completion-insert = false;
         completion-replace = true;
-        true-color = true;
-        undercurl = true;
+        bufferline = "never";
         color-modes = true;
         statusline = {
           left = ["mode"];
@@ -149,19 +149,6 @@
         };
         cursor-shape = {
           insert = "bar";
-        };
-        file-picker = {
-          hidden = false;
-          max-depth = 5;
-        };
-        auto-pairs = {
-          "(" = ")";
-          "{" = "}";
-          "[" = "]";
-          "'" = "'";
-          "\"" = "\"";
-          "`" = "`";
-          "<" = ">";
         };
         whitespace = {
           render = "all";
