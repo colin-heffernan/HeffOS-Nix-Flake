@@ -613,7 +613,6 @@ in {
     obs-studio
     gimp
     cinnamon.warpinator
-    reaper
 
     # Chat
     cinny-desktop
