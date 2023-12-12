@@ -630,6 +630,7 @@ in {
 
     # Just for fun :)
     prismlauncher
+    osu-lazer-bin
     freetube
     mpd-discord-rpc
     steamtinkerlaunch
