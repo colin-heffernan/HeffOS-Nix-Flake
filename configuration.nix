@@ -600,6 +600,8 @@ in {
     btop
     helix
     lf
+    zellij
+    xplr
     weechat
 
     # GUI programs
