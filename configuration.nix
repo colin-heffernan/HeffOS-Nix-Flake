@@ -6,53 +6,7 @@
   pkgs,
   catppuccin-starship,
   ...
-}: let
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure-gtk";
-    executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Compact-Blue-Dark"
-      gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-      gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Dark-Cursors"
-      gsettings set org.gnome.desktop.interface font-name "Liberation Sans 10"
-      gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-    '';
-  };
-
-  update-dbus-env = pkgs.writeTextFile {
-    name = "update-dbus-env";
-    destination = "/bin/update-dbus-env";
-    executable = true;
-    text = ''
-      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
-      systemctl --user stop pipewire pipewire-pulse wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
-      systemctl --user start xdg-desktop-portal xdg-desktop-portal-hyprland
-      systemctl --user start pipewire pipewire-pulse wireplumber
-    '';
-  };
-
-  startw = pkgs.writeTextFile {
-    name = "startw";
-    destination = "/bin/startw";
-    executable = true;
-    text = ''
-      # export WAYLAND_DISPLAY
-      # export XDG_CURRENT_DESKTOP=Hyprland
-      # export GTK_THEME=Arc-Tokyo-Night
-      # export MUSESAMPLER_PATH=/usr/lib/libMuseSamplerCoreLib.so
-      # export MUSESAMPLER_INSTRUMENT_FOLDER=/srv/muse-hub/downloads/Instruments/
-      # export WINEPREFIX=/home/obsi/.local/share/bottles/bottles/VSTs/
-      # export WINELOADER=/home/obsi/.local/share/bottles/runners/soda-7.0-8/bin/wine64
-      # export WINEDLLPATH=/home/obsi/.local/share/bottles/runners/soda-7.0-8/lib/wine/x86_64-unix/
-      exec Hyprland
-    '';
-  };
-in {
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -308,62 +262,23 @@ in {
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
-  # Enable Zsh.
-  programs.zsh = {
+  # Enable Fish
+  programs.fish = {
     enable = true;
-    autosuggestions = {
-      enable = true;
-      async = true;
-    };
-    histFile = "$XDG_CONFIG_HOME/zsh/.zsh_history";
-    histSize = 10000;
-    interactiveShellInit = ''
-      lfcd () {
-        tmp="$(mktemp)"
-        # `command` is needed in case `lfcd` is aliased to `lf`
-        command lf -last-dir-path="$tmp" "$@"
-        if [ -f "$tmp" ]; then
-          dir="$(cat "$tmp")"
-          rm -f "$tmp"
-          if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-              cd "$dir"
-            fi
-          fi
-        fi
-      }
-    '';
-    setOptions = [
-      "HIST_IGNORE_DUPS"
-      "HIST_IGNORE_SPACE"
-      "NO_BEEP"
-    ];
-    shellAliases = {
+    shellAbbrs = {
+      startw = "exec Hyprland";
       ssn = "sudo shutdown now";
       srn = "sudo reboot now";
+      sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#heffos";
       lg = "lazygit";
     };
-    syntaxHighlighting = {
-      enable = true;
-    };
-    vteIntegration = true;
   };
 
   # Enable Starship
-  programs.starship = {
-    enable = true;
-    settings =
-      {
-        add_newline = false;
-        format = "$directory$character";
-        palette = "catppuccin_mocha";
-      }
-      // builtins.fromTOML (
-        builtins.readFile (
-          catppuccin-starship + /palettes/mocha.toml
-        )
-      );
-  };
+  programs.starship.enable = true;
+
+  # Enable Neovim
+  programs.neovim.enable = true;
 
   # Enable Steam.
   programs.steam.enable = true;
@@ -384,14 +299,9 @@ in {
   # Install fonts.
   fonts = {
     packages = with pkgs; [
-      emacs-all-the-icons-fonts
       iosevka
       (nerdfonts.override {fonts = ["Iosevka"];})
       liberation_ttf
-      lmodern
-      noto-fonts
-      noto-fonts-extra
-      victor-mono
     ];
     fontconfig = {
       enable = true;
@@ -410,7 +320,7 @@ in {
     description = "colin";
     isNormalUser = true;
     extraGroups = ["wheel" "storage" "video" "audio" "libvirtd" "kvm" "mpd"];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     hashedPasswordFile = "/persist/passwords/colin";
   };
 
@@ -418,6 +328,7 @@ in {
   environment.shells = with pkgs; [
     bash
     zsh
+    fish
   ];
 
   # List packages installed in system profile. To search, run:
@@ -440,18 +351,10 @@ in {
     lxqt.lxqt-policykit
     mako
     swaybg
-    configure-gtk
-    update-dbus-env
-    startw
     xsettingsd
     slurp
     grim
     tofi
-
-    # Themes
-    catppuccin-cursors.mochaDark
-    catppuccin-gtk
-    papirus-icon-theme
 
     # CLI programs
     curl
@@ -480,7 +383,7 @@ in {
     # 	collection-xetex;
     # })
     pandoc
-    clipboard-jh
+    wl-clipboard
     qmk
     bat
     eza
@@ -496,7 +399,6 @@ in {
     btop
     helix
     lf
-    zellij
     xplr
     weechat
 

@@ -1,8 +1,16 @@
 {
   config,
   pkgs,
+  lib,
   catppuccin-bat,
   catppuccin-btop,
+  catppuccin-starship,
+  xplr-icons,
+  xplr-extra-icons,
+  xplr-web-devicons,
+  xplr-one-table-column,
+  xplr-map,
+  xplr-find,
   ...
 }: {
   # Tell Home-Manager what home to manage
@@ -78,13 +86,12 @@
   # Direnv config
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
     nix-direnv = {
       enable = true;
     };
   };
 
-  # EasyEffects
+  # EasyEffects config
   services.easyeffects = {
     enable = true;
   };
@@ -99,6 +106,11 @@
     icons = true;
   };
 
+  # Fish config
+  programs.fish = {
+    enable = true;
+  };
+
   # Git config
   programs.git = {
     enable = true;
@@ -109,19 +121,26 @@
   # GTK
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Dark-Cursors";
-    };
     font = {
       name = "Liberation Sans";
+      package = pkgs.liberation_ttf;
       size = 10;
     };
     iconTheme = {
       name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
     theme = {
       name = "Catppuccin-Mocha-Compact-Blue-Dark";
+      package = pkgs.catppuccin-gtk;
     };
+  };
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 24;
   };
 
   # Helix config
@@ -190,22 +209,132 @@
   };
 
   # Hyprland config
-  home.file.".config/hypr" = {
-    source = ./dotfiles/.config/hypr;
-    recursive = true;
+  home.file."Pictures/bg.png" = {
+    source = ./dotfiles/.config/hypr/nixhex.png;
+  };
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      monitor = "DP-3,highrr,auto,1";
+      workspace = "DP-3,1";
+      general = {
+        border_size = 2;
+        gaps_in = 5;
+        gaps_out = 5;
+        "col.active_border" = "rgba(89b4faff) rgba(89dcebff) 30deg";
+        "col.inactive_border" = "rgba(11111bff) rgba(181825ff) 30deg";
+        layout = "dwindle";
+        no_cursor_warps = true;
+        no_focus_fallback = true;
+        hover_icon_on_border = false;
+      };
+      decoration = {
+        rounding = 5;
+        drop_shadow = false;
+        dim_inactive = false;
+        blur = {
+          size = 3;
+          passes = 3;
+          noise = 0.2;
+          contrast = 0.25;
+          brightness = 0.25;
+          vibrancy = 0.25;
+          vibrancy_darkness = 0.12;
+        };
+      };
+      animations = {
+        bezier = "easeOut, 0.16, 1.00, 0.32, 1.00";
+        animation = [
+          "windows, 1, 6, easeOut, popin"
+          "windowsOut, 1, 6, easeOut, popin 80%"
+          "border, 1, 6, easeOut,"
+          "fade, 1, 6, easeOut,"
+          "workspaces, 1, 6, easeOut, slidevert"
+        ];
+      };
+      dwindle = {
+        force_split = 2;
+      };
+      group = {
+        insert_after_current = false;
+      };
+      exec-once = [
+        "easyeffects --gapplication-service &"
+        "xsettingsd &"
+        "swaybg -i ~/Pictures/bg.png -m fill &"
+        "lxqt-policykit-agent &"
+      ];
+      "$mainMod" = "SUPER";
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
+      ];
+      bind =
+        [
+          "$mainMod, T, exec, kitty"
+          "$mainMod SHIFT, T, exec, wezterm"
+          "$mainMod, B, exec, brave"
+          "$mainMod SHIFT, B, exec, brave --incognito"
+          "$mainMod, P, exec, tofi-drun"
+          "$mainMod, C, killactive,"
+          "$mainMod, Q, exec, hyprctl reload"
+          "$mainMod SHIFT, Q, exit,"
+          "$mainMod, F, fullscreen,"
+          "$mainMod SHIFT, F, togglefloating"
+          "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg | wl-copy"
+          "$mainMod SHIFT, N, exec, mpc prev"
+          "$mainMod SHIFT, E, exec, mpc toggle"
+          "$mainMod SHIFT, I, exec, mpc next"
+        ]
+        ++ (
+          builtins.concatLists (builtins.genList (
+              x: let
+                ws = let
+                  c = (x + 1) / 10;
+                in
+                  builtins.toString (x + 1 - (c * 10));
+              in [
+                "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            )
+            9)
+        );
+    };
+    systemd = {
+      enable = true;
+      variables = [
+        "DISPLAY"
+        "HYPRLAND_INSTANCE_SIGNATURE"
+        "WAYLAND_DISPLAY"
+        "XDG_CURRENT_DESKTOP"
+      ];
+    };
   };
 
   # Kitty config
   programs.kitty = {
     enable = true;
     font = {
-      name = "Iosevka";
+      name = "IosevkaNerdFont";
       size = 12.0;
     };
+    keybindings = {
+      "ctrl+shift+c" = "copy_to_clipboard";
+      "ctrl+shift+v" = "paste_from_clipboard";
+      "alt+t" = "launch --cwd=current --location=split";
+      "alt+c" = "close_window";
+      "alt+left" = "neighboring_window left";
+      "alt+down" = "neighboring_window down";
+      "alt+up" = "neighboring_window up";
+      "alt+right" = "neighboring_window right";
+    };
     settings = {
+      clear_all_shortcuts = "yes";
       cursor_shape = "beam";
       enable_audio_bell = false;
       background_opacity = "0.8";
+      enabled_layouts = "splits";
     };
     theme = "Catppuccin-Mocha";
   };
@@ -290,6 +419,38 @@
         command = "bat --paging=never --color=always -p %pistol-filename%";
       }
     ];
+  };
+
+  # QT config
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
+  };
+
+  # Starship config
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+    settings =
+      {
+        add_newline = false;
+        format = lib.concatStrings [
+          "$line_break"
+          "$nix_shell"
+          "$line_break"
+          "$directory"
+          "$character"
+        ];
+        nix-shell = {
+          format = "In [$state Nix Shell]($style)";
+        };
+        palette = "catppuccin_mocha";
+      }
+      // builtins.fromTOML (
+        builtins.readFile (
+          catppuccin-starship + /palettes/mocha.toml
+        )
+      );
   };
 
   # Tofi config
@@ -453,12 +614,21 @@
     source = ./dotfiles/.xinitrc;
   };
 
-  # Zsh config
-  programs.zsh = {
+  # XPLR config
+  programs.xplr = {
     enable = true;
-    dotDir = ".config/zsh";
-    localVariables = {
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    extraConfig = ''
+      require("xplr-one-table-column").setup()
+      require("xplr-map").setup()
+      require("xplr-find").setup()
+
+      xplr.config.general.enable_mouse = true
+      xplr.config.general.show_hidden = true
+    '';
+    plugins = {
+      xplr-one-table-column = xplr-one-table-column;
+      xplr-map = xplr-map;
+      xplr-find = xplr-find;
     };
   };
 }
