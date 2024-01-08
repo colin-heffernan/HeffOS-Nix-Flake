@@ -2,20 +2,23 @@
   description = "Colin's system configuration";
 
   inputs = {
+    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Home-Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Up to date Discord
     discord = {
       type = "tarball";
       url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
       flake = false;
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    # Themes
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -28,6 +31,32 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
+
+    # XPLR plugins
+    xplr-icons = {
+      url = "github:prncss-xyz/icons.xplr";
+      flake = false;
+    };
+    xplr-extra-icons = {
+      url = "github:dtomvan/extra-icons.xplr";
+      flake = false;
+    };
+    xplr-web-devicons = {
+      url = "gitlab:hartan/web-devicons.xplr";
+      flake = false;
+    };
+    xplr-one-table-column = {
+      url = "github:duganchen/one-table-column.xplr";
+      flake = false;
+    };
+    xplr-map = {
+      url = "github:sayanarijit/map.xplr";
+      flake = false;
+    };
+    xplr-find = {
+      url = "github:sayanarijit/find.xplr";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -35,10 +64,15 @@
     nixpkgs,
     home-manager,
     discord,
-    nixvim,
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
+    xplr-icons,
+    xplr-extra-icons,
+    xplr-web-devicons,
+    xplr-one-table-column,
+    xplr-map,
+    xplr-find,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -74,12 +108,11 @@
         inherit system pkgs;
         specialArgs = {inherit catppuccin-starship;};
         modules = [
-          nixvim.nixosModules.nixvim
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              inherit catppuccin-bat catppuccin-btop catppuccin-starship;
+              inherit catppuccin-bat catppuccin-btop catppuccin-starship xplr-icons xplr-extra-icons xplr-web-devicons xplr-one-table-column xplr-map xplr-find;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;
