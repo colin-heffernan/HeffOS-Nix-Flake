@@ -49,9 +49,30 @@
   };
 
   # CAVA config
-  home.file.".config/cava" = {
-    source = ./dotfiles/.config/cava;
-    recursive = true;
+  programs.cava = {
+    enable = true;
+    settings = {
+      general = {
+        framerate = 144;
+        bar_width = 3;
+        bar_spacing = 1;
+        sensitivity = 72;
+      };
+      input = {
+        method = "pipewire";
+        source = "alsa:pcm:1";
+      };
+      color = {
+        gradient = 1;
+        gradient_count = 6;
+        gradient_color_1 = "#b4befe";
+        gradient_color_2 = "#89b4fa";
+        gradient_color_3 = "#a6e3a1";
+        gradient_color_4 = "#f9e2af";
+        gradient_color_5 = "#fab387";
+        gradient_color_6 = "#f38ba8";
+      };
+    };
   };
 
   # Direnv config
