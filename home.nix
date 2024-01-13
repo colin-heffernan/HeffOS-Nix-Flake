@@ -61,10 +61,10 @@
         sensitivity = 72;
       };
       input = {
-        # method = "pipewire";
-        # source = "alsa:pcm:1";
-        method = "fifo";
-        source = "/tmp/mpd.fifo";
+        method = "pipewire";
+        source = "alsa:pcm:1";
+        # method = "fifo";
+        # source = "/tmp/mpd.fifo";
       };
       color = {
         gradient = 1;
