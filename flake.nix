@@ -31,32 +31,6 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
-
-    # XPLR plugins
-    xplr-icons = {
-      url = "github:prncss-xyz/icons.xplr";
-      flake = false;
-    };
-    xplr-extra-icons = {
-      url = "github:dtomvan/extra-icons.xplr";
-      flake = false;
-    };
-    xplr-web-devicons = {
-      url = "gitlab:hartan/web-devicons.xplr";
-      flake = false;
-    };
-    xplr-one-table-column = {
-      url = "github:duganchen/one-table-column.xplr";
-      flake = false;
-    };
-    xplr-map = {
-      url = "github:sayanarijit/map.xplr";
-      flake = false;
-    };
-    xplr-find = {
-      url = "github:sayanarijit/find.xplr";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -67,12 +41,6 @@
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
-    xplr-icons,
-    xplr-extra-icons,
-    xplr-web-devicons,
-    xplr-one-table-column,
-    xplr-map,
-    xplr-find,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -112,7 +80,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              inherit catppuccin-bat catppuccin-btop catppuccin-starship xplr-icons xplr-extra-icons xplr-web-devicons xplr-one-table-column xplr-map xplr-find;
+              inherit catppuccin-bat catppuccin-btop catppuccin-starship;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;

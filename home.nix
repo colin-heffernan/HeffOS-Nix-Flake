@@ -5,12 +5,6 @@
   catppuccin-bat,
   catppuccin-btop,
   catppuccin-starship,
-  xplr-icons,
-  xplr-extra-icons,
-  xplr-web-devicons,
-  xplr-one-table-column,
-  xplr-map,
-  xplr-find,
   ...
 }: {
   # Tell Home-Manager what home to manage
@@ -24,10 +18,10 @@
   programs.home-manager.enable = true;
 
   # Awesome config
-  home.file.".config/awesome" = {
-    source = ./dotfiles/.config/awesome;
-    recursive = true;
-  };
+  # home.file.".config/awesome" = {
+  #   source = ./dotfiles/.config/awesome;
+  #   recursive = true;
+  # };
 
   # Bat config
   programs.bat = {
@@ -67,18 +61,20 @@
         sensitivity = 72;
       };
       input = {
-        method = "pipewire";
-        source = "alsa:pcm:1";
+        # method = "pipewire";
+        # source = "alsa:pcm:1";
+        method = "fifo";
+        source = "/tmp/mpd.fifo";
       };
       color = {
         gradient = 1;
         gradient_count = 6;
-        gradient_color_1 = "#b4befe";
-        gradient_color_2 = "#89b4fa";
-        gradient_color_3 = "#a6e3a1";
-        gradient_color_4 = "#f9e2af";
-        gradient_color_5 = "#fab387";
-        gradient_color_6 = "#f38ba8";
+        gradient_color_1 = "'#b4befe'";
+        gradient_color_2 = "'#89b4fa'";
+        gradient_color_3 = "'#a6e3a1'";
+        gradient_color_4 = "'#f9e2af'";
+        gradient_color_5 = "'#fab387'";
+        gradient_color_6 = "'#f38ba8'";
       };
     };
   };
@@ -259,7 +255,7 @@
         insert_after_current = false;
       };
       exec-once = [
-        "easyeffects --gapplication-service &"
+        # "easyeffects --gapplication-service &"
         "xsettingsd &"
         "swaybg -i ~/Pictures/bg.png -m fill &"
         "lxqt-policykit-agent &"
@@ -281,7 +277,8 @@
           "$mainMod SHIFT, Q, exit,"
           "$mainMod, F, fullscreen,"
           "$mainMod SHIFT, F, togglefloating"
-          "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg | wl-copy"
+          "$mainMod, S, exec, grim -g \"$(slurp)\" - | wl-copy"
+          "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg"
           "$mainMod SHIFT, N, exec, mpc prev"
           "$mainMod SHIFT, E, exec, mpc toggle"
           "$mainMod SHIFT, I, exec, mpc next"
@@ -340,10 +337,12 @@
   };
 
   # LF config
+  # FIXME
   home.file.".config/lf" = {
     source = ./dotfiles/.config/lf;
     recursive = true;
   };
+  # FIXME
 
   # Mako config
   services.mako = {
@@ -410,6 +409,13 @@
     };
   };
 
+  # Neovim config
+  # TODO
+  # programs.neovim = {
+  #   enable = true;
+  # };
+  # TODO
+
   # Pistol config
   programs.pistol = {
     enable = true;
@@ -424,7 +430,7 @@
   # QT config
   qt = {
     enable = true;
-    platformTheme = "gtk3";
+    platformTheme = "gtk";
   };
 
   # Starship config
@@ -441,8 +447,11 @@
           "$directory"
           "$character"
         ];
-        nix-shell = {
-          format = "In [$state Nix Shell]($style)";
+        nix_shell = {
+          format = "In [$state]($style)[Nix Shell.]($style)";
+          impure_msg = "impure ";
+          pure_msg = "pure ";
+          unknown_msg = "";
         };
         palette = "catppuccin_mocha";
       }
@@ -454,12 +463,15 @@
   };
 
   # Tofi config
+  # FIXME
   home.file.".config/tofi" = {
     source = ./dotfiles/.config/tofi;
     recursive = true;
   };
+  # FIXME
 
   # Waybar config
+  # TODO
   programs.waybar = {
     enable = true;
     settings = {
@@ -481,6 +493,23 @@
           format-alt = "{:%m%n%d}";
         };
       };
+      # vis = {
+      #   layer = "bottom";
+      #   position = "left";
+      #   exclusive = false;
+      #   modules-center = [
+      #     "cava"
+      #   ];
+      #   "cava" = {
+      #     framerate = 144;
+      #     bars = 176;
+      #     method = "fifo";
+      #     source = "/tmp/mpd.fifo";
+      #     bar_delimiter = 0;
+      #     format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+      #     rotate = 270;
+      #   };
+      # };
     };
     style = ''
       * {
@@ -527,10 +556,16 @@
         box-shadow: inherit;
         text-shadow: inherit;
       }
+      #cava {
+        color: #1e1e2e;
+        margin-left: 10px;
+      }
     '';
   };
+  # TODO
 
   # Wezterm config
+  # TODO
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -592,6 +627,7 @@
       return config
     '';
   };
+  # TODO
 
   # XDG config
   xdg = {
@@ -612,23 +648,5 @@
   # .xinitrc
   home.file.".xinitrc" = {
     source = ./dotfiles/.xinitrc;
-  };
-
-  # XPLR config
-  programs.xplr = {
-    enable = true;
-    extraConfig = ''
-      require("xplr-one-table-column").setup()
-      require("xplr-map").setup()
-      require("xplr-find").setup()
-
-      xplr.config.general.enable_mouse = true
-      xplr.config.general.show_hidden = true
-    '';
-    plugins = {
-      xplr-one-table-column = xplr-one-table-column;
-      xplr-map = xplr-map;
-      xplr-find = xplr-find;
-    };
   };
 }
