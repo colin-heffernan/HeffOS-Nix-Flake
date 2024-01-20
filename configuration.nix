@@ -270,7 +270,7 @@
       srn = "sudo reboot now";
       sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#heffos";
       lg = "lazygit";
-      fm = "joshuto";
+      fm = "cd \"$(command lf -print-last-dir $argv)\"";
     };
   };
 
