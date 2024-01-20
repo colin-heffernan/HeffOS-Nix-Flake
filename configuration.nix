@@ -417,6 +417,7 @@
         ];
       })
     gimp
+    reaper
     cinnamon.warpinator
 
     # Chat
