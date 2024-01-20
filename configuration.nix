@@ -410,7 +410,12 @@
     easyeffects
     mpv
     famistudio
-    obs-studio
+    (wrapOBS
+      {
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-livesplit-one
+        ];
+      })
     gimp
     cinnamon.warpinator
 
