@@ -279,7 +279,19 @@
   programs.starship.enable = true;
 
   # Enable Neovim
-  programs.neovim.enable = true;
+  programs.neovim = {
+    enable = true;
+    configure.packages.myVimPackage = with pkgs.vimPlugins; {
+      start = [
+        mini-nvim
+      ];
+      opt = [
+        lsp-zero-nvim
+        nvim-lspconfig
+        nvim-treesitter.withAllGrammars
+      ];
+    };
+  };
 
   # Enable Steam.
   programs.steam.enable = true;

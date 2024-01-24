@@ -410,11 +410,13 @@
   };
 
   # Neovim config
-  # TODO
-  # programs.neovim = {
-  #   enable = true;
-  # };
-  # TODO
+  programs.neovim = {
+    enable = true;
+    defaultEditor = false;
+    extraLuaConfig = ''
+      -- Someday, someday...
+    '';
+  };
 
   # Pistol config
   programs.pistol = {
