@@ -282,6 +282,8 @@
           "$mainMod SHIFT, N, exec, mpc prev"
           "$mainMod SHIFT, E, exec, mpc toggle"
           "$mainMod SHIFT, I, exec, mpc next"
+          "$mainMod SHIFT, U, exec, mpc volume +36"
+          "$mainMod SHIFT, comma, exec, mpc volume -36"
         ]
         ++ (
           builtins.concatLists (builtins.genList (
