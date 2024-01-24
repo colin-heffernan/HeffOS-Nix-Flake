@@ -432,6 +432,7 @@
     gimp
     reaper
     cinnamon.warpinator
+    libsForQt5.kdenlive
 
     # Chat
     cinny-desktop
