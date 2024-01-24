@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  pkgs-dev,
   ...
 }: {
   imports = [

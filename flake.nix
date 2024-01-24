@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-dev.url = "github:colin-heffernan/nixpkgs";
 
     # Home-Manager
     home-manager = {
@@ -36,6 +37,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-dev,
     home-manager,
     discord,
     catppuccin-bat,
@@ -69,12 +71,13 @@
         })
       ];
     };
+    pkgs-dev = import nixpkgs-dev {inherit system;};
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations = {
       heffos = lib.nixosSystem {
         inherit system pkgs;
-        specialArgs = {inherit catppuccin-starship;};
+        specialArgs = {inherit pkgs-dev catppuccin-starship;};
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
