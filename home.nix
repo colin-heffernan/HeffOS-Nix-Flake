@@ -424,13 +424,15 @@
   };
 
   # Neovim config
-  programs.neovim = {
-    enable = true;
-    defaultEditor = false;
-    extraLuaConfig = ''
-      -- Someday, someday...
-    '';
-  };
+  # FIXME
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = false;
+  #   extraLuaConfig = ''
+  #     -- Someday, someday...
+  #   '';
+  # };
+  # FIXME
 
   # Pistol config
   programs.pistol = {
