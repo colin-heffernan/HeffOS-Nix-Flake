@@ -102,6 +102,18 @@
     icons = true;
   };
 
+  # Firefox config
+  # TODO
+  # programs.firefox = {
+  #   enable = true;
+  #   profiles."colin" = {
+  #     extensions = [];
+  #     name = "Colin";
+  #     search.default = "DuckDuckGo";
+  #   };
+  # };
+  # TODO
+
   # Fish config
   programs.fish = {
     enable = true;

@@ -262,6 +262,9 @@
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
+  # Enable Firefox
+  programs.firefox.enable = true;
+
   # Enable Fish
   programs.fish = {
     enable = true;
