@@ -289,7 +289,7 @@
           "$mainMod SHIFT, Q, exit,"
           "$mainMod, F, fullscreen,"
           "$mainMod SHIFT, F, togglefloating"
-          "$mainMod, S, exec, grim -g \"$(slurp)\" - | wl-copy"
+          "$mainMod, S, exec, grim -t jpeg -g \"$(slurp)\" - | wl-copy"
           "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg"
           "$mainMod SHIFT, N, exec, mpc prev"
           "$mainMod SHIFT, E, exec, mpc toggle"
