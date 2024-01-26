@@ -281,8 +281,8 @@
         [
           "$mainMod, T, exec, kitty"
           "$mainMod SHIFT, T, exec, wezterm"
-          "$mainMod, B, exec, brave"
-          "$mainMod SHIFT, B, exec, brave --incognito"
+          "$mainMod, B, exec, firefox"
+          "$mainMod SHIFT, B, exec, firefox --private"
           "$mainMod, P, exec, tofi-drun"
           "$mainMod, C, killactive,"
           "$mainMod, Q, exec, hyprctl reload"
