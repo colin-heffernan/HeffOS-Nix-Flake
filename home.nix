@@ -122,6 +122,11 @@
   # Git config
   programs.git = {
     enable = true;
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
     userName = "Colin Heffernan";
     userEmail = "colinpheffernan@gmail.com";
   };
