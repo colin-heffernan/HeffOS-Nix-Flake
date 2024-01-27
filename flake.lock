@@ -51,8 +51,8 @@
     "discord": {
       "flake": false,
       "locked": {
-        "lastModified": 1704822318,
-        "narHash": "sha256-5EKqw50Hh6vmATlfHfBG5SJiH0GQlZ++LOGVMDRE6+E=",
+        "lastModified": 1705961312,
+        "narHash": "sha256-4JzPD+gD2io/I4hpDdpe56PVIfOzgXXZL8xxVasl7pY=",
         "type": "tarball",
         "url": "https://discord.com/api/download/stable?platform=linux&format=tar.gz"
       },
@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705708511,
-        "narHash": "sha256-3f4BkRY70Fj7yvuo87c4QQPAjnt571g2wJ50jY7hnYc=",
+        "lastModified": 1706306660,
+        "narHash": "sha256-lZvgkHtVeduGByPb0Tz9LpAi4olfkEm8XPgv0o7GRsk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ce4b88c465d928f4f8b75d0920f1788d5b65ca94",
+        "rev": "b2f56952074cb46e93902ecaabfb04dd93733434",
         "type": "github"
       },
       "original": {
@@ -83,16 +83,31 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1705496572,
-        "narHash": "sha256-rPIe9G5EBLXdBdn9ilGc0nq082lzQd0xGGe092R/5QE=",
+        "lastModified": 1706191920,
+        "narHash": "sha256-eLihrZAPZX0R6RyM5fYAWeKVNuQPYjAkCUBr+JNvtdE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "842d9d80cfd4560648c785f8a4e6f3b096790e19",
+        "rev": "ae5c332cbb5827f6b1f02572496b141021de335f",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-dev": {
+      "locked": {
+        "lastModified": 1705784486,
+        "narHash": "sha256-AO5L4r8K/bws9qXq/egRFCC8YZ0TbfjM7QlVEHJau7g=",
+        "owner": "colin-heffernan",
+        "repo": "nixpkgs",
+        "rev": "71e1fe1f0ce6495664449d27b8c8e083209b84ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colin-heffernan",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -104,7 +119,8 @@
         "catppuccin-starship": "catppuccin-starship",
         "discord": "discord",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-dev": "nixpkgs-dev"
       }
     }
   },
