@@ -181,6 +181,16 @@
     # ];
   };
 
+  # Enable Emacs
+  services.emacs = {
+    enable = true;
+    package = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
+      with epkgs; [
+        treesit-grammars.with-all-grammars
+        vterm
+      ]);
+  };
+
   # Enable virtualization
   virtualisation = {
     libvirtd = {

@@ -290,6 +290,7 @@
           "$mainMod SHIFT, B, exec, firefox --private"
           "$mainMod, P, exec, tofi-drun"
           "$mainMod, C, killactive,"
+          "$mainMod, E, exec, emacsclient -c -a 'emacs'"
           "$mainMod, Q, exec, hyprctl reload"
           "$mainMod SHIFT, Q, exit,"
           "$mainMod, F, fullscreen,"
