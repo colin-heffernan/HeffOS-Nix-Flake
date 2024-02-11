@@ -19,6 +19,12 @@
       flake = false;
     };
 
+    # Quoted
+    quoted = {
+      url = "github:colin-heffernan/quoted";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Themes
     catppuccin-bat = {
       url = "github:catppuccin/bat";
@@ -40,6 +46,7 @@
     nixpkgs-dev,
     home-manager,
     discord,
+    quoted,
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
@@ -58,6 +65,7 @@
           ];
       };
       overlays = [
+        quoted.overlays.default
         (final: prev: {
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}

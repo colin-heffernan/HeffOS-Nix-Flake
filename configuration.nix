@@ -419,6 +419,7 @@
     fd
     ripgrep
     file
+    quoted
 
     # TUI programs
     lazygit
