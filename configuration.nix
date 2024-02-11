@@ -285,6 +285,7 @@
       sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#heffos";
       lg = "lazygit";
       fm = "cd \"$(command lf -print-last-dir $argv)\"";
+      csr = "cas >> ~/.local/share/CAS/socket";
     };
   };
 
@@ -420,6 +421,7 @@
     ripgrep
     file
     quoted
+    cas
 
     # TUI programs
     lazygit

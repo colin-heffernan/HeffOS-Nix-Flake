@@ -25,6 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # CAS-Nix
+    cas-nix = {
+      url = "github:colin-heffernan/cas-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Themes
     catppuccin-bat = {
       url = "github:catppuccin/bat";
@@ -47,6 +53,7 @@
     home-manager,
     discord,
     quoted,
+    cas-nix,
     catppuccin-bat,
     catppuccin-btop,
     catppuccin-starship,
@@ -66,6 +73,7 @@
       };
       overlays = [
         quoted.overlays.default
+        cas-nix.overlays.default
         (final: prev: {
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}
