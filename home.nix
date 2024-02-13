@@ -117,6 +117,7 @@
   # Fish config
   programs.fish = {
     enable = true;
+    functions.fish_greeting = "quoted && echo";
   };
 
   # Git config
