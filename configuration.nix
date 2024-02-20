@@ -448,6 +448,7 @@
         ];
       })
     gimp
+    inkscape
     reaper
     cinnamon.warpinator
     libsForQt5.kdenlive
