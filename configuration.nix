@@ -452,7 +452,6 @@
     reaper
     cinnamon.warpinator
     libsForQt5.kdenlive
-    obsidian
 
     # Chat
     cinny-desktop
