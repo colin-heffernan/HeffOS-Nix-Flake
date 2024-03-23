@@ -5,6 +5,7 @@
   config,
   pkgs,
   pkgs-dev,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -362,119 +363,123 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # FS utilities
-    # mtools
-    # dosfstools
-    # ntfs3g
+  environment.systemPackages = with pkgs;
+    [
+      # FS utilities
+      # mtools
+      # dosfstools
+      # ntfs3g
 
-    # Compatibility tools
-    bottles
-    wineWowPackages.waylandFull
+      # Compatibility tools
+      bottles
+      wineWowPackages.waylandFull
 
-    # Virtualization
-    virt-manager
-    win-virtio
+      # Virtualization
+      virt-manager
+      win-virtio
 
-    # WM/DE integration
-    lxqt.lxqt-policykit
-    mako
-    swaybg
-    xsettingsd
-    slurp
-    grim
-    tofi
+      # WM/DE integration
+      lxqt.lxqt-policykit
+      mako
+      swaybg
+      xsettingsd
+      slurp
+      grim
+      tofi
 
-    # CLI programs
-    curl
-    wget
-    glib
-    xdotool
-    xorg.xwininfo
-    git
-    yt-dlp
-    ffmpeg
-    mpc-cli
-    # pulseaudio
-    # alsa-utils
-    zip
-    unzip
-    p7zip
-    # (texlive.combine {
-    # 	inherit (texlive) collection-basic
-    # 	# collection-binextra collection-langenglish
-    # 	chktex
-    # 	collection-langenglish
-    # 	collection-fontsextra collection-fontsrecommended collection-fontutils
-    # 	collection-latex collection-latexextra collection-latexrecommended
-    # 	collection-mathscience collection-pictures
-    # 	collection-plaingeneric collection-publishers
-    # 	collection-xetex;
-    # })
-    pandoc
-    wl-clipboard
-    qmk
-    bat
-    eza
-    pistol
-    fd
-    ripgrep
-    file
-    quoted
-    cas
+      # CLI programs
+      curl
+      wget
+      glib
+      xdotool
+      xorg.xwininfo
+      git
+      yt-dlp
+      ffmpeg
+      mpc-cli
+      # pulseaudio
+      # alsa-utils
+      zip
+      unzip
+      p7zip
+      # (texlive.combine {
+      # 	inherit (texlive) collection-basic
+      # 	# collection-binextra collection-langenglish
+      # 	chktex
+      # 	collection-langenglish
+      # 	collection-fontsextra collection-fontsrecommended collection-fontutils
+      # 	collection-latex collection-latexextra collection-latexrecommended
+      # 	collection-mathscience collection-pictures
+      # 	collection-plaingeneric collection-publishers
+      # 	collection-xetex;
+      # })
+      pandoc
+      wl-clipboard
+      qmk
+      bat
+      eza
+      pistol
+      fd
+      ripgrep
+      file
+      quoted
+      cas
 
-    # TUI programs
-    lazygit
-    neofetch
-    ncmpcpp
-    btop
-    helix
-    lf
-    joshuto
-    weechat
+      # TUI programs
+      lazygit
+      neofetch
+      ncmpcpp
+      btop
+      helix
+      lf
+      joshuto
+      weechat
 
-    # GUI programs
-    brave
-    qpwgraph
-    wezterm
-    kitty
-    easyeffects
-    mpv
-    famistudio
-    (wrapOBS
-      {
-        plugins = with pkgs.obs-studio-plugins; [
-          obs-livesplit-one
-        ];
-      })
-    gimp
-    inkscape
-    reaper
-    cinnamon.warpinator
-    libsForQt5.kdenlive
+      # GUI programs
+      brave
+      qpwgraph
+      wezterm
+      kitty
+      easyeffects
+      mpv
+      famistudio
+      (wrapOBS
+        {
+          plugins = with pkgs.obs-studio-plugins; [
+            obs-livesplit-one
+          ];
+        })
+      gimp
+      inkscape
+      reaper
+      cinnamon.warpinator
+      # libsForQt5.kdenlive
+      davinci-resolve-studio
 
-    # Chat
-    cinny-desktop
-    discord
-    element-desktop
-    teamspeak5_client
+      # Chat
+      cinny-desktop
+      discord
+      element-desktop
+      teamspeak5_client
 
-    # Language servers
-    marksman
-    nodePackages.bash-language-server
-    nil
+      # Language servers
+      marksman
+      nodePackages.bash-language-server
+      nil
 
-    # Formatters
-    alejandra
+      # Formatters
+      alejandra
 
-    # Just for fun :)
-    prismlauncher
-    osu-lazer-bin
-    freetube
-    mpd-discord-rpc
-    steamtinkerlaunch
-    cava
-  ];
+      # Just for fun :)
+      prismlauncher
+      osu-lazer-bin
+      freetube
+      mpd-discord-rpc
+      steamtinkerlaunch
+      cava
+      r2modman
+    ]
+    ++ [pkgs-stable.libsForQt5.kdenlive];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

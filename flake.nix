@@ -5,6 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-dev.url = "github:colin-heffernan/nixpkgs";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Home-Manager
     home-manager = {
@@ -50,6 +51,7 @@
     self,
     nixpkgs,
     nixpkgs-dev,
+    nixpkgs-stable,
     home-manager,
     discord,
     quoted,
@@ -88,12 +90,13 @@
       ];
     };
     pkgs-dev = import nixpkgs-dev {inherit system;};
+    pkgs-stable = import nixpkgs-stable {inherit system;};
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations = {
       heffos = lib.nixosSystem {
         inherit system pkgs;
-        specialArgs = {inherit pkgs-dev catppuccin-starship;};
+        specialArgs = {inherit pkgs-dev pkgs-stable catppuccin-starship;};
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
