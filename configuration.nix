@@ -117,6 +117,9 @@
     };
   };
 
+  # Enable MTP for Android connections.
+  services.gvfs.enable = true;
+
   # Enable Manpages
   documentation.man = {
     enable = true;
