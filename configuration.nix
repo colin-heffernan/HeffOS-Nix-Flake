@@ -117,9 +117,6 @@
     };
   };
 
-  # Enable MTP for Android connections.
-  services.gvfs.enable = true;
-
   # Enable Manpages
   documentation.man = {
     enable = true;
@@ -376,6 +373,7 @@
       # Compatibility tools
       bottles
       wineWowPackages.waylandFull
+      simple-mtpfs
 
       # Virtualization
       virt-manager
