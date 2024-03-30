@@ -373,7 +373,7 @@
       # Compatibility tools
       bottles
       wineWowPackages.waylandFull
-      simple-mtpfs
+      android-file-transfer
 
       # Virtualization
       virt-manager
