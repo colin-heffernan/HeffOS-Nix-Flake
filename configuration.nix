@@ -330,7 +330,7 @@
   fonts = {
     packages = with pkgs; [
       iosevka
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
       liberation_ttf
     ];
     fontconfig = {
