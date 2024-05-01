@@ -322,7 +322,7 @@
   # Enable Qt support and make it match GTK2.
   qt = {
     enable = true;
-    platformTheme.name = "gtk2";
+    platformTheme = "gtk2";
     style = "gtk2";
   };
 
