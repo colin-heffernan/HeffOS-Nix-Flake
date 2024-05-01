@@ -428,7 +428,7 @@
 
       # TUI programs
       lazygit
-      neofetch
+      hyfetch
       ncmpcpp
       btop
       helix
