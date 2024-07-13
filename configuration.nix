@@ -171,8 +171,8 @@
   # Enable graphics stuff.
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    # driSupport = true;
+    # driSupport32Bit = true;
     # extraPackages = with pkgs; [
     # 	rocm-opencl-icd
     # 	rocm-opencl-runtime
@@ -455,13 +455,13 @@
       reaper
       cinnamon.warpinator
       # libsForQt5.kdenlive
-      davinci-resolve-studio
+      # davinci-resolve-studio
 
       # Chat
-      cinny-desktop
+      # cinny-desktop
       discord
       element-desktop
-      teamspeak5_client
+      # teamspeak5_client
 
       # Language servers
       marksman
@@ -473,7 +473,7 @@
 
       # Just for fun :)
       prismlauncher
-      osu-lazer-bin
+      # osu-lazer-bin
       freetube
       mpd-discord-rpc
       steamtinkerlaunch
