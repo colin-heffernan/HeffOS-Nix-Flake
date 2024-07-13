@@ -145,7 +145,7 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "Catppuccin-Mocha-Compact-Blue-Dark";
+      name = "catppuccin-mocha-blue-compact";
       package = pkgs.catppuccin-gtk;
     };
   };
@@ -238,7 +238,7 @@
         "col.active_border" = "rgba(89b4faff) rgba(89dcebff) 30deg";
         "col.inactive_border" = "rgba(11111bff) rgba(181825ff) 30deg";
         layout = "dwindle";
-        no_cursor_warps = true;
+        # no_cursor_warps = true;
         no_focus_fallback = true;
         hover_icon_on_border = false;
       };
