@@ -40,28 +40,6 @@
   # Hostname
   networking.hostName = "heffos"; # Define your hostname.
 
-  /*
-     # Wired connectivity
-  networking = {
-  	networkmanager = {
-  		enable = true;
-  		logLevel = "DEBUG";
-  	};
-  	supplicant = {
-  		"enp42s0" = {
-  			# bridge = "virbr0";
-  			driver = "wired";
-  			extraCmdArgs = "-u -W -dd";
-  			extraConf = ''
-  				network={
-  					phase1="tls_disable_tlsv1_0=0 tls_disable_tlsv1_1=0 tls_disable_tlsv1_2=0 tls_ext_cert_check=0"
-  				}
-  			'';
-  		};
-  	};
-  };
-  */
-
   # Wireless connectivity
   networking.wireless = {
     enable = true;
@@ -140,6 +118,30 @@
     keyMap = "us";
   };
 
+  # Enable KDE Plasma 6
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = ["amdgpu"];
+    };
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6.enable = true;
+  };
+
+  # Exclude some optional Plasma 6 packages
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    konsole
+    ark
+    elisa
+    gwenview
+    okular
+    kate
+  ];
+
   # Enable the X11 windowing system.
   # services.xserver = {
   #   enable = true;
@@ -159,17 +161,17 @@
   # services.picom.enable = true;
 
   # Enable the Hyprland compositor.
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  # };
 
   # Enable Waybar.
-  programs.waybar = {
-    enable = true;
-  };
+  # programs.waybar = {
+  #   enable = true;
+  # };
 
   # Enable graphics stuff.
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     # driSupport = true;
     # driSupport32Bit = true;
@@ -183,14 +185,14 @@
   };
 
   # Enable Emacs
-  services.emacs = {
-    enable = true;
-    package = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
-      with epkgs; [
-        treesit-grammars.with-all-grammars
-        vterm
-      ]);
-  };
+  # services.emacs = {
+  #   enable = true;
+  #   package = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
+  #     with epkgs; [
+  #       treesit-grammars.with-all-grammars
+  #       vterm
+  #     ]);
+  # };
 
   # Enable virtualization
   virtualisation = {
@@ -221,7 +223,6 @@
   # services.printing.enable = true;
 
   # Enable PipeWire.
-  sound.enable = false;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -235,11 +236,11 @@
   };
 
   # Enable Wayland screen-sharing.
-  xdg.portal = {
-    enable = true;
-    # wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   # wlr.enable = true;
+  #   extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  # };
 
   # Enable Dconf.
   programs.dconf.enable = true;
@@ -281,6 +282,7 @@
     enable = true;
     shellAbbrs = {
       startw = "exec Hyprland";
+      startk = "dbus-run-session startplasma-wayland";
       ssn = "sudo shutdown now";
       srn = "sudo reboot now";
       sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#heffos";
@@ -319,12 +321,10 @@
   # Enable Flatpak support.
   # services.flatpak.enable = true;
 
-  # Enable Qt support and make it match GTK2.
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
+  # Enable Qt support.
+  # qt = {
+  #   enable = true;
+  # };
 
   # Install fonts.
   fonts = {
@@ -380,13 +380,13 @@
       win-virtio
 
       # WM/DE integration
-      lxqt.lxqt-policykit
-      mako
-      swaybg
-      xsettingsd
-      slurp
-      grim
-      tofi
+      # lxqt.lxqt-policykit
+      # mako
+      # swaybg
+      # xsettingsd
+      # slurp
+      # grim
+      # tofi
 
       # CLI programs
       curl
@@ -415,7 +415,7 @@
       # 	collection-xetex;
       # })
       pandoc
-      wl-clipboard
+      # wl-clipboard
       qmk
       bat
       eza
@@ -441,7 +441,7 @@
       qpwgraph
       wezterm
       kitty
-      easyeffects
+      # easyeffects
       mpv
       famistudio
       (wrapOBS
@@ -453,7 +453,7 @@
       gimp
       inkscape
       reaper
-      cinnamon.warpinator
+      warpinator
       # libsForQt5.kdenlive
       # davinci-resolve-studio
 
@@ -480,7 +480,10 @@
       cava
       r2modman
     ]
-    ++ [pkgs-stable.libsForQt5.kdenlive];
+    ++ [
+      # pkgs-stable.libsForQt5.kdenlive
+      pkgs-stable.easyeffects
+    ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

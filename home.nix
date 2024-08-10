@@ -88,9 +88,9 @@
   };
 
   # EasyEffects config
-  services.easyeffects = {
-    enable = true;
-  };
+  # services.easyeffects = {
+  #   enable = true;
+  # };
 
   # Eza config
   programs.eza = {
@@ -133,29 +133,29 @@
   };
 
   # GTK
-  gtk = {
-    enable = true;
-    font = {
-      name = "Liberation Sans";
-      package = pkgs.liberation_ttf;
-      size = 10;
-    };
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-    theme = {
-      name = "catppuccin-mocha-blue-compact";
-      package = pkgs.catppuccin-gtk;
-    };
-  };
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "catppuccin-mocha-dark-cursors";
-    package = pkgs.catppuccin-cursors.mochaDark;
-    size = 24;
-  };
+  # gtk = {
+  #   enable = true;
+  #   font = {
+  #     name = "Liberation Sans";
+  #     package = pkgs.liberation_ttf;
+  #     size = 10;
+  #   };
+  #   iconTheme = {
+  #     name = "Papirus";
+  #     package = pkgs.papirus-icon-theme;
+  #   };
+  #   theme = {
+  #     name = "catppuccin-mocha-blue-compact+rimless";
+  #     package = pkgs.catppuccin-gtk;
+  #   };
+  # };
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   name = "catppuccin-mocha-dark-cursors";
+  #   package = pkgs.catppuccin-cursors.mochaDark;
+  #   size = 24;
+  # };
 
   # Helix config
   programs.helix = {
@@ -223,112 +223,112 @@
   };
 
   # Hyprland config
-  home.file."Pictures/bg.png" = {
-    source = ./dotfiles/.config/hypr/nixhex.png;
-  };
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {
-      monitor = "DP-3,highrr,auto,1";
-      workspace = "DP-3,1";
-      general = {
-        border_size = 2;
-        gaps_in = 5;
-        gaps_out = 5;
-        "col.active_border" = "rgba(89b4faff) rgba(89dcebff) 30deg";
-        "col.inactive_border" = "rgba(11111bff) rgba(181825ff) 30deg";
-        layout = "dwindle";
-        # no_cursor_warps = true;
-        no_focus_fallback = true;
-        hover_icon_on_border = false;
-      };
-      decoration = {
-        rounding = 5;
-        drop_shadow = false;
-        dim_inactive = false;
-        blur = {
-          size = 3;
-          passes = 3;
-          noise = 0.2;
-          contrast = 0.25;
-          brightness = 0.25;
-          vibrancy = 0.25;
-          vibrancy_darkness = 0.12;
-        };
-      };
-      animations = {
-        bezier = "easeOut, 0.16, 1.00, 0.32, 1.00";
-        animation = [
-          "windows, 1, 6, easeOut, popin"
-          "windowsOut, 1, 6, easeOut, popin 80%"
-          "border, 1, 6, easeOut,"
-          "fade, 1, 6, easeOut,"
-          "workspaces, 1, 6, easeOut, slidevert"
-        ];
-      };
-      dwindle = {
-        force_split = 2;
-      };
-      group = {
-        insert_after_current = false;
-      };
-      exec-once = [
-        # "easyeffects --gapplication-service &"
-        "xsettingsd &"
-        "swaybg -i ~/Pictures/bg.png -m fill &"
-        "lxqt-policykit-agent &"
-      ];
-      "$mainMod" = "SUPER";
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
-      bind =
-        [
-          "$mainMod, T, exec, kitty"
-          "$mainMod SHIFT, T, exec, wezterm"
-          "$mainMod, B, exec, firefox"
-          "$mainMod SHIFT, B, exec, firefox --private"
-          "$mainMod, P, exec, tofi-drun"
-          "$mainMod, C, killactive,"
-          "$mainMod, E, exec, emacsclient -c -a 'emacs'"
-          "$mainMod, Q, exec, hyprctl reload"
-          "$mainMod SHIFT, Q, exit,"
-          "$mainMod, F, fullscreen,"
-          "$mainMod SHIFT, F, togglefloating"
-          "$mainMod, S, exec, grim -t jpeg -g \"$(slurp)\" - | wl-copy"
-          "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg"
-          "$mainMod SHIFT, N, exec, mpc prev"
-          "$mainMod SHIFT, E, exec, mpc toggle"
-          "$mainMod SHIFT, I, exec, mpc next"
-          "$mainMod SHIFT, U, exec, mpc volume +36"
-          "$mainMod SHIFT, comma, exec, mpc volume -36"
-        ]
-        ++ (
-          builtins.concatLists (builtins.genList (
-              x: let
-                ws = let
-                  c = (x + 1) / 10;
-                in
-                  builtins.toString (x + 1 - (c * 10));
-              in [
-                "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-              ]
-            )
-            9)
-        );
-    };
-    systemd = {
-      enable = true;
-      variables = [
-        "DISPLAY"
-        "HYPRLAND_INSTANCE_SIGNATURE"
-        "WAYLAND_DISPLAY"
-        "XDG_CURRENT_DESKTOP"
-      ];
-    };
-  };
+  # home.file."Pictures/bg.png" = {
+  #   source = ./dotfiles/.config/hypr/nixhex.png;
+  # };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   settings = {
+  #     monitor = "DP-3,highrr,auto,1";
+  #     workspace = "DP-3,1";
+  #     general = {
+  #       border_size = 2;
+  #       gaps_in = 5;
+  #       gaps_out = 5;
+  #       "col.active_border" = "rgba(89b4faff) rgba(89dcebff) 30deg";
+  #       "col.inactive_border" = "rgba(11111bff) rgba(181825ff) 30deg";
+  #       layout = "dwindle";
+  #       # no_cursor_warps = true;
+  #       no_focus_fallback = true;
+  #       hover_icon_on_border = false;
+  #     };
+  #     decoration = {
+  #       rounding = 5;
+  #       drop_shadow = false;
+  #       dim_inactive = false;
+  #       blur = {
+  #         size = 3;
+  #         passes = 3;
+  #         noise = 0.2;
+  #         contrast = 0.25;
+  #         brightness = 0.25;
+  #         vibrancy = 0.25;
+  #         vibrancy_darkness = 0.12;
+  #       };
+  #     };
+  #     animations = {
+  #       bezier = "easeOut, 0.16, 1.00, 0.32, 1.00";
+  #       animation = [
+  #         "windows, 1, 6, easeOut, popin"
+  #         "windowsOut, 1, 6, easeOut, popin 80%"
+  #         "border, 1, 6, easeOut,"
+  #         "fade, 1, 6, easeOut,"
+  #         "workspaces, 1, 6, easeOut, slidevert"
+  #       ];
+  #     };
+  #     dwindle = {
+  #       force_split = 2;
+  #     };
+  #     group = {
+  #       insert_after_current = false;
+  #     };
+  #     exec-once = [
+  #       # "easyeffects --gapplication-service &"
+  #       "xsettingsd &"
+  #       "swaybg -i ~/Pictures/bg.png -m fill &"
+  #       "lxqt-policykit-agent &"
+  #     ];
+  #     "$mainMod" = "SUPER";
+  #     bindm = [
+  #       "$mainMod, mouse:272, movewindow"
+  #       "$mainMod, mouse:273, resizewindow"
+  #     ];
+  #     bind =
+  #       [
+  #         "$mainMod, T, exec, kitty"
+  #         "$mainMod SHIFT, T, exec, wezterm"
+  #         "$mainMod, B, exec, firefox"
+  #         "$mainMod SHIFT, B, exec, firefox --private"
+  #         "$mainMod, P, exec, tofi-drun"
+  #         "$mainMod, C, killactive,"
+  #         "$mainMod, E, exec, emacsclient -c -a 'emacs'"
+  #         "$mainMod, Q, exec, hyprctl reload"
+  #         "$mainMod SHIFT, Q, exit,"
+  #         "$mainMod, F, fullscreen,"
+  #         "$mainMod SHIFT, F, togglefloating"
+  #         "$mainMod, S, exec, grim -t jpeg -g \"$(slurp)\" - | wl-copy"
+  #         "$mainMod SHIFT, S, exec, grim -t jpeg -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg"
+  #         "$mainMod SHIFT, N, exec, mpc prev"
+  #         "$mainMod SHIFT, E, exec, mpc toggle"
+  #         "$mainMod SHIFT, I, exec, mpc next"
+  #         "$mainMod SHIFT, U, exec, mpc volume +36"
+  #         "$mainMod SHIFT, comma, exec, mpc volume -36"
+  #       ]
+  #       ++ (
+  #         builtins.concatLists (builtins.genList (
+  #             x: let
+  #               ws = let
+  #                 c = (x + 1) / 10;
+  #               in
+  #                 builtins.toString (x + 1 - (c * 10));
+  #             in [
+  #               "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+  #               "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+  #             ]
+  #           )
+  #           9)
+  #       );
+  #   };
+  #   systemd = {
+  #     enable = true;
+  #     variables = [
+  #       "DISPLAY"
+  #       "HYPRLAND_INSTANCE_SIGNATURE"
+  #       "WAYLAND_DISPLAY"
+  #       "XDG_CURRENT_DESKTOP"
+  #     ];
+  #   };
+  # };
 
   # Kitty config
   programs.kitty = {
@@ -366,19 +366,19 @@
   # FIXME
 
   # Mako config
-  services.mako = {
-    enable = true;
-    anchor = "top-right";
-    backgroundColor = "#1e1e2e";
-    borderColor = "#89b4fa";
-    borderRadius = 5;
-    borderSize = 2;
-    defaultTimeout = 15000;
-    font = "Iosevka 10";
-    layer = "top";
-    progressColor = "#313244";
-    textColor = "#cdd6f4";
-  };
+  # services.mako = {
+  #   enable = true;
+  #   anchor = "top-right";
+  #   backgroundColor = "#1e1e2e";
+  #   borderColor = "#89b4fa";
+  #   borderRadius = 5;
+  #   borderSize = 2;
+  #   defaultTimeout = 15000;
+  #   font = "Iosevka 10";
+  #   layer = "top";
+  #   progressColor = "#313244";
+  #   textColor = "#cdd6f4";
+  # };
 
   # MPD Discord RPC config
   services.mpd-discord-rpc = {
@@ -453,10 +453,9 @@
   };
 
   # QT config
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-  };
+  # qt = {
+  #   enable = true;
+  # };
 
   # Starship config
   programs.starship = {
@@ -489,105 +488,105 @@
 
   # Tofi config
   # FIXME
-  home.file.".config/tofi" = {
-    source = ./dotfiles/.config/tofi;
-    recursive = true;
-  };
+  # home.file.".config/tofi" = {
+  #   source = ./dotfiles/.config/tofi;
+  #   recursive = true;
+  # };
   # FIXME
 
   # Waybar config
   # TODO
-  programs.waybar = {
-    enable = true;
-    settings = {
-      bar = {
-        layer = "top";
-        position = "left";
-        modules-left = [
-          "hyprland/workspaces"
-        ];
-        modules-right = [
-          "clock"
-        ];
-        "hyprland/workspaces" = {
-          format = "{name}";
-        };
-        "clock" = {
-          interval = 1;
-          format = "{:%H%n%M}";
-          format-alt = "{:%m%n%d}";
-        };
-      };
-      # vis = {
-      #   layer = "bottom";
-      #   position = "left";
-      #   exclusive = false;
-      #   modules-center = [
-      #     "cava"
-      #   ];
-      #   "cava" = {
-      #     framerate = 144;
-      #     bars = 176;
-      #     method = "fifo";
-      #     source = "/tmp/mpd.fifo";
-      #     bar_delimiter = 0;
-      #     format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-      #     rotate = 270;
-      #   };
-      # };
-    };
-    style = ''
-      * {
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        font-family: Iosevka;
-        font-size: 16px;
-        min-height: 0;
-      }
-      #workspaces, #clock {
-        margin: 5px;
-        min-width: 32px;
-        padding: 6px;
-        background: #1e1e2e;
-        border-radius: 10px;
-        color: #cdd6f4;
-      }
-      #workspaces button {
-        background: transparent;
-        border: none;
-        border-radius: 5px;
-        color: #cdd6f4;
-      }
-      #workspaces button.active {
-        background: #89b4fa;
-        border: none;
-        border-radius: 5px;
-        color: #1e1e2e;
-      }
-      #workspaces button:hover {
-        background: transparent;
-        border: none;
-        border-radius: 5px;
-        color: #cdd6f4;
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-      #workspaces button.active:hover {
-        background: #89b4fa;
-        border: none;
-        border-radius: 5px;
-        color: #1e1e2e;
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-      #cava {
-        color: #1e1e2e;
-        margin-left: 10px;
-      }
-    '';
-  };
-  # TODO
+  # programs.waybar = {
+  #   enable = true;
+  #   settings = {
+  #     bar = {
+  #       layer = "top";
+  #       position = "left";
+  #       modules-left = [
+  #         "hyprland/workspaces"
+  #       ];
+  #       modules-right = [
+  #         "clock"
+  #       ];
+  #       "hyprland/workspaces" = {
+  #         format = "{name}";
+  #       };
+  #       "clock" = {
+  #         interval = 1;
+  #         format = "{:%H%n%M}";
+  #         format-alt = "{:%m%n%d}";
+  #       };
+  #     };
+  #     # vis = {
+  #     #   layer = "bottom";
+  #     #   position = "left";
+  #     #   exclusive = false;
+  #     #   modules-center = [
+  #     #     "cava"
+  #     #   ];
+  #     #   "cava" = {
+  #     #     framerate = 144;
+  #     #     bars = 176;
+  #     #     method = "fifo";
+  #     #     source = "/tmp/mpd.fifo";
+  #     #     bar_delimiter = 0;
+  #     #     format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+  #     #     rotate = 270;
+  #     #   };
+  #     # };
+  #   };
+  #   style = ''
+  #     * {
+  #       background: transparent;
+  #       border: none;
+  #       border-radius: 0;
+  #       font-family: Iosevka;
+  #       font-size: 16px;
+  #       min-height: 0;
+  #     }
+  #     #workspaces, #clock {
+  #       margin: 5px;
+  #       min-width: 32px;
+  #       padding: 6px;
+  #       background: #1e1e2e;
+  #       border-radius: 10px;
+  #       color: #cdd6f4;
+  #     }
+  #     #workspaces button {
+  #       background: transparent;
+  #       border: none;
+  #       border-radius: 5px;
+  #       color: #cdd6f4;
+  #     }
+  #     #workspaces button.active {
+  #       background: #89b4fa;
+  #       border: none;
+  #       border-radius: 5px;
+  #       color: #1e1e2e;
+  #     }
+  #     #workspaces button:hover {
+  #       background: transparent;
+  #       border: none;
+  #       border-radius: 5px;
+  #       color: #cdd6f4;
+  #       box-shadow: inherit;
+  #       text-shadow: inherit;
+  #     }
+  #     #workspaces button.active:hover {
+  #       background: #89b4fa;
+  #       border: none;
+  #       border-radius: 5px;
+  #       color: #1e1e2e;
+  #       box-shadow: inherit;
+  #       text-shadow: inherit;
+  #     }
+  #     #cava {
+  #       color: #1e1e2e;
+  #       margin-left: 10px;
+  #     }
+  #   '';
+  # };
+  # # TODO
 
   # Wezterm config
   # TODO
