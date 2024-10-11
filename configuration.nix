@@ -47,9 +47,12 @@
     environmentFile = "/home/colin/Repos/HeffOS-Nix-Flake/secrets/wireless.env";
     networks = {
       "eduroam" = {
+        # tls_disable_tlsv1_0=0 tls_disable_tlsv1_1=0 tls_disable_tlsv1_2=0
         auth = ''
+          proto=RSN
+          key_mgmt=WPA-EAP
           eap=PEAP
-          phase1="peaplabel=auto tls_disable_tlsv1_0=0 tls_disable_tlsv1_1=0 tls_disable_tlsv1_2=0 tls_ext_cert_check=0"
+          phase1="peaplabel=0 tls_ext_cert_check=0"
           phase2="auth=MSCHAPV2"
           identity="@EDUROAM_IDENTITY@"
           password="@EDUROAM_PASSWORD@"
