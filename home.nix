@@ -481,7 +481,7 @@
       }
       // builtins.fromTOML (
         builtins.readFile (
-          catppuccin-starship + /palettes/mocha.toml
+          catppuccin-starship + /themes/mocha.toml
         )
       );
   };
