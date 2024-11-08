@@ -44,7 +44,7 @@
   networking.wireless = {
     enable = true;
     # userControlled.enable = true;
-    secretsFile = "/home/colin/Repos/HeffOS-Nix-Flake/secrets/wireless.env";
+    secretsFile = "/home/colin/Repos/HeffOS-Nix-Flake/secrets/wireless.conf";
     networks = {
       "eduroam" = {
         # tls_disable_tlsv1_0=0 tls_disable_tlsv1_1=0 tls_disable_tlsv1_2=0
@@ -54,11 +54,19 @@
           eap=PEAP
           phase1="peaplabel=0 tls_ext_cert_check=0"
           phase2="auth=MSCHAPV2"
-          identity="ext:EDUROAM_IDENTITY"
-          password="ext:EDUROAM_PASSWORD"
+          identity="colinheffernan@ufl.edu"
+          password=ext:EDUROAM_PASSWORD
         '';
         authProtocols = ["WPA-EAP"];
       };
+      # "eduroam" = {
+      #   auth = ''
+      #     key_mgmt=WPA-EAP
+      #     eap=PWD
+      #     identity="ext:EDUROAM_IDENTITY"
+      #     password="ext:EDUROAM_PASSWORD"
+      #   '';
+      # };
       "a12" = {
         pskRaw = "ext:ATWELVE_PASSWORD";
       };
