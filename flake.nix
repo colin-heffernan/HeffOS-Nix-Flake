@@ -48,11 +48,6 @@
 
       # Run per-system code
       perSystem = {pkgs, ...}: {
-        # devShells.default = pkgs.mkShell {
-        #   packages = with pkgs; [
-        #     # Add packages here
-        #   ];
-        # };
         formatter = pkgs.alejandra;
       };
     };
