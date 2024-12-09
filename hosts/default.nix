@@ -31,21 +31,11 @@
       ];
     };
 
-    lib = {
-      inherit (inputs.nixpkgs) lib;
-      mkIfElse = p: y: n:
-        lib.mkMerge [
-          (lib.mkIf p y)
-          (lib.mkIf (!p) n)
-        ];
-      mkSwitch = l: lib.mkMerge (lib.lists.forEach l (p: c: lib.mkIf p c));
-    };
-
     specialArgs = {inherit self inputs;};
   in {
     # Main PC
     heffos-hitori = nixosSystem {
-      inherit pkgs lib system specialArgs;
+      inherit pkgs system specialArgs;
       modules = [
         ./hitori
       ];
