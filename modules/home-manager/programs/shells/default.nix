@@ -22,6 +22,7 @@
           "$nix_shell"
           "$line_break"
           "$directory"
+          "$shell"
           "$character"
         ];
         nix_shell = {
@@ -29,6 +30,14 @@
           impure_msg = "impure ";
           pure_msg = "pure ";
           unknown_msg = "";
+        };
+        shell = {
+          disabled = false;
+          bash_indicator = "Bash";
+          fish_indicator = "Fish";
+          zsh_indicator = "Zsh";
+          style = "blue bold";
+          format = "via [$indicator]($style) ";
         };
       };
     };
