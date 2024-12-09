@@ -70,7 +70,10 @@
     };
     environments.plasma.enable = true;
     shells.fish.enable = true;
-    terminal-emulators.kitty.enable = true;
+    terminal-emulators = {
+      kitty.enable = true;
+      wezterm.enable = true;
+    };
     utility = {
       direnv.enable = true;
       multimedia.enable = true;
