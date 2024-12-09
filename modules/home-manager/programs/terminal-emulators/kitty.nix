@@ -7,7 +7,7 @@
     programs.kitty = {
       enable = true;
       font = {
-        name = "IosevkaNerdFont"; # TODO: May need to be fixed.
+        name = "IosevkaTermNerdFont";
         size = 12.0;
       };
       keybindings = {
