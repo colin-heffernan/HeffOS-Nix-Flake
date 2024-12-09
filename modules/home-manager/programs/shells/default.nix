@@ -9,11 +9,12 @@
   ];
 
   config = lib.mkIf (osConfig.heffos.shells.fish.enable || osConfig.heffos.shells.zsh.enable) {
-    # FIXME: Fix Starship config
-    /*
     programs.starship = {
       enable = true;
-      enableTransience = true;
+      enableTransience =
+        if osConfig.heffos.shells.fish.enable
+        then true
+        else false;
       settings = {
         add_newline = false;
         format = lib.concatStrings [
@@ -31,6 +32,5 @@
         };
       };
     };
-    */
   };
 }

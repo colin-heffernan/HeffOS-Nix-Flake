@@ -11,7 +11,6 @@ in {
   ];
 
   config = lib.mkIf (config.heffos.shells.fish.enable || config.heffos.shells.zsh.enable) {
-    # FIXME: Fix Starship config
-    # programs.starship.enable = true;
+    programs.starship.enable = true;
   };
 }
