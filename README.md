@@ -30,15 +30,15 @@ HeffOS uses a number of libraries to achieve various features:
   - [ ] Fix volume issue
   - [ ] If possible, get Bluetooth devices to work on both systems
 - [ ] Configure programs through Home Manager
-  - [ ] Browsers
+  - Browsers
     - [ ] Firefox
-  - [ ] Editors
+  - Editors
     - [x] Helix
     - [ ] Neovim
-  - [ ] Terminal Emulators
+  - Terminal Emulators
     - [x] Kitty
     - [x] WezTerm
-  - [ ] Utility
+  - Utility
     - [x] Eza
     - [x] LF 
     - [ ] Zellij
@@ -49,6 +49,7 @@ HeffOS uses a number of libraries to achieve various features:
   - [ ] COSMIC DE
   - [ ] Nixd
   - [x] Zellij
+  - [ ] Btrbk
   - [x] Gamemode
 
 ## Credits
