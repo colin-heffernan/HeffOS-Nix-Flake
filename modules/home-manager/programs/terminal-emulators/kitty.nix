@@ -27,6 +27,11 @@
         background_opacity = "0.8";
         enabled_layouts = "splits";
       };
+      shellIntegration = {
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableZshIntegration = true;
+      };
       themeFile = "Catppuccin-Mocha";
     };
   };
