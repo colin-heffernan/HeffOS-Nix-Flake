@@ -3,6 +3,11 @@
   osConfig,
   ...
 }: {
+  imports = [
+    ./fish.nix
+    ./zsh.nix
+  ];
+
   config = lib.mkIf (osConfig.heffos.shells.fish.enable || osConfig.heffos.shells.zsh.enable) {
     # FIXME: Fix Starship config
     /*
