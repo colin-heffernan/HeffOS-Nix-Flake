@@ -11,7 +11,7 @@ in {
     programs.fish = {
       enable = true;
       shellAbbrs = {
-        sup = "sudo nixos-rebuild-switch --flake ~/Repos/HeffOS-Nix-Flake#${config.networking.hostName}";
+        sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#${config.networking.hostName}";
         fup = "nix flake update";
       };
     };
