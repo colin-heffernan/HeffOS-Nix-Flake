@@ -84,6 +84,7 @@
       tty.enable = true;
     };
     services = {
+      nix-gc.enable = true;
       pipewire.enable = true;
       polkit.enable = true;
     };
