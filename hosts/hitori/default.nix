@@ -69,7 +69,10 @@
       freetube.enable = true;
     };
     environments.plasma.enable = true;
-    shells.fish.enable = true;
+    shells = {
+      fish.enable = true;
+      zsh.enable = true;
+    };
     terminal-emulators = {
       kitty.enable = true;
       wezterm.enable = true;
