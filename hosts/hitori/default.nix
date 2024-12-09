@@ -55,7 +55,10 @@
       translation.enable = true;
       virtualization.enable = true;
     };
-    editors.helix.enable = true;
+    editors = {
+      helix.enable = true;
+      default = "helix";
+    };
     entertainment = {
       games = {
         gamemode.enable = true;
