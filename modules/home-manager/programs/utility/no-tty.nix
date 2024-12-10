@@ -5,7 +5,7 @@
 }: {
   config = lib.mkIf osConfig.heffos.utility.no-tty.enable {
     home.file.".config/lf" = {
-      source = ./df;
+      source = ./lf;
       recursive = true;
     };
 
@@ -17,6 +17,16 @@
           command = "cat %pistol-filename%";
         }
       ];
+    };
+
+    programs.eza = {
+      enable = true;
+      colors = "always";
+      extraOptions = [
+        "-la"
+        "--group-directories-first"
+      ];
+      icons = "always";
     };
   };
 }

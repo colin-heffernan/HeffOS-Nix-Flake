@@ -1,7 +1,6 @@
 {
   imports = [
-    ./lf
-    ./eza.nix
-    ./zellij.nix
+    ./no-tty.nix
+    ./tty.nix
   ];
 }

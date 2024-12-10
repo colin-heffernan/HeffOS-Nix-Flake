@@ -23,6 +23,9 @@
           # Make `pkgs.dev` point to `colin-heffernan/nixpkgs`
           dev = inputs.nixpkgs-dev.legacyPackages.${prev.system};
 
+          # Use zjstatus
+          zjstatus = inputs.zjstatus.packages.${prev.system}.default;
+
           # Use the latest Discord tarball
           discord = prev.discord.overrideAttrs (
             _: {src = inputs.discord;}
