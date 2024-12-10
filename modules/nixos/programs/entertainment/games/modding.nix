@@ -8,7 +8,7 @@
 
   config = lib.mkIf config.heffos.entertainment.games.modding.enable {
     environment.systemPackages = with pkgs; [
-      steamtinkerlaunch
+      # steamtinkerlaunch
       r2modman
     ];
   };
