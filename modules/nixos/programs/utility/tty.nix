@@ -11,7 +11,10 @@
       ripgrep
       fd
       zellij
+      file
       ffmpeg
+      imagemagick
+      wl-clipboard
       yt-dlp
       android-file-transfer
       pandoc

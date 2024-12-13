@@ -12,6 +12,9 @@
       lazygit
       lf
       pistol
+      yazi
+      fzf
+      poppler
     ];
   };
 }
