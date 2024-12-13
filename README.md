@@ -42,15 +42,26 @@ HeffOS uses a number of libraries to achieve various features:
     - [x] Eza
     - [x] LF 
     - [ ] Zellij
-- [x] Automatically clean up old generations
+- [ ] Re-enable Hyprland
 - [ ] Consider impermanence setup
-- [ ] Try new programs
-  - [ ] Ghostty
-  - [ ] COSMIC DE
-  - [ ] Nixd
-  - [x] Zellij
-  - [ ] Btrbk
-  - [x] Gamemode
+
+### Programs to Try:
+- [ ] Nixd
+- [ ] GRUB
+- [ ] Plymouth
+- [ ] Kvantum
+- [ ] Btrbk
+- [ ] Yazi
+- [ ] Fzf
+- [ ] GH
+- [ ] Nushell
+- [ ] Atuin
+- [ ] Vivaldi
+- [ ] Aerc
+- [ ] Ghostty
+  - Waiting for 1.0 release
+- [ ] COSMIC DE
+  - Waiting for 1.0 release
 
 ## Credits
 While I wrote all of the code in this repository, HeffOS draws from other repositories:
