@@ -1,9 +1,0 @@
-# Settings
-set hidden true
-set drawbox true
-set icons true
-set cursorpreviewfmt "\033[7;90m"
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
-
-map gr cd ~/Repos
