@@ -43,15 +43,18 @@ HeffOS uses a number of libraries to achieve various features:
     - [x] LF 
     - [ ] Zellij
 - [ ] Re-enable Hyprland
-- [ ] Consider impermanence setup
+- On drive re-format:
+  - [ ] Automate BTRFS snapshots with BTRBK
+  - [ ] Set up impermanence
+  - [ ] Set up full-disk encryption
+  - [ ] Set up UEFI Secure Boot with Lanzaboote
 
 ### Programs to Try:
 - [ ] Nixd
 - [ ] GRUB
 - [ ] Plymouth
 - [ ] Kvantum
-- [ ] Btrbk
-- [ ] Yazi
+- [x] Yazi
 - [ ] Fzf
 - [ ] GH
 - [ ] Nushell
