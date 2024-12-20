@@ -27,6 +27,7 @@
       (wrapOBS {
         plugins = config.heffos.utility.multimedia.obsPlugins;
       })
+      davinci-resolve
       mpv
     ];
   };
