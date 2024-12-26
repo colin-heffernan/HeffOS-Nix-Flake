@@ -35,6 +35,9 @@ HeffOS uses a number of libraries to achieve various features:
   - Editors
     - [x] Helix
     - [ ] Neovim
+  - Environments
+    - [ ] Hyprland
+    - [ ] KDE Plasma 6
   - Terminal Emulators
     - [x] Kitty
     - [x] WezTerm
@@ -42,7 +45,6 @@ HeffOS uses a number of libraries to achieve various features:
     - [x] Eza
     - [x] LF 
     - [ ] Zellij
-- [ ] Re-enable Hyprland
 - On drive re-format:
   - [ ] Automate BTRFS snapshots with BTRBK
   - [ ] Set up impermanence

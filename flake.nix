@@ -25,6 +25,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Plasma Manager
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     # Yazi Packages
     yazi-plugins = {
       url = "github:yazi-rs/plugins";
