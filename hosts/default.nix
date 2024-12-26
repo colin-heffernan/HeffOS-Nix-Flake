@@ -16,6 +16,9 @@
 
       # Set up overlays
       overlays = [
+        # Enable the NUR
+        inputs.nur.overlays.default
+
         (final: prev: {
           # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-24.11`
           stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
