@@ -91,6 +91,7 @@
       polkit.enable = true;
     };
     system = {
+      bootloader.dualboot.enable = true;
       connectivity = {
         wifi-networks = {
           a12.enable = true;
