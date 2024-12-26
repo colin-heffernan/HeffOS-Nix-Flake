@@ -29,8 +29,10 @@
   networking.hostName = "heffos-hitori";
 
   # Configure the time
-  # FIXME: Support dualboot nicely
-  time.timeZone = "America/New_York";
+  time = {
+    timeZone = "America/New_York";
+    hardwareClockInLocalTime = true; # FIXME: This may break things.
+  };
 
   # Configure the firewall
   # TODO: Maybe use `sops-nix` to store ports?

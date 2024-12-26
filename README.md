@@ -26,7 +26,7 @@ HeffOS uses a number of libraries to achieve various features:
   - [ ] System user passwords
 - [ ] Play nicer on Windows 11 dualboot setups
   - [ ] Show Windows 11 in the bootloader
-  - [ ] Sync clock time across both systems
+  - [x] Sync clock time across both systems
   - [ ] Fix volume issue
   - [ ] If possible, get Bluetooth devices to work on both systems
 - [ ] Configure programs through Home Manager
