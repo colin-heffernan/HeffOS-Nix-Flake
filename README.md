@@ -47,9 +47,9 @@ HeffOS uses a number of libraries to achieve various features:
     - [ ] Zellij
 - On drive re-format:
   - [ ] Automate BTRFS snapshots with BTRBK
-  - [ ] Set up impermanence
+  - [ ] Set up impermanence (https://github.com/nix-community/impermanence)
   - [ ] Set up full-disk encryption
-  - [ ] Set up UEFI Secure Boot with Lanzaboote
+  - [ ] Set up UEFI Secure Boot with Lanzaboote (https://github.com/nix-community/lanzaboote)
 
 ### Programs to Try:
 - [ ] Nixd
