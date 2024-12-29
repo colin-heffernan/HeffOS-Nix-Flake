@@ -21,52 +21,49 @@ HeffOS uses a number of libraries to achieve various features:
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 
 ## To-Do
-- [ ] Use `sops-nix` to store passwords and other secrets
-  - [ ] WiFi credentials
-  - [ ] System user passwords
-- [ ] Play nicer on Windows 11 dualboot setups
-  - [ ] Show Windows 11 in the bootloader
+- Use `sops-nix` to store passwords and other secrets (WiFi credentials, system user passwords, etc.)
+- Play nicer on Windows 11 dualboot setups
   - [x] Sync clock time across both systems
-  - [ ] Fix volume issue
-  - [ ] If possible, get Bluetooth devices to work on both systems
-- [ ] Configure programs through Home Manager
+  - Fix volume issue
+  - If possible, get Bluetooth devices to work on both systems
+- Configure GRUB
+- Configure programs through Home Manager
   - Browsers
-    - [ ] Firefox
+    - Brave
+    - Firefox
+    - Vivaldi
   - Editors
-    - [x] Helix
-    - [ ] Neovim
+    - Helix (add Nixd support)
+    - Neovim
   - Environments
-    - [ ] Hyprland
-    - [ ] KDE Plasma 6
+    - Hyprland
+    - KDE Plasma 6
   - Terminal Emulators
-    - [x] Kitty
-    - [x] WezTerm
+    - Ghostty
   - Utility
-    - [x] Eza
-    - [x] LF 
-    - [ ] Zellij
-- On drive re-format:
-  - [ ] Automate BTRFS snapshots with BTRBK
-  - [ ] Set up impermanence (https://github.com/nix-community/impermanence)
-  - [ ] Set up full-disk encryption
-  - [ ] Set up UEFI Secure Boot with Lanzaboote (https://github.com/nix-community/lanzaboote)
+    - Zellij
+- Set up new features on drive re-format
+  - Automate BTRFS snapshots with BTRBK
+  - Set up impermanence (https://github.com/nix-community/impermanence)
+  - Set up full-disk encryption
+  - Set up UEFI Secure Boot with Lanzaboote (https://github.com/nix-community/lanzaboote)
 
 ### Programs to Try:
-- [ ] Nixd
-- [ ] GRUB
-- [ ] Plymouth
-- [ ] Kvantum
-- [x] Yazi
-- [ ] Fzf
-- [ ] GH
-- [ ] Nushell
-- [ ] Atuin
-- [ ] Vivaldi
-- [ ] Aerc
-- [ ] Ghostty
-  - Waiting for 1.0 release
-- [ ] COSMIC DE
-  - Waiting for 1.0 release
+- Nixd
+- Plymouth
+- Greetd
+- Some form of trash utility (`trash-cli` or some equivalent)
+- Bottom (would replace Btop)
+- Kvantum
+- Fzf
+- GH
+- Nushell
+- Atuin
+- Ungoogled Chromium
+- Vivaldi
+- Aerc
+- Ghostty (waiting for it to be packaged in Nixpkgs)
+- COSMIC DE (waiting for 1.0 to release and be packaged in Nixpkgs)
 
 ## Credits
 While I wrote all of the code in this repository, HeffOS draws from other repositories:
