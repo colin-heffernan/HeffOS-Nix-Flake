@@ -76,6 +76,7 @@
       zsh.enable = true;
     };
     terminal-emulators = {
+      ghostty.enable = true;
       kitty.enable = true;
       wezterm.enable = true;
     };
