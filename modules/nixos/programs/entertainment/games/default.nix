@@ -1,6 +1,7 @@
 {
   imports = [
     ./gamemode.nix
+    ./luanti.nix
     ./mangohud.nix
     ./minecraft.nix
     ./modding.nix
