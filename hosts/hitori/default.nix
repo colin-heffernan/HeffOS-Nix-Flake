@@ -52,6 +52,8 @@
     communication = {
       discord.enable = true;
       matrix.enable = true;
+      mumble.enable = true;
+      xmpp.enable = true;
     };
     compat = {
       translation.enable = true;
@@ -64,6 +66,7 @@
     entertainment = {
       games = {
         gamemode.enable = true;
+        luanti.enable = true;
         minecraft.enable = true;
         modding.enable = true;
         steam.enable = true;
