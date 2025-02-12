@@ -87,6 +87,7 @@
       direnv.enable = true;
       multimedia.enable = true;
       no-tty.enable = true;
+      obsidian.enable = true;
       tty.enable = true;
     };
     services = {
