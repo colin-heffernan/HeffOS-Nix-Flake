@@ -31,7 +31,7 @@
   # Configure the time
   time = {
     timeZone = "America/New_York";
-    hardwareClockInLocalTime = true; # FIXME: This may break things.
+    hardwareClockInLocalTime = true;
   };
 
   # Configure the firewall
@@ -148,7 +148,6 @@
 
       home = {
         # Tell Home Manager which home to manage
-        # FIXME: This might explode
         homeDirectory = osConfig.users.users.colin.home;
         username = osConfig.users.users.colin.name;
 
