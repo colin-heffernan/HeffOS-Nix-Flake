@@ -60,6 +60,7 @@
       virtualization.enable = true;
     };
     editors = {
+      emacs.enable = true;
       helix.enable = true;
       default = "helix";
     };
