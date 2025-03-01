@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
     ../../modules/nixos
@@ -143,6 +144,7 @@
       ...
     }: {
       imports = [
+        inputs.catppuccin.homeManagerModules.catppuccin
         ../../modules/home-manager
       ];
 

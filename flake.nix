@@ -40,6 +40,9 @@
       };
     };
 
+    # Catppuccin
+    catppuccin.url = "github:catppuccin/nix";
+
     # Zellij Plugins
     zjstatus = {
       url = "github:dj95/zjstatus";
