@@ -48,7 +48,10 @@
 
   # Use the HeffOS module system
   heffos = {
-    browsers.firefox.enable = true;
+    browsers = {
+      firefox.enable = true;
+      vivaldi.enable = true;
+    };
     communication = {
       discord.enable = true;
       matrix.enable = true;
