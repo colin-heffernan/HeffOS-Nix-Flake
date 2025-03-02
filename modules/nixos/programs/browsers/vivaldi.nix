@@ -16,17 +16,17 @@
         (lib.mkIf (!p) n)
       ];
   in
-    lib.mkIf config.heffos.browsers.vivaldi.enable mkIfElse config.heffos.browsers.vivaldi.enablePlasma6Support {
-      environment.systemPackages = with pkgs; [
-        (vivaldi.overrideAttrs (oldAttrs: {
-          dontWrapQtApps = false;
-          dontPatchELF = true;
-          nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-        }))
-      ];
-    } {
-      environment.systemPackages = with pkgs; [
-        vivaldi
-      ];
-    };
+    lib.mkIf config.heffos.browsers.vivaldi.enable (mkIfElse config.heffos.browsers.vivaldi.enablePlasma6Support {
+        environment.systemPackages = with pkgs; [
+          (vivaldi.overrideAttrs (oldAttrs: {
+            dontWrapQtApps = false;
+            dontPatchELF = true;
+            nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
+          }))
+        ];
+      } {
+        environment.systemPackages = with pkgs; [
+          vivaldi
+        ];
+      });
 }
