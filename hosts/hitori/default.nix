@@ -51,7 +51,10 @@
   heffos = {
     browsers = {
       firefox.enable = true;
-      vivaldi.enable = true;
+      vivaldi = {
+        enable = true;
+        enablePlasma6Support = true;
+      };
     };
     communication = {
       discord.enable = true;
