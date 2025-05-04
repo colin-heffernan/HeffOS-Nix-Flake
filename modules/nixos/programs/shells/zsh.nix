@@ -12,10 +12,7 @@ in {
       enable = true;
       autosuggestions.enable = true;
       histFile = "$HOME/.config/zsh/histfile";
-      shellAliases = {
-        sup = "sudo nixos-rebuild switch --flake ~/Repos/HeffOS-Nix-Flake#${config.networking.hostName}";
-        fup = "nix flake update";
-      };
+      shellAliases = config.heffos.shells.aliases;
       syntaxHighlighting.enable = true;
       vteIntegration = true;
     };
