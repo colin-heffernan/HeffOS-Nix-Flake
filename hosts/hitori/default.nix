@@ -8,23 +8,8 @@
     ./hardware-configuration.nix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
     ../../modules/nixos
   ];
-
-  # Import secrets
-  # FIXME: Fix `sops-nix`
-  /*
-  sops = {
-    defaultSopsFile = ../../secrets/hitori.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/persist/keys/sops-nix";
-    secrets = {
-      "users/colin/password".neededForUsers = true;
-      "wireless.conf".owner = config.users.users.colin.name;
-    };
-  };
-  */
 
   # Set the PC hostname
   networking.hostName = "heffos-hitori";
@@ -36,7 +21,6 @@
   };
 
   # Configure the firewall
-  # TODO: Maybe use `sops-nix` to store ports?
   networking.firewall = {
     allowedTCPPorts = [];
     allowedUDPPorts = [];
@@ -129,7 +113,6 @@
         "wheel"
       ];
       shell = pkgs.fish; # TODO: Revert to Zsh?
-      # FIXME: Fix `sops-nix` and set hashedPasswordFile to `config.sops.secrets."users/colin/password".path`
       hashedPasswordFile = "/persist/passwords/colin";
     };
   };

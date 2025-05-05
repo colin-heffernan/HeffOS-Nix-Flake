@@ -46,7 +46,6 @@
     zip
     unzip
     p7zip
-    sops
     hyfetch
     btop
     nodePackages.bash-language-server

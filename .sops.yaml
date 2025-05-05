@@ -1,7 +1,0 @@
-keys:
-  - &hitori age1xge64sfl42zt8ylper5dfv8e7etrx2p4cqp8cwjxcj2ta8rves2sjg0hs3
-creation_rules:
-  - path_regex: secrets/hitori.yaml$
-    key_groups:
-    - age:
-      - *hitori

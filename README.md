@@ -12,8 +12,6 @@ HeffOS uses a number of libraries to achieve various features:
   - There is also Plasma Manager, which allows for KDE Plasma to be configured via Home Manager
 - Flake Parts
   - This one is for non-host derivations that can be used across architectures, such as packages or shells
-- Sops-Nix
-  - This one is to store secrets
 - Catppuccin
   - This one themes a *ton* of programs
 
@@ -25,7 +23,6 @@ HeffOS uses a number of libraries to achieve various features:
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 
 ## To-Do
-- Use `sops-nix` to store passwords and other secrets (WiFi credentials, system user passwords, etc.)
 - Play nicer on Windows 11 dualboot setups
   - Fix volume issue
 - Configure programs through Home Manager
