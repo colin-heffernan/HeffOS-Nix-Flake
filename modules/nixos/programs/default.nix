@@ -53,6 +53,7 @@
     nil
     nixd
     alejandra
+    nvd
   ];
 
   # Ensure that these fonts are always installed
