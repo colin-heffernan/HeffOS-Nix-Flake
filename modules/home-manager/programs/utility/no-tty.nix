@@ -146,7 +146,11 @@
             run = "cd ~/Downloads";
             desc = "Go to Downloads";
           }
-          # TODO: Add bind: `gr` => Open `fzf` on ~/Repos
+          {
+            on = ["g" "r"];
+            run = "cd ~/Repos";
+            desc = "Go to Repos";
+          }
           {
             on = "w";
             run = "tasks_show";
