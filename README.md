@@ -53,7 +53,6 @@ HeffOS uses a number of libraries to achieve various features:
 - Nushell
 - Atuin
 - COSMIC DE (waiting for 1.0 to release and be packaged in Nixpkgs)
-- DWL
 
 ## Credits
 While I wrote all of the code in this repository, some code is adapted (and many concepts are borrowed) from other repositories:
