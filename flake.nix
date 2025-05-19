@@ -37,12 +37,6 @@
     # Catppuccin
     catppuccin.url = "github:catppuccin/nix";
 
-    # Zellij Plugins
-    zjstatus = {
-      url = "github:dj95/zjstatus";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Yazi Packages
     yazi-plugins = {
       url = "github:yazi-rs/plugins";
