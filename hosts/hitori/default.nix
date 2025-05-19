@@ -92,7 +92,6 @@
       connectivity = {
         wifi-networks = {
           a12.enable = true;
-          eduroam.enable = true;
         };
         bluetooth.enable = true;
       };
