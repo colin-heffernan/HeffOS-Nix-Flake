@@ -29,6 +29,7 @@
       })
       davinci-resolve
       mpv
+      tenacity
     ];
   };
 }
