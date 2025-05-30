@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     ./browsers
     ./communication
@@ -13,18 +19,16 @@
 
   # Configure Nix
   nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    # TODO: Ensure this part works before
-    # enabling it and destroying a system
-    /*
-    registry.nixpkgs.to = {
-      type = "path";
-      path = pkgs.path;
-      narHash = pkgs.narHash;
+    package = pkgs.lix;
+    registry = let
+      flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;
+    in
+      lib.mapAttrs (_: v: {flake = v;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      accept-flake-config = false;
     };
-    */
   };
 
   # Configure Git
