@@ -20,7 +20,7 @@
 
   config = lib.mkIf config.heffos.utility.multimedia.enable {
     environment.systemPackages = with pkgs; [
-      (gimp-with-plugins.override {
+      (gimp3-with-plugins.override {
         plugins = config.heffos.utility.multimedia.gimpPlugins;
       })
       inkscape
