@@ -8,7 +8,7 @@
     programs.yazi = {
       enable = true;
       flavors.catppuccin-mocha = inputs.yazi-flavors + "/catppuccin-mocha.yazi";
-      initLua = builtins.readFile ./yazi/init.lua;
+      initLua = builtins.readFile ./init.lua;
       keymap = {
         manager.keymap = [
           {

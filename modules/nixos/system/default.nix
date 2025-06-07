@@ -1,7 +1,7 @@
 {
   imports = [
+    ./bootloader
     ./connectivity
-    ./bootloader.nix
     ./hardware-acceleration.nix
     ./powersave.nix
     ./zram.nix

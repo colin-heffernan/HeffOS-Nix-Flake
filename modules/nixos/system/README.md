@@ -1,6 +1,7 @@
 # `modules/nixos/system`
 This directory contains modules and directories.
-- `bootloader.nix` contains the module to control the bootloader
+- `bootloader` contains the modules to control the bootloader
+- `connectivity` contains the modules to control ethernet, Wi-Fi, and Bluetooth
 - `default.nix` contains the module to control configurations I will always use
 - `hardware-acceleration.nix` contains the module to control hardware acceleration
 - `powersave.nix` contains the module to control power-saving features

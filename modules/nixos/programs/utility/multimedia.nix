@@ -20,16 +20,32 @@
 
   config = lib.mkIf config.heffos.utility.multimedia.enable {
     environment.systemPackages = with pkgs; [
+      # Editors
       (gimp3-with-plugins.override {
         plugins = config.heffos.utility.multimedia.gimpPlugins;
       })
       inkscape
+      tenacity
+      # reaper
+      davinci-resolve
+
+      # Recorders
       (wrapOBS {
         plugins = config.heffos.utility.multimedia.obsPlugins;
       })
-      davinci-resolve
+
+      # Viewers
       mpv
-      tenacity
+
+      # Rippers
+      yt-dlp
+      zotify
+      nicotine-plus
+
+      # Formatters
+      ffmpeg
+      imagemagick
+      flac
     ];
   };
 }
