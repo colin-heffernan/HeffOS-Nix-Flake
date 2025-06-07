@@ -43,8 +43,6 @@
     communication = {
       discord.enable = true;
       matrix.enable = true;
-      mumble.enable = true;
-      xmpp.enable = true;
     };
     compat = {
       translation.enable = true;
