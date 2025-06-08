@@ -63,7 +63,10 @@
       };
       freetube.enable = true;
     };
-    environments.plasma.enable = true;
+    environments = {
+      desktop-environments.plasma.enable = true;
+      display-managers.sddm.enable = true;
+    };
     shells = {
       fish.enable = true;
       zsh.enable = true;

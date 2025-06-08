@@ -6,17 +6,13 @@
 }: let
   inherit (inputs.nixpkgs) lib;
 in {
-  options.heffos.environments.plasma.enable = lib.mkEnableOption "KDE Plasma 6";
+  options.heffos.environments.desktop-environments.plasma.enable = lib.mkEnableOption "KDE Plasma 6";
 
-  config = lib.mkIf config.heffos.environments.plasma.enable {
+  config = lib.mkIf config.heffos.environments.desktop-environments.plasma.enable {
     services = {
       xserver = {
         enable = true;
         videoDrivers = ["amdgpu"];
-      };
-      displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
       };
       desktopManager.plasma6.enable = true;
     };
