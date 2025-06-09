@@ -17,6 +17,7 @@ HeffOS uses a number of libraries to achieve various features:
 | Host   | Purpose                                                    |
 |--------|------------------------------------------------------------|
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
+| Ikuyo | My Raspberry Pi 3B+ |
 
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 

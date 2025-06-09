@@ -39,10 +39,8 @@
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       # Specify systems
-      # It's just x86-64 for now, but Flake Parts gives me
-      # flexibility for later, in case I take on more architectures
-      # Every night, I cry myself to sleep wishing ARM were here
-      systems = ["x86_64-linux"];
+      # ARM's here! All hail the RPI!
+      systems = ["x86_64-linux" "aarch64-linux"];
 
       # Import host configurations
       imports = [
