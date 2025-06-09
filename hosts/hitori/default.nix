@@ -84,6 +84,7 @@
       tty.enable = true;
     };
     services = {
+      mpd.enable = true;
       nix-gc.enable = true;
       polkit.enable = true;
     };
