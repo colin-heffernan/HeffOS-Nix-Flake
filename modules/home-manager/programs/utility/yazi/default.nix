@@ -10,7 +10,7 @@
       flavors.catppuccin-mocha = inputs.yazi-flavors + "/catppuccin-mocha.yazi";
       initLua = builtins.readFile ./init.lua;
       keymap = {
-        manager.keymap = [
+        mgr.keymap = [
           {
             on = "<Esc>";
             run = "escape";
@@ -427,7 +427,7 @@
         full-border = inputs.yazi-plugins + "/full-border.yazi";
       };
       settings = {
-        manager = {
+        mgr = {
           sort_by = "natural";
           sort_sensitive = false;
           sort_dir_first = true;
