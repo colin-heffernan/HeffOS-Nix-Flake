@@ -3,6 +3,7 @@
     ./bootloader
     ./connectivity
     ./hardware-acceleration.nix
+    ./pipewire.nix
     ./powersave.nix
     ./zram.nix
   ];

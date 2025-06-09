@@ -85,7 +85,6 @@
     };
     services = {
       nix-gc.enable = true;
-      pipewire.enable = true;
       polkit.enable = true;
     };
     system = {
@@ -97,6 +96,7 @@
         bluetooth.enable = true;
       };
       hardware-acceleration.enable = true;
+      pipewire.enable = true;
       zram.enable = true;
     };
   };

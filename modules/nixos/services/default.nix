@@ -2,7 +2,6 @@
   imports = [
     ./mpd.nix
     ./nix-gc.nix
-    ./pipewire.nix
     ./polkit.nix
   ];
 
