@@ -20,8 +20,8 @@
         inputs.nur.overlays.default
 
         (final: prev: {
-          # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-24.11`
-          stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
+          # Make `pkgs.unstable` point to `nixos/nixpkgs/nixos-unstable`
+          unstable = inputs.nixpkgs-unstable.legacyPackages.${prev.system};
 
           # Make `pkgs.dev` point to `colin-heffernan/nixpkgs`
           dev = inputs.nixpkgs-dev.legacyPackages.${prev.system};

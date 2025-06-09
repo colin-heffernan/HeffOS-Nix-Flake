@@ -5,7 +5,7 @@ It's designed to be modular, making it easier to add or remove programs or to cr
 ## Libraries
 HeffOS uses a number of libraries to achieve various features:
 - Nixpkgs
-  - This one is mostly obvious, but there are actually *three* branches of Nixpkgs in HeffOS: unstable, latest stable, and my personal fork
+  - This one is mostly obvious, but there are actually *three* branches of Nixpkgs in HeffOS: latest stable, unstable, and my personal fork
   - There is also the NUR, in the case that I need something that's not in Nixpkgs
 - Home Manager
   - This one is also pretty widely used; I use it to configure programs on a per-user basis
