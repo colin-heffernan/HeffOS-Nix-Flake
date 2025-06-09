@@ -1,5 +1,2 @@
-
-secrets
-nvim-config
-dotfiles/.config/eww/.stylelintrc.json
 .direnv
+secrets/wireless.conf
