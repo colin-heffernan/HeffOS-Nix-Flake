@@ -1,4 +1,8 @@
 {config, ...}: {
+  imports = [
+    ./mpd.nix
+  ];
+
   xdg = {
     enable = true;
     mime.enable = true;
