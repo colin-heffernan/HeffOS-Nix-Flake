@@ -20,12 +20,14 @@
     };
 
     # NUR
+    # FIXME: Remove.
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Plasma Manager
+    # FIXME: Remove.
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs = {
