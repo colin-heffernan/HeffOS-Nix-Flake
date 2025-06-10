@@ -56,7 +56,6 @@
     entertainment = {
       games = {
         gamemode.enable = true;
-        luanti.enable = true;
         minecraft.enable = true;
         modding.enable = true;
         steam.enable = true;
