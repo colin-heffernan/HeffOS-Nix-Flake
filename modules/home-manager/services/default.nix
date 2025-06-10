@@ -1,6 +1,6 @@
 {config, ...}: {
   imports = [
-    ./mpd.nix
+    ./mpd
   ];
 
   xdg = {
