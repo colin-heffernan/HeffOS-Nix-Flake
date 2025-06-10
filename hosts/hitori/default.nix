@@ -99,6 +99,7 @@
         };
         bluetooth.enable = true;
       };
+      fonts.enable = true;
       hardware-acceleration.enable = true;
       pipewire.enable = true;
       zram.enable = true;

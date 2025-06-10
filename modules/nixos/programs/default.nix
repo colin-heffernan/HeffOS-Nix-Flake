@@ -58,13 +58,4 @@
     alejandra
     nvd
   ];
-
-  # Ensure that these fonts are always installed
-  fonts.packages = with pkgs; [
-    liberation_ttf
-    nerd-fonts.iosevka
-    nerd-fonts.iosevka-term
-    noto-fonts
-    noto-fonts-color-emoji
-  ];
 }

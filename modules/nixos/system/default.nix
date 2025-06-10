@@ -2,6 +2,7 @@
   imports = [
     ./bootloader
     ./connectivity
+    ./fonts.nix
     ./hardware-acceleration.nix
     ./pipewire.nix
     ./powersave.nix
