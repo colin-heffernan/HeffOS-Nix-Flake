@@ -51,9 +51,12 @@
     unzip
     p7zip
     ripgrep
+    ripgrep-all
     fd
     hyfetch
     btop
+    bottom
+    trash-cli
     nodePackages.bash-language-server
     nil
     nixd
