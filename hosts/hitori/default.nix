@@ -86,6 +86,7 @@
     services = {
       mpd = {
         enable = true;
+        mpris = true;
         rpc = true;
       };
       nix-gc.enable = true;
