@@ -8,7 +8,7 @@
 
   config = lib.mkIf config.heffos.editors.emacs.enable {
     environment.systemPackages = with pkgs; [
-      emacs30-pgtk
+      emacs-pgtk
     ];
   };
 }
