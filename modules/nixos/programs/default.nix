@@ -50,6 +50,8 @@
     zip
     unzip
     p7zip
+    ripgrep
+    fd
     hyfetch
     btop
     nodePackages.bash-language-server
