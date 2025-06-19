@@ -2,5 +2,6 @@
   imports = [
     ./programs
     ./services
+    ./theme
   ];
 }

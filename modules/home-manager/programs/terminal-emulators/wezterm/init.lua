@@ -37,7 +37,6 @@ local config = {
   adjust_window_size_when_changing_font_size = false,
   allow_square_glyphs_to_overflow_width = "Never",
   audible_bell = "Disabled",
-  color_scheme = "Catppuccin Mocha",
   default_cursor_style = "SteadyBar",
   enable_kitty_graphics = true,
   font = wezterm.font "IosevkaTerm NF",

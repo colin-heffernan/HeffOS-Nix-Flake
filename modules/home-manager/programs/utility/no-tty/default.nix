@@ -1,5 +1,5 @@
 {
   imports = [
-    ./no-tty
+    ./yazi
   ];
 }

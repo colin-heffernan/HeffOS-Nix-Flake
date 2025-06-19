@@ -3,10 +3,6 @@
     ./programs
     ./services
     ./system
+    ./theme
   ];
-
-  catppuccin = {
-    accent = "blue";
-    flavor = "mocha";
-  };
 }

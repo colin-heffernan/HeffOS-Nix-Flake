@@ -45,6 +45,7 @@
           indent-guides.render = true;
         };
       };
+      # FIXME: Use Catppuccin flake?
       themes.catppuccin_mocha_nobg = {
         inherits = "catppuccin_mocha";
         "ui.background" = {
@@ -52,5 +53,6 @@
         };
       };
     };
+    catppuccin.helix.enable = false;
   };
 }

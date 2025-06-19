@@ -7,7 +7,6 @@
   config = lib.mkIf osConfig.heffos.utility.no-tty.enable {
     programs.yazi = {
       enable = true;
-      flavors.catppuccin-mocha = inputs.yazi-flavors + "/catppuccin-mocha.yazi";
       initLua = builtins.readFile ./init.lua;
       keymap = {
         manager.keymap = [
@@ -455,7 +454,6 @@
         };
       };
       shellWrapperName = "yz";
-      theme.flavor.use = "catppuccin-mocha";
     };
   };
 }

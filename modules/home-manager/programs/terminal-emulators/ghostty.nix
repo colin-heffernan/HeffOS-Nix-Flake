@@ -14,7 +14,6 @@
         font-family = "IosevkaTerm Nerd Font Mono";
         font-size = 12;
         adjust-cursor-thickness = 1;
-        theme = "catppuccin-mocha";
         background-opacity = 0.8;
         window-padding-color = "extend";
         resize-overlay = "never";

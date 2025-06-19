@@ -1,3 +1,3 @@
 # `modules/home-manager/programs/utility`
 This directory contains modules.
-- `yazi` contains the module to control Yazi
+- `no-tty` contains the module to control TTY-incompatible terminal utilities

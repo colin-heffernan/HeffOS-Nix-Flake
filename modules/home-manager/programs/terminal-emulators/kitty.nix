@@ -26,7 +26,6 @@
         enableFishIntegration = true;
         enableZshIntegration = true;
       };
-      themeFile = "Catppuccin-Mocha";
     };
   };
 }
