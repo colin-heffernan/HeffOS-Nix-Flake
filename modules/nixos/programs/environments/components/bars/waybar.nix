@@ -1,10 +1,8 @@
 {
   config,
-  inputs,
+  lib,
   ...
-}: let
-  inherit (inputs.nixpkgs) lib;
-in {
+}: {
   options.heffos.environments.components.bars.waybar.enable = lib.mkEnableOption "Waybar";
 
   config = lib.mkIf config.heffos.environments.components.bars.waybar.enable {

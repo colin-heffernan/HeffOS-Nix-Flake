@@ -1,10 +1,8 @@
 {
   config,
-  inputs,
+  lib,
   ...
-}: let
-  inherit (inputs.nixpkgs) lib;
-in {
+}: {
   imports = [
     ./fish.nix
     ./zsh.nix

@@ -1,11 +1,9 @@
 {
   config,
-  inputs,
+  lib,
   pkgs,
   ...
-}: let
-  inherit (inputs.nixpkgs) lib;
-in {
+}: {
   options.heffos.environments.desktop-environments.plasma.enable = lib.mkEnableOption "KDE Plasma 6";
 
   config = lib.mkIf config.heffos.environments.desktop-environments.plasma.enable {

@@ -1,11 +1,9 @@
 {
   config,
-  inputs,
+  lib,
   pkgs,
   ...
-}: let
-  inherit (inputs.nixpkgs) lib;
-in {
+}: {
   options.heffos.environments.compositors.niri.enable = lib.mkEnableOption "Niri";
 
   config = lib.mkIf config.heffos.environments.compositors.niri.enable {
