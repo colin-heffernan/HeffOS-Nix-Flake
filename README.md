@@ -25,16 +25,8 @@ HeffOS uses a number of libraries to achieve various features:
 ## To-Do
 - Play nicer on Windows 11 dualboot setups
   - Fix volume issue
-- Configure programs through Home Manager
-  - Editors
-    - Emacs
-    - Helix (add Nixd support)
-    - Neovim
-  - Environments
-    - Hyprland
-    - KDE Plasma 6
-  - Utility
-    - Zellij
+- Set up ability to test rebuilds on VM
+- Set up NVD to show individual program updates
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
   - Set up impermanence (https://github.com/nix-community/impermanence)
@@ -44,9 +36,10 @@ HeffOS uses a number of libraries to achieve various features:
 ### Programs to Try:
 - Nixd
 - Plymouth
-- Greetd
+- Greetd(?)
 - Nushell
 - Atuin
+- Niri
 - COSMIC DE (waiting for 1.0 to release and be packaged in Nixpkgs)
 
 ## Credits
