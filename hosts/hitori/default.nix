@@ -33,6 +33,7 @@
 
   # Use the HeffOS module system
   heffos = {
+    theme.catppuccin.enable = true;
     browsers = {
       firefox.enable = true;
       vivaldi = {
