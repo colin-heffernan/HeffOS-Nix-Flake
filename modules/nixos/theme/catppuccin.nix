@@ -3,15 +3,7 @@
   lib,
   ...
 }: {
-  options.heffos.theme.catppuccin = {
-    enable = lib.mkEnableOption "Catppuccin theme";
-    cursors.enable = lib.mkEnableOption "Catppuccin cursors";
-    gtk = {
-      enable = lib.mkEnableOption "Catppuccin for GTK";
-      icons = lib.mkEnableOption "Catppuccin for GTK icons";
-    };
-    kvantum.enable = lib.mkEnableOption "Catppuccin for Kvantum";
-  };
+  options.heffos.theme.catppuccin.enable = lib.mkEnableOption "Catppuccin theme";
 
   config = lib.mkIf config.heffos.theme.catppuccin.enable {
     catppuccin = {
