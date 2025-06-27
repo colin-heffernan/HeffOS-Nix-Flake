@@ -12,7 +12,7 @@
       flavor = "mocha";
       gtk = {
         # enable = true;
-        icons.enable = false;
+        icon.enable = false;
         size = "compact";
       };
     };
