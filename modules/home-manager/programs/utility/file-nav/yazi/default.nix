@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.utility.no-tty.enable {
+  config = lib.mkIf osConfig.heffos.utility.file-nav.enable {
     programs.yazi = {
       enable = true;
       initLua = builtins.readFile ./init.lua;

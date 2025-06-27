@@ -1,9 +1,13 @@
 {
   imports = [
     ./direnv.nix
+    ./documents.nix
+    ./file-nav.nix
+    ./fuzzy.nix
+    ./modern-alts.nix
     ./multimedia.nix
-    ./no-tty.nix
-    ./obsidian.nix
-    ./tty.nix
+    ./multiplex.nix
+    ./notes.nix
+    ./vcs.nix
   ];
 }

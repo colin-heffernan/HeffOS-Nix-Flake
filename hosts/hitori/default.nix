@@ -85,10 +85,13 @@
     };
     utility = {
       direnv.enable = true;
+      file-nav.enable = true;
+      fuzzy.enable = true;
+      modern-alts.enable = true;
       multimedia.enable = true;
-      no-tty.enable = true;
-      obsidian.enable = true;
-      tty.enable = true;
+      multiplex.enable = true;
+      notes.enable = true;
+      vcs.enable = true;
     };
     services = {
       mpd = {

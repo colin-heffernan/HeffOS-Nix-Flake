@@ -1,3 +1,3 @@
 # `modules/home-manager/programs/utility`
 This directory contains modules.
-- `no-tty` contains the module to control TTY-incompatible terminal utilities
+- `file-nav` contains the modules to control file navigation utilities

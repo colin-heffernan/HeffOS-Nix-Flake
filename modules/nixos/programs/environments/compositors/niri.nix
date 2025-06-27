@@ -13,6 +13,7 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
       xwayland-satellite
+      wl-clipboard
     ];
   };
 }

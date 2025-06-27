@@ -46,6 +46,7 @@
       ffmpeg
       imagemagick
       flac
+      beets
     ];
   };
 }
