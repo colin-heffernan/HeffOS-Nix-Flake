@@ -63,7 +63,6 @@
         steam.enable = true;
       };
       freetube.enable = true;
-      spotify.enable = true;
     };
     environments = {
       # components = {
