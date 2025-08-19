@@ -35,6 +35,7 @@
   heffos = {
     theme.catppuccin.enable = true;
     browsers = {
+      brave.enable = true;
       firefox.enable = true;
       vivaldi = {
         enable = true;
