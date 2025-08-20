@@ -76,7 +76,10 @@
       display-managers.sddm.enable = true;
     };
     shells = {
-      fish.enable = true;
+      fish = {
+        enable = true;
+        default = true;
+      };
       zsh.enable = true;
     };
     terminal-emulators = {
@@ -129,7 +132,6 @@
         "libvirtd"
         "wheel"
       ];
-      shell = pkgs.fish; # TODO: Revert to Zsh?
       hashedPasswordFile = "/persist/passwords/colin";
     };
   };
