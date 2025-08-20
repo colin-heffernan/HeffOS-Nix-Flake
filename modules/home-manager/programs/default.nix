@@ -1,6 +1,7 @@
 {
   imports = [
     ./editors
+    ./environments
     ./shells
     ./terminal-emulators
     ./utility
