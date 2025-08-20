@@ -37,10 +37,10 @@
     browsers = {
       brave.enable = true;
       firefox.enable = true;
-      vivaldi = {
-        enable = true;
-        enablePlasma6Support = true;
-      };
+      # vivaldi = {
+      #   enable = true;
+      #   enablePlasma6Support = true;
+      # };
     };
     communication = {
       discord.enable = true;
