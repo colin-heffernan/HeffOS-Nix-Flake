@@ -62,7 +62,7 @@
         modding.enable = true;
         steam.enable = true;
       };
-      freetube.enable = true;
+      # freetube.enable = true;
     };
     environments = {
       # components = {
