@@ -65,12 +65,12 @@
       # freetube.enable = true;
     };
     environments = {
-      # components = {
-      #   bars.waybar.enable = true;
-      #   notifications.mako.enable = true;
-      #   runners.fuzzel.enable = true;
-      #   wallpapers.swaybg.enable = true;
-      # };
+      components = {
+        #   bars.waybar.enable = true;
+        #   notifications.mako.enable = true;
+        runners.fuzzel.enable = true;
+        #   wallpapers.swaybg.enable = true;
+      };
       # compositors.niri.enable = true;
       desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
