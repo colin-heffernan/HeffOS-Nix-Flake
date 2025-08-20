@@ -10,11 +10,11 @@
       cache.enable = true;
       # cursors.enable = true;
       flavor = "mocha";
-      gtk = {
-        # enable = true;
-        icon.enable = false;
-        size = "compact";
-      };
+      # gtk = {
+      #   enable = true;
+      #   icon.enable = false;
+      #   size = "compact";
+      # };
     };
   };
 }
