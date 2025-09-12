@@ -140,7 +140,6 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
     extraSpecialArgs = {inherit inputs;};
     users.colin = {
       inputs,
