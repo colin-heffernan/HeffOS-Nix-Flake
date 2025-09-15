@@ -11,6 +11,7 @@
       liberation_ttf
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
+      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-color-emoji
     ];
