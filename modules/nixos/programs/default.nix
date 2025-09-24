@@ -19,7 +19,7 @@
 
   # Configure Nix
   nix = {
-    package = pkgs.lix;
+    # package = pkgs.lix;
     registry = let
       flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;
     in
