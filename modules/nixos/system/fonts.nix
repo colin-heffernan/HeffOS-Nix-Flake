@@ -9,6 +9,7 @@
   config = lib.mkIf config.heffos.system.fonts.enable {
     fonts.packages = with pkgs; [
       liberation_ttf
+      iosevka-bin
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
       nerd-fonts.symbols-only
