@@ -45,18 +45,27 @@
 
   # Ensure that these basic tools are always installed
   environment.systemPackages = with pkgs; [
+    # Web requests
     curl
     wget
+    
+    # Archival tools
     zip
     unzip
     p7zip
+    
+    # Coreutils alternatives
     ripgrep
     ripgrep-all
     fd
     hyfetch
     btop
+    
+    # System tools
     bottom
     trash-cli
+
+    # Common language tools
     nodePackages.bash-language-server
     nil
     nixd
