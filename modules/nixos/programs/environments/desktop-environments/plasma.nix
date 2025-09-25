@@ -23,6 +23,7 @@
       gwenview
       okular
       kate
+      xwaylandvideobridge
     ];
   };
 }
