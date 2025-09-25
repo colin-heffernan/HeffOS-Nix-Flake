@@ -58,8 +58,6 @@
     ripgrep
     ripgrep-all
     fd
-    hyfetch
-    btop
     
     # System tools
     bottom
