@@ -8,10 +8,11 @@
 
   config = lib.mkIf config.heffos.environments.compositors.niri.enable {
     programs.niri.enable = true;
+    
+    # Prevent GNOME's SSH agent from interfering with `ssh-agent`
+    services.gnome.gcr-ssh-agent.enable = false;
 
     environment.systemPackages = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
       xwayland-satellite
       wl-clipboard
     ];
