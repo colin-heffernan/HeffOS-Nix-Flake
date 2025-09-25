@@ -71,8 +71,8 @@
         runners.fuzzel.enable = true;
         wallpapers.swaybg.enable = true;
       };
-      desktop-environments.plasma.enable = true;
       compositors.niri.enable = true;
+      # desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
     };
     shells = {
