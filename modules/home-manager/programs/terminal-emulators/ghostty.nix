@@ -18,9 +18,8 @@
         window-padding-color = "extend";
         resize-overlay = "never";
         auto-update = "off";
-        window-decoration = true;
+        window-decoration = "auto";
         gtk-titlebar = false;
-        gtk-adwaita = false;
         keybind = [
           "ctrl+shift+c=copy_to_clipboard"
           "ctrl+shift+v=paste_from_clipboard"
