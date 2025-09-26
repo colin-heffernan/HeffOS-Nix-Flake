@@ -15,6 +15,7 @@
       #   icon.enable = false;
       #   size = "compact";
       # };
+      waybar.mode = "createLink";
     };
   };
 }

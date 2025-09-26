@@ -1,0 +1,29 @@
+@import "catppuccin.css";
+
+* {
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: @text;
+  font-family: Iosevka Aile, sans-serif;
+  font-size: 12px;
+}
+
+/* All modules */
+#custom-logo, #cpu-use, #memory, #workspaces, #mpd, #clock {
+  background: @base;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Specific modules */
+#custom-logo {
+  color: @blue;
+  font-family: IosevkaNF;
+  font-size: 18px;
+  padding-right: 20px;
+}
+
+#cpu.usage-by-core {
+  padding-left: 12px;
+}
