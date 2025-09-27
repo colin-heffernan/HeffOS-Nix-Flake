@@ -103,7 +103,7 @@
       mpd = {
         enable = true;
         mpris = true;
-        rpc = true;
+        # rpc = true;
       };
       nix-gc.enable = true;
       polkit.enable = true;
