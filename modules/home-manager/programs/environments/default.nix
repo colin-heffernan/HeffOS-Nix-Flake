@@ -1,5 +1,6 @@
 {
   imports = [
     ./components
+    ./compositors
   ];
 }

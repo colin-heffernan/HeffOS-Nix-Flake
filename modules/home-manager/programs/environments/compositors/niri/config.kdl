@@ -1,0 +1,177 @@
+// -*- Inputs -*-
+input {
+    // Focus the window the mouse is on
+    focus-follows-mouse max-scroll-amount="1%"
+}
+
+// -*- Outputs -*-
+output "DP-3" {
+    // Monitor resolution and refresh
+    mode "2560x1440@143.972"
+
+    // Default scaling
+    scale 1
+
+    // No rotation
+    transform "normal"
+
+    // Default position
+    position x=0 y=0
+}
+
+// -*- Window positioning/sizing -*-
+layout {
+    // Set window gaps
+    gaps 16
+
+    // Keep focused columns on screen edge
+    center-focused-column "never"
+
+    // Widths columns can be automatically resized to
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // Default width of new windows
+    default-column-width { proportion 0.5; }
+
+    // Ring around focused windows
+    focus-ring {
+        width 2
+        active-color "#f5c2e7"
+        inactive-color "#505050"
+    }
+}
+
+// Disable using top-left corner for Overview
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// -*- Other settings -*-
+// Omit client-side decorations (CSD), such as for GTK apps
+prefer-no-csd
+
+// Path at which screenshots are saved
+screenshot-path "~/Pictures/Screenshots/Niri_Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
+// -*- Window rules -*-
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Open the Brave picture-in-picture player as floating by default
+window-rule {
+    match title="^Picture in picture$"
+    open-floating true
+}
+
+// Round corners
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+// Highlight screencast targets
+window-rule {
+    match is-window-cast-target=true
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#eba0ac"
+    }
+    border {
+        inactive-color "#eba0ac"
+    }
+    shadow {
+        color "#f38ba880"
+    }
+}
+
+// Start Discord maximized
+window-rule {
+    match app-id=r#"discord$"# title="Discord$"
+    open-maximized true
+}
+
+// Start Steam maximized
+window-rule {
+    match app-id=r#"steam$"# title="^Steam$"
+    open-maximized true
+}
+
+// TODO: Make Discord open in dedicated workspace?
+
+// -*- Bindings -*-
+binds {
+    // Mod-Shift-/, which is usually the same as Mod-?,
+    // shows a list of important hotkeys
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Common programs
+    Mod+T { spawn "ghostty"; }
+    Mod+D { spawn "fuzzel"; }
+    Mod+E { spawn "emacsclient" "-c" "-a" "emacs"; }
+    Mod+B { spawn "brave"; }
+    Mod+Shift+B { spawn "brave --incognito"; }
+    // Super+Alt+L { spawn "swaylock"; }
+
+    // Fullscreen
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    // Open the Overview
+    Mod+Space { toggle-overview; }
+
+    // Close a window
+    Mod+C { close-window; }
+
+    // Scroll through workspaces
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Scroll through columns
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Take a screenshot
+    // Holding Ctrl will limit the screenshot to the current screen
+    // Holding Alt will limit it to the current window
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // Applications such as remote-desktop clients and software KVM switches may
+    // request that niri stops processing the keyboard shortcuts defined here
+    // so they may, for example, forward the key presses as-is to a remote machine.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor,
+    // so a buggy application can't hold your session hostage.
+    //
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Quit the compositor
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
+    // Mod+Shift+P { power-off-monitors; }
+}
