@@ -6,6 +6,7 @@
     ./hardware-acceleration.nix
     ./pipewire.nix
     ./powersave.nix
+    ./printing.nix
     ./zram.nix
   ];
 

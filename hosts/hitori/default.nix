@@ -117,6 +117,7 @@
       fonts.enable = true;
       hardware-acceleration.enable = true;
       pipewire.enable = true;
+      printing.enable = true;
       zram.enable = true;
     };
   };
