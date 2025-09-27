@@ -81,7 +81,7 @@
         enable = true;
         default = true;
       };
-      zsh.enable = true;
+      # zsh.enable = true;
     };
     terminal-emulators = {
       ghostty.enable = true;
