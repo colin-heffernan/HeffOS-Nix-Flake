@@ -33,6 +33,7 @@
 
   # Use the HeffOS module system
   heffos = {
+    config-dir = "/home/colin/Repos/HeffOS-Nix-Flake";
     theme.catppuccin.enable = true;
     browsers = {
       brave.enable = true;
