@@ -94,6 +94,7 @@
       modern-alts.enable = true;
       multimedia.enable = true;
       multiplex.enable = true;
+      nh.enable = true;
       notes.enable = true;
       vcs.enable = true;
     };

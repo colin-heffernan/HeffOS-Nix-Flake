@@ -7,5 +7,6 @@ This directory contains modules and directories.
 - `modern-alts.nix` contains the module to control modern alternatives to common utilities
 - `multimedia.nix` contains the module to control multimedia utilities
 - `multiplex.nix` contains the module to control terminal multiplexers
+- `nh.nix` contains the module to control NH, a Nix helper utility
 - `notes.nix` contains the module to control notes apps
 - `vcs.nix` contains the module to control version control systems

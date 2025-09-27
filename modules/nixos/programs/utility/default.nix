@@ -7,6 +7,7 @@
     ./modern-alts.nix
     ./multimedia.nix
     ./multiplex.nix
+    ./nh.nix
     ./notes.nix
     ./vcs.nix
   ];
