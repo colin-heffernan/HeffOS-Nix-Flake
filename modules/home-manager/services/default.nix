@@ -1,6 +1,7 @@
 {config, ...}: {
   imports = [
     ./mpd
+    ./usb-automount.nix
   ];
 
   xdg = {

@@ -4,3 +4,4 @@ This directory contains modules.
 - `mpd.nix` contains the module to control the Music Player Daemon (MPD)
 - `nix-gc.nix` contains the module to control Nix automatic garbage collection
 - `polkit.nix` contains the module to control Polkit
+- `usb-automount.nix` contains the module to enable auto-mounting of USB drives

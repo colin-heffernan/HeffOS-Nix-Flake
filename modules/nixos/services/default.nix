@@ -3,6 +3,7 @@
     ./mpd.nix
     ./nix-gc.nix
     ./polkit.nix
+    ./usb-automount.nix
   ];
 
   # Enable DBus

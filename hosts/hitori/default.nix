@@ -105,6 +105,7 @@
       };
       nix-gc.enable = true;
       polkit.enable = true;
+      usb-automount.enable = true;
     };
     system = {
       bootloader.dualboot.enable = true;
