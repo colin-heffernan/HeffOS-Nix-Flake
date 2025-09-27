@@ -9,7 +9,9 @@
   config = lib.mkIf config.heffos.system.fonts.enable {
     fonts.packages = with pkgs; [
       liberation_ttf
-      iosevka-bin
+      (iosevka-bin.override {
+        variant = "Aile";
+      })
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
       nerd-fonts.symbols-only
