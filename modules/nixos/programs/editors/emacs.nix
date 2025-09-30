@@ -8,7 +8,14 @@
 
   config = lib.mkIf config.heffos.editors.emacs.enable {
     environment.systemPackages = with pkgs; [
-      emacs-pgtk
+      (
+        (emacsPackagesFor emacs-pgtk).emacsWithPackages (
+          epkgs: [
+            (epkgs.treesit-grammars.with-all-grammars)
+            epkgs.tree-sitter-langs
+          ]
+        )
+      )
     ];
   };
 }
