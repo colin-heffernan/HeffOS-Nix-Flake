@@ -40,7 +40,7 @@
         autoStash = true;
         updateRefs = true;
       };
-      pull.rebase = true;
+      pull.ff = "only";
     };
   };
 }
