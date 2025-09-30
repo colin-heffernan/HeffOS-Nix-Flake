@@ -26,21 +26,27 @@ HeffOS uses a number of libraries to achieve various features:
 - Play nicer on Windows 11 dualboot setups
   - Fix volume issue
 - Set up ability to test rebuilds on VM
-- Set up NVD to show individual program updates
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
-  - Set up impermanence (https://github.com/nix-community/impermanence)
-  - Set up full-disk encryption
-  - Set up UEFI Secure Boot with Lanzaboote (https://github.com/nix-community/lanzaboote)
+  - Set up impermanence? (https://github.com/nix-community/impermanence)
+  - Set up full-disk encryption?
+  - Set up UEFI Secure Boot? (https://github.com/nix-community/lanzaboote)
+- Establish new system configurations
+  - Raspberry Pi 3B+ "Ikuyo"
+  - WSL2 on tower "Futari"
+  - WSL2 on laptop "Ryo"
+  - VirtualBox guest "Kikuri"
+- Support my Quest 3
+- Enable PCI passthrough for VMs
+- Enable building ISOs and WSL images
+- Migrate to GNU GuixSD?
 
 ### Programs to Try:
 - Nixd
 - Plymouth
-- Greetd(?)
+- Greetd?
 - Nushell
 - Atuin
-- Niri
-- COSMIC DE (waiting for 1.0 to release and be packaged in Nixpkgs)
 
 ## Credits
 While I wrote all of the code in this repository, some code is adapted (and many concepts are borrowed) from other repositories:
