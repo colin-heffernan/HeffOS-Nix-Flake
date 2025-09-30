@@ -14,10 +14,7 @@
   networking.hostName = "heffos-ikuyo";
 
   # Configure the time
-  time = {
-    timeZone = "America/New_York";
-    hardwareClockInLocalTime = true;
-  };
+  time.timeZone = "America/New_York";
 
   # Configure the firewall
   networking.firewall = {
