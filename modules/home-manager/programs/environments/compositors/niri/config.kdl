@@ -153,9 +153,9 @@ binds {
     // Take a screenshot
     // Holding Ctrl will limit the screenshot to the current screen
     // Holding Alt will limit it to the current window
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+Shift+S { screenshot; }
+    Mod+Shift+Ctrl+S { screenshot-screen; }
+    Mod+Shift+Alt+S { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
