@@ -42,7 +42,6 @@ HeffOS uses a number of libraries to achieve various features:
 - Migrate to GNU GuixSD?
 
 ### Programs to Try:
-- Nixd
 - Plymouth
 - Greetd?
 - Nushell
