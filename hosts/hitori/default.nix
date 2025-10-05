@@ -38,6 +38,7 @@
     browsers = {
       brave.enable = true;
       firefox.enable = true;
+      librewolf.enable = true;
       # vivaldi = {
       #   enable = true;
       #   enablePlasma6Support = true;
