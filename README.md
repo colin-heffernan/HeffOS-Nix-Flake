@@ -40,6 +40,7 @@ HeffOS uses a number of libraries to achieve various features:
 - Enable PCI passthrough for VMs
 - Enable building ISOs and WSL images
 - Migrate to GNU GuixSD?
+- Configure LibreWolf via Home-Manager
 
 ### Programs to Try:
 - Plymouth
