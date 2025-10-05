@@ -125,7 +125,7 @@ binds {
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+B { spawn "brave"; }
-    Mod+Shift+B { spawn "brave --incognito"; }
+    Mod+Shift+B { spawn "brave" "--incognito"; }
     // Super+Alt+L { spawn "swaylock"; }
 
     // Fullscreen
