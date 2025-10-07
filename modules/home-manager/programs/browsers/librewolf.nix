@@ -26,6 +26,11 @@
           default_area = "navbar";
           private_browsing = true;
         };
+        "{7c7590e7-36ec-471d-999e-29bc7d528b18}" = { # Catppuccin Mocha - Pink
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-pink/latest.xpi";
+          private_browsing = true;
+        };
       };
       settings = {
         "privacy.clearOnShutdown.history" = false;
