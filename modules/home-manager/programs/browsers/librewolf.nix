@@ -14,13 +14,13 @@
         #   default_area = "navbar";
         #   private_browsing = true;
         # };
-        "sponsorBlocker@ajay.app" = {
+        "sponsorBlocker@ajay.app" = { # SponsorBlock
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
           default_area = "menupanel";
           private_browsing = true;
         };
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = { # Bitwarden
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           default_area = "navbar";
