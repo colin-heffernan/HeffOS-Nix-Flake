@@ -16,8 +16,8 @@ HeffOS uses a number of libraries to achieve various features:
   - This one themes a *ton* of programs
 
 ## Hosts
-| Host | Purpose |
-|-|-|
+| Host   | Purpose                                                    |
+|--------|------------------------------------------------------------|
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
 
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
@@ -25,28 +25,19 @@ HeffOS uses a number of libraries to achieve various features:
 ## To-Do
 - Play nicer on Windows 11 dualboot setups
   - Fix volume issue
-- Set up ability to test rebuilds on VM
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
-  - Set up impermanence? (https://github.com/nix-community/impermanence)
+  - Set up impermanence?
   - Set up full-disk encryption?
-  - Set up UEFI Secure Boot? (https://github.com/nix-community/lanzaboote)
+  - Set up UEFI Secure Boot?
 - Establish new system configurations
   - Raspberry Pi 3B+ "Ikuyo"
   - WSL2 on tower "Futari"
   - WSL2 on laptop "Ryo"
-  - VirtualBox guest "Kikuri"
 - Support my Quest 3
-- Enable PCI passthrough for VMs
 - Enable building ISOs and WSL images
+- Replace SDDM
 - Migrate to GNU GuixSD?
-- Configure LibreWolf via Home-Manager
-
-### Programs to Try:
-- Plymouth
-- Greetd?
-- Nushell
-- Atuin
 
 ## Credits
 While I wrote all of the code in this repository, some code is adapted (and many concepts are borrowed) from other repositories:
