@@ -7,3 +7,4 @@ This directory contains modules.
 - `modding.nix` contains the module to control modding tools for games
 - `osu.nix` contains the module to control Osu!
 - `steam.nix` contains the module to control Steam
+- `vr.nix` contains the module to control VR headset compatibility

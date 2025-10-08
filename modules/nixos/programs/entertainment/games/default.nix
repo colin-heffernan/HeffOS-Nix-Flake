@@ -7,5 +7,6 @@
     ./modding.nix
     ./osu.nix
     ./steam.nix
+    ./vr.nix
   ];
 }

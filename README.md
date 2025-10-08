@@ -34,7 +34,6 @@ HeffOS uses a number of libraries to achieve various features:
   - Raspberry Pi 3B+ "Ikuyo"
   - WSL2 on tower "Futari"
   - WSL2 on laptop "Ryo"
-- Support my Quest 3
 - Enable building ISOs and WSL images
 - Replace SDDM
 - Migrate to GNU GuixSD?
