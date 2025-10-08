@@ -79,6 +79,12 @@ window-rule {
     open-floating true
 }
 
+// Open the LibreWolf picture-in-picture player as floating by default
+window-rule {
+    match app-id=r#"librewolf"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
 // Round corners
 window-rule {
     geometry-corner-radius 8
