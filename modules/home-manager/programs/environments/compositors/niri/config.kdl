@@ -124,8 +124,8 @@ binds {
     Mod+T { spawn "ghostty"; }
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "emacsclient" "-c" "-a" "emacs"; }
-    Mod+B { spawn "brave"; }
-    Mod+Shift+B { spawn "brave" "--incognito"; }
+    Mod+B { spawn "librewolf"; }
+    Mod+Shift+B { spawn "librewolf" "--private-window"; }
     // Super+Alt+L { spawn "swaylock"; }
 
     // Fullscreen
