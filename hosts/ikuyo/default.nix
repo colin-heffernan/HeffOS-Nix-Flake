@@ -16,12 +16,14 @@
 
   # Configure the time
   time.timeZone = "America/New_York";
-  
+
   # Swapfile
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 4*1024;
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 4 * 1024;
+    }
+  ];
 
   # Configure the firewall
   networking.firewall = {
