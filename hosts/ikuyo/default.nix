@@ -78,6 +78,7 @@
       extraGroups = [
         "wheel"
       ];
+      initialPassword = "kita!ikuyo!";
       # hashedPasswordFile = "/persist/passwords/colin";
     };
   };
