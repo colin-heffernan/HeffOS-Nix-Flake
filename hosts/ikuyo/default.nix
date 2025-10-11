@@ -62,6 +62,7 @@
       connectivity = {
         wifi-networks = {
           a12.enable = true;
+          whitesky.enable = true;
         };
         # bluetooth.enable = true;
       };
