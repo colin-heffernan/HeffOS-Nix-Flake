@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos
   ];
@@ -15,6 +16,12 @@
 
   # Configure the time
   time.timeZone = "America/New_York";
+  
+  # Swapfile
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 4*1024;
+  }];
 
   # Configure the firewall
   networking.firewall = {
@@ -23,51 +30,51 @@
   };
 
   # Enable SSH
-  services.openssh.enable = true;
+  services.openssh.enable = false;
 
   # Use the HeffOS module system
   heffos = {
+    config-dir = "/home/colin/heffos";
     editors = {
       helix.enable = true;
       default = "helix";
     };
-    shells = {
-      fish.enable = true;
-      zsh.enable = true;
+    shells.fish = {
+      enable = true;
+      default = true;
     };
     utility = {
       direnv.enable = true;
-      multimedia.enable = true;
-      tty.enable = true;
+      file-nav.enable = true;
+      fuzzy.enable = true;
+      modern-alts.enable = true;
+      nh.enable = true;
+      vcs.enable = true;
     };
     services = {
       nix-gc.enable = true;
       polkit.enable = true;
     };
     system = {
-      bootloader.rpi = {
-        enable = true;
-        version = 3;
-      };
+      bootloader.rpi.enable = true;
       connectivity = {
         wifi-networks = {
           a12.enable = true;
         };
-        bluetooth.enable = true;
+        # bluetooth.enable = true;
       };
     };
   };
 
   # Configure system users
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     users.colin = {
       description = "Colin Heffernan";
       isNormalUser = true;
       extraGroups = [
         "wheel"
       ];
-      shell = pkgs.fish; # TODO: Revert to Zsh?
       # hashedPasswordFile = "/persist/passwords/colin";
     };
   };
@@ -83,6 +90,7 @@
       ...
     }: {
       imports = [
+        inputs.catppuccin.homeModules.catppuccin
         ../../modules/home-manager
       ];
 

@@ -39,7 +39,7 @@
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       # Specify systems
-      # ARM's here! All hail the RPI!
+      # ARM's here! All hail the RPi!
       systems = ["x86_64-linux" "aarch64-linux"];
 
       # Import host configurations
