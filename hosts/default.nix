@@ -17,11 +17,11 @@
       # Set up overlays
       overlays = [
         (final: prev: {
-          # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-25.05`
-          stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
+          # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
+          stable = import inputs.nixpkgs-stable { system = final.system; config = final.config; };
 
           # Make `pkgs.dev` point to `colin-heffernan/nixpkgs`
-          dev = inputs.nixpkgs-dev.legacyPackages.${prev.system};
+          dev = import inputs.nixpkgs-dev { system = final.system; config = final.config; };
 
           # Use the latest Discord tarball
           discord = prev.discord.overrideAttrs (
