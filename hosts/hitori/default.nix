@@ -35,15 +35,6 @@
   heffos = {
     config-dir = "/home/colin/Repos/HeffOS-Nix-Flake";
     theme.catppuccin.enable = true;
-    browsers = {
-      brave.enable = true;
-      firefox.enable = true;
-      librewolf.enable = true;
-      # vivaldi = {
-      #   enable = true;
-      #   enablePlasma6Support = true;
-      # };
-    };
     communication = {
       discord.enable = true;
       matrix.enable = true;
@@ -163,6 +154,14 @@
       };
 
       heffos-home = {
+        browsers = {
+          brave.enable = true;
+          chromium = {
+            enable = true;
+            ungoogled = true;
+          };
+          librewolf.enable = true;
+        };
         editors = {
           emacs.enable = true;
           helix.enable = true;

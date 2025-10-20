@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ./browsers
     ./communication
     ./compat
     ./entertainment
