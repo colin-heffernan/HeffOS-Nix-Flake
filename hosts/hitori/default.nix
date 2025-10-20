@@ -146,6 +146,7 @@
           };
         };
         shells = {
+          bash.enable = true;
           fish = {
             enable = true;
             default = true;
