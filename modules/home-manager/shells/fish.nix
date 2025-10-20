@@ -17,7 +17,7 @@
     };
 
     # TODO: Make this generic
-    programs.bash.initExtra = lib.mkIf config.heffos.shells.fish.default ''
+    programs.bash.initExtra = lib.mkIf config.heffos-home.shells.fish.default ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
       then
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
