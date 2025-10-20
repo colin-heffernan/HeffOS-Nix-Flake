@@ -27,10 +27,6 @@
       url = "github:yazi-rs/plugins";
       flake = false;
     };
-    yazi-flavors = {
-      url = "github:yazi-rs/flavors";
-      flake = false;
-    };
 
     # Up-to-date Discord
     discord = {
