@@ -1,9 +1,11 @@
 {
+  config,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.editors.helix.enable {
+  options.heffos-home.editors.helix.enable = lib.mkEnableOption "Helix";
+
+  config = lib.mkIf config.heffos-home.editors.helix.enable {
     programs.helix = {
       enable = true;
       languages = {

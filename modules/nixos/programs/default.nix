@@ -9,7 +9,6 @@
     ./browsers
     ./communication
     ./compat
-    ./editors
     ./entertainment
     ./environments
     ./shells
@@ -48,17 +47,17 @@
     # Web requests
     curl
     wget
-    
+
     # Archival tools
     zip
     unzip
     p7zip
-    
+
     # Coreutils alternatives
     ripgrep
     ripgrep-all
     fd
-    
+
     # System tools
     bottom
     trash-cli

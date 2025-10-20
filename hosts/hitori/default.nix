@@ -52,11 +52,6 @@
       translation.enable = true;
       virtualization.enable = true;
     };
-    editors = {
-      emacs.enable = true;
-      helix.enable = true;
-      default = "helix";
-    };
     entertainment = {
       games = {
         gamemode.enable = true;
@@ -165,6 +160,13 @@
         # Set the Home Manager version from
         # which all default values are taken
         stateVersion = "23.11";
+      };
+
+      heffos-home = {
+        editors = {
+          emacs.enable = true;
+          helix.enable = true;
+        };
       };
     };
   };
