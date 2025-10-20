@@ -14,7 +14,7 @@
 
   options.heffos-home.utility.multimedia.enable = lib.mkEnableOption "multimedia utilities";
 
-  config = config.heffos-home.utility.multimedia.enable {
+  config = lib.mkIf config.heffos-home.utility.multimedia.enable {
     home.packages = with pkgs; [
       gimp
       inkscape

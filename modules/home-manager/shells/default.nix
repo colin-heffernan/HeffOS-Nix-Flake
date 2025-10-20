@@ -21,7 +21,7 @@
     programs.starship = {
       enable = true;
       enableTransience =
-        if config.heffos.shells.fish.enable
+        if config.heffos-home.shells.fish.enable
         then true
         else false;
       settings = {
