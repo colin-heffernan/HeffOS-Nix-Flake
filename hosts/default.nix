@@ -61,8 +61,11 @@
         # Set up overlays
         overlays = [
           (final: prev: {
-            # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-24.11`
-            stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
+            # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
+            stable = import inputs.nixpkgs-stable {
+              system = final.system;
+              config = final.config;
+            };
           })
         ];
       };
