@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ./communication
     ./compat
     ./entertainment
     ./environments

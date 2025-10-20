@@ -1,6 +1,7 @@
 {
   imports = [
     ./browsers
+    ./communication
     ./editors
     ./environments
     ./shells
