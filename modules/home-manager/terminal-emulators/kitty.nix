@@ -1,9 +1,11 @@
 {
+  config,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.terminal-emulators.kitty.enable {
+  options.heffos-home.terminal-emulators.kitty.enable = lib.mkEnableOption "Kitty";
+
+  config = lib.mkIf config.heffos-home.terminal-emulators.kitty.enable {
     programs.kitty = {
       enable = true;
       font = {

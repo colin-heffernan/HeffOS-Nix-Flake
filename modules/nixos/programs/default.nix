@@ -9,7 +9,6 @@
     ./compat
     ./entertainment
     ./environments
-    ./terminal-emulators
     ./utility
   ];
 

@@ -56,11 +56,6 @@
       desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
     };
-    terminal-emulators = {
-      ghostty.enable = true;
-      kitty.enable = true;
-      wezterm.enable = true;
-    };
     utility = {
       direnv.enable = true;
       file-nav.enable = true;
@@ -167,6 +162,11 @@
             enable = true;
             default = true;
           };
+        };
+        terminal-emulators = {
+          ghostty.enable = true;
+          kitty.enable = true;
+          wezterm.enable = true;
         };
       };
     };

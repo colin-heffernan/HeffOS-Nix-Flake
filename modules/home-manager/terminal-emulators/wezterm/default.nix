@@ -1,12 +1,13 @@
 {
+  config,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.terminal-emulators.wezterm.enable {
+  options.heffos-home.terminal-emulators.wezterm.enable = lib.mkEnableOption "WezTerm";
+
+  config = lib.mkIf config.heffos-home.terminal-emulators.wezterm.enable {
     programs.wezterm = {
       enable = true;
-      enableZshIntegration = true;
       extraConfig = builtins.readFile ./init.lua;
     };
   };

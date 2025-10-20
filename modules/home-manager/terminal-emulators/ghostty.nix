@@ -1,9 +1,11 @@
 {
+  config,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.terminal-emulators.ghostty.enable {
+  options.heffos-home.terminal-emulators.ghostty.enable = lib.mkEnableOption "Ghostty";
+
+  config = lib.mkIf config.heffos-home.terminal-emulators.ghostty.enable {
     programs.ghostty = {
       enable = true;
       clearDefaultKeybinds = true;
