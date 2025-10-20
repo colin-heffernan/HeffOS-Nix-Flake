@@ -1,18 +1,27 @@
 {
+  config,
   lib,
   osConfig,
   ...
 }: {
   imports = [
     ./fish.nix
-    ./zsh.nix
   ];
 
-  config = lib.mkIf (osConfig.heffos.shells.fish.enable || osConfig.heffos.shells.zsh.enable) {
+  options.heffos-home.shells.aliases = lib.mkOption {
+    type = lib.types.attrs;
+    description = "List of shell aliases to use.";
+    default = {
+      sup = "sudo nixos-rebuild switch --flake ${osConfig.heffos.config-dir}#${osConfig.networking.hostName}";
+      fup = "nix flake update";
+    };
+  };
+
+  config = lib.mkIf (config.heffos-home.shells.fish.enable) {
     programs.starship = {
       enable = true;
       enableTransience =
-        if osConfig.heffos.shells.fish.enable
+        if config.heffos.shells.fish.enable
         then true
         else false;
       settings = {
@@ -35,7 +44,6 @@
           disabled = false;
           bash_indicator = "Bash";
           fish_indicator = "Fish";
-          zsh_indicator = "Zsh";
           style = "blue bold";
           format = "via [$indicator]($style) ";
         };
