@@ -56,13 +56,6 @@
       desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
     };
-    shells = {
-      fish = {
-        enable = true;
-        default = true;
-      };
-      # zsh.enable = true;
-    };
     terminal-emulators = {
       ghostty.enable = true;
       kitty.enable = true;
@@ -80,11 +73,6 @@
       vcs.enable = true;
     };
     services = {
-      mpd = {
-        enable = true;
-        mpris = true;
-        # rpc = true;
-      };
       nix-gc.enable = true;
       polkit.enable = true;
       usb-automount.enable = true;
@@ -167,6 +155,17 @@
           games = {
             minecraft.enable = true;
             modding.enable = true;
+          };
+          mpd = {
+            enable = true;
+            mpris = true;
+            # rpc = true;
+          };
+        };
+        shells = {
+          fish = {
+            enable = true;
+            default = true;
           };
         };
       };
