@@ -1,15 +1,15 @@
 {
+  config,
   inputs,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.utility.file-nav.enable {
+  config = lib.mkIf config.heffos-home.utility.file-nav.enable {
     programs.yazi = {
       enable = true;
       initLua = builtins.readFile ./init.lua;
       keymap = {
-        manager.keymap = [
+        mgr.keymap = [
           {
             on = "<Esc>";
             run = "escape";
@@ -426,7 +426,7 @@
         full-border = inputs.yazi-plugins + "/full-border.yazi";
       };
       settings = {
-        manager = {
+        mgr = {
           sort_by = "natural";
           sort_sensitive = false;
           sort_dir_first = true;

@@ -1,9 +1,9 @@
 {
+  config,
   lib,
-  osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.heffos.utility.multimedia.enable {
+  config = lib.mkIf config.heffos-home.utility.multimedia.enable {
     programs.mpv = {
       enable = true;
       config = {

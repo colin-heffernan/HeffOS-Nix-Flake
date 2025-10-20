@@ -56,17 +56,6 @@
       desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
     };
-    utility = {
-      direnv.enable = true;
-      file-nav.enable = true;
-      fuzzy.enable = true;
-      modern-alts.enable = true;
-      multimedia.enable = true;
-      multiplex.enable = true;
-      nh.enable = true;
-      notes.enable = true;
-      vcs.enable = true;
-    };
     services = {
       nix-gc.enable = true;
       polkit.enable = true;
@@ -77,6 +66,7 @@
       connectivity = {
         wifi-networks = {
           a12.enable = true;
+          whitesky.enable = true;
         };
         bluetooth.enable = true;
       };
@@ -167,6 +157,19 @@
           ghostty.enable = true;
           kitty.enable = true;
           wezterm.enable = true;
+        };
+        utility = {
+          direnv.enable = true;
+          # documents.enable = true;
+          file-nav.enable = true;
+          file-transfer.enable = true;
+          fuzzy.enable = true;
+          modern-alts.enable = true;
+          multimedia.enable = true;
+          # multiplex.enable = true;
+          nh.enable = true;
+          obsidian.enable = true;
+          vcs.enable = true;
         };
       };
     };
