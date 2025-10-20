@@ -43,6 +43,9 @@ layout {
         active-color "#f5c2e7"
         inactive-color "#505050"
     }
+
+    // Disable the background
+    background-color "transparent"
 }
 
 // Disable using top-left corner for Overview
@@ -119,6 +122,13 @@ window-rule {
 }
 
 // TODO: Make Discord open in dedicated workspace?
+
+// -*- Layer rules -*-
+// Put SwayBG in the backdrop
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
 
 // -*- Bindings -*-
 binds {
