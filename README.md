@@ -29,7 +29,6 @@ HeffOS uses a number of libraries to achieve various features:
   - WSL2 on tower "Futari"
   - WSL2 on laptop "Ryo"
 - Replace SDDM
-- Switch to standalone Home-Manager
 - Migrate to GNU GuixSD?
 
 ## Credits
