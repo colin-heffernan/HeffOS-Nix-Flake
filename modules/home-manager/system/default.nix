@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./usb-automount.nix
+  ];
+}

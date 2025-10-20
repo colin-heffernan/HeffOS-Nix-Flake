@@ -56,11 +56,6 @@
       desktop-environments.plasma.enable = true;
       display-managers.sddm.enable = true;
     };
-    services = {
-      nix-gc.enable = true;
-      polkit.enable = true;
-      usb-automount.enable = true;
-    };
     system = {
       bootloader.dualboot.enable = true;
       connectivity = {
@@ -72,8 +67,11 @@
       };
       fonts.enable = true;
       hardware-acceleration.enable = true;
+      nix-gc.enable = true;
       pipewire.enable = true;
+      polkit.enable = true;
       printing.enable = true;
+      usb-automount.enable = true;
       zram.enable = true;
     };
   };

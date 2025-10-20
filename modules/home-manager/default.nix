@@ -6,10 +6,10 @@
     ./entertainment
     ./environments
     ./shells
+    ./system
     ./terminal-emulators
     ./theme
     ./utility
-    ./usb-automount.nix
   ];
 
   programs.home-manager.enable = true;
