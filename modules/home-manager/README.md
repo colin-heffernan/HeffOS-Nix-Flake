@@ -1,5 +1,10 @@
 # `modules/home-manager`
 This directory also contains other directories.
-- `programs` contains modules corresponding to programs
-- `services` contains modules corresponding to services
-- `theme` contains modules to control system-wide themes
+- `browsers` contains modules to control browsers
+- `editors` contains modules to control text editors
+- `environments` contains modules to control window managers, desktop environments, and compositors
+- `shells` contains modules to control command-line shells
+- `terminal-emulators` contains modules to control terminal emulators
+- `theme` contains modules to control themes
+- `utility` contains modules to control utility programs
+- `default.nix` contains modules to control things I will always use
