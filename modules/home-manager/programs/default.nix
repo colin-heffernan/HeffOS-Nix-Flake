@@ -3,6 +3,7 @@
     ./browsers
     ./communication
     ./editors
+    ./entertainment
     ./environments
     ./shells
     ./terminal-emulators

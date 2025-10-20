@@ -42,11 +42,8 @@
     entertainment = {
       games = {
         gamemode.enable = true;
-        minecraft.enable = true;
-        modding.enable = true;
         steam.enable = true;
       };
-      # freetube.enable = true;
     };
     environments = {
       components = {
@@ -165,6 +162,12 @@
         editors = {
           emacs.enable = true;
           helix.enable = true;
+        };
+        entertainment = {
+          games = {
+            minecraft.enable = true;
+            modding.enable = true;
+          };
         };
       };
     };

@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.heffos.entertainment.games.minecraft = {
-    enable = lib.mkEnableOption "Prism Launcher";
+  options.heffos-home.entertainment.games.minecraft = {
+    enable = lib.mkEnableOption "Minecraft (via Prism Launcher)";
     jdks = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       description = "List of JDK versions to use.";
@@ -17,10 +17,10 @@
     };
   };
 
-  config = lib.mkIf config.heffos.entertainment.games.minecraft.enable {
-    environment.systemPackages = with pkgs; [
+  config = lib.mkIf config.heffos-home.entertainment.games.minecraft.enable {
+    home.packages = with pkgs; [
       (prismlauncher.override {
-        jdks = config.heffos.entertainment.games.minecraft.jdks;
+        jdks = config.heffos-home.entertainment.games.minecraft.jdks;
       })
     ];
   };
