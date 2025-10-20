@@ -17,7 +17,7 @@ HeffOS uses a number of libraries to achieve various features:
 | Host   | Purpose                                                    |
 |--------|------------------------------------------------------------|
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
-| Ikuyo | My Raspberry Pi 3B+ |
+| Ikuyo  | My Raspberry Pi 3B+                                        |
 
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 
@@ -26,7 +26,6 @@ HeffOS uses a number of libraries to achieve various features:
   - Automate BTRFS snapshots with BTRBK
   - Set up full-disk encryption?
 - Establish new system configurations
-  - Raspberry Pi 3B+ "Ikuyo"
   - WSL2 on tower "Futari"
   - WSL2 on laptop "Ryo"
 - Replace SDDM
