@@ -19,6 +19,7 @@ HeffOS uses a number of libraries to achieve various features:
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
 | Ikuyo  | My Raspberry Pi 3B+                                        |
 | Futari | NixOS on WSL2 on the Windows 11 partition on Hitori        |
+| Ryo    | NixOS on WSL2 on laptop                                    |
 
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 
@@ -26,8 +27,6 @@ HeffOS uses a number of libraries to achieve various features:
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
   - Set up full-disk encryption?
-- Establish new system configurations
-  - WSL2 on laptop "Ryo"
 - Replace SDDM
 - Migrate to GNU GuixSD?
 
