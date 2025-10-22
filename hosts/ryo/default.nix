@@ -5,25 +5,22 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos
   ];
+  
+  # Enable WSL
+  wsl = {
+    enable = true;
+    defaultUser = "colin";
+  };
 
   # Set the PC hostname
-  networking.hostName = "heffos-ikuyo";
+  networking.hostName = "heffos-ryo";
 
   # Configure the time
   time.timeZone = "America/New_York";
-
-  # Swapfile
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 4 * 1024;
-    }
-  ];
 
   # Configure the firewall
   networking.firewall = {
@@ -31,58 +28,26 @@
     allowedUDPPorts = [];
   };
 
-  # Enable SSH
-  services.openssh.enable = false;
-
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
-    editors = {
-      helix.enable = true;
-      default = "helix";
-    };
-    shells.fish = {
-      enable = true;
-      default = true;
-    };
-    utility = {
-      direnv.enable = true;
-      file-nav.enable = true;
-      fuzzy.enable = true;
-      modern-alts.enable = true;
-      nh.enable = true;
-      vcs.enable = true;
-    };
-    services = {
-      nix-gc.enable = true;
-      polkit.enable = true;
-    };
+    theme.catppuccin.enable = true;
     system = {
-      bootloader = {
-        enable = true;
-        rpi.enable = true;
-      };
-      connectivity = {
-        wifi-networks = {
-          a12.enable = true;
-          whitesky.enable = true;
-        };
-        # bluetooth.enable = true;
-      };
+      nix-gc.enable = true;
     };
   };
 
   # Configure system users
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users.colin = {
       description = "Colin Heffernan";
       isNormalUser = true;
       extraGroups = [
         "wheel"
       ];
-      initialPassword = "kita!ikuyo!";
       # hashedPasswordFile = "/persist/passwords/colin";
+      initialPassword = "weedeater";
     };
   };
 
@@ -92,6 +57,7 @@
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
     users.colin = {
+      inputs,
       pkgs,
       osConfig,
       ...
@@ -110,10 +76,32 @@
         # which all default values are taken
         stateVersion = "23.11";
       };
+
+      heffos-home = {
+        editors = {
+          emacs.enable = true;
+          helix.enable = true;
+        };
+        shells = {
+          bash.enable = true;
+          fish = {
+            enable = true;
+            default = true;
+          };
+        };
+        utility = {
+          direnv.enable = true;
+          file-nav.enable = true;
+          fuzzy.enable = true;
+          modern-alts.enable = true;
+          nh.enable = true;
+          vcs.enable = true;
+        };
+      };
     };
   };
 
   # Set the NixOS version from which
   # all default values are taken
-  system.stateVersion = "22.11";
+  system.stateVersion = "25.05";
 }

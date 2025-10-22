@@ -8,6 +8,8 @@ HeffOS uses a number of libraries to achieve various features:
   - This one is mostly obvious, but there are actually *three* branches of Nixpkgs in HeffOS: latest stable, unstable, and my personal fork
 - Home Manager
   - This one is also pretty widely used; I use it to configure programs on a per-user basis
+- NixOS-WSL
+  - This one facilitates using NixOS as a WSL distro
 - Flake Parts
   - This one is for non-host derivations that can be used across architectures, such as packages or shells
 - Catppuccin
@@ -18,6 +20,8 @@ HeffOS uses a number of libraries to achieve various features:
 |--------|------------------------------------------------------------|
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
 | Ikuyo  | My Raspberry Pi 3B+                                        |
+| Futari | NixOS on WSL2 on the Windows 11 partition on Hitori        |
+| Ryo    | NixOS on WSL2 on laptop                                    |
 
 (Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
 
@@ -25,9 +29,6 @@ HeffOS uses a number of libraries to achieve various features:
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
   - Set up full-disk encryption?
-- Establish new system configurations
-  - WSL2 on tower "Futari"
-  - WSL2 on laptop "Ryo"
 - Replace SDDM
 - Migrate to GNU GuixSD?
 
