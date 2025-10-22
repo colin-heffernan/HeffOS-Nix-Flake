@@ -8,6 +8,8 @@ HeffOS uses a number of libraries to achieve various features:
   - This one is mostly obvious, but there are actually *three* branches of Nixpkgs in HeffOS: latest stable, unstable, and my personal fork
 - Home Manager
   - This one is also pretty widely used; I use it to configure programs on a per-user basis
+- NixOS-WSL
+  - This one facilitates using NixOS as a WSL distro
 - Flake Parts
   - This one is for non-host derivations that can be used across architectures, such as packages or shells
 - Catppuccin
