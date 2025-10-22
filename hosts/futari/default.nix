@@ -26,45 +26,10 @@
 
   # Use the HeffOS module system
   heffos = {
-    config-dir = "/home/colin/Repos/HeffOS-Nix-Flake";
-    compat.translation.enable = true;
-    editors = {
-      helix.enable = true;
-      default = "helix";
-    };
-    entertainment = {
-      games = {
-        gamemode.enable = true;
-        minecraft.enable = true;
-        modding.enable = true;
-        steam.enable = true;
-      };
-    };
-    shells.fish = {
-      enable = true;
-      default = true;
-    };
-    utility = {
-      direnv.enable = true;
-      file-nav.enable = true;
-      fuzzy.enable = true;
-      modern-alts.enable = true;
-      nh.enable = true;
-      vcs.enable = true;
-    };
-    services = {
-      nix-gc.enable = true;
-      polkit.enable = true;
-    };
+    config-dir = "/home/colin/heffos";
+    themes.catppuccin.enable = true;
     system = {
-      connectivity = {
-        wifi-networks = {
-          a12.enable = true;
-        };
-        bluetooth.enable = true;
-      };
-      hardware-acceleration.enable = true;
-      pipewire.enable = true;
+      nix-gc.enable = true;
     };
   };
 
@@ -75,11 +40,10 @@
       description = "Colin Heffernan";
       isNormalUser = true;
       extraGroups = [
-        "gamemode"
-        "libvirtd"
         "wheel"
       ];
-      hashedPasswordFile = "/persist/passwords/colin";
+      # hashedPasswordFile = "/persist/passwords/colin";
+      initialPassword = "jimihen";
     };
   };
 
@@ -107,6 +71,28 @@
         # Set the Home Manager version from
         # which all default values are taken
         stateVersion = "23.11";
+      };
+
+      heffos-home = {
+        editors = {
+          emacs.enable = true;
+          helix.enable = true;
+        };
+        shells = {
+          bash.enable = true;
+          fish = {
+            enable = true;
+            default = true;
+          };
+        };
+        utility = {
+          direnv.enable = true;
+          file-nav.enable = true;
+          fuzzy.enable = true;
+          modern-alts.enable = true;
+          nh.enable = true;
+          vcs.enable = true;
+        };
       };
     };
   };
