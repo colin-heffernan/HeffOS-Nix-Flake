@@ -58,7 +58,10 @@
       polkit.enable = true;
     };
     system = {
-      bootloader.rpi.enable = true;
+      bootloader = {
+        enable = true;
+        rpi.enable = true;
+      };
       connectivity = {
         wifi-networks = {
           a12.enable = true;
