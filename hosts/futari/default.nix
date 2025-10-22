@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos
   ];
@@ -27,7 +28,7 @@
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
-    themes.catppuccin.enable = true;
+    theme.catppuccin.enable = true;
     system = {
       nix-gc.enable = true;
     };
