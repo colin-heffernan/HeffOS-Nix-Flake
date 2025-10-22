@@ -38,18 +38,18 @@
   };
 
   # Configure system users
-  # users = {
-  #   mutableUsers = false;
-  #   users.colin = {
-  #     description = "Colin Heffernan";
-  #     isNormalUser = true;
-  #     extraGroups = [
-  #       "wheel"
-  #     ];
-  #     # hashedPasswordFile = "/persist/passwords/colin";
-  #     initialPassword = "jimihen";
-  #   };
-  # };
+  users = {
+    mutableUsers = false;
+    users.colin = {
+      description = "Colin Heffernan";
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+      ];
+      # hashedPasswordFile = "/persist/passwords/colin";
+      initialPassword = "jimihen";
+    };
+  };
 
   # Configure Home Manager
   home-manager = {
