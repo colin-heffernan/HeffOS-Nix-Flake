@@ -29,6 +29,9 @@ HeffOS uses a number of libraries to achieve various features:
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
   - Set up full-disk encryption?
+- Add host "Hiroi" (via [nix-on-droid](https://github.com/nix-community/nix-on-droid))
+- Set up [SOPS-Nix](https://github.com/Mic92/sops-nix)
+- Use Nix' default host SSH keys
 - Replace SDDM
 - Migrate to GNU GuixSD?
 
