@@ -9,12 +9,15 @@
     inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos
   ];
-  
+
   # Enable WSL
   wsl = {
     enable = true;
     defaultUser = "colin";
   };
+
+  # Support VSCode remote
+  programs.nix-ld.enable = true;
 
   # Set the PC hostname
   networking.hostName = "heffos-futari";
