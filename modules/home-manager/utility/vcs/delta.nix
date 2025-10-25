@@ -4,6 +4,9 @@
   ...
 }: {
   config = lib.mkIf config.heffos-home.utility.vcs.enable {
-    programs.git.delta.enable = true;
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
   };
 }
