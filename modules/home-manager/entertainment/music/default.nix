@@ -1,5 +1,6 @@
 {
   imports = [
     ./mpd
+    ./spotify.nix
   ];
 }

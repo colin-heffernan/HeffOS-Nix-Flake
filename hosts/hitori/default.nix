@@ -107,6 +107,7 @@
     }: {
       imports = [
         inputs.catppuccin.homeModules.catppuccin
+        inputs.spicetify-nix.homeManagerModules.spicetify
         ../../modules/home-manager
       ];
 
@@ -148,6 +149,7 @@
               mpris = true;
               # rpc = true;
             };
+            spotify.enable = true;
           };
         };
         shells = {

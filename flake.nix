@@ -12,7 +12,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     # NixOS WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -39,6 +39,12 @@
       type = "tarball";
       url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
       flake = false;
+    };
+
+    # Spicetify
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
