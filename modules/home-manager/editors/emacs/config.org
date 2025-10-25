@@ -1,0 +1,1231 @@
+#+TITLE: Heffmacs
+#+AUTHOR: Colin Heffernan
+#+DESCRIPTION: My personal Emacs config.
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+#+AUTO_TANGLE: t
+
+* TABLE OF CONTENTS :toc:
+- [[#credits-and-acknowledgements][CREDITS AND ACKNOWLEDGEMENTS]]
+- [[#plans-for-improvement][PLANS FOR IMPROVEMENT]]
+  - [[#packages-under-consideration][Packages Under Consideration]]
+  - [[#things-to-make][Things to Make?]]
+- [[#startup][STARTUP]]
+  - [[#early-init][Early Init]]
+  - [[#init-file-header][Init File Header]]
+  - [[#elpaca][Elpaca]]
+- [[#emacs-tweaks][EMACS TWEAKS]]
+  - [[#dired][Dired]]
+  - [[#electric][Electric]]
+  - [[#recent-files][Recent Files]]
+  - [[#save-history][Save History]]
+- [[#keybindings][KEYBINDINGS]]
+  - [[#evil][EVIL]]
+  - [[#general][General]]
+- [[#completions][COMPLETIONS]]
+  - [[#vertico][Vertico]]
+  - [[#consult][Consult]]
+  - [[#embark][Embark]]
+  - [[#corfu][Corfu]]
+- [[#navigation][NAVIGATION]]
+  - [[#avy][Avy]]
+  - [[#ace-window][Ace Window]]
+- [[#ui][UI]]
+  - [[#theme][Theme]]
+  - [[#fonts][Fonts]]
+  - [[#icons][Icons]]
+  - [[#which-key][Which-Key]]
+  - [[#solaire-mode][Solaire Mode]]
+  - [[#modeline][Modeline]]
+  - [[#highlight-to-do][Highlight To-Do]]
+  - [[#true-transparency][True Transparency]]
+  - [[#rainbow-mode][Rainbow Mode]]
+  - [[#rainbow-delimiters][Rainbow Delimiters]]
+  - [[#diff-highlight][Diff Highlight]]
+  - [[#popup-buffers][Popup Buffers]]
+- [[#languages][LANGUAGES]]
+  - [[#language-agnostic][Language-Agnostic]]
+  - [[#systems][Systems]]
+  - [[#scripting][Scripting]]
+  - [[#configuration][Configuration]]
+  - [[#web][Web]]
+  - [[#markup][Markup]]
+  - [[#data-interchange][Data Interchange]]
+- [[#org][ORG]]
+  - [[#auto-tangle][Auto-Tangle]]
+  - [[#org-fonts][Org Fonts]]
+  - [[#modern][Modern]]
+  - [[#roam][Roam]]
+  - [[#table-of-contents][Table of Contents]]
+- [[#apps][APPS]]
+  - [[#version-control][Version Control]]
+  - [[#shells-and-terminals][Shells and Terminals]]
+  - [[#dirvish][Dirvish]]
+  - [[#direnv][Direnv]]
+
+* CREDITS AND ACKNOWLEDGEMENTS
+This config wasn't created in a void, so I'd like to acknowledge the resources that helped me get here:
+  - Derek Taylor's "Configuring Emacs" series ([[https://gitlab.com/dwt1/configuring-emacs][Link]])
+  - Patrick D. Elliott's ~emacs.d~ ([[https://patrickdelliott.com/emacs.d][Link]])
+  - Several articles from Karthinks' blog ([[https://karthinks.com/][Link]])
+    
+* PLANS FOR IMPROVEMENT
+This config isn't static; it's meant to grow with me over time as my needs change.
+
+** Packages Under Consideration
+I keep my eye on packages that I think I might be able to work into this config.
+
+| Package                 | Usage                                     | Bindings |
+|-------------------------+-------------------------------------------+----------|
+| EMMS                    | A music player                            | l m      |
+| Elfeed                  | An RSS feed reader                        | l f      |
+| Mu4e/NotMuch            | An email client                           | l e      |
+| AUCTeX                  | Better LaTeX support                      |          |
+| PDF Tools               | Better PDF support                        |          |
+| Citar                   | Citation management                       |          |
+| LilyPond/Lyqi           | LilyPond support                          |          |
+| ERC                     | IRC client                                | l i      |
+| Emacs-Jabber            | XMPP client                               | l x      |
+| Ement                   | Matrix client                             | l E      |
+| Olivetti                | Word processing                           |          |
+| Jinx/FlySpell           | Spell checking                            |          |
+| Ledger-Mode/Org Ledger  | Accounting                                |          |
+| Wgrep                   | Writeable grep for versatile mass editing |          |
+| Beacon/Pulsar           | Flash screen motions                      |          |
+| YASnippet               | Snippet support                           |          |
+| Ace Link                | Avy/Ace Window but for links              |          |
+| Project (built-in)      | Project navigation/management             |          |
+| Perspective (or equiv.) | "Workspaces" of windows                   |          |
+
+** Things to Make?
+There are packages I'm considering writing to add more functionality to Emacs.
+- A package to access the Soulseek network, maybe via ~slskd~?
+  
+* STARTUP
+To keep this configuration a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config. These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
+
+** Early Init
+The ~early-init.el~ file runs /before/ the ~init.el~ file, as well as before the package system or GUI.
+
+*** Early Init File Header
+Including a file header is never a bad idea.
+
+#+begin_src emacs-lisp :tangle "early-init.el" :mkdirp yes
+;; -*- lexical-binding: t; no-byte-compile: t; -*-
+;; early-init.el - Generated by config.org
+;; !! DO NOT EDIT BY HAND !!
+#+end_src
+
+*** Up GC Limit
+During startup, increase Emacs' garbage collector limit to 4GiB.
+
+#+begin_src emacs-lisp :tangle "early-init.el" :mkdirp yes
+(setq gc-cons-threshold (* 4 1024 1024 1024))
+#+end_src
+
+*** Disable Package.el
+Due to a conflict with [[*Elpaca][Elpaca]], ~package.el~ needs to be disabled.
+
+#+begin_src emacs-lisp :tangle "early-init.el" :mkdirp yes
+(setq package-enable-at-startup nil)
+#+end_src
+
+*** Speed Up GUI Launch
+Disabling a number of GUI features before it loads leads to some launch performance improvements.
+
+#+begin_src emacs-lisp :tangle "early-init.el" :mkdirp yes
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(setq inhibit-startup-screen t
+      use-file-dialog nil
+      tab-bar-new-button-show nil
+      tab-bar-close-button-show nil
+      tab-line-close-button-show nil)
+#+end_src
+
+** Init File Header
+Now let's start on the ~init.el~ file.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+;; -*- lexical-binding: t; no-byte-compile: t; -*-
+;; init.el - Generated by config.org
+;; !! DO NOT EDIT BY HAND !!
+#+end_src
+
+** Elpaca
+To manage packages, I use [[https://github.com/progfolio/elpaca][Elpaca]] for its asynchronicity.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(defvar elpaca-installer-version 0.11)
+(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+(defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
+(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                              :ref nil :depth 1 :inherit ignore
+                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                              :build (:not elpaca--activate-package)))
+(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
+       (build (expand-file-name "elpaca/" elpaca-builds-directory))
+       (order (cdr elpaca-order))
+       (default-directory repo))
+  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (unless (file-exists-p repo)
+    (make-directory repo t)
+    (when (<= emacs-major-version 28) (require 'subr-x))
+    (condition-case-unless-debug err
+        (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                  ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
+                                                  ,@(when-let* ((depth (plist-get order :depth)))
+                                                      (list (format "--depth=%d" depth) "--no-single-branch"))
+                                                  ,(plist-get order :repo) ,repo))))
+                  ((zerop (call-process "git" nil buffer t "checkout"
+                                        (or (plist-get order :ref) "--"))))
+                  (emacs (concat invocation-directory invocation-name))
+                  ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                        "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                  ((require 'elpaca))
+                  ((elpaca-generate-autoloads "elpaca" repo)))
+            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+          (error "%s" (with-current-buffer buffer (buffer-string))))
+      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+  (unless (require 'elpaca-autoloads nil t)
+    (require 'elpaca)
+    (elpaca-generate-autoloads "elpaca" repo)
+    (let ((load-source-file-function nil)) (load "./elpaca-autoloads"))))
+(add-hook 'after-init-hook #'elpaca-process-queues)
+(elpaca `(,@elpaca-order))
+(elpaca elpaca-use-package
+  (elpaca-use-package-mode)
+  (setq elpaca-use-package-by-default t))
+(setq use-package-always-ensure t)
+(elpaca-wait)
+#+end_src
+
+* EMACS TWEAKS
+Out of the box, Emacs kinda sucks, at least for me.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package emacs
+  :ensure nil
+  :hook
+  (emacs-startup . (lambda ()
+		     (setq gc-cons-threshold (* 4 1024 1024)) ;; Return GC threshold to 4MiB
+		     (message "Emacs loaded in %s." ;; Display startup time in echo area
+			      (format "%.2f seconds"
+				      (float-time
+				       (time-subtract after-init-time before-init-time))))))
+  :custom
+  (tab-always-indent 'complete) ;; TAB indentation + completion
+  (enable-recursive-minibuffers t) ;; Enable recursive minibuffers
+  (backup-by-copying t) ;; Create backups by copying, not renaming
+  (backup-directory-alist `((".*" . ,(concat user-emacs-directory "backups")))) ;; Make Emacs store its backups elsewhere
+  (auto-save-file-name-transforms `((".*" ,(concat user-emacs-directory "backups") t))) ;; Make Emacs store its autosaves elsewhere
+  (create-lockfiles nil) ;; Don't create lockfiles
+  (delete-by-moving-to-trash t) ;; Use trash-cli over rm
+  (sentence-end-double-space nil) ;; Don't use double-spaces to end sentences
+  (read-extended-command-predicate #'command-completion-default-include-p) ;; Hide M-x commands that don't work in the current mode
+  (scroll-margin 5) ;; Set scrolloff size
+  (scroll-conservatively 101) ;; Emulate Vim scrolloff
+  (minibuffer-prompt-properties ;; No cursor in minibuffer prompt
+   '(read-only t cursor-intangible t face minibuffer-prompt))
+  (display-line-numbers-type 'relative) ;; Relative line numbers
+  :hook
+  (prog-mode . display-line-numbers-mode) ;; Display line numbers
+  :init
+  (minibuffer-depth-indicate-mode) ;; Indicate recursive minibuffer depth in modeline
+  (global-auto-revert-mode) ;; Show changes if file changes
+  (pixel-scroll-precision-mode 1) ;; Enable smooth scrolling
+  ;; (global-display-line-numbers-mode 1)
+  (global-visual-line-mode t) ;; Enable truncated lines
+  (global-set-key [escape] 'keyboard-escape-quit) ;; Make it so you don't need to triple-ESC to exit the minibuffer
+  ;; Prefer UTF-8
+  (set-charset-priority 'unicode)
+  (setq locale-coding-system 'utf-8
+        coding-system-for-read 'utf-8
+        coding-system-for-write 'utf-8
+        default-process-coding-system '(utf-8-unix . utf-8-unix))
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)) 
+#+end_src
+
+** Dired
+Dired, the directory editor, is Emacs' file browser.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package dired
+  :ensure nil
+  :custom
+  (dired-listing-switches "-lAhG --group-directories-first")) ;; Set default ls flags for Dired
+#+end_src
+
+** Electric
+Tweak Electric's behavior for pairing and indenting.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package electric
+  :ensure nil
+  :custom
+  (setq electric-pair-preserve-balance nil) ;; Don't preserve balance in electric pairs
+  :init
+  (electric-indent-mode -1) ;; Turn off Emacs' automatic indents
+  (electric-pair-mode)) ;; Turn on automatic closing of parens, brackets, etc.
+#+end_src
+
+** Recent Files
+Enable recent file tracking.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package recentf
+  :ensure nil
+  :init
+  (recentf-mode)
+  (setq recentf-max-saved-items 50))
+#+end_src
+
+** Save History
+Save minibuffer history.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package savehist
+  :ensure nil
+  :init
+  (savehist-mode))
+#+end_src
+
+* KEYBINDINGS
+Lukewarm take: one of vanilla Emacs' biggest flaws is its keymaps, so I'm gonna make them more usable for myself here.
+
+** EVIL
+[[https://github.com/emacs-evil/evil][EVIL]] is an Extensible VI Layer for Emacs. I may be using Emacs, but I'll always rep the Vim bindings.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package evil
+  :custom
+  (evil-want-integration t)
+  (evil-want-keybinding nil)
+  (evil-vsplit-window-right t)
+  (evil-split-window-below t)
+  (evil-undo-system 'undo-redo)
+  :config
+  (evil-mode t)
+  (evil-set-initial-state 'eshell-mode 'insert)
+  (evil-set-initial-state 'magit-diff-mode 'insert))
+;; Follow links in Org mode with RET
+;; TODO: Figure this out
+(with-eval-after-load 'evil-maps
+  (define-key evil-motion-state-map (kbd "SPC") nil)
+  (define-key evil-motion-state-map (kbd "RET") nil)
+  (define-key evil-motion-state-map (kbd "TAB") nil))
+(setq org-return-follows-link t)
+#+end_src
+
+*** EVIL Collection
+EVIL-ify other packages.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package evil-collection
+  :after evil
+  :config
+  (add-to-list 'evil-collection-mode-list 'help)
+  (evil-collection-init))
+#+end_src
+
+*** EVIL Surround
+Like Tim Pope's [[https://github.com/tpope/vim-surround][surround.vim]] for EVIL.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+
+** General
+Configure ALL the keybindings.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package general
+  :ensure (:wait t)
+  :config
+  (general-evil-setup)
+  (general-create-definer heff/leader-keys
+    :states '(normal insert visual emacs)
+    :keymaps 'override
+    :prefix "SPC"
+    :global-prefix "M-SPC")
+  (heff/leader-keys
+    "SPC" '("M-x" . execute-extended-command)
+    "." '("Find file" . find-file)
+    "TAB TAB" '("Comment lines" . comment-line)
+    "u" '("Universal argument" . universal-argument))
+  (heff/leader-keys
+    "b" '(:ignore t :wk "Bookmarks/Buffers")
+    "b i" '("Ibuffer" . ibuffer)
+    "b k" '("Kill current buffer" . kill-current-buffer)
+    "b r" '("Reload buffer" . revert-buffer)
+    "b R" '("Rename buffer" . rename-buffer))
+  (heff/leader-keys
+    "e" '(:ignore t :wk "Evaluate")    
+    "e b" '("Evaluate Elisp in buffer" . eval-buffer)
+    "e c" '("Evaluate Emacs config" . (lambda () (interactive)
+                (load-file "~/.config/emacs/init.el")
+                (ignore (elpaca-process-queues))))
+    "e d" '("Evaluate defun containing or after point" . eval-defun)
+    "e e" '("Evaluate an Elisp expression" . eval-expression)
+    "e l" '("Evaluate Elisp expression before point" . eval-last-sexp)
+    "e r" '("Evaluate Elisp in region" . eval-region))
+  (heff/leader-keys
+    "f" '(:ignore t :wk "Files")    
+    "f c" '("Open Emacs config.org" . (lambda () (interactive)
+              (find-file (concat user-emacs-directory "config.org")))))
+ (heff/leader-keys
+    "h" '(:ignore t :wk "Help")
+    "h d" '(:ignore t :wk "Describe")
+    "h d b" '("Bindings" . describe-bindings)
+    "h d c" '("Command" . describe-command)
+    "h d C" '("Character under cursor" . describe-char)
+    "h d f" '("Function" . describe-function)
+    "h d F" '("Face" . describe-face)
+    "h d i" '("Input method" . describe-input-method)
+    "h d k" '("Key" . describe-key)
+    "h d l" '("Language environment" . describe-language-environment)
+    "h d m" '("Mode" . describe-mode)
+    "h d v" '("Variable" . describe-variable)
+    "h D" '("Search dictionary" . dictionary-search)
+    "h e" '("View echo area messages" . view-echo-area-messages)
+    "h i" '("Info" . info)
+    "h l" '("Display recent keystrokes and the commands run" . view-lossage)
+    "h m" '("Man" . man))
+  (heff/leader-keys
+    "l" '(:ignore t :wk "Launch"))
+  (heff/leader-keys
+    "w" '(:ignore t :wk "Windows")
+    "w c" '("Close window" . delete-window)
+    "w s" '("Horizontal split window" . split-window-below)
+    "w v" '("Vertical split window" . split-window-right)))
+#+end_src
+
+* COMPLETIONS
+One of the most immediately visible features of any modern code text editor is completion.
+
+** Vertico
+I use [[https://github.com/minad/vertico][Vertico]] for my completion UI over Helm or Ivy. 
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package vertico
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode))
+#+end_src
+
+*** Orderless
+To complement Vertico's functionality, I use the [[https://github.com/oantolin/orderless][Orderless]] completion style.
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package orderless
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-overrides '((file (styles partial-completion)))))
+#+end_src
+
+*** Marginalia
+Along with Orderless, I enhance Vertico with annotations via [[https://github.com/minad/marginalia][Marginalia]].
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package marginalia
+  :init
+  (marginalia-mode))
+#+end_src
+
+** Consult
+Like how I use Vertico over Ivy, I use [[https://github.com/minad/consult][Consult]] over Counsel.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package consult
+  :hook (completion-list-mode . consult-preview-at-point-mode) ;; Preview at point in the *Completions* buffer
+  :config
+  (consult-customize ;; Configure preview debouncing
+   consult-theme :preview-key '(:debounce 0.2 any)
+   consult-ripgrep consult-git-grep consult-grep consult-man
+   consult-bookmark consult-recent-file consult-xref
+   consult--source-bookmark consult--source-file-register
+   consult--source-recent-file consult--source-project-recent-file
+   :preview-key '(:debounce 0.4 any))
+  :general
+  (heff/leader-keys
+    "b b" '("Switch to buffer" . consult-buffer))
+  (heff/leader-keys
+    "f f" '("Find (fd)" . consult-fd)
+    "f g" '("Grep (rg)" . consult-ripgrep)
+    "f r" '("Recent files" . consult-recent-file)))
+#+end_src
+
+** Embark
+I use [[https://github.com/oantolin/embark][Embark]] as a contextual actions menu. It's [[https://karthinks.com/software/fifteen-ways-to-use-embark][highly versatile]].
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package embark
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+#+end_src
+
+*** Embark-Consult Compatibility
+Embark and Consult need to be configured to work with each other.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package embark-consult
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+#+end_src
+
+** Corfu
+Instead of using Company, I use [[https://github.com/minad/corfu][Corfu]].
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package corfu
+  :custom
+  (corfu-cycle t)
+  :init
+  (global-corfu-mode))
+#+end_src
+
+*** Cape
+Extra functionality for Corfu is provided by [[https://github.com/minad/cape][Cape]].
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package cape
+  :after corfu
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-block))
+#+end_src
+
+* NAVIGATION
+Setting up ways to jump around the screen.
+
+** Avy
+I navigate with [[https://github.com/abo-abo/avy][Avy]] because [[https://karthinks.com/software/avy-can-do-anything][it can do anything]].
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package avy
+  :defer t
+  :general
+  (heff/leader-keys
+    "," '("Avy" . avy-goto-char-timer)))
+#+end_src
+
+** Ace Window
+Like how I use Avy to navigate buffers, I use [[https://github.com/abo-abo/ace-window][Ace Window]] to navigate windows.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package ace-window
+  :defer t
+  :general
+  (heff/leader-keys
+    "w w" '("Switch to window" . ace-window)))
+#+end_src
+
+* UI
+Emacs' user interface, like everything else about it, is very malleable.
+
+** Theme
+I use [[https://github.com/catppuccin/emacs][Catppuccin]] for almost everything, Emacs included.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package catppuccin-theme
+  :custom
+  (catppuccin-flavor 'mocha)
+  :config
+  (load-theme 'catppuccin t))
+#+end_src
+
+** Fonts
+I use [[https://github.com/be5invis/iosevka][Iosevka]] as my font of choice.
+TODO: Use custom instead?
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(set-face-attribute 'default nil
+  :font "Iosevka Nerd Font"
+  :height 120
+  :weight 'medium)
+(set-face-attribute 'variable-pitch nil
+  :font "Noto Sans"
+  :height 120
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "Iosevka Nerd Font"
+  :height 120
+  :weight 'medium)
+(set-face-attribute 'font-lock-comment-face nil
+  :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+  :slant 'italic)
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12"))
+#+end_src
+
+*** Ligatures
+I tend to use fonts with ligatures, so let's set up support for them.
+This snippet is taken directly from [[https://github.com/mickeynp/ligature.el/wiki][ligature.el's wiki]].
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package ligature
+  :config
+  (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
+                                       "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
+                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
+                                       ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
+  (global-ligature-mode t))
+#+end_src
+
+** Icons
+A nice icon set to go with the fonts.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package nerd-icons)
+#+end_src
+
+*** Icons for Ibuffer
+Don't forget about Ibuffer!
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package nerd-icons-ibuffer
+  :after nerd-icons
+  :hook
+  (ibuffer-mode . nerd-icons-ibuffer-mode))
+#+end_src
+
+*** Icons for Completions
+...or completions via Vertico!
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package nerd-icons-completion
+  :after (nerd-icons marginalia)
+  :config
+  (nerd-icons-completion-mode)
+  :hook
+  (marginalia-mode . nerd-icons-completion-marginalia-setup))
+#+end_src
+
+*** Icons for Corfu
+Four's company.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package nerd-icons-corfu
+  :after (nerd-icons corfu)
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+#+end_src
+
+** Which-Key
+With a program as all-powerful as Emacs, it's nice to have a guide for which keys do which actions.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package which-key
+  :after evil
+  :ensure nil
+  :init
+  (which-key-mode)
+  :diminish
+  :custom
+  (which-key-side-window-location 'bottom)
+  (which-key-sort-order #'which-key-key-order-alpha)
+  (which-key-allow-imprecise-window-fit nil)
+  (which-key-sort-uppercase-first nil)
+  (which-key-add-column-padding 1)
+  (which-key-max-display-columns nil)
+  (which-key-min-display-lines 6)
+  (which-key-side-window-slot -10)
+  (which-key-side-window-max-height 0.25)
+  (which-key-idle-delay 0.8)
+  (which-key-max-description-length 25)
+  (which-key-allow-imprecise-window-fit nil)
+  (which-key-separator " → ")
+  :config
+  (which-key-setup-minibuffer))
+#+end_src
+
+** Solaire Mode
+Distinguish which buffers correspond to files instantly.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package solaire-mode
+  :config
+  (solaire-global-mode 1))
+#+end_src
+
+** Modeline
+Make the modeline look good.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package doom-modeline
+  :init
+  (doom-modeline-mode)
+  :custom
+  (doom-modeline-height 35)
+  (doom-modeline-bar-width 5))
+#+end_src
+
+** Highlight To-Do
+Make keywords stand out.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package hl-todo
+  :hook ((org-mode . hl-todo-mode)
+         (prog-mode . hl-todo-mode))
+  :custom
+  (hl-todo-highlight-punctuation ":")
+  (hl-todo-keyword-faces
+   `(("TODO"       warning bold)
+     ("FIXME"      error bold)
+     ("HACK"       font-lock-constant-face bold)
+     ("REVIEW"     font-lock-keyword-face bold)
+     ("NOTE"       success bold)
+     ("DEPRECATED" font-lock-doc-face bold))))
+#+end_src
+
+** True Transparency
+Set Emacs to 80% transparency to match my standard terminal setup.
+TODO: Use custom instead?
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package emacs
+  :ensure nil
+  :init
+  (add-to-list 'default-frame-alist '(alpha-background . 80)))
+#+end_src
+
+** Rainbow Mode
+Display hex color codes in the corresponding color.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package rainbow-mode
+  :diminish
+  :hook ((org-mode . rainbow-mode)
+         (prog-mode . rainbow-mode)))
+#+end_src
+
+** Rainbow Delimiters
+Color matching delimiters (parens, brackets, etc.) to easily distinguish scopes.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package rainbow-delimiters
+  :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
+         (clojure-mode . rainbow-delimiters-mode)))
+#+end_src
+
+** Diff Highlight
+Highlight changes since the latest Git commit.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package diff-hl
+  :init
+  (global-diff-hl-mode))
+#+end_src
+
+** Popup Buffers
+Some buffers aren't meant to last.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package popper
+  :custom
+  (popper-reference-buffers
+   '("\\*Messages\\*"
+     "Output\\*$"
+     "\\*Async Shell Command\\*"
+     help-mode
+     compilation-mode
+     "^\\*eshell.*\\*$" eshell-mode
+     "^\\*shell.*\\*$" shell-mode
+     "^\\*term.*\\*$" term-mode
+     "^\\*eat.*\\*$" eat-mode))
+  :init
+  (popper-mode))
+#+end_src
+
+* LANGUAGES
+At the end of the day, Emacs /is/ primarily a code text editor. Let's add some languages!
+
+** Language-Agnostic
+This is for configuring language-agnostic tools.
+
+*** Eglot
+Eglot is Emacs' built-in LSP client.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package eglot
+  :ensure nil
+  :config
+  (add-to-list 'eglot-server-programs
+	       `(nix-mode . ("nixd")))) ;; TODO: Configure ~nixd~ to better support the system setup
+#+end_src
+
+*** Format All
+Having a code formatter is nice.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package format-all
+  :commands format-all-region-or-buffer
+  :hook (prog-mode . format-all-mode)
+  :config
+  (setq-default format-all-formatters
+		'(("Nix" (alejandra "--quiet")))))
+#+end_src
+
+** Systems
+These are languages for writing systems-level code. Performance is a /must/.
+
+*** C/C++
+Even after 50+ years, C is still /the/ systems language, and even after 40+ years, C++ still isn't.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package c-ts-mode
+  :ensure nil
+  :hook
+  ((c-ts-mode . eglot-ensure)
+   (c++-ts-mode . eglot-ensure)))
+#+end_src
+
+*** Rust
+Rust is the new kid on the block in systems programming, aiming to prevent certain bugs /by design/.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package rust-mode
+  :custom
+  (rust-mode-treesitter-derive t)
+  :hook
+  (rust-mode . eglot-ensure))
+#+end_src
+
+*** Zig
+Zig is the even newer kid on the block in systems programming, taking aim at C itself.
+NOTE: Non-Treesitter
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package zig-mode
+  :hook
+  (zig-mode . eglot-ensure))
+#+end_src
+
+** Scripting
+These are languages for programming behaviors in other programs.
+
+*** Bash
+Bash, the Bourne-again shell, is Linux' predominant scripting language.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package sh-script
+  :ensure nil
+  :hook
+  (bash-ts-mode . eglot-ensure))
+#+end_src
+
+*** Lisp
+Lisp is one of the oldest programming languages still in use. It's famous for its idiosyncratic syntax and unmatched metaprogramming.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package lispy
+  :hook
+  ((emacs-lisp-mode . lispy-mode)
+   (scheme-mode . lispy-mode)))
+#+end_src
+
+**** EVIL Integration via Lispyville
+Lispy gets EVIL.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package lispyville
+  :hook
+  (lispy-mode . lispyville-mode))
+#+end_src
+
+*** Lua
+Lua is one of the best scripting languages, largely due to its simple spec and highly performant implementations.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package lua-ts-mode
+  :ensure nil
+  :hook
+  (lua-ts-mode . eglot-ensure))
+#+end_src
+
+**** Fennel
+Fennel is a Lisp that compiles to Lua.
+NOTE: Non-Treesitter
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package fennel-mode
+  :hook
+  (fennel-mode . eglot-ensure)
+  :mode "\\.fnl\\'")
+#+end_src
+
+*** Python
+Python is the world's most popular language, which makes a lot of sense, honestly.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package python
+  :ensure nil
+  :hook
+  (python-ts-mode . eglot-ensure))
+#+end_src
+
+** Configuration
+These are languages for configuring programs. They're like scripting languages, but less flexible.
+
+*** KDL
+KDL is a weird configuration language.
+NOTE: This mode seems to be _unmaintained_
+NOTE: Non-Treesitter
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package kdl-mode
+  :mode "\\.kdl\\'")
+#+end_src
+
+*** Nix
+Nix is a configuration language for the Nix package manager.
+NOTE: Non-Treesitter, see [[https://github.com/nix-community/nix-ts-mode][nix-community/nix-ts-mode]]
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package nix-mode
+  :hook
+  (nix-mode . eglot-ensure)
+  :mode "\\.nix\\'")
+#+end_src
+
+** Web
+These are languages for writing everything web: web sites, web pages, web apps, you name it.
+
+*** HTML
+HTML is /the/ language that runs the world wide web. It defines how content is laid out on web pages.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package html-ts-mode
+  :ensure nil
+  :hook
+  (html-ts-mode . eglot-ensure))
+#+end_src
+
+*** CSS
+CSS is the language for styling HTML pages.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package css-mode
+  :ensure nil
+  :hook
+  (css-ts-mode . eglot-ensure))
+#+end_src
+
+*** JavaScript
+JavaScript isn't Java, but it sure is an overcomplicated scripting language.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package js
+  :ensure nil
+  :hook
+  (js-ts-mode . eglot-ensure))
+#+end_src
+
+**** TypeScript
+TypeScript is a language that compiles to JavaScript, providing some nice-to-have features, mainly type annotations.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package typescript-ts-mode
+  :ensure nil
+  :hook
+  (typescript-ts-mode . eglot-ensure))
+#+end_src
+
+** Markup
+These are languages for defining documents.
+
+*** TODO LaTeX
+TeX is a plaintext typesetting system, and LaTeX is a layer on top of TeX that makes it easier to use.
+AUCTeX, PDF Tools
+
+*** TODO LilyPond
+LilyPond is a typesetting program for sheet music. It's similar to, and derived from, TeX.
+Can this be installed via Elpaca? No.
+
+*** Markdown
+Markdown is a markup language meant to be both human-readable and machine-parsable.
+NOTE: Non-Treesitter
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package markdown-mode
+  :hook
+  (markdown-mode . eglot-ensure))
+#+end_src
+
+** Data Interchange
+These are languages for encoding data.
+
+*** JSON
+JavaScript object notation is the leading data interchange format of the Internet.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package json-ts-mode
+  :ensure nil
+  :hook
+  (json-ts-mode . eglot-ensure))
+#+end_src
+
+*** TODO YAML
+YAML is a data interchange format that nobody seems to like, but sometimes you just have to use it.
+
+* TODO ORG
+Org is a complete note-taking solution in Emacs. It is *the* feature that made me want to switch.
+TODO: Add agenda views for:
+  - just "dead links" to yet-to-be-filled notes
+  - just raw captures (via raw captures file?)
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org
+  :ensure nil
+  :hook (org-mode . (lambda ()
+                      (setq-local electric-pair-inhibit-predicate
+                                  `(lambda (c)
+                                     (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+  :config
+  (push 'id org-modules)
+  :custom
+  (org-edit-src-content-indentation 0) ;; Don't indent Org code blocks
+  (org-hide-emphasis-markers t) ;; Hide /.../ for italics, *...* for bold, etc. TODO: Use hideshow
+  (org-pretty-entities t) ;; Show symbols
+  (org-ellipsis "…") ;; Use condensed ellipsis
+  (org-directory (file-truename "~/Org")) ;; Set Org file directory
+  (org-agenda-custom-commands
+   '(("c" "Emacs Configuration Tasks"
+      todo "" ((org-agenda-files `(,(concat user-emacs-directory "config.org")))))))
+  :general
+  (heff/leader-keys
+    "o" '(:ignore t :wk "Org"))
+  :general-config
+  (heff/leader-keys
+    "o b" '("Org babel tangle" . org-babel-tangle)
+    "o h" '("Find heading in Org file" . consult-org-heading)))
+#+end_src
+
+** Auto-Tangle
+One of Org's best features is code-tangling for literate programming. Auto-tangle improves on this by /automatically/ tangling files on save.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-auto-tangle
+  :hook (org-mode . org-auto-tangle-mode))
+#+end_src
+
+** TODO Org Fonts
+Org needs special font treatment, given the fact that it's not really code.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(custom-set-faces
+ '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
+ '(org-level-6 ((t (:inherit outline-5 :height 1.2))))
+ '(org-level-7 ((t (:inherit outline-5 :height 1.1)))))
+#+end_src
+
+#+begin_src emacs-lisp :tangle no
+;; (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-indent nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-verbatim nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-special-keyword nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-meta-line nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+;; (add-hook 'org-mode-hook 'variable-pitch-mode)
+#+end_src
+
+** Modern
+Prettify Org.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-modern
+  :after org
+  :config
+  (global-org-modern-mode)
+  :custom
+  (org-modern-block-fringe nil))
+#+end_src
+
+** Roam
+Obsidian sure ain't gonna replace itself.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-roam
+  :after org
+  :custom
+  (org-roam-directory (concat org-directory "/Roam"))
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "* TODO Capture\n%?"
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+TITLE: ${title}\n")
+      :unnarrowed t)
+     ("n" "note" plain
+      "%?"
+      :target (file+head "${slug}.org" "#+TITLE: ${title}\n")
+      :unnarrowed t)))
+  :init
+  (org-roam-db-autosync-mode)
+  :general-config
+  (heff/leader-keys
+    "o r b" '("Roam buffer" . org-roam-buffer-toggle))
+  :general
+  (heff/leader-keys
+    "o r" '(:ignore t :wk "Roam")
+    "o r c" '("Capture" . org-roam-capture)
+    "o r n" '(:ignore t :wk "Node")
+    "o r n f" '("Find node" . org-roam-node-find)
+    "o r n i" '("Insert link to node" . (lambda (arg &rest args) (interactive "P")
+					  (let ((args (push arg args))
+						(org-roam-capture-templates (list (append (car org-roam-capture-templates)
+											  '(:immediate-finish t)))))
+					    (apply #'org-roam-node-insert args))))))
+#+end_src
+
+*** Roam UI
+Let's replace Obsidian's most iconic feature: the graph!
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-roam-ui
+  :after org-roam
+  :general
+  (heff/leader-keys
+    "o r g" '("Show graph" . org-roam-ui-open)))
+#+end_src
+
+** Table of Contents
+Automatically generate and maintain a table of contents in Org files.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package toc-org
+  :hook (org-mode . toc-org-enable))
+#+end_src
+
+* APPS
+One of the best things about Emacs is just how many different things it can be.
+
+** Version Control
+These apps control Emacs integration with version control systems, primarily Git.
+
+*** Magit
+Along with Org, [[https://github.com/magit/magit][Magit]] is one of Emacs' so-good-it's-unreplaceable packages.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package transient)
+(use-package magit
+  :after transient
+  :general
+  (heff/leader-keys
+    "g" '(:ignore t :wk "Git")
+    "g b" '(:ignore t :wk "Branch")
+    "g b c" '("Checkout branch" . magit-branch-checkout)
+    "g b C" '("Create and checkout new branch" . magit-branch-and-checkout)
+    "g c" '("Clone repo" . magit-clone)
+    "g g" '("Magit status" . magit-status)
+    "g i" '("Initialize repo" . magit-init)))
+#+end_src
+
+*** Git Time-Machine
+See all revisions of a file instantly.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package git-timemachine
+  :hook (evil-normalize-keymaps . git-timemachine-hook)
+  :general
+  (heff/leader-keys
+    "g t" '("Git time-machine" . git-timemachine))
+  :general-config
+  (:keymaps 'git-timemachine-mode-map
+   :states 'normal
+   "M-C-S-<left>" 'git-timemachine-show-previous-revision
+   "M-C-S-<right>" 'git-timemachine-show-next-revision))
+#+end_src
+
+** TODO Shells and Terminals
+Emacs' main competition isn't Vim; it's the whole terminal. So why not just EAT the competition?
+
+*** EAT
+Emulate a terminal. Doesn't get much simpler.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package eat
+  :custom
+  (eat-kill-buffer-on-exit t)
+  :hook
+  ('eshell-load . eat-eshell-mode)
+  :general
+  (heff/leader-keys
+    "l t" '("Terminal (via EAT)" . eat)))
+#+end_src
+
+*** Eshell
+A shell in pure Elisp.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package eshell
+  :ensure nil
+  :general
+  (heff/leader-keys
+    "l s" '("Eshell (via EAT)" . eshell)))
+#+end_src
+
+** Dirvish
+Dirvish makes Dired nicer for someone coming from Ranger and its descendants. So, you know... me.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package dirvish
+  :init
+  (dirvish-override-dired-mode)
+  :custom
+  (dirvish-quick-access-entries
+   '(("h" "~/" "Home")
+     ("d" "~/Downloads/" "Downloads")
+     ("c" "~/.config/" "Config")
+     ("r" "~/Repos/" "Repos")
+     ("t" "~/.local/share/Trash/files/" "Trash")))
+  (dirvish-mode-line-format
+   '(:left (sort symlink) :right (omit yank index)))
+  (dirvish-attributes
+   '(vc-state nerd-icons collapse file-size))
+  (dirvish-large-directory-threshold 20000)
+  :general
+  (heff/leader-keys
+    "f d" '("Dirvish" . dirvish))
+  (:keymaps 'dirvish-mode-map
+	    :states 'normal
+	    "<left>" 'dired-up-directory
+	    "<right>" 'dired-find-file
+	    "q" 'dirvish-quit
+	    "?" 'dirvish-dispatch
+	    ;; "a" 'dirvish-setup-menu
+	    "f" 'dirvish-file-info-menu
+	    "o" 'dirvish-quick-access
+	    "s" 'dirvish-quicksort
+	    "r" 'dirvish-history-jump
+	    "*" 'dirvish-mark-menu
+	    "y" 'dirvish-yank-menu
+	    "a" 'dired-create-empty-file
+	    "A" 'dired-create-directory))
+#+end_src
+
+** Direnv
+I run NixOS, as previously mentioned, so this is pretty necessary.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package direnv
+  :config
+  (direnv-mode))
+#+end_src
