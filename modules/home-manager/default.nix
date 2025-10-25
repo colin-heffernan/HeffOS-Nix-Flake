@@ -18,9 +18,11 @@
   # https://blog.gitbutler.com/how-git-core-devs-configure-git
   programs.git = {
     enable = true;
-    userName = "Colin Heffernan";
-    userEmail = "colinpheffernan@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Colin Heffernan";
+        email = "colinpheffernan@gmail.com";
+      };
       column.ui = "auto";
       branch.sort = "-committerdate";
       tag.sort = "version:refname";
