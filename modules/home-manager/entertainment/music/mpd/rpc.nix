@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.heffos-home.entertainment.mpd.rpc {
+  config = lib.mkIf config.heffos-home.entertainment.music.mpd.rpc {
     services.mpd-discord-rpc = {
       enable = true;
       settings = {

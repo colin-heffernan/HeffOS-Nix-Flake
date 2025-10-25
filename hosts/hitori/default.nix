@@ -142,10 +142,12 @@
             minecraft.enable = true;
             modding.enable = true;
           };
-          mpd = {
-            enable = true;
-            mpris = true;
-            # rpc = true;
+          music = {
+            mpd = {
+              enable = true;
+              mpris = true;
+              # rpc = true;
+            };
           };
         };
         shells = {
