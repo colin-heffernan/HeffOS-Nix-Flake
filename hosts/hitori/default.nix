@@ -33,7 +33,7 @@
 
   # Use the HeffOS module system
   heffos = {
-    config-dir = "/home/colin/Repos/HeffOS-Nix-Flake";
+    config-dir = "/home/colin/heffos";
     theme.catppuccin.enable = true;
     compat = {
       translation.enable = true;
