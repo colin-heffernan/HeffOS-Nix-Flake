@@ -24,6 +24,7 @@
           modules-center = ["niri/workspaces"];
           modules-right = [
             "mpd"
+            "tray"
             "clock"
           ];
 
@@ -68,6 +69,9 @@
           "mpd" = {
             interval = 1;
             format = "󰝚  {artist} - {title} (from {album})";
+          };
+          "tray" = {
+            spacing = 8;
           };
           "clock" = {
             interval = 5;

@@ -10,7 +10,7 @@
 }
 
 /* All modules */
-#custom-logo, #cpu-use, #memory, #workspaces, #mpd, #clock {
+#custom-logo, #cpu-use, #memory, #workspaces, #mpd, #tray, #clock {
   background: @base;
   padding-left: 12px;
   padding-right: 12px;
