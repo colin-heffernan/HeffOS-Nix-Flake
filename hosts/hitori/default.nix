@@ -119,6 +119,7 @@
       zram.enable = true;
     };
     utility = {
+      ai.ollama.enable = true;
       obs = {
         enable = true;
       };
