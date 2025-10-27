@@ -9,6 +9,7 @@
     ./environments
     ./system
     ./theme
+    ./utility
   ];
 
   options.heffos.config-dir = lib.mkOption {

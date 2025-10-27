@@ -8,7 +8,6 @@
     ./beets.nix
     ./imv.nix
     ./mpv.nix
-    ./obs.nix
     ./yt-dlp.nix
   ];
 

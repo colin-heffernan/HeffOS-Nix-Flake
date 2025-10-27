@@ -77,6 +77,11 @@
       usb-automount.enable = true;
       zram.enable = true;
     };
+    utility = {
+      obs = {
+        enable = true;
+      };
+    };
   };
 
   # Configure system users
