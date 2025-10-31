@@ -37,26 +37,6 @@
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
-    editors = {
-      helix.enable = true;
-      default = "helix";
-    };
-    shells.fish = {
-      enable = true;
-      default = true;
-    };
-    utility = {
-      direnv.enable = true;
-      file-nav.enable = true;
-      fuzzy.enable = true;
-      modern-alts.enable = true;
-      nh.enable = true;
-      vcs.enable = true;
-    };
-    services = {
-      nix-gc.enable = true;
-      polkit.enable = true;
-    };
     system = {
       bootloader = {
         enable = true;
@@ -69,6 +49,8 @@
         };
         # bluetooth.enable = true;
       };
+      nix-gc.enable = true;
+      polkit.enable = true;
     };
   };
 
@@ -110,6 +92,25 @@
         # Set the Home Manager version from
         # which all default values are taken
         stateVersion = "23.11";
+      };
+
+      heffos-home = {
+        editors.helix.enable = true;
+        shells = {
+          bash.enable = true;
+          fish = {
+            enable = true;
+            default = true;
+          };
+        };
+        utility = {
+          direnv.enable = true;
+          file-nav.enable = true;
+          fuzzy.enable = true;
+          modern-alts.enable = true;
+          nh.enable = true;
+          vcs.enable = true;
+        };
       };
     };
   };
