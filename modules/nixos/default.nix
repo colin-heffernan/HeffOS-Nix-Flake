@@ -49,6 +49,7 @@
       # System tools
       bottom
       trash-cli
+      ssh-to-age
 
       # Common language tools
       nodePackages.bash-language-server
