@@ -1,8 +1,8 @@
-# HeffOS
+* HeffOS
 HeffOS, or at least this version of it, is a Nix flake containing a number of system setups and packages.
 It's designed to be modular, making it easier to add or remove programs or to create new systems.
 
-## Libraries
+** Libraries
 HeffOS uses a number of libraries to achieve various features:
 - Nixpkgs
   - This one is mostly obvious, but there are actually *three* branches of Nixpkgs in HeffOS: latest stable, unstable, and my personal fork
@@ -15,7 +15,7 @@ HeffOS uses a number of libraries to achieve various features:
 - Catppuccin
   - This one themes a *ton* of programs
 
-## Hosts
+** Hosts
 | Host   | Purpose                                                    |
 |--------|------------------------------------------------------------|
 | Hitori | My personal computer, which dualboots NixOS and Windows 11 |
@@ -23,22 +23,21 @@ HeffOS uses a number of libraries to achieve various features:
 | Futari | NixOS on WSL2 on the Windows 11 partition on Hitori        |
 | Ryo    | NixOS on WSL2 on laptop                                    |
 
-(Yes, the systems are, and will continue to be, named after characters from [*Bocchi the Rock!*](https://en.wikipedia.org/wiki/Bocchi_the_Rock%21))
+(Yes, the systems are, and will continue to be, named after characters from /[[https://en.wikipedia.org/wiki/Bocchi_the_Rock%21][Bocchi the Rock!]]/)
 
-## To-Do
+** To-Do
 - Set up new features on drive re-format
   - Automate BTRFS snapshots with BTRBK
   - Set up full-disk encryption?
-- Add host "Hiroi" (via [nix-on-droid](https://github.com/nix-community/nix-on-droid))
-- Set up [SOPS-Nix](https://github.com/Mic92/sops-nix)
+- Add host "Hiroi" (via [[https://github.com/nix-community/nix-on-droid][nix-on-droid]])
+- Set up [[https://github.com/Mic92/sops-nix][SOPS-Nix]]
 - Use Nix' default host SSH keys
 - Replace SDDM
-- Migrate to GNU GuixSD?
 
-## Credits
+** Credits
 While I wrote all of the code in this repository, some code is adapted (and many concepts are borrowed) from other repositories:
-- Fufexan's dotfiles repo ([Link](https://github.com/fufexan/dotfiles))
-- Several of Vimjoyer's YouTube videos ([Link](https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw))
+- Fufexan's dotfiles repo ([[https://github.com/fufexan/dotfiles][Link]])
+- Several of Vimjoyer's YouTube videos ([[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Link]])
 
-## License
-HeffOS is licensed under the [MIT License](./LICENSE).
+** License
+HeffOS is licensed under the [[./LICENSE][MIT License]].
