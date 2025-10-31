@@ -16,12 +16,12 @@ HeffOS uses a number of libraries to achieve various features:
   - This one themes a *ton* of programs
 
 ** Hosts
-| Host   | Purpose                                                    |
-|--------|------------------------------------------------------------|
-| Hitori | My personal computer, which dualboots NixOS and Windows 11 |
-| Ikuyo  | My Raspberry Pi 3B+                                        |
-| Futari | NixOS on WSL2 on the Windows 11 partition on Hitori        |
-| Ryo    | NixOS on WSL2 on laptop                                    |
+| Host   | Purpose                                      |
+|--------+----------------------------------------------|
+| Hitori | The NixOS partition on my tower              |
+| Ikuyo  | My Raspberry Pi 3B+                          |
+| Futari | WSL2 on the Windows 11 partition on my tower |
+| Ryo    | WSL2 on my laptop                            |
 
 (Yes, the systems are, and will continue to be, named after characters from /[[https://en.wikipedia.org/wiki/Bocchi_the_Rock%21][Bocchi the Rock!]]/)
 
