@@ -25,6 +25,12 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    # SOPS-Nix
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin.url = "github:catppuccin/nix";
 
