@@ -140,7 +140,10 @@
           element.enable = true;
         };
         editors = {
-          emacs.enable = true;
+          emacs = {
+            enable = true;
+            daemon = true;
+          };
           helix.enable = true;
         };
         entertainment = {

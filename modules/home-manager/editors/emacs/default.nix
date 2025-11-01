@@ -9,8 +9,8 @@
     daemon = lib.mkEnableOption "the Emacs daemon";
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf config.heffos-home.editors.emacs.enable {
+  config = lib.mkIf config.heffos-home.editors.emacs.enable (lib.mkMerge [
+    ({
       programs.emacs = {
         enable = true;
         package = pkgs.emacs-pgtk;
@@ -30,5 +30,19 @@
         '';
       };
     })
-  ];
+    (lib.mkIf config.heffos-home.editors.emacs.daemon {
+      services.emacs = {
+        enable = true;
+        package = pkgs.emacs-pgtk;
+        client = {
+          enable = true;
+          arguments = [
+            "-c"
+            "-a"
+            "emacs"
+          ];
+        };
+      };
+    })
+  ]);
 }
