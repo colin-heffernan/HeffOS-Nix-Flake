@@ -3,7 +3,6 @@
 #+DESCRIPTION: My personal Emacs config.
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
-#+AUTO_TANGLE: t
 
 * TABLE OF CONTENTS :toc:
 - [[#credits-and-acknowledgements][CREDITS AND ACKNOWLEDGEMENTS]]
