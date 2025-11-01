@@ -140,6 +140,7 @@
           element.enable = true;
         };
         editors = {
+          default = "emacs";
           emacs = {
             enable = true;
             daemon = true;
