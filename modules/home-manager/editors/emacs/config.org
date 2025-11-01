@@ -66,7 +66,7 @@
 This config wasn't created in a void, so I'd like to acknowledge the resources that helped me get here:
   - Derek Taylor's "Configuring Emacs" series ([[https://gitlab.com/dwt1/configuring-emacs][Link]])
   - Patrick D. Elliott's ~emacs.d~ ([[https://patrickdelliott.com/emacs.d][Link]])
-  - Several articles from Karthinks' blog ([[https://karthinks.com/][Link]])
+  - Several articles from Karthink's blog ([[https://karthinks.com/][Link]])
     
 * PLANS FOR IMPROVEMENT
 This config isn't static; it's meant to grow with me over time as my needs change.
