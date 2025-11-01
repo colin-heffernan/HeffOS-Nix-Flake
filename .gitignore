@@ -1,2 +1,4 @@
 .direnv
 secrets/wireless.conf
+/modules/home-manager/editors/emacs/init.el
+/modules/home-manager/editors/emacs/early-init.el

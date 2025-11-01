@@ -979,8 +979,16 @@ JavaScript object notation is the leading data interchange format of the Interne
   (json-ts-mode . eglot-ensure))
 #+end_src
 
-*** TODO YAML
+*** YAML
 YAML is a data interchange format that nobody seems to like, but sometimes you just have to use it.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package yaml-ts-mode
+  :ensure nil
+  :mode "\\.yaml\\'"
+  :hook
+  (yaml-ts-mode . eglot-ensure))
+#+end_src
 
 * TODO ORG
 Org is a complete note-taking solution in Emacs. It is *the* feature that made me want to switch.
