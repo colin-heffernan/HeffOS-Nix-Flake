@@ -1,7 +1,11 @@
 keys:
-  - &hitori age1uw7he6dj45ptsg3xwk5f324wzlcplyh7yxh6vpvux03rpzy76qsqzcjlf
+  - &hitori age1uw7he6dj45ptsg3xwk5f324wzlcplyh7yxh6vpvux03rpzy76qsqzcjlfx
 creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/wifi.yaml
+    key_groups:
+    - age:
+      - *hitori
+  - path_regex: secrets/hitori.yaml
     key_groups:
     - age:
       - *hitori
