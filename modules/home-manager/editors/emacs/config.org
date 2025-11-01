@@ -1161,7 +1161,7 @@ See all revisions of a file instantly.
    "M-C-S-<right>" 'git-timemachine-show-next-revision))
 #+end_src
 
-** TODO Shells and Terminals
+** Shells and Terminals
 Emacs' main competition isn't Vim; it's the whole terminal. So why not just EAT the competition?
 
 *** EAT
