@@ -80,7 +80,6 @@ I keep my eye on packages that I think I might be able to work into this config.
 | Elfeed                  | An RSS feed reader                        | l f      |
 | Mu4e/NotMuch            | An email client                           | l e      |
 | AUCTeX                  | Better LaTeX support                      |          |
-| PDF Tools               | Better PDF support                        |          |
 | Citar                   | Citation management                       |          |
 | LilyPond/Lyqi           | LilyPond support                          |          |
 | ERC                     | IRC client                                | l i      |
@@ -950,6 +949,19 @@ These are languages for defining documents.
 *** TODO LaTeX
 TeX is a plaintext typesetting system, and LaTeX is a layer on top of TeX that makes it easier to use.
 AUCTeX, PDF Tools
+
+**** PDFs
+PDFs are the de-facto standard document format. Every other format lives and dies by its compatibility with PDF.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package pdf-tools
+  :ensure nil
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (require 'pdf-outline)
+  (require 'pdf-occur)
+  (pdf-tools-install))
+#+end_src
 
 *** TODO LilyPond
 LilyPond is a typesetting program for sheet music. It's similar to, and derived from, TeX.

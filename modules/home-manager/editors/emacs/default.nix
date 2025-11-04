@@ -18,6 +18,7 @@
           with epkgs; [
             treesit-grammars.with-all-grammars
             tree-sitter-langs
+            pdf-tools
           ];
       };
       xdg.configFile."emacs/config.org" = {
