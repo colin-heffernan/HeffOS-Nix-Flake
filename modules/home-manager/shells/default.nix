@@ -9,12 +9,22 @@
     ./fish.nix
   ];
 
-  options.heffos-home.shells.aliases = lib.mkOption {
-    type = lib.types.attrs;
-    description = "List of shell aliases to use.";
-    default = {
-      sup = "sudo nixos-rebuild switch --flake ${osConfig.heffos.config-dir}#${osConfig.networking.hostName}";
-      fup = "nix flake update";
+  options.heffos-home.shells = {
+    aliases = lib.mkOption {
+      type = lib.types.attrs;
+      description = "List of shell aliases to use.";
+      default = {
+        sup = "sudo nixos-rebuild switch --flake ${osConfig.heffos.config-dir}#${osConfig.networking.hostName}";
+        fup = "nix flake update";
+      };
+    };
+    interactiveAliases = lib.mkOption {
+      type = lib.types.attrs;
+      description = "List of shell aliases to use in interactive shells.";
+      default = lib.mkIf config.heffos-home.utility.modern-alts.enable {
+        ls = "eza";
+        cat = "bat";
+      };
     };
   };
 

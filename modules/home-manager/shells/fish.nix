@@ -13,7 +13,10 @@
     programs.fish = {
       enable = true;
       functions.fish_greeting = "";
-      shellAbbrs = config.heffos-home.shells.aliases;
+      shellAbbrs = lib.mkMerge [
+        config.heffos-home.shells.aliases
+        config.heffos-home.shells.interactiveAliases
+      ];
     };
 
     # TODO: Make this generic
