@@ -114,7 +114,6 @@
             tooltip = false;
           };
           "mpris#player-status" = {
-            format = "󰓛";
             format-paused = "󰏤";
             format-playing = "󰐊";
             format-stopped = "󰓛";

@@ -10,14 +10,10 @@
 }
 
 /* All modules */
-#custom-logo, #cpu-use, #mem-use, #workspaces, #tray, #clock-widget {
+#custom-logo, #cpu-use, #mem-use, #workspaces, #mpris-widget, #tray, #clock-widget {
   background: @base;
   padding-left: 12px;
   padding-right: 12px;
-}
-
-#mpris-widget {
-  background: @base;
 }
 
 /* Specific modules */
@@ -28,48 +24,33 @@
   padding-right: 20px;
 }
 
-#custom-cpu-logo {
-  /* color: @blue; */
+#custom-cpu-logo, #custom-mem-logo, #custom-clock-logo, #custom-clock-date-logo {
   font-family: IosevkaNF;
   font-size: 18px;
-  padding-right: 20px;
+  padding-right: 18px;
 }
 
 #cpu.usage-by-core {
   padding-left: 12px;
 }
 
-#custom-mem-logo {
-  /* color: @blue; */
-  font-family: IosevkaNF;
-  font-size: 18px;
-  padding-right: 20px;
-}
-
 #custom-mpris-logo {
-  /* color: @blue; */
   font-family: IosevkaNF;
   font-size: 18px;
-  /* padding-right: 20px; */
+  padding-right: 6px;
 }
 
 #mpris.player-status {
-  /* color: @blue; */
   font-family: IosevkaNF;
   font-size: 18px;
-  /* padding-right: 20px; */
+  padding-left: 12px;
+  padding-right: 2px;
 }
 
-#custom-clock-logo {
-  /* color: @blue; */
-  font-family: IosevkaNF;
-  font-size: 18px;
-  /* padding-right: 20px; */
+#mpris {
+  padding-left: 16px;
 }
 
 #custom-clock-date-logo {
-  /* color: @blue; */
-  font-family: IosevkaNF;
-  font-size: 18px;
-  /* padding-right: 20px; */
+  padding-left: 18px;
 }
