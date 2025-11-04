@@ -10,7 +10,7 @@
   };
 
   config = lib.mkIf config.heffos-home.editors.emacs.enable (lib.mkMerge [
-    ({
+    {
       programs.emacs = {
         enable = true;
         package = pkgs.emacs-pgtk;
@@ -29,7 +29,7 @@
           --eval '(org-babel-tangle-file "${config.xdg.configHome}/emacs/config.org")'
         '';
       };
-    })
+    }
     (lib.mkIf config.heffos-home.editors.emacs.daemon {
       services.emacs = {
         enable = true;
