@@ -33,7 +33,6 @@
     (lib.mkIf config.heffos-home.editors.emacs.daemon {
       services.emacs = {
         enable = true;
-        package = pkgs.emacs-pgtk;
         client = {
           enable = true;
           arguments = [
