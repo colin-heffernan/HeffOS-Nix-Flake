@@ -33,6 +33,7 @@ HeffOS uses a number of libraries to achieve various features:
 - Set up [[https://github.com/Mic92/sops-nix][SOPS-Nix]]
 - Use Nix' default host SSH keys
 - Replace SDDM
+- Set up Firefox with Arkenfox.js
 
 ** Credits
 While I wrote all of the code in this repository, some code is adapted (and many concepts are borrowed) from other repositories:
