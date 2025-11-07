@@ -16,7 +16,7 @@
     };
     programs.virt-manager.enable = true;
     environment.systemPackages = with pkgs; [
-      win-virtio
+      virtio-win
     ];
   };
 }
