@@ -83,6 +83,7 @@
 
       heffos-home = {
         editors = {
+          default = "emacs";
           emacs = {
             enable = true;
             daemon = true;
