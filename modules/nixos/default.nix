@@ -52,7 +52,6 @@
 
       # Common language tools
       nodePackages.bash-language-server
-      nil
       nixd
       alejandra
     ];
