@@ -6,6 +6,7 @@
 }: {
   options.heffos-home.editors.emacs = {
     enable = lib.mkEnableOption "Emacs";
+    wayland = lib.mkEnableOption "Emacs on Wayland";
     daemon = lib.mkEnableOption "the Emacs daemon";
   };
 
@@ -13,7 +14,10 @@
     {
       programs.emacs = {
         enable = true;
-        package = pkgs.emacs-pgtk;
+        package =
+          if config.heffos-home.editors.emacs.wayland
+          then pkgs.emacs-pgtk
+          else pkgs.emacs;
         extraPackages = epkgs:
           with epkgs; [
             treesit-grammars.with-all-grammars
