@@ -36,6 +36,7 @@
     config-dir = "/home/colin/heffos";
     theme.catppuccin.enable = true;
     system = {
+      fonts.enable = true;
       nix-gc.enable = true;
     };
   };
