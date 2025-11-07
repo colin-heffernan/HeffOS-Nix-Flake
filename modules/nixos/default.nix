@@ -50,6 +50,7 @@
       bottom
       trash-cli
       ssh-to-age
+      sops
 
       # Common language tools
       nodePackages.bash-language-server
