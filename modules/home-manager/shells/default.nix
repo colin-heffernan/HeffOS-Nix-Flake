@@ -14,7 +14,10 @@
       type = lib.types.attrs;
       description = "List of shell aliases to use.";
       default = {
-        sup = "sudo nixos-rebuild switch --flake ${osConfig.heffos.config-dir}#${osConfig.networking.hostName}";
+        sup =
+          if config.heffos-home.utility.nh.enable
+          then "nh os switch --ask"
+          else "sudo nixos-rebuild switch --flake ${osConfig.heffos.config-dir}#${osConfig.networking.hostName}";
         fup = "nix flake update";
       };
     };
