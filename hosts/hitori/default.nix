@@ -183,7 +183,7 @@
           modern-alts.enable = true;
           multimedia.enable = true;
           # multiplex.enable = true;
-          nh.enable = true;
+          nix-utils.enable = true;
           obsidian.enable = true;
           vcs.enable = true;
         };

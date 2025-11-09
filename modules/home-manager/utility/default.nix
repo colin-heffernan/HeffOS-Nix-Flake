@@ -9,7 +9,7 @@
     ./direnv.nix
     ./file-transfer.nix
     ./multiplex.nix
-    ./nh.nix
+    ./nix-utils.nix
     ./obsidian.nix
   ];
 }

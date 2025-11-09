@@ -103,7 +103,7 @@
           file-nav.enable = true;
           fuzzy.enable = true;
           modern-alts.enable = true;
-          nh.enable = true;
+          nix-utils.enable = true;
           vcs.enable = true;
         };
       };
