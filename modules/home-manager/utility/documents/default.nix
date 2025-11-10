@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./latex.nix
+    ./lilypond.nix
   ];
 
   options.heffos-home.utility.documents.enable = lib.mkEnableOption "utilities to handle text documents";

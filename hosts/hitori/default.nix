@@ -179,6 +179,7 @@
           documents = {
             enable = true;
             latex = true;
+            lilypond = true;
           };
           file-nav.enable = true;
           file-transfer.enable = true;
