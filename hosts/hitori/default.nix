@@ -176,7 +176,10 @@
         };
         utility = {
           direnv.enable = true;
-          documents.enable = true;
+          documents = {
+            enable = true;
+            latex = true;
+          };
           file-nav.enable = true;
           file-transfer.enable = true;
           fuzzy.enable = true;
