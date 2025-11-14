@@ -14,6 +14,7 @@
           "fetchart"
           "embedart"
           "convert"
+          "musicbrainz"
         ];
         fetchart = {
           auto = "yes";
