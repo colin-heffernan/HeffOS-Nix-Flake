@@ -12,7 +12,7 @@
 - [[#startup][STARTUP]]
   - [[#early-init][Early Init]]
   - [[#init-file-header][Init File Header]]
-  - [[#elpaca][Elpaca]]
+  - [[#package-management][Package Management]]
 - [[#emacs-tweaks][EMACS TWEAKS]]
   - [[#dired][Dired]]
   - [[#electric][Electric]]
@@ -42,6 +42,7 @@
   - [[#rainbow-delimiters][Rainbow Delimiters]]
   - [[#diff-highlight][Diff Highlight]]
   - [[#popup-buffers][Popup Buffers]]
+  - [[#olivetti][Olivetti]]
 - [[#languages][LANGUAGES]]
   - [[#language-agnostic][Language-Agnostic]]
   - [[#systems][Systems]]
@@ -74,26 +75,20 @@ This config isn't static; it's meant to grow with me over time as my needs chang
 ** Packages Under Consideration
 I keep my eye on packages that I think I might be able to work into this config.
 
-| Package                 | Usage                                     | Bindings |
-|-------------------------+-------------------------------------------+----------|
-| EMMS                    | A music player                            | l m      |
-| Elfeed                  | An RSS feed reader                        | l f      |
-| Mu4e/NotMuch            | An email client                           | l e      |
-| AUCTeX                  | Better LaTeX support                      |          |
-| Citar                   | Citation management                       |          |
-| LilyPond/Lyqi           | LilyPond support                          |          |
-| ERC                     | IRC client                                | l i      |
-| Emacs-Jabber            | XMPP client                               | l x      |
-| Ement                   | Matrix client                             | l E      |
-| Olivetti                | Word processing                           |          |
-| Jinx/FlySpell           | Spell checking                            |          |
-| Ledger-Mode/Org Ledger  | Accounting                                |          |
-| Wgrep                   | Writeable grep for versatile mass editing |          |
-| Beacon/Pulsar           | Flash screen motions                      |          |
-| YASnippet               | Snippet support                           |          |
-| Ace Link                | Avy/Ace Window but for links              |          |
-| Project (built-in)      | Project navigation/management             |          |
-| Perspective (or equiv.) | "Workspaces" of windows                   |          |
+| Package                  | Usage                                             | Bindings |
+|--------------------------+---------------------------------------------------+----------|
+| EMMS                     | A music player                                    | l m      |
+| Elfeed                   | An RSS feed reader                                | l f      |
+| Citar                    | Citation management                               |          |
+| Jinx/FlySpell            | Spell checking                                    |          |
+| YASnippet                | Snippet support                                   |          |
+| Wgrep                    | Writeable grep for versatile mass editing         |          |
+| Project (built-in)       | Project navigation/management                     |          |
+| Perspective (or equiv.)  | "Workspaces" of windows                           |          |
+| Ace Link                 | Avy/Ace Window but for links                      |          |
+| Ledger-Mode/Org Ledger   | Accounting                                        |          |
+| ERC, Emacs-Jabber, Ement | Chat clients (in this case IRC, XMPP, and Matrix) |          |
+| Mu4e/NotMuch             | An email client                                   | l e      |
 
 ** Things to Make?
 There are packages I'm considering writing to add more functionality to Emacs.
@@ -124,7 +119,7 @@ During startup, increase Emacs' garbage collector limit to 4GiB.
 *** Disable Package.el
 Due to a conflict with [[*Elpaca][Elpaca]], ~package.el~ needs to be disabled.
 
-#+begin_src emacs-lisp :tangle "early-init.el" :mkdirp yes
+#+begin_src emacs-lisp :tangle no
 (setq package-enable-at-startup nil)
 #+end_src
 
@@ -151,10 +146,13 @@ Now let's start on the ~init.el~ file.
 ;; !! DO NOT EDIT BY HAND !!
 #+end_src
 
-** Elpaca
+** Package Management
+Let's handle package management.
+
+*** Elpaca
 To manage packages, I use [[https://github.com/progfolio/elpaca][Elpaca]] for its asynchronicity.
 
-#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+#+begin_src emacs-lisp :tangle no
 (defvar elpaca-installer-version 0.11)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
@@ -207,6 +205,8 @@ Out of the box, Emacs kinda sucks, at least for me.
 (use-package emacs
   :ensure nil
   :hook
+  (prog-mode . display-line-numbers-mode) ;; Display line numbers
+  (LilyPond-mode . display-line-numbers-mode) ;; Display line numbers
   (emacs-startup . (lambda ()
 		     (setq gc-cons-threshold (* 4 1024 1024)) ;; Return GC threshold to 4MiB
 		     (message "Emacs loaded in %s." ;; Display startup time in echo area
@@ -228,8 +228,6 @@ Out of the box, Emacs kinda sucks, at least for me.
   (minibuffer-prompt-properties ;; No cursor in minibuffer prompt
    '(read-only t cursor-intangible t face minibuffer-prompt))
   (display-line-numbers-type 'relative) ;; Relative line numbers
-  :hook
-  (prog-mode . display-line-numbers-mode) ;; Display line numbers
   :init
   (minibuffer-depth-indicate-mode) ;; Indicate recursive minibuffer depth in modeline
   (global-auto-revert-mode) ;; Show changes if file changes
@@ -309,8 +307,9 @@ Lukewarm take: one of vanilla Emacs' biggest flaws is its keymaps, so I'm gonna 
   (evil-undo-system 'undo-redo)
   :config
   (evil-mode t)
-  (evil-set-initial-state 'eshell-mode 'insert)
-  (evil-set-initial-state 'magit-diff-mode 'insert))
+  (evil-set-initial-state 'pdf-view-mode 'emacs)
+  (evil-set-initial-state 'eshell-mode 'emacs)
+  (evil-set-initial-state 'eat-mode 'emacs))
 ;; Follow links in Org mode with RET
 ;; TODO: Figure this out
 (with-eval-after-load 'evil-maps
@@ -346,7 +345,7 @@ Configure ALL the keybindings.
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package general
-  :ensure (:wait t)
+  ;; :ensure (:wait t)
   :config
   (general-evil-setup)
   (general-create-definer heff/leader-keys
@@ -357,7 +356,7 @@ Configure ALL the keybindings.
   (heff/leader-keys
     "SPC" '("M-x" . execute-extended-command)
     "." '("Find file" . find-file)
-    "TAB TAB" '("Comment lines" . comment-line)
+    "TAB TAB" '("Comment" . comment-dwim)
     "u" '("Universal argument" . universal-argument))
   (heff/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
@@ -749,6 +748,17 @@ Some buffers aren't meant to last.
   (popper-mode))
 #+end_src
 
+** Olivetti
+Make Emacs nice to write prose in.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package olivetti
+  :hook
+  (text-mode . olivetti-mode)
+  :custom
+  (olivetti-body-width 100))
+#+end_src
+
 * LANGUAGES
 At the end of the day, Emacs /is/ primarily a code text editor. Let's add some languages!
 
@@ -946,26 +956,64 @@ TypeScript is a language that compiles to JavaScript, providing some nice-to-hav
 ** Markup
 These are languages for defining documents.
 
-*** TODO LaTeX
+*** LaTeX
 TeX is a plaintext typesetting system, and LaTeX is a layer on top of TeX that makes it easier to use.
-AUCTeX, PDF Tools
 
-**** PDFs
-PDFs are the de-facto standard document format. Every other format lives and dies by its compatibility with PDF.
+**** AUCTeX
+AUCTeX is /the/ LaTeX package for Emacs.
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
-(use-package pdf-tools
-  :ensure nil
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :config
-  (require 'pdf-outline)
-  (require 'pdf-occur)
-  (pdf-tools-install))
+(use-package auctex
+  :custom
+  ;; (cdlatex-simplify-sub-super-scripts nil)
+  ;; (reftex-default-bibliography
+  ;;       '("~/ref.bib"))
+  (bibtex-dialect 'biblatex)
+  (TeX-auto-save t)
+  (TeX-parse-self t)
+  (TeX-master nil)
+  (TeX-save-query nil)
+  ;; (reftex-plug-into-AUCTeX t)
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
+  (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
+  (TeX-source-correlate-start-server t)
+  :mode ("\\.tex\\'" . latex-mode)
+  ;; :general
+  ;; (:keymaps 'LaTeX-mode-map
+  ;; 	    :states 'normal
+  ;; 	    "C-c C-e" 'cdlatex-environment)
+  :hook
+  (LaTeX-mode . olivetti-mode)
+  (LaTeX-mode . TeX-PDF-mode)
+  ;; flyspell/jinx
+  (LaTeX-mode . LaTeX-math-mode)
+  ;; citar/reftex
+  (LaTeX-mode . TeX-source-correlate-mode)
+  (LaTeX-mode . try/latex-mode-setup)
+  ;; cdlatex
+  ('TeX-after-compilation-finished-functions . #'TeX-revert-document-buffer))
 #+end_src
 
-*** TODO LilyPond
+***** AUCTeX-LaTeXMK
+Let's make AUCTeX support LaTeXMK.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package auctex-latexmk
+  :after auctex
+  :config
+  (auctex-latexmk-setup)
+  :custom
+  (auctex-latexmk-inherit-TeX-PDF-mode t))
+#+end_src
+
+*** LilyPond
 LilyPond is a typesetting program for sheet music. It's similar to, and derived from, TeX.
-Can this be installed via Elpaca? No.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package lilypond-mode
+  :ensure nil
+  :mode ("\\.ly\\'" . LilyPond-mode))
+#+end_src
 
 *** Markdown
 Markdown is a markup language meant to be both human-readable and machine-parsable.
@@ -975,6 +1023,21 @@ NOTE: Non-Treesitter
 (use-package markdown-mode
   :hook
   (markdown-mode . eglot-ensure))
+#+end_src
+
+*** PDFs
+PDFs are the de-facto standard document format. Every other format lives and dies by its compatibility with PDF.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package pdf-tools
+  :ensure nil
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :custom
+  (pdf-view-display-size 'fit-page)
+  :config
+  (require 'pdf-outline)
+  (require 'pdf-occur)
+  (pdf-tools-install))
 #+end_src
 
 ** Data Interchange
