@@ -756,7 +756,7 @@ Make Emacs nice to write prose in.
   :hook
   (text-mode . olivetti-mode)
   :custom
-  (olivetti-body-width 100))
+  (olivetti-body-width 132))
 #+end_src
 
 * LANGUAGES
