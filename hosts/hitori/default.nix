@@ -1,5 +1,5 @@
 {
-  # config,
+  config,
   inputs,
   pkgs,
   ...
@@ -11,6 +11,26 @@
     inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos
   ];
+
+  # Manage secrets
+  sops = {
+    defaultSopsFile = ../../secrets/hitori.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/colin/.config/sops/age/keys.txt";
+    secrets = {
+      password = {
+        neededForUsers = true;
+      };
+      wifi = {
+        a12 = {
+          sopsFile = ../../secrets/wifi.yaml;
+        };
+        whitesky = {
+          sopsFile = ../../secrets/wifi.yaml;
+        };
+      };
+    };
+  };
 
   # Set the PC hostname
   networking.hostName = "heffos-hitori";
@@ -100,7 +120,7 @@
         "libvirtd"
         "wheel"
       ];
-      hashedPasswordFile = "/persist/passwords/colin";
+      hashedPasswordFile = config.sops.secrets.password.path;
     };
   };
 
