@@ -481,6 +481,8 @@ I use [[https://github.com/oantolin/embark][Embark]] as a contextual actions men
 (use-package embark
   :init
   (setq prefix-help-command #'embark-prefix-help-command)
+  :general
+  ("C-." 'embark-act)
   :config
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
