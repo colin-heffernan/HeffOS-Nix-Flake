@@ -26,6 +26,7 @@
   - [[#consult][Consult]]
   - [[#embark][Embark]]
   - [[#corfu][Corfu]]
+  - [[#wgrep][Wgrep]]
 - [[#navigation][NAVIGATION]]
   - [[#avy][Avy]]
   - [[#ace-window][Ace Window]]
@@ -80,7 +81,6 @@ I keep my eye on packages that I think I might be able to work into this config.
 | Citar                    | Citation management                               |          |
 | Jinx/FlySpell            | Spell checking                                    |          |
 | YASnippet                | Snippet support                                   |          |
-| Wgrep                    | Writeable grep for versatile mass editing         |          |
 | Project (built-in)       | Project navigation/management                     |          |
 | Perspective (or equiv.)  | "Workspaces" of windows                           |          |
 | Ace Link                 | Avy/Ace Window but for links                      |          |
@@ -515,6 +515,13 @@ Extra functionality for Corfu is provided by [[https://github.com/minad/cape][Ca
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-elisp-block))
+#+end_src
+
+** Wgrep
+A writable (rip)grep buffer for effortless mass editing.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package wgrep)
 #+end_src
 
 * NAVIGATION

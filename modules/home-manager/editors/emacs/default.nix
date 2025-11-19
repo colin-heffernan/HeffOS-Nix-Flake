@@ -39,6 +39,7 @@
             embark-consult
             corfu
             cape
+            wgrep
 
             # Navigation
             avy
