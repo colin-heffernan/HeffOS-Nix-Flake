@@ -51,6 +51,7 @@
   - [[#web][Web]]
   - [[#markup][Markup]]
   - [[#data-interchange][Data Interchange]]
+  - [[#other][Other]]
 - [[#org][ORG]]
   - [[#auto-tangle][Auto-Tangle]]
   - [[#modern][Modern]]
@@ -84,7 +85,6 @@ I keep my eye on packages that I think I might be able to work into this config.
 | Project (built-in)       | Project navigation/management                     |          |
 | Perspective (or equiv.)  | "Workspaces" of windows                           |          |
 | Ace Link                 | Avy/Ace Window but for links                      |          |
-| Ledger-Mode/Org Ledger   | Accounting                                        |          |
 | ERC, Emacs-Jabber, Ement | Chat clients (in this case IRC, XMPP, and Matrix) |          |
 | Mu4e/NotMuch             | An email client                                   | l e      |
 
@@ -1057,6 +1057,17 @@ YAML is a data interchange format that nobody seems to like, but sometimes you j
   :hook
   (yaml-ts-mode . eglot-ensure))
 #+end_src
+
+** Other
+These languages don't fit cleanly into other categories.
+
+*** TODO Ledger
+Ledger is a way of accounting using plaintext files.
+TODO: ~ledger-mode~
+
+*** TODO Supercollider
+Supercollider is a live programming language for audio synthesis and algorithmic composition.
+TODO: ~scel~
 
 * TODO ORG
 Org is a complete note-taking solution in Emacs. It is *the* feature that made me want to switch.
