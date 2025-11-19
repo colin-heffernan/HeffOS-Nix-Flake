@@ -93,6 +93,7 @@
             eat
             dirvish
             direnv
+            emms
           ];
       };
       xdg.configFile."emacs/config.org" = {

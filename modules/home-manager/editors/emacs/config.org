@@ -64,6 +64,7 @@
   - [[#shells-and-terminals][Shells and Terminals]]
   - [[#dirvish][Dirvish]]
   - [[#direnv][Direnv]]
+  - [[#emms][EMMS]]
 
 * CREDITS AND ACKNOWLEDGEMENTS
 This config wasn't created in a void, so I'd like to acknowledge the resources that helped me get here:
@@ -1338,4 +1339,24 @@ I run NixOS, as previously mentioned, so this is pretty necessary.
 (use-package direnv
   :config
   (direnv-mode))
+#+end_src
+
+** EMMS
+I want to be able to manage my music without leaving my text-editor-git-interface-notes-app-terminal-emulator thing.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package emms
+  :custom
+  (emms-source-file-default-directory (expand-file-name "~/Music/"))
+  (emms-player-mpd-server-name "localhost")
+  (emms-player-mpd-server-port "6600")
+  (emms-player-mpd-server-music-directory "~/Music")
+  :config
+  (require 'emms-setup)
+  (emms-all)
+  (add-to-list 'emms-info-functions 'emms-info-mpd)
+  (add-to-list 'emms-player-list 'emms-player-mpd)
+  (emms-player-mpd-connect)
+  :hook
+  (emms-playlist-cleared . emms-player-mpd-clear))
 #+end_src
