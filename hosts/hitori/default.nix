@@ -73,7 +73,7 @@
       nix-gc.enable = true;
       pipewire.enable = true;
       polkit.enable = true;
-      printing.enable = true;
+      # printing.enable = true;
       usb-automount.enable = true;
       zram.enable = true;
     };
