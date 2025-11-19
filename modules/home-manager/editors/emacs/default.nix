@@ -79,6 +79,8 @@
             # Org
             org-auto-tangle
             org-modern
+            org-appear
+            org-fragtog
             org-roam
             org-roam-ui
             toc-org

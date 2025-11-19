@@ -55,6 +55,8 @@
 - [[#org][ORG]]
   - [[#auto-tangle][Auto-Tangle]]
   - [[#modern][Modern]]
+  - [[#appear][Appear]]
+  - [[#fragtog][Fragtog]]
   - [[#roam][Roam]]
   - [[#table-of-contents][Table of Contents]]
 - [[#apps][APPS]]
@@ -1089,7 +1091,7 @@ TODO: Add agenda views for:
   (push 'id org-modules)
   :custom
   (org-edit-src-content-indentation 0) ;; Don't indent Org code blocks
-  (org-hide-emphasis-markers t) ;; Hide /.../ for italics, *...* for bold, etc. TODO: Use hideshow
+  (org-hide-emphasis-markers t) ;; Hide /.../ for italics, *...* for bold, etc.
   (org-pretty-entities t) ;; Show symbols
   (org-ellipsis "…") ;; Use condensed ellipsis
   (org-directory (file-truename "~/Org")) ;; Set Org file directory
@@ -1142,6 +1144,30 @@ Prettify Org.
   (global-org-modern-mode)
   :custom
   (org-modern-block-fringe nil))
+#+end_src
+
+** Appear
+Automatically use ~org-hide-emphasis-markers~, but show the markers when the point is on the word.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-appear
+  :after org
+  :custom
+  (org-appear-autoemphasis t)
+  (org-appear-autolinks t)
+  (org-appear-autosubmarkers t)
+  :hook
+  (org-mode . org-appear-mode))
+#+end_src
+
+** Fragtog
+Like ~org-appear~, but for LaTeX previews.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package org-fragtog
+  :after org
+  :hook
+  (org-mode . org-fragtog-mode))
 #+end_src
 
 ** Roam
