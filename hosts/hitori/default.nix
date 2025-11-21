@@ -18,9 +18,6 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/persist/keys/sops-nix";
     secrets = {
-      password = {
-        neededForUsers = true;
-      };
       wifi = {
         a12 = {
           sopsFile = ../../secrets/wifi.yaml;
@@ -29,6 +26,7 @@
           sopsFile = ../../secrets/wifi.yaml;
         };
       };
+      hashedPassword.neededForUsers = true;
     };
   };
 
@@ -114,7 +112,7 @@
         "libvirtd"
         "wheel"
       ];
-      hashedPasswordFile = config.sops.secrets.password.path;
+      hashedPasswordFile = config.sops.secrets.hashedPassword.path;
     };
   };
 
