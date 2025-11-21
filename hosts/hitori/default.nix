@@ -47,10 +47,15 @@
     allowedUDPPorts = [];
   };
 
-  # Disable SSH
-  # This is false by default, but I think
-  # specifying it is a decent idea anyway
-  services.openssh.enable = false;
+  # Soft-disable SSH
+  services.openssh = {
+    enable = true;
+    ports = []; # Prevent any ports from reaching OpenSSH
+    settings = {
+      PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
+      PermitRootLogin = "no"; # Prevent root login entirely
+    };
+  };
 
   # Use the HeffOS module system
   heffos = {
