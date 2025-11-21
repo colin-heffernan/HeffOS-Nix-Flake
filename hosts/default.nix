@@ -34,9 +34,9 @@
             };
 
             # Use the latest Discord tarball
-            discord = prev.discord.overrideAttrs (
-              _: {src = inputs.discord;}
-            );
+            # discord = prev.discord.overrideAttrs (
+            #   _: {src = inputs.discord;}
+            # );
           })
         ];
       };

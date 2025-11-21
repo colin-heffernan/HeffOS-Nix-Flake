@@ -35,11 +35,11 @@
     };
 
     # Up-to-date Discord
-    discord = {
-      type = "tarball";
-      url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
-      flake = false;
-    };
+    # discord = {
+    #   type = "tarball";
+    #   url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
+    #   flake = false;
+    # };
 
     # Spicetify
     spicetify-nix = {
