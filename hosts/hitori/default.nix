@@ -16,7 +16,12 @@
   sops = {
     defaultSopsFile = ../../secrets/hitori.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/persist/keys/sops-nix";
+    age.sshKeyPaths = let
+      isEd25519 = k: k.type == "ed25519";
+      getKeyPath = k: k.path;
+      keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
+    in
+      map getKeyPath keys;
     secrets = {
       hashedPassword.neededForUsers = true;
       "wireless.conf" = {
@@ -41,8 +46,21 @@
     allowedUDPPorts = [];
   };
 
-  # Disable SSH
-  services.openssh.enable = false;
+  # Soft-disable SSH
+  services.openssh = {
+    enable = true;
+    hostKeys = [
+      {
+        path = "/persist/ssh/ssh_host_ed25519_key";
+        type = "ed25519";
+      }
+    ];
+    ports = []; # Prevent any ports from reaching OpenSSH
+    settings = {
+      PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
+      PermitRootLogin = "no"; # Prevent root login entirely
+    };
+  };
 
   # Use the HeffOS module system
   heffos = {
