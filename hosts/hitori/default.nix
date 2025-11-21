@@ -18,15 +18,11 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/persist/keys/sops-nix";
     secrets = {
-      wifi = {
-        a12 = {
-          sopsFile = ../../secrets/wifi.yaml;
-        };
-        whitesky = {
-          sopsFile = ../../secrets/wifi.yaml;
-        };
-      };
       hashedPassword.neededForUsers = true;
+      "wireless.conf" = {
+        sopsFile = ../../secrets/shared.yaml;
+        format = "yaml";
+      };
     };
   };
 
