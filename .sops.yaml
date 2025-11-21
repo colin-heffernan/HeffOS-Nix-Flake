@@ -1,11 +1,11 @@
 keys:
-  - &hitori age1uw7he6dj45ptsg3xwk5f324wzlcplyh7yxh6vpvux03rpzy76qsqzcjlfx
+  - &host_hitori age1gpemxswpk52hyhj6xsutspdtd0zk2qt389wttqd9af9lkx67dp5seqxa6r
 creation_rules:
   - path_regex: secrets/shared.yaml
     key_groups:
     - age:
-      - *hitori
+      - *host_hitori
   - path_regex: secrets/hitori.yaml
     key_groups:
     - age:
-      - *hitori
+      - *host_hitori
