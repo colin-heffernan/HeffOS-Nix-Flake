@@ -16,7 +16,7 @@
   sops = {
     defaultSopsFile = ../../secrets/hitori.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/colin/.config/sops/age/keys.txt";
+    age.keyFile = "/persist/keys/sops-nix";
     secrets = {
       password = {
         neededForUsers = true;
@@ -47,15 +47,8 @@
     allowedUDPPorts = [];
   };
 
-  # Soft-disable SSH
-  services.openssh = {
-    enable = true;
-    ports = []; # Prevent any ports from reaching OpenSSH
-    settings = {
-      PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
-      PermitRootLogin = "no"; # Prevent root login entirely
-    };
-  };
+  # Disable SSH
+  services.openssh.enable = false;
 
   # Use the HeffOS module system
   heffos = {

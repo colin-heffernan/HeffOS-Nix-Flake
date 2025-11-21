@@ -1,14 +1,11 @@
 keys:
   - &hitori age1uw7he6dj45ptsg3xwk5f324wzlcplyh7yxh6vpvux03rpzy76qsqzcjlfx
-  - &host_hitori age1m79xcxgk5xcvva5vsvtzvv74sfs7njtf00w9zgvgkpaft9fufppq8ey98r
 creation_rules:
   - path_regex: secrets/wifi.yaml
     key_groups:
     - age:
       - *hitori
-      - *host_hitori
   - path_regex: secrets/hitori.yaml
     key_groups:
     - age:
       - *hitori
-      - *host_hitori
