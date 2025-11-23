@@ -11,7 +11,7 @@
   config = lib.mkIf (config.heffos.system.connectivity.wifi-networks.a12.enable || config.heffos.system.connectivity.wifi-networks.whitesky.enable) {
     networking.wireless = {
       enable = true;
-      secretsFile = "${config.heffos.config-dir}/secrets/wireless.conf";
+      secretsFile = config.sops.secrets."wireless.conf".path;
     };
   };
 }
