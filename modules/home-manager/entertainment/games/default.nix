@@ -4,5 +4,6 @@
     ./minecraft.nix
     ./modding.nix
     ./osu.nix
+    ./vr.nix
   ];
 }
