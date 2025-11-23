@@ -28,6 +28,10 @@
         sopsFile = ../../secrets/shared.yaml;
         format = "yaml";
       };
+      tailscale_key = {
+        sopsFile = ../../secrets/shared.yaml;
+        format = "yaml";
+      };
     };
   };
 
@@ -54,7 +58,6 @@
   # Soft-disable SSH
   services.openssh = {
     enable = true;
-    ports = []; # Prevent any ports from reaching OpenSSH
     settings = {
       PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
       PermitRootLogin = "no"; # Prevent root login entirely
@@ -75,6 +78,7 @@
           whitesky.enable = true;
         };
         # bluetooth.enable = true;
+        tailscale.enable = true;
       };
       nix-gc.enable = true;
       polkit.enable = true;

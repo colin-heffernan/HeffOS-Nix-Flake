@@ -28,6 +28,10 @@
         sopsFile = ../../secrets/shared.yaml;
         format = "yaml";
       };
+      tailscale_key = {
+        sopsFile = ../../secrets/shared.yaml;
+        format = "yaml";
+      };
     };
   };
 
@@ -102,6 +106,7 @@
           whitesky.enable = true;
         };
         bluetooth.enable = true;
+        tailscale.enable = true;
       };
       fonts.enable = true;
       hardware-acceleration.enable = true;
