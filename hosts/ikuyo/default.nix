@@ -1,5 +1,5 @@
 {
-  # config,
+  config,
   inputs,
   pkgs,
   ...
@@ -16,15 +16,14 @@
   sops = {
     defaultSopsFile = ../../secrets/ikuyo.yaml;
     defaultSopsFormat = "yaml";
-    # age.sshKeyPaths = let
-    #   isEd25519 = k: k.type == "ed25519";
-    #   getKeyPath = k: k.path;
-    #   keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
-    # in
-    #   map getKeyPath keys;
-    age.keyFile = "/home/colin/.config/sops/age/keys.txt";
+    age.sshKeyPaths = let
+      isEd25519 = k: k.type == "ed25519";
+      getKeyPath = k: k.path;
+      keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
+    in
+      map getKeyPath keys;
     secrets = {
-      # hashedPassword.neededForUsers = true;
+      hashedPassword.neededForUsers = true;
       "wireless.conf" = {
         sopsFile = ../../secrets/shared.yaml;
         format = "yaml";
@@ -55,12 +54,6 @@
   # Soft-disable SSH
   services.openssh = {
     enable = true;
-    hostKeys = [
-      {
-        path = "/persist/ssh/ssh_host_ed25519_key";
-        type = "ed25519";
-      }
-    ];
     ports = []; # Prevent any ports from reaching OpenSSH
     settings = {
       PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
@@ -90,15 +83,14 @@
 
   # Configure system users
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users.colin = {
       description = "Colin Heffernan";
       isNormalUser = true;
       extraGroups = [
         "wheel"
       ];
-      initialPassword = "kita!ikuyo!";
-      # hashedPasswordFile = "/persist/passwords/colin";
+      hashedPasswordFile = config.sops.secrets.hashedPassword.path;
     };
   };
 

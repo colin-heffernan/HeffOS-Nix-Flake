@@ -1,12 +1,12 @@
 keys:
   - &host_hitori age1gpemxswpk52hyhj6xsutspdtd0zk2qt389wttqd9af9lkx67dp5seqxa6r
-  - &ikuyo age1m2thhfj6d8m7akz6ud7w525v4rvz9dml6f9g22xd5khed2fafqyq8tjun4
+  - &host_ikuyo age1szm4p0rgt4ddx9wq6zwcv4yhv5pt0nkz5dx6cy8z4utwx33zj57qt2ytlp
 creation_rules:
   - path_regex: secrets/shared.yaml
     key_groups:
     - age:
       - *host_hitori
-      - *ikuyo
+      - *host_ikuyo
   - path_regex: secrets/hitori.yaml
     key_groups:
     - age:
@@ -14,4 +14,4 @@ creation_rules:
   - path_regex: secrets/ikuyo.yaml
     key_groups:
     - age:
-      - *ikuyo
+      - *host_ikuyo
