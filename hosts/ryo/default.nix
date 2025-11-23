@@ -1,5 +1,5 @@
 {
-  # config,
+  config,
   inputs,
   pkgs,
   ...
@@ -20,6 +20,21 @@
   # Support VSCode remote
   programs.nix-ld.enable = true;
 
+  # Manage secrets
+  sops = {
+    defaultSopsFile = ../../secrets/ryo.yaml;
+    defaultSopsFormat = "yaml";
+    age.sshKeyPaths = let
+      isEd25519 = k: k.type == "ed25519";
+      getKeyPath = k: k.path;
+      keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
+    in
+      map getKeyPath keys;
+    secrets = {
+      hashedPassword.neededForUsers = true;
+    };
+  };
+
   # Set the PC hostname
   networking.hostName = "heffos-ryo";
 
@@ -30,6 +45,16 @@
   networking.firewall = {
     allowedTCPPorts = [];
     allowedUDPPorts = [];
+  };
+
+  # Soft-disable SSH
+  services.openssh = {
+    enable = true;
+    ports = []; # Prevent any ports from reaching OpenSSH
+    settings = {
+      PasswordAuthentication = false; # Prevent logging in via password (only SSH keys work)
+      PermitRootLogin = "no"; # Prevent root login entirely
+    };
   };
 
   # Use the HeffOS module system
@@ -51,8 +76,7 @@
       extraGroups = [
         "wheel"
       ];
-      # hashedPasswordFile = "/persist/passwords/colin";
-      initialPassword = "weedeater";
+      hashedPasswordFile = config.sops.secrets.hashedPassword.path;
     };
   };
 
