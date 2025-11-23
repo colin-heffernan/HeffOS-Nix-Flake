@@ -14,19 +14,18 @@
       environment.systemPackages = with pkgs; [
         opencomposite
         wlx-overlay-s
+        android-tools
       ];
-    }
-    (lib.mkIf (!config.heffos.entertainment.games.vr.wireless) {
       services.monado = {
         enable = true;
-        defaultRuntime = true;
+        defaultRuntime = !config.heffos.entertainment.games.vr.wireless;
         highPriority = true;
       };
       systemd.user.services.monado.environment = {
         STEAMVR_LH_ENABLE = "1";
         XRT_COMPOSITOR_COMPUTE = "1";
       };
-    })
+    }
     (lib.mkIf config.heffos.entertainment.games.vr.wireless {
       services.wivrn = {
         enable = true;

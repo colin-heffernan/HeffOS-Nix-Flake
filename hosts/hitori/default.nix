@@ -43,7 +43,10 @@
       games = {
         gamemode.enable = true;
         steam.enable = true;
-        vr.enable = true;
+        vr = {
+          enable = true;
+          wireless = true;
+        };
       };
     };
     environments = {
