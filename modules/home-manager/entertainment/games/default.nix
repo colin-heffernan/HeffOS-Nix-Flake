@@ -1,5 +1,6 @@
 {
   imports = [
+    ./beat-saber.nix
     ./mangohud.nix
     ./minecraft.nix
     ./modding.nix

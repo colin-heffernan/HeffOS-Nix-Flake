@@ -1,5 +1,6 @@
 # `modules/home-manager/entertainment/games`
 This directory contains modules.
+- `beat-saber.nix` contains the module to control utilities related to Beat Saber, a VR rhythm game
 - `mangohud.nix` contains the module to control MangoHUD, a system monitoring tool for game performance
 - `minecraft.nix` contains the module to control Minecraft
 - `modding.nix` contains the module to control modding tools for games
