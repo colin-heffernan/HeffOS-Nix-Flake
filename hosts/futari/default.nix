@@ -32,6 +32,10 @@
       map getKeyPath keys;
     secrets = {
       hashedPassword.neededForUsers = true;
+      tailscale_key = {
+        sopsFile = ../../secrets/shared.yaml;
+        format = "yaml";
+      };
     };
   };
 
@@ -62,6 +66,7 @@
     config-dir = "/home/colin/heffos";
     theme.catppuccin.enable = true;
     system = {
+      connectivity.tailscale.enable = true;
       fonts.enable = true;
       nix-gc.enable = true;
     };
