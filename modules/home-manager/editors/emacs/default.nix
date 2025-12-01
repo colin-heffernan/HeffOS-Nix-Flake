@@ -91,6 +91,7 @@
             # forge
             git-timemachine
             eat
+            gptel
             dirvish
             direnv
             emms

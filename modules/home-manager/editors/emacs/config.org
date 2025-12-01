@@ -62,6 +62,7 @@
 - [[#apps][APPS]]
   - [[#version-control][Version Control]]
   - [[#shells-and-terminals][Shells and Terminals]]
+  - [[#llms][LLMs]]
   - [[#dirvish][Dirvish]]
   - [[#direnv][Direnv]]
   - [[#emms][EMMS]]
@@ -1294,6 +1295,22 @@ A shell in pure Elisp.
   :general
   (heff/leader-keys
     "l s" '("Eshell (via EAT)" . eshell)))
+#+end_src
+
+** LLMs
+Love them or hate them, LLMs are here.
+
+*** GPTel
+GPTel is a generic LLM interface for Emacs.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package gptel
+  :custom
+  (gptel-model 'deepseek-r1:1.5b)
+  (gptel-backend (gptel-make-ollama "Ollama"
+		     :host "localhost:11434"
+		     :stream t
+		     :models '(deepseek-r1:1.5b))))
 #+end_src
 
 ** Dirvish
