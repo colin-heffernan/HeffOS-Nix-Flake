@@ -68,7 +68,7 @@
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
-    entertainment.games.minecraft-server.enable = true;
+    # entertainment.games.minecraft-server.enable = true;
     system = {
       bootloader = {
         enable = true;
