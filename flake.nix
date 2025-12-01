@@ -40,6 +40,12 @@
       flake = false;
     };
 
+    # Nix-Minecraft
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Up-to-date Discord
     # discord = {
     #   type = "tarball";

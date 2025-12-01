@@ -9,6 +9,7 @@
     inputs.sops-nix.nixosModules.sops
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
+    inputs.nix-minecraft.nixosModules.minecraft-servers
     ../../modules/nixos
   ];
 
@@ -67,6 +68,7 @@
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
+    entertainment.games.minecraft-server.enable = true;
     system = {
       bootloader = {
         enable = true;

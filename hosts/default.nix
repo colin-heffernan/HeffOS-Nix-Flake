@@ -20,6 +20,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
@@ -60,6 +61,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
@@ -89,6 +91,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
@@ -119,6 +122,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
