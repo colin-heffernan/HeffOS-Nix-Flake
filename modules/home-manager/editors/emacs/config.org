@@ -1305,6 +1305,9 @@ GPTel is a generic LLM interface for Emacs.
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package gptel
+  :general
+  (heff/leader-keys
+    "l l" '("LLM (via GPTel)" . gptel))
   :custom
   (gptel-model 'deepseek-r1:1.5b)
   (gptel-backend (gptel-make-ollama "Ollama"
