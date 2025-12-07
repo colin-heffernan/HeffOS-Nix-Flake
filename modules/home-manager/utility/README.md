@@ -1,5 +1,6 @@
 # `modules/home-manager/utility`
 This directory contains modules.
+- `ai` contains modules to control artificial intelligence utilities
 - `documents` contains the modules to control utilities for document creation and conversion
 - `file-nav` contains the modules to control file navigation utilities
 - `fuzzy` contains the modules to control utilities for fuzzy-finding

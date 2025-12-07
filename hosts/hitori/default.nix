@@ -119,7 +119,6 @@
       zram.enable = true;
     };
     utility = {
-      ai.ollama.enable = true;
       obs = {
         enable = true;
       };
@@ -217,6 +216,7 @@
           wezterm.enable = true;
         };
         utility = {
+          ai.ollama.enable = true;
           direnv.enable = true;
           documents = {
             enable = true;

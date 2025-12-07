@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ai
     ./documents
     ./file-nav
     ./fuzzy

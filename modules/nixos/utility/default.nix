@@ -1,6 +1,5 @@
 {
   imports = [
-    ./ai
     ./obs.nix
   ];
 }
