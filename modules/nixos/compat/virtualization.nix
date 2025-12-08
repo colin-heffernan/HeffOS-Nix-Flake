@@ -18,5 +18,6 @@
     environment.systemPackages = with pkgs; [
       virtio-win
     ];
+    networking.firewall.trustedInterfaces = ["virbr0"];
   };
 }
