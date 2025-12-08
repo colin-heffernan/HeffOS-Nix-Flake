@@ -39,8 +39,7 @@
 
       # Archival tools
       zip
-      unzip
-      p7zip
+      _7zz-rar
 
       # Coreutils alternatives
       ripgrep
