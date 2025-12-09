@@ -174,6 +174,7 @@
             enable = true;
             ungoogled = true;
           };
+          firefox.enable = true;
           librewolf.enable = true;
         };
         communication = {
