@@ -1373,7 +1373,7 @@ I want to be able to manage my music without leaving my text-editor-git-interfac
   (emms-source-file-default-directory (expand-file-name "~/Music/"))
   (emms-player-mpd-server-name "localhost")
   (emms-player-mpd-server-port "6600")
-  (emms-player-mpd-server-music-directory "~/Music")
+  (emms-player-mpd-music-directory "~/Music")
   :config
   (require 'emms-setup)
   (emms-all)
