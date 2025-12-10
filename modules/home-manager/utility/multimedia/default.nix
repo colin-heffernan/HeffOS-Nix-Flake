@@ -8,6 +8,7 @@
     ./beets.nix
     ./imv.nix
     ./mpv.nix
+    ./music-prod.nix
     ./yt-dlp.nix
   ];
 
@@ -18,7 +19,6 @@
       gimp
       inkscape
       audacity
-      # reaper
       davinci-resolve
       ffmpeg
       imagemagick
