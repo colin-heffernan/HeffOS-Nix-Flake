@@ -20,7 +20,7 @@
       audacity
       # reaper
       davinci-resolve
-      ffmpeg_8
+      ffmpeg
       imagemagick
       flac
     ];
