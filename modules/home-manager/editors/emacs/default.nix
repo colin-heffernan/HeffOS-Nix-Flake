@@ -94,7 +94,7 @@
             gptel
             dirvish
             direnv
-            emms
+            # emms
           ];
       };
       xdg.configFile."emacs/config.org" = {

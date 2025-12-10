@@ -1367,7 +1367,7 @@ I run NixOS, as previously mentioned, so this is pretty necessary.
 ** EMMS
 I want to be able to manage my music without leaving my text-editor-git-interface-notes-app-terminal-emulator thing.
 
-#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+#+begin_src emacs-lisp :tangle no
 (use-package emms
   :custom
   (emms-source-file-default-directory (expand-file-name "~/Music/"))
