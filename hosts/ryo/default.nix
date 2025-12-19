@@ -65,6 +65,7 @@
   # Use the HeffOS module system
   heffos = {
     config-dir = "/home/colin/heffos";
+    environments.desktop-environments.cosmic.enable = true;
     theme.catppuccin.enable = true;
     system = {
       connectivity.tailscale.enable = true;
