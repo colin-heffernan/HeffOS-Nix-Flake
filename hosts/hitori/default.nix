@@ -169,13 +169,13 @@
 
       heffos-home = {
         browsers = {
-          brave.enable = true;
+          # brave.enable = true;
           chromium = {
             enable = true;
             ungoogled = true;
           };
           firefox.enable = true;
-          librewolf.enable = true;
+          # librewolf.enable = true;
         };
         communication = {
           discord.enable = true;
