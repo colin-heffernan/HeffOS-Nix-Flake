@@ -27,6 +27,7 @@
   - [[#embark][Embark]]
   - [[#corfu][Corfu]]
   - [[#wgrep][Wgrep]]
+  - [[#jinx][Jinx]]
 - [[#navigation][NAVIGATION]]
   - [[#avy][Avy]]
   - [[#ace-window][Ace Window]]
@@ -84,7 +85,6 @@ I keep my eye on packages that I think I might be able to work into this config.
 | EMMS                     | A music player                                    | l m      |
 | Elfeed                   | An RSS feed reader                                | l f      |
 | Citar                    | Citation management                               |          |
-| Jinx/FlySpell            | Spell checking                                    |          |
 | YASnippet                | Snippet support                                   |          |
 | Project (built-in)       | Project navigation/management                     |          |
 | Perspective (or equiv.)  | "Workspaces" of windows                           |          |
@@ -529,6 +529,14 @@ A writable (rip)grep buffer for effortless mass editing.
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package wgrep)
+#+end_src
+
+** Jinx
+A better spellchecker.
+
+#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+(use-package jinx
+  :hook (emacs-startup . global-jinx-mode))
 #+end_src
 
 * NAVIGATION

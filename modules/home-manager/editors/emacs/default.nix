@@ -12,6 +12,12 @@
 
   config = lib.mkIf config.heffos-home.editors.emacs.enable (lib.mkMerge [
     {
+      home.packages = with pkgs; [
+        # Spellchecker utilities
+        enchant
+        hunspell
+        hunspellDicts.en-us
+      ];
       programs.emacs = {
         enable = true;
         package =
@@ -20,7 +26,7 @@
           else pkgs.emacs;
         extraPackages = epkgs:
           with epkgs; [
-            # Treesitter
+            # Tree-sitter
             treesit-grammars.with-all-grammars
             tree-sitter-langs
 
@@ -40,6 +46,7 @@
             corfu
             cape
             wgrep
+            jinx
 
             # Navigation
             avy
