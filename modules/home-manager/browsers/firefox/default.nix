@@ -201,7 +201,6 @@
               "adguard-spyware-url"
               "https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
             ];
-            # dynamicFilteringString = "* * 3p-frame block";
           };
         };
 

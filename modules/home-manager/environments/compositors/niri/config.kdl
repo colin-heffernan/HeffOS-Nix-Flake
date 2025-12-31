@@ -140,8 +140,8 @@ binds {
     Mod+T { spawn "ghostty"; }
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "emacsclient" "-c" "-a" "emacs"; }
-    Mod+B { spawn "librewolf"; }
-    Mod+Shift+B { spawn "librewolf" "--private-window"; }
+    Mod+B { spawn "firefox"; }
+    Mod+Shift+B { spawn "firefox" "--private-window"; }
     // Super+Alt+L { spawn "swaylock"; }
 
     // Fullscreen
