@@ -47,6 +47,8 @@
             cape
             wgrep
             jinx
+            yasnippet
+            yasnippet-snippets
 
             # Navigation
             avy
