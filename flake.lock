@@ -225,8 +225,7 @@
         "nixpkgs-dev": "nixpkgs-dev",
         "nixpkgs-stable": "nixpkgs-stable",
         "sops-nix": "sops-nix",
-        "spicetify-nix": "spicetify-nix",
-        "yazi-plugins": "yazi-plugins"
+        "spicetify-nix": "spicetify-nix"
       }
     },
     "sops-nix": {
@@ -297,22 +296,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "yazi-plugins": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767168273,
-        "narHash": "sha256-LOQ/0LYVrXsqQjeBeERKQ2M8BwN8xo3yej1mxNHphOU=",
-        "owner": "yazi-rs",
-        "repo": "plugins",
-        "rev": "398796d88fee7bf9c99c4dc29089b865d4f47722",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yazi-rs",
-        "repo": "plugins",
         "type": "github"
       }
     }
