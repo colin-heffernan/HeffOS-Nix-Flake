@@ -1,6 +1,5 @@
 {lib, ...}: {
   imports = [
-    ./yazi
     ./android-file-transfer.nix
     ./broot.nix
     ./zoxide.nix

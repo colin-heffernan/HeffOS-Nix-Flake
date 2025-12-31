@@ -34,12 +34,6 @@
     # Catppuccin
     catppuccin.url = "github:catppuccin/nix";
 
-    # Yazi Packages
-    yazi-plugins = {
-      url = "github:yazi-rs/plugins";
-      flake = false;
-    };
-
     # Nix-Minecraft
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
