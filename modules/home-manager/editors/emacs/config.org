@@ -82,13 +82,10 @@ I keep my eye on packages that I think I might be able to work into this config.
 
 | Package                  | Usage                                             | Bindings |
 |--------------------------+---------------------------------------------------+----------|
-| EMMS                     | A music player                                    | l m      |
+| EMMS/MPDel               | A music player                                    | l m      |
 | Elfeed                   | An RSS feed reader                                | l f      |
 | Citar                    | Citation management                               |          |
 | YASnippet                | Snippet support                                   |          |
-| Project (built-in)       | Project navigation/management                     |          |
-| Perspective (or equiv.)  | "Workspaces" of windows                           |          |
-| Ace Link                 | Avy/Ace Window but for links                      |          |
 | ERC, Emacs-Jabber, Ement | Chat clients (in this case IRC, XMPP, and Matrix) |          |
 | Mu4e/NotMuch             | An email client                                   | l e      |
 
@@ -1277,7 +1274,7 @@ See all revisions of a file instantly.
    "M-C-S-<right>" 'git-timemachine-show-next-revision))
 #+end_src
 
-** Shells and Terminals
+** TODO Shells and Terminals
 Emacs' main competition isn't Vim; it's the whole terminal. So why not just EAT the competition?
 
 *** EAT
