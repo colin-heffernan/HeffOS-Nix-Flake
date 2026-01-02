@@ -14,7 +14,7 @@
   config = lib.mkIf config.heffos-home.utility.documents.enable {
     home.packages = with pkgs; [
       pandoc
-      poppler
+      poppler-utils
     ];
   };
 }

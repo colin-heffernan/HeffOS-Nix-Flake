@@ -21,8 +21,11 @@
       audacity
       davinci-resolve
       ffmpeg
+      ffmpegthumbnailer
       imagemagick
+      vips
       flac
+      mediainfo
     ];
   };
 }
