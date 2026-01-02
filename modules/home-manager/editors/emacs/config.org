@@ -323,7 +323,7 @@ Lukewarm take: one of vanilla Emacs' biggest flaws is its keymaps, so I'm gonna 
   (evil-mode t)
   (evil-set-initial-state 'pdf-view-mode 'emacs)
   (evil-set-initial-state 'eshell-mode 'emacs)
-  (evil-set-initial-state 'eat--semi-char-mode 'emacs)
+  (evil-set-initial-state 'eat-semi-char-mode 'emacs)
   (evil-set-initial-state 'eat-mode 'emacs))
 ;; Follow links in Org mode with RET
 ;; TODO: Figure this out
