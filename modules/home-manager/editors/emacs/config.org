@@ -267,6 +267,7 @@ Dired, the directory editor, is Emacs' file browser.
 (use-package dired
   :ensure nil
   :custom
+  (dired-kill-when-opening-new-dired-buffer t) ;; Only use one Dired buffer at once
   (dired-listing-switches "-lAhG --group-directories-first")) ;; Set default ls flags for Dired
 #+end_src
 
@@ -1347,6 +1348,8 @@ Dirvish makes Dired nicer for someone coming from Ranger and its descendants. So
   :init
   (dirvish-override-dired-mode)
   :custom
+  (dirvish-reuse-session nil) ;; Close all Dirvish buffers on quit
+  ;; Add quick jump folders to Dirvish
   (dirvish-quick-access-entries
    '(("h" "~/" "Home")
      ("d" "~/Downloads/" "Downloads")
