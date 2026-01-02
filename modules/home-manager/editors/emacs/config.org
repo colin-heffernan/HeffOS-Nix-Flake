@@ -752,6 +752,7 @@ Some buffers aren't meant to last.
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package popper
   :custom
+  (popper-mode-line "")
   (popper-reference-buffers
    '("\\*Messages\\*"
      "Output\\*$"
@@ -762,8 +763,15 @@ Some buffers aren't meant to last.
      "^\\*shell.*\\*$" shell-mode
      "^\\*term.*\\*$" term-mode
      "^\\*eat.*\\*$" eat-mode))
+  :general
+  ("M-C-SPC" 'popper-toggle)
+  (heff/leader-keys
+    "p" '(:ignore t :wk "Popup")
+    "p p" '("Show/hide popups" . popper-toggle)
+    "p t" '("Raise/lower buffer" . popper-toggle-type))
   :init
-  (popper-mode))
+  (popper-mode)
+  (popper-echo-mode))
 #+end_src
 
 ** Olivetti
