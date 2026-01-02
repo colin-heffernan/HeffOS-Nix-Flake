@@ -325,13 +325,6 @@ Lukewarm take: one of vanilla Emacs' biggest flaws is its keymaps, so I'm gonna 
   (evil-set-initial-state 'eshell-mode 'emacs)
   (evil-set-initial-state 'eat-semi-char-mode 'emacs)
   (evil-set-initial-state 'eat-mode 'emacs))
-;; Follow links in Org mode with RET
-;; TODO: Figure this out
-(with-eval-after-load 'evil-maps
-  (define-key evil-motion-state-map (kbd "SPC") nil)
-  (define-key evil-motion-state-map (kbd "RET") nil)
-  (define-key evil-motion-state-map (kbd "TAB") nil))
-(setq org-return-follows-link t)
 #+end_src
 
 *** EVIL Collection
@@ -1127,6 +1120,7 @@ TODO: Add agenda views for:
   (org-agenda-custom-commands
    '(("c" "Emacs Configuration Tasks"
       todo "" ((org-agenda-files `(,(concat user-emacs-directory "config.org")))))))
+  (org-return-follows-link t) ;; Follow links with RET
   :custom-face
   (org-level-1 ((t (:inherit outline-1 :height 1.7))))
   (org-level-2 ((t (:inherit outline-2 :height 1.6))))
