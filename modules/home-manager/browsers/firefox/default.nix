@@ -7,6 +7,7 @@
   options.heffos-home.browsers.firefox.enable = lib.mkEnableOption "Firefox";
 
   config = lib.mkIf config.heffos-home.browsers.firefox.enable {
+    catppuccin.firefox.enable = false;
     programs.firefox = {
       enable = true;
       profiles.default = {
@@ -18,7 +19,6 @@
             "${pkgs.arkenfox-userjs}/user.js"
             "${./user-overrides.js}"
           ];
-        extensions.force = true;
       };
 
       policies = {
@@ -39,10 +39,6 @@
         DisableSetDesktopBackground = true;
         DisableSystemAddonUpdate = true;
         DisableTelemetry = true;
-
-        # Block about pages
-        BlockAboutProfiles = true;
-        BlockAboutSupport = true;
 
         # Modify UI and behavior
         DisplayMenuBar = "never";
@@ -79,7 +75,6 @@
         SearchEngines = let
           mkUrl = path: "data:image/svg+xml,${lib.escapeURL (builtins.readFile path)}";
         in {
-          #nak
           Add = [
             {
               Name = "StartPage";
@@ -137,7 +132,6 @@
         };
 
         # Harden
-        EnableTrackingProtection.Category = "strict";
         HttpsOnlyMode = "force_enabled";
         PopupBlocking.Default = false;
 
