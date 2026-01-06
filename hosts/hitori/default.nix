@@ -9,6 +9,7 @@
     inputs.sops-nix.nixosModules.sops
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
+    inputs.musnix.nixosModules.musnix
     inputs.nix-minecraft.nixosModules.minecraft-servers
     ../../modules/nixos
   ];
@@ -119,8 +120,11 @@
       zram.enable = true;
     };
     utility = {
-      obs = {
-        enable = true;
+      multimedia = {
+        music-production.enable = true;
+        obs = {
+          enable = true;
+        };
       };
     };
   };

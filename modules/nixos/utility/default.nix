@@ -1,5 +1,5 @@
 {
   imports = [
-    ./obs.nix
+    ./multimedia
   ];
 }
