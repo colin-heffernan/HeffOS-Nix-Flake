@@ -33,6 +33,7 @@
       lib.mapAttrs (_: v: {flake = v;}) flakeInputs;
     nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
     settings = {
+      trusted-users = ["@wheel"];
       experimental-features = ["nix-command" "flakes"];
       accept-flake-config = false;
     };
