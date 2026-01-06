@@ -18,8 +18,8 @@
         carla
       ])
       (lib.mkIf osConfig.heffos.compat.translation.enable (with pkgs; [
-        stable.yabridge
-        stable.yabridgectl
+        yabridge
+        yabridgectl
       ]))
     ];
   };
