@@ -228,7 +228,10 @@
           file-transfer.enable = true;
           fuzzy.enable = true;
           modern-alts.enable = true;
-          multimedia.enable = true;
+          multimedia = {
+            enable = true;
+            music-production.enable = true;
+          };
           # multiplex.enable = true;
           nix-utils.enable = true;
           obsidian.enable = true;
