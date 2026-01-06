@@ -16,6 +16,7 @@
         surge-XT
         cardinal
         carla
+        paulxstretch
       ])
       (lib.mkIf osConfig.heffos.compat.translation.enable (with pkgs; [
         yabridge

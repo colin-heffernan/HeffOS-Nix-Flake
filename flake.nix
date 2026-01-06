@@ -37,6 +37,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Audio
+    audio = {
+      url = "github:polygon/audio.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix-Minecraft
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";

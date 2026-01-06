@@ -20,6 +20,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.audio.overlays.default # Audio plugins
           inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
@@ -61,6 +62,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.audio.overlays.default # Audio plugins
           inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
@@ -91,6 +93,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.audio.overlays.default # Audio plugins
           inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
@@ -122,6 +125,7 @@
 
         # Set up overlays
         overlays = [
+          inputs.audio.overlays.default # Audio plugins
           inputs.nix-minecraft.overlay # Inherit Nix-Minecraft
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
