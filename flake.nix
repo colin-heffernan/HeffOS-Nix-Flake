@@ -32,7 +32,10 @@
     };
 
     # Catppuccin
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Nix-Minecraft
     nix-minecraft = {
