@@ -21,6 +21,7 @@
       (lib.mkIf osConfig.heffos.compat.translation.enable (with pkgs; [
         yabridge
         yabridgectl
+        wineWow64Packages.yabridge
       ]))
     ];
   };
