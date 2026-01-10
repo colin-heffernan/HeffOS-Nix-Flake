@@ -100,6 +100,8 @@
             # forge
             git-timemachine
             eat
+            vterm
+            eshell-vterm
             gptel
             dirvish
             direnv
