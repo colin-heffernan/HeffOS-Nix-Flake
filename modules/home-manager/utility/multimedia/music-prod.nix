@@ -11,12 +11,14 @@
     home.packages = lib.mkMerge [
       (with pkgs; [
         reaper
-        sfizz
+        sfizz-ui
         vital
         surge-XT
         cardinal
         carla
         paulxstretch
+        neural-amp-modeler-lv2
+        dexed
       ])
       (lib.mkIf osConfig.heffos.compat.translation.enable (with pkgs; [
         yabridge
