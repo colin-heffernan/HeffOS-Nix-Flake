@@ -184,6 +184,7 @@
         communication = {
           discord.enable = true;
           element.enable = true;
+          zoom.enable = true;
         };
         editors = {
           default = "emacs";
