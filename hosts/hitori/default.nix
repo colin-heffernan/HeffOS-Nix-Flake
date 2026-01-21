@@ -29,6 +29,8 @@
       "wireless.conf" = {
         sopsFile = ../../secrets/shared.yaml;
         format = "yaml";
+        owner = "wpa_supplicant";
+        group = "wpa_supplicant";
       };
       tailscale_key = {
         sopsFile = ../../secrets/shared.yaml;
