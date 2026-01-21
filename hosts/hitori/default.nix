@@ -190,6 +190,7 @@
           default = "emacs";
           emacs = {
             enable = true;
+            doom = true;
             wayland = true;
             daemon = true;
           };

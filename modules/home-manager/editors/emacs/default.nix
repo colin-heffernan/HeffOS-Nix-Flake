@@ -7,6 +7,7 @@
   options.heffos-home.editors.emacs = {
     enable = lib.mkEnableOption "Emacs";
     wayland = lib.mkEnableOption "Emacs on Wayland";
+    doom = lib.mkEnableOption "Doom Emacs";
     daemon = lib.mkEnableOption "the Emacs daemon";
   };
 
@@ -30,84 +31,90 @@
             treesit-grammars.with-all-grammars
             tree-sitter-langs
 
-            # Keybindings
-            evil
-            evil-collection
-            evil-surround
-            general
-
-            # Completions
-            vertico
-            orderless
-            marginalia
-            consult
-            embark
-            embark-consult
-            corfu
-            cape
-            wgrep
-            jinx
-            yasnippet
-            yasnippet-snippets
-
-            # Navigation
-            avy
-            ace-window
-
-            # UI
-            catppuccin-theme
-            ligature
-            nerd-icons
-            nerd-icons-ibuffer
-            nerd-icons-completion
-            nerd-icons-corfu
-            solaire-mode
-            doom-modeline
-            hl-todo
-            rainbow-mode
-            rainbow-delimiters
-            diff-hl
-            popper
-            olivetti
-
-            # Languages
-            format-all
-            rust-mode
-            zig-mode
-            lispy
-            lispyville
-            fennel-mode
-            kdl-mode
-            nix-mode
-            auctex
-            auctex-latexmk
-            pdf-tools
-            # overtone/supercollider?
-            markdown-mode
-
-            # Org
-            org-auto-tangle
-            org-modern
-            org-appear
-            org-fragtog
-            org-roam
-            org-roam-ui
-            toc-org
-
-            # Apps
-            transient
-            magit
-            # forge
-            git-timemachine
-            eat
+            # Precompiled
             vterm
-            eshell-vterm
-            gptel
-            dirvish
-            direnv
-            # emms
           ];
       };
+    }
+    (lib.mkIf (!config.heffos-home.editors.emacs.doom) {
+      programs.emacs.extraPackages = epkgs:
+        with epkgs; [
+          # Keybindings
+          evil
+          evil-collection
+          evil-surround
+          general
+
+          # Completions
+          vertico
+          orderless
+          marginalia
+          consult
+          embark
+          embark-consult
+          corfu
+          cape
+          wgrep
+          jinx
+          yasnippet
+          yasnippet-snippets
+
+          # Navigation
+          avy
+          ace-window
+
+          # UI
+          catppuccin-theme
+          ligature
+          nerd-icons
+          nerd-icons-ibuffer
+          nerd-icons-completion
+          nerd-icons-corfu
+          solaire-mode
+          doom-modeline
+          hl-todo
+          rainbow-mode
+          rainbow-delimiters
+          diff-hl
+          popper
+          olivetti
+
+          # Languages
+          format-all
+          rust-mode
+          zig-mode
+          lispy
+          lispyville
+          fennel-mode
+          kdl-mode
+          nix-mode
+          auctex
+          auctex-latexmk
+          pdf-tools
+          # overtone/supercollider?
+          markdown-mode
+
+          # Org
+          org-auto-tangle
+          org-modern
+          org-appear
+          org-fragtog
+          org-roam
+          org-roam-ui
+          toc-org
+
+          # Apps
+          transient
+          magit
+          # forge
+          git-timemachine
+          eat
+          eshell-vterm
+          gptel
+          dirvish
+          direnv
+          # emms
+        ];
       xdg.configFile."emacs/config.org" = {
         enable = true;
         source = ./config.org;
@@ -117,7 +124,7 @@
           --eval '(org-babel-tangle-file "${config.xdg.configHome}/emacs/config.org")'
         '';
       };
-    }
+    })
     (lib.mkIf config.heffos-home.editors.emacs.daemon {
       services.emacs = {
         enable = true;
