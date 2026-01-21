@@ -361,6 +361,10 @@ Configure ALL the keybindings.
     :keymaps 'override
     :prefix "SPC"
     :global-prefix "M-SPC")
+  (general-create-definer heff/local-leader-keys
+    :states '(normal insert visual emacs)
+    :prefix "SPC m"
+    :global-prefix "M-SPC m")
   (heff/leader-keys
     "SPC" '("M-x" . execute-extended-command)
     "." '("Find file" . find-file)
@@ -824,6 +828,11 @@ Even after 50+ years, C is still /the/ systems language, and even after 40+ year
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package c-ts-mode
   :ensure nil
+  :general
+  (heff/local-leader-keys
+    :keymaps ('c-ts-mode-map 'c++-ts-mode-map)
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   ((c-ts-mode . eglot-ensure)
    (c++-ts-mode . eglot-ensure)))
@@ -836,6 +845,11 @@ Rust is the new kid on the block in systems programming, aiming to prevent certa
 (use-package rust-mode
   :custom
   (rust-mode-treesitter-derive t)
+  :general
+  (heff/local-leader-keys
+    :keymaps 'rust-ts-mode-map
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (rust-mode . eglot-ensure))
 #+end_src
@@ -846,6 +860,11 @@ NOTE: Non-Treesitter
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package zig-mode
+  :general
+  (heff/local-leader-keys
+    :keymaps 'zig-mode-map
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (zig-mode . eglot-ensure))
 #+end_src
@@ -898,6 +917,11 @@ NOTE: Non-Treesitter
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package fennel-mode
+  :general
+  (heff/local-leader-keys
+    :keymaps 'fennel-mode
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (fennel-mode . eglot-ensure)
   :mode "\\.fnl\\'")
@@ -932,6 +956,11 @@ NOTE: Non-Treesitter, see [[https://github.com/nix-community/nix-ts-mode][nix-co
 
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package nix-mode
+  :general
+  (heff/local-leader-keys
+    :keymaps 'nix-mode
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (nix-mode . eglot-ensure)
   :mode "\\.nix\\'")
@@ -976,6 +1005,11 @@ TypeScript is a language that compiles to JavaScript, providing some nice-to-hav
 #+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
 (use-package typescript-ts-mode
   :ensure nil
+  :general
+  (heff/local-leader-keys
+    :keymaps 'typescript-ts-mode
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (typescript-ts-mode . eglot-ensure))
 #+end_src
@@ -1004,11 +1038,16 @@ AUCTeX is /the/ LaTeX package for Emacs.
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
   (TeX-source-correlate-start-server t)
-  :mode ("\\.tex\\'" . latex-mode)
+  :mode ("\\.tex\\'" . LaTeX-mode)
   ;; :general
   ;; (:keymaps 'LaTeX-mode-map
   ;; 	    :states 'normal
   ;; 	    "C-c C-e" 'cdlatex-environment)
+  :general
+  (heff/local-leader-keys
+    :keymaps 'LaTeX-mode
+    "m" '(:ignore t :wk "Local")
+    "m c" '("Compile" . compile))
   :hook
   (LaTeX-mode . olivetti-mode)
   (LaTeX-mode . TeX-PDF-mode)
@@ -1125,10 +1164,10 @@ TODO: Add agenda views for:
   (org-hide-emphasis-markers t) ;; Hide /.../ for italics, *...* for bold, etc.
   (org-pretty-entities t) ;; Show symbols
   (org-ellipsis "…") ;; Use condensed ellipsis
-  (org-directory (file-truename "~/Org")) ;; Set Org file directory
-  (org-agenda-custom-commands
-   '(("c" "Emacs Configuration Tasks"
-      todo "" ((org-agenda-files `(,(concat user-emacs-directory "config.org")))))))
+  ;; (org-directory (file-truename "~/Org")) ;; Set Org file directory
+  ;; (org-agenda-custom-commands
+  ;;  '(("c" "Emacs Configuration Tasks"
+  ;;     todo "" ((org-agenda-files `(,(concat user-emacs-directory "config.org")))))))
   (org-return-follows-link t) ;; Follow links with RET
   :custom-face
   (org-level-1 ((t (:inherit outline-1 :height 1.7))))
@@ -1153,9 +1192,10 @@ TODO: Add agenda views for:
   (heff/leader-keys
     "o" '(:ignore t :wk "Org"))
   :general-config
-  (heff/leader-keys
-    "o b" '("Org babel tangle" . org-babel-tangle)
-    "o h" '("Find heading in Org file" . consult-org-heading)))
+  (heff/local-leader-keys
+    :keymaps 'org-mode-map
+    "b" '("Org babel tangle" . org-babel-tangle)
+    "h" '("Find heading in Org file" . consult-org-heading)))
 #+end_src
 
 ** Auto-Tangle
@@ -1209,7 +1249,7 @@ Obsidian sure ain't gonna replace itself.
 (use-package org-roam
   :after org
   :custom
-  (org-roam-directory (concat org-directory "/Roam"))
+  ;; (org-roam-directory (concat org-directory "/Roam"))
   (org-roam-capture-templates
    '(("d" "default" plain
       "* TODO Capture\n%?"
@@ -1219,33 +1259,37 @@ Obsidian sure ain't gonna replace itself.
       "%?"
       :target (file+head "${slug}.org" "#+TITLE: ${title}\n")
       :unnarrowed t)))
-  :init
+  :config
   (org-roam-db-autosync-mode)
   :general-config
-  (heff/leader-keys
-    "o r b" '("Roam buffer" . org-roam-buffer-toggle))
+  (heff/local-leader-keys
+    :keymaps 'org-roam-mode
+    :definer 'minor-mode
+    "r b" '("Roam buffer" . org-roam-buffer-toggle)
+    "r n i" '("Insert link to node" . (lambda (arg &rest args) (interactive "P")
+					  (let ((args (push arg args))
+						(org-roam-capture-templates (list (append (car org-roam-capture-templates)
+											  '(:immediate-finish t)))))
+					    (apply #'org-roam-node-insert args)))))
   :general
   (heff/leader-keys
     "o r" '(:ignore t :wk "Roam")
     "o r c" '("Capture" . org-roam-capture)
     "o r n" '(:ignore t :wk "Node")
-    "o r n f" '("Find node" . org-roam-node-find)
-    "o r n i" '("Insert link to node" . (lambda (arg &rest args) (interactive "P")
-					  (let ((args (push arg args))
-						(org-roam-capture-templates (list (append (car org-roam-capture-templates)
-											  '(:immediate-finish t)))))
-					    (apply #'org-roam-node-insert args))))))
+    "o r n f" '("Find node" . org-roam-node-find)))
 #+end_src
 
 *** Roam UI
 Let's replace Obsidian's most iconic feature: the graph!
 
-#+begin_src emacs-lisp :tangle "init.el" :mkdirp yes
+#+begin_src emacs-lisp :tangle no
 (use-package org-roam-ui
   :after org-roam
   :general
-  (heff/leader-keys
-    "o r g" '("Show graph" . org-roam-ui-open)))
+  (heff/local-leader-keys
+    :keymaps 'org-roam-mode
+    :definer 'minor-mode
+    "r g" '("Show graph" . org-roam-ui-open)))
 #+end_src
 
 ** Table of Contents
@@ -1340,7 +1384,7 @@ A shell in pure Elisp.
   :ensure nil
   :general
   (heff/leader-keys
-    "l s" '("Eshell (via EAT)" . eshell)))
+    "l s" '("Eshell (via Vterm)" . eshell)))
 #+end_src
 
 ** LLMs
