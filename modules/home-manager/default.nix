@@ -58,8 +58,8 @@
       enable = true;
       createDirectories = true;
       extraConfig = {
-        XDG_REPOS_DIR = "${config.home.homeDirectory}/Repos";
-        XDG_NOTES_DIR = "${config.home.homeDirectory}/Notes";
+        REPOS = "${config.home.homeDirectory}/Repos";
+        NOTES = "${config.home.homeDirectory}/Notes";
       };
     };
   };
