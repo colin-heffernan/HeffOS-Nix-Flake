@@ -117,6 +117,7 @@ During startup, increase Emacs' garbage collector limit to 4GiB.
 
 *** Disable Package.el
 Due to a conflict with [[*Elpaca][Elpaca]], ~package.el~ needs to be disabled.
+(Note: Even though I'm not using Elpaca at this point, Nix makes ~package.el~ largely redundant anyway.)
 
 #+begin_src emacs-lisp :tangle no
 (setq package-enable-at-startup nil)
