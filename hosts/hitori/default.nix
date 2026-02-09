@@ -140,6 +140,7 @@
       extraGroups = [
         "gamemode"
         "libvirtd"
+        "video"
         "wheel"
       ];
       hashedPasswordFile = config.sops.secrets.hashedPassword.path;
