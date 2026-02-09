@@ -13,7 +13,7 @@
     {
       environment.systemPackages = with pkgs; [
         opencomposite
-        wlx-overlay-s
+        wayvr
         android-tools
       ];
       services.monado = {
