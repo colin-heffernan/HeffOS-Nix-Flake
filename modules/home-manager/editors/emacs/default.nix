@@ -29,7 +29,7 @@
           with epkgs; [
             # Tree-sitter
             treesit-grammars.with-all-grammars
-            tree-sitter-langs
+            # tree-sitter-langs
 
             # Precompiled
             vterm
