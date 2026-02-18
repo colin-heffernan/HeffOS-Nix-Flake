@@ -119,6 +119,7 @@
           default = "emacs";
           emacs = {
             enable = true;
+            doom = true;
           };
           helix.enable = true;
         };
