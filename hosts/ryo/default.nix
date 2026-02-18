@@ -119,7 +119,6 @@
           default = "emacs";
           emacs = {
             enable = true;
-            daemon = true;
           };
           helix.enable = true;
         };
