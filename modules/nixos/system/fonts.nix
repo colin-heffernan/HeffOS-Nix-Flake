@@ -17,6 +17,7 @@
       nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-color-emoji
+      symbola
     ];
   };
 }
