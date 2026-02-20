@@ -75,6 +75,7 @@
     config-dir = "/home/colin/heffos";
     theme.catppuccin.enable = true;
     compat = {
+      nix-ld.enable = true;
       translation.enable = true;
       virtualization.enable = true;
     };
