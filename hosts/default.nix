@@ -25,8 +25,8 @@
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
-              system = final.system;
-              config = final.config;
+              inherit (final) config;
+              inherit (final.stdenv.hostPlatform) system;
             };
 
             # Make `pkgs.dev` point to `colin-heffernan/nixpkgs`
@@ -67,8 +67,8 @@
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
-              system = final.system;
-              config = final.config;
+              inherit (final) config;
+              inherit (final.stdenv.hostPlatform) system;
             };
           })
         ];
@@ -98,8 +98,8 @@
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
-              system = final.system;
-              config = final.config;
+              inherit (final) config;
+              inherit (final.stdenv.hostPlatform) system;
             };
           })
         ];
@@ -130,8 +130,8 @@
           (final: prev: {
             # Make `pkgs.stable` point to `nixos/nixpkgs/nixos-$STABLE`
             stable = import inputs.nixpkgs-stable {
-              system = final.system;
-              config = final.config;
+              inherit (final) config;
+              inherit (final.stdenv.hostPlatform) system;
             };
           })
         ];
