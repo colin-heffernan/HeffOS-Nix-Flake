@@ -28,17 +28,6 @@
               inherit (final) config;
               inherit (final.stdenv.hostPlatform) system;
             };
-
-            # Make `pkgs.dev` point to `colin-heffernan/nixpkgs`
-            dev = import inputs.nixpkgs-dev {
-              system = final.system;
-              config = final.config;
-            };
-
-            # Use the latest Discord tarball
-            # discord = prev.discord.overrideAttrs (
-            #   _: {src = inputs.discord;}
-            # );
           })
         ];
       };

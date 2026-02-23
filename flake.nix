@@ -5,7 +5,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-dev.url = "github:colin-heffernan/nixpkgs";
 
     # Home Manager
     home-manager = {
@@ -54,13 +53,6 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Up-to-date Discord
-    # discord = {
-    #   type = "tarball";
-    #   url = "https://discord.com/api/download/stable?platform=linux&format=tar.gz";
-    #   flake = false;
-    # };
 
     # Spicetify
     spicetify-nix = {
