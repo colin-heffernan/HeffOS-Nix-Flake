@@ -188,7 +188,7 @@
         communication = {
           discord.enable = true;
           element.enable = true;
-          stoat.enable = true;
+          # stoat.enable = true;
           zoom.enable = true;
         };
         editors = {
