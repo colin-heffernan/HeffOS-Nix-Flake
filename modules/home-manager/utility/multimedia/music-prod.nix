@@ -13,7 +13,7 @@
         reaper
         sfizz-ui
         vital
-        surge-XT
+        surge-xt
         cardinal
         carla
         paulxstretch
