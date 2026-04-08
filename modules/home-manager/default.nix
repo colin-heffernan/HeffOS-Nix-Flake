@@ -49,6 +49,7 @@
       };
       pull.ff = "only";
     };
+    signing.format = null;
   };
 
   xdg = {
@@ -61,6 +62,7 @@
         REPOS = "${config.home.homeDirectory}/Repos";
         NOTES = "${config.home.homeDirectory}/Notes";
       };
+      setSessionVariables = false;
     };
   };
 }

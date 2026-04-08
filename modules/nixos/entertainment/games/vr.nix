@@ -27,10 +27,7 @@
       };
     }
     (lib.mkIf config.heffos.entertainment.games.vr.wireless {
-      services.wivrn = {
-        enable = true;
-        defaultRuntime = true;
-      };
+      services.wivrn.enable = true;
     })
   ]);
 }

@@ -53,7 +53,7 @@
       sops
 
       # Common language tools
-      nodePackages.bash-language-server
+      bash-language-server
       nixd
       alejandra
     ];
