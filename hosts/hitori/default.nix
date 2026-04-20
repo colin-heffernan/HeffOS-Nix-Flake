@@ -94,6 +94,7 @@
         bars.waybar.enable = true;
         notifications.mako.enable = true;
         runners.fuzzel.enable = true;
+        shells.quickshell.enable = true;
         wallpapers.swaybg.enable = true;
       };
       compositors.niri.enable = true;
